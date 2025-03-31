@@ -1,0 +1,27 @@
+{
+  "name": "fakesupermarket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "nunjucks": "^3.2.4",
+    "dotenv": "^16.0.3",
+    "node-fetch": "^2.6.7"    
+  },
+  "devDependencies": {
+    "cssnano": "^7.0.6",
+    "gulp": "^5.0.0",
+    "gulp-esbuild": "^0.14.0",
+    "gulp-postcss": "^10.0.0"
+  }
+}

@@ -1,0 +1,60 @@
+---
+layout: base.njk
+title: Welcome to Lovable Store
+---
+
+{% from "components/product-card.njk" import productCard %}
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title">Quality Products for Your Everyday Needs</h1>
+      <p class="hero-subtitle">Discover our curated collection of premium electronics and accessories at competitive prices.</p>
+      <div class="hero-actions">
+        <a href="/products" class="button button-primary">Shop Now</a>
+        <a href="/about" class="button button-outline">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="featured-products">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Featured Products</h2>
+      <a href="/products" class="button button-outline button-sm">View All</a>
+    </div>
+    
+    <div class="product-grid">
+      {% for product in featuredProducts %}
+        {{ productCard(product) }}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+    <div class="features-content">
+      <h2 class="features-title">Why Choose SwiftShop?</h2>
+      <p class="features-subtitle">We're committed to providing you with the best shopping experience possible.</p>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3 class="feature-title">Quality Products</h3>
+          <p class="feature-description">We carefully select all products to ensure the highest quality standards.</p>
+        </div>
+        
+        <div class="feature-card">
+          <h3 class="feature-title">Fast Shipping</h3>
+          <p class="feature-description">Get your orders quickly with our efficient shipping process.</p>
+        </div>
+        
+        <div class="feature-card">
+          <h3 class="feature-title">Excellent Support</h3>
+          <p class="feature-description">Our customer service team is always ready to assist you.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

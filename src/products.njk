@@ -1,0 +1,33 @@
+---
+layout: base.njk
+title: Shop Our Products
+---
+
+{% from "components/product-card.njk" import productCard %}
+
+<section class="products-section">
+  <div class="container">
+    <h1 class="page-title">Shop Our Products</h1>
+    
+    <div class="category-filters">
+      <a href="/products" class="category-filter {% if not category %}active{% endif %}">All</a>
+      {% for cat in categories %}
+        <a href="/products?category={{ cat }}" class="category-filter {% if category == cat %}active{% endif %}">
+          {{ cat | capitalize }}
+        </a>
+      {% endfor %}
+    </div>
+    
+    <div class="product-grid">
+      {% for product in products %}
+        {{ productCard(product) }}
+      {% endfor %}
+      
+      {% if products.length === 0 %}
+        <div class="no-products">
+          <p>No products found in this category.</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

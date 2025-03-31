@@ -1,0 +1,30 @@
+{% macro productCard(product) %}
+  <div class="product-card">
+    <a href="/product/{{ product.id }}" class="product-card__link">
+      <div class="product-card__image-container">
+        <img src="{{ product.image }}" alt="{{ product.name }}" class="product-card__image">
+      </div>
+      <div class="product-card__content">
+        <h3 class="product-card__title">{{ product.name }}</h3>
+        <p class="product-card__description">{{ product.description | truncate(100) }}</p>
+        
+        <div class="product-card__price">
+          {% if product.on_sale %}
+            <span class="product-card__original-price">${{ product.price | toFixed(2) }}</span>
+            <span class="product-card__sale-price">${{ product.sale_price | toFixed(2) }}</span>
+            <span class="product-card__discount">{{ product.discount_label }}</span>
+          {% else %}
+            <span class="product-card__regular-price">${{ product.price | toFixed(2) }}</span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="product-card__footer">
+        <button class="button button-primary" 
+          data-product-id="{{ product.id }}"
+          data-action="add-to-cart">
+          Add to Cart
+        </button>
+      </div>
+    </a>
+  </div>
+{% endmacro %}

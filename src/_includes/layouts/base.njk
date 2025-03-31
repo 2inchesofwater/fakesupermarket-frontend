@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | Fake Supermarket</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    {% include "partials/header.njk" %}
+    
+    <main class="main-content">
+      {{ content | safe }}
+    </main>
+    
+    {% include "partials/footer.njk" %}
+  </div>
+  
+  <script src="/js/main.js"></script>
+  {% if additionalScripts %}
+    {% for script in additionalScripts %}
+      <script src="{{ script }}"></script>
+    {% endfor %}
+  {% endif %}
+</body>
+</html>

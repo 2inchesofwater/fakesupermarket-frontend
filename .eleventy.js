@@ -1,0 +1,37 @@
+module.exports = function(eleventyConfig) {
+  // Pass through static files
+  eleventyConfig.addPassthroughCopy("src/css");
+  eleventyConfig.addPassthroughCopy("src/js");
+  eleventyConfig.addPassthroughCopy("src/images");
+  
+  // Add a Nunjucks filter for formatting prices
+  eleventyConfig.addNunjucksFilter("toFixed", function(value, decimals = 2) {
+    return parseFloat(value).toFixed(decimals);
+  });
+
+  // Add a shortcode for the current year
+  eleventyConfig.addShortcode("year", () => {
+    return new Date().getFullYear();
+  });
+
+  eleventyConfig.addNunjucksFilter("range", function(start, end) {
+    return Array.from({ length: end - start }, (_, i) => start + i);
+  });
+
+  eleventyConfig.addNunjucksFilter("min", function(a, b) {
+    return Math.min(a, b);
+  });  
+  
+  return {
+    dir: {
+      input: "src",
+      output: "_site",
+      includes: "_includes",
+      layouts: "_includes/layouts",
+      data: "_data"
+    },
+    templateFormats: ["md", "njk", "html"],
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk"
+  };
+};
