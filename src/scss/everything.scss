@@ -1,0 +1,74 @@
+@use 'variables';       		// CSS and Sass variables
+@forward 'fonts';
+@forward 'typography';
+
+body {
+	padding: 2.5vw;
+	background-color: var(--color-background-subtle);
+	color: var(--color-text-primary);
+	font-size: 14px;
+	font-weight: var(--weight-light);
+}
+
+#everything {
+	&.container {
+		display: flex;
+		flex-direction: row;
+		gap: 10vw;
+		min-width: 200%;
+
+		.wrapper {
+			width: 50vw;
+			background-color: var(--color-white);
+			border: 1px solid var(--color-border-default);
+			box-shadow: var(--boxShadow-md);
+			padding: 2.5vw;
+
+			dl {
+				display: flex;
+				flex-direction: row;
+				width: 100%;
+				dt, dd {
+					width: 100%;
+				}
+			}
+			.level-1 > li {
+				margin-block-end: 2.5vw;
+
+				dt {
+					max-width: 25%;
+					color: var(--color-brand-primary);
+				}
+			}
+			.level-2 > li {
+				dt {
+					max-width: 50%;
+					color: unset;
+				}
+				dd {
+					max-width: 100%;
+				}
+			}			
+		}
+	}
+}
+
+h1, h2 {
+	font-weight: var(--weight-bold);
+}
+h3 {
+	font-weight: var(--weight-regular);
+	margin-bottom: var(--spacing-sm);
+}
+p {
+	margin-block-end: var(--spacing-md);
+	max-width: 50rem;
+	&.filename {
+		font-weight: var(--weight-bold);
+		color: var(--color-brand-secondary);
+		margin-bottom: 0;
+	}
+}
+hr {
+	margin-bottom: 2.5vw;
+}

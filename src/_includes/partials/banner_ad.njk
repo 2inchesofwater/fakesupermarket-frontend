@@ -1,0 +1,13 @@
+{% if storefront.bannerAd %}
+<div class="banner-ad fs_unavailable">
+  <a href="{{ storefront.bannerAd.href }}" class="banner-link">
+    <img 
+      src="pages/{{ storefront.slug }}/{{ storefront.bannerAd.url }}" 
+      alt="{{ storefront.bannerAd.alt }}" 
+      class="banner-image"
+      {% if storefront.bannerAd.width %}width="{{ storefront.annerAd.width }}"{% endif %}
+      {% if storefront.bannerAd.height %}height="{{ storefront.bannerAd.height }}"{% endif %}
+    >
+  </a>
+</div>
+{% endif %}

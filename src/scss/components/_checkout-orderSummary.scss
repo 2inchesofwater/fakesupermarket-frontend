@@ -1,0 +1,73 @@
+#checkout #orderSummary {
+	background: var(--color-background-default);
+	border: 0; //var(--thickness-sm) solid var(--color-border-default);
+	padding: var(--spacing-xl);
+	// box-shadow: var(--boxShadow-md);
+
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-2xl);
+
+	.step-heading {
+		font-size: var(--size-xl);
+		font-weight: var(--weight-heavy);
+		color: var(--color-brand-primary);
+		margin-top: var(--spacing-xs);
+		margin-bottom: 0;
+	}
+
+	hr {
+		border: 0;
+		height: var(--thickness-sm);
+		background: var(--color-border-default);
+	}
+
+	#paymentFlow-discountsAndVouchers {
+		display: grid;
+		gap: var(--spacing-xs);
+		grid-template-areas:
+			"label label"
+			"input button";
+		grid-template-columns: 1fr auto;
+
+		label {
+			grid-area: label;
+			font-size: var(--size-md);
+		}
+
+		input {
+			grid-area: input;
+			width: 100%;
+		}
+
+		button {
+			grid-area: button;
+			white-space: nowrap;
+			padding-block-start: var(--spacing-xs);
+			padding-block-end: var(--spacing-xs);
+		}
+	}
+
+	#paymentFlow-subTotal {}
+
+	#paymentFlow-disclaimer {
+		color: var(--color-text-tertiary);
+	}
+
+	#paymentFlow-customerAgreement {
+		font-size: var(--size-md);
+		color: var(--color-text-tertiary);
+	}
+
+	#paymentFlow-CTA {
+		button {
+			width: 100%;
+			padding: var(--spacing-md) var(--spacing-lg);
+			border-radius: var(--size-xl);
+		}
+	}
+
+	#paymentFlow-postScript {
+		font-size: var(--size-md);
+	}
+}

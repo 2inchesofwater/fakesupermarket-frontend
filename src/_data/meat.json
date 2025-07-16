@@ -1,0 +1,471 @@
+{
+  "storefrontName": "Store",
+  "categoryTitle": "Meat, poultry, and seafood", 
+  "slug": "meat",
+  "currencySymbol": "$",
+  
+  "breadcrumbs": [ 
+    "Home", 
+    "All categories", 
+    "Meat and seafood" 
+  ],
+  
+  "bannerAd": {
+    "url": "ela-1389-cust-offer-update-1920x200.png",
+    "href": "/",
+    "alt": "",
+    "width": "1920"
+  },
+  
+  "productCardImageSize": {
+    "width": "200",
+    "height": "200"
+  },
+  "productCardShowBrands": true,
+  "productCardShowShortDescription": false,
+  "productCardShowLongDescription": false,
+  "productCardShowUnitPrice": true,
+  "productCardShowGrossWeight": true,  
+  "productCardShowRatings": true,
+  "productCardAddLabel": "Add to cart",
+  "productCardAddIconFilename": null,
+  "productCardSaveLabel": "Save to list",
+  "productCardSaveIconFilename": null,
+  "productCardShowOverlayOnLeft": false,
+  "productCardShowOverlayAtTop": true,
+  "categoryPaginationTotalPages": 7,
+  "categoryPaginationProductsperPage": null,
+  "productDetailsShowProductSku": false,
+  "productDetailsShowUnitPrice": true,
+  "productDetailsShowDescription": true,
+  "productDetailsShowReviews": true,
+  "productDetailsLabelReviews": "Reviews",  
+  "productDetailsShowRelated": true,
+  "productDetailsLabelRelated": "Customers also bought",
+  "productDetailsShowRecommendations": true,
+  "productDetailsLabelRecommendations": "You might also like these",
+
+  "study": {
+    "studyID": 1234567,
+    "studyTimestamps": {
+      "added": "1744606200",
+      "updated": "1744606200",
+      "launch": "1751256250",
+      "cease": "1752465867",
+      "paused": null
+    },    
+    "client": {
+      "studyClientID": "7654321",
+      "title": "Duck Curry",
+      "keyObjectives": [
+        {
+          "description": "Gauge customer sentiment towards...",
+          "tag": "sentiment"
+        },
+        {
+          "description": "Evaluate durability of...",
+          "tag": "durability"
+        },
+        {
+          "description": "Compare customer preferences between...",
+          "tag": "preference"
+        }      
+      ],
+      "projectContext": "Nota calceamentorum vel online venditoris dilatationem suam nativus Conversarum collaborationum ampliare considerat et velit intelligere appellationis fori consiliorum audacium, consiliorum graphicorum agitatorum. ",
+      "quota": {
+        "requested": 300,
+        "completed": null,
+        "cancelled": null,
+        "timeout": null,
+        "rejectedByClient": null
+      }
+    },
+    "task": {
+      "instructionTitle": "What's for dinner?",
+      "instructionDetail": "Which item(s) will you buy as part of your grocery shopping next week?",
+      "actionLabel": "Let's go shopping!"
+    }
+  },
+
+  "productsAll": [
+      {
+        "id": "cooke-sockeye-salmon-250g",
+        "productName": "Cooke Seafood Sockeye Salmon Skin On",
+        "productSlug": "cooke-sockeye-salmon-250g",
+        "productSku": "390869",
+        "productBrand": "Cooke Seafood",
+        "descriptionShort": "",
+        "descriptionLong": "",
+        "priceRrp": "15.00",
+        "priceCurrent": null,
+        "pricePerUnit": "60.00",
+        "productPerUnit": "kg",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,
+
+        "productGrossWeight": "250g",
+        "productMeasurements": {},
+        "categories": [
+          "meat-fish",
+          "meat-salmon",
+          "organic-produce"
+        ],
+        "related_products": [],        
+        "attributes": {
+          "origin": "USA",
+          "organic": false,
+          "packaging": "",
+          "dietary": "Contains fish",
+          "servings": {
+            "serving_size": "250g",
+            "servings_per_package": 2
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "610.0kJ",
+              "serving": "1220.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "10.2g",
+              "serving": "21.2g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "2.6g",
+              "serving": "5.2g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.7g",
+              "serving": "1.2g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "19.8g",
+              "serving": "39.2g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "4.2g",
+              "serving": "8.4g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "385.0mg",
+              "serving": "770.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Keep refrigerated 0-4C"
+        },
+        "images": [
+          "cooke-sockeye-salmon-250g.avif"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": null,
+        "productCountRatings": 0
+      },
+      {
+        "id": "cooke-seafood-spanish-sea-bass",
+        "productName": "Cooke Seafood Spanish Sea Bass",
+        "productSlug": "cooke-seafood-spanish-sea-bass",
+        "productSku": "119310",
+        "productBrand": "Cooke Seafood",
+        "descriptionShort": "",
+        "descriptionLong": "",
+        "priceRrp": "16.00",
+        "priceCurrent": null,
+        "pricePerUnit": "72.73",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,  
+
+        "productGrossWeight": "220g",
+        "productMeasurements": {},
+        "categories": [
+          "meat-fish",
+          "meat-salmon",
+          "organic-produce"
+        ],
+        "related_products": [],        
+        "attributes": {
+          "origin": "USA",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "European Seabass (Dicentrarchus labrax) (100%) (Fish)",
+          "dietary": "Fish",
+          "servings": {
+            "serving_size": "110.0g",
+            "servings_per_package": 2
+          },
+          "nutrition": {
+            "energy": {
+              "100g": "610.0kJ",
+              "serving": "1220.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "10.2g",
+              "serving": "21.2g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "2.6g",
+              "serving": "5.2g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.7g",
+              "serving": "1.2g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "19.8g",
+              "serving": "39.2g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "4.2g",
+              "serving": "8.4g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "385.0mg",
+              "serving": "770.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            }
+          },
+          "storage_instructions": "Keep Refrigerated between 0 - 4C. Once opened, consume within 24 hours."
+        },
+        "images": [
+          "cooke-seafood-spanish-sea-bass-1.avif",
+          "cooke-seafood-spanish-sea-bass-2.avif",
+          "cooke-seafood-spanish-sea-bass-3.avif",
+          "cooke-seafood-spanish-sea-bass-4.avif"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": null,
+        "productCountRatings": 0
+      },
+      {
+        "id": "luv-a-duck-thai-red-duck-curry",
+        "productName": "Luv-A-Duck Thai Red Duck Curry",
+        "productSlug": "luv-a-duck-thai-red-duck-curry",
+        "productSku": "6022648",
+        "productBrand": "Luv-A-Duck",        
+        "descriptionShort": "Our take on this classic Thai dish has been slow cooked, so you just need to heat and eat!",
+        "descriptionLong": "",
+        "priceRrp": "16.50",
+        "priceCurrent": "14.25",
+        "pricePerUnit": "41.25",
+        "productPerUnit": "1kg",
+        "badgeLabel": "New",
+        "badgeClassName": "badge-excitement",        
+        "featuredLabel": "Promoted",  
+
+        "productGrossWeight": "400g",
+        "productMeasurements": {},
+        "categories": [
+          "meat-poultry",
+          "ready-to-eat"
+        ],
+        "related_products": [
+          "org-apple",
+          "org-kiwi"
+        ],        
+        "attributes": {
+          "origin": "Australia, from at least 83% Australian ingredients",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Duck (60%) Sauce (Water, Maltodextrin, Sugar, Salt, Thickeners (1442, 415, 412), Dehydrated Vegetables, Spices & Herb, Natural Flavour, Food Acid (330), Natural Colour (160c), Herb Extracts, Spice Extracts, Vinegar Powder, Yeast Extract.)",
+          "dietary": "Contains <strong>fish</strong>. <em>May contain</em>: Traces of wheat.",
+          "servings": {
+            "serving_size": "200.0g",
+            "servings_per_package": "2"
+          },
+          "nutrition": {
+            "energy": {
+              "100g": "610.0kJ",
+              "serving": "1220.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "10.2g",
+              "serving": "21.2g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "2.6g",
+              "serving": "5.2g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.7g",
+              "serving": "1.2g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "19.8g",
+              "serving": "39.2g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "4.2g",
+              "serving": "8.4g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "385.0mg",
+              "serving": "770.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            }
+          },
+          "storage_instructions": "Keep Refrigerated between 0 - 4C. Once opened, consume within 24 hours."
+        },
+        "images": [
+          "luv-a-duck-thai-red-duck-curry-1.jpg",
+          "luv-a-duck-thai-red-duck-curry-2.jpg",
+          "luv-a-duck-thai-red-duck-curry-3.jpg",
+          "luv-a-duck-thai-red-duck-curry-4.jpg",
+          "luv-a-duck-thai-red-duck-curry-5.jpg" 
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": null,
+        "productCountRatings": 0,
+
+        "date_added": "2025-01-15",
+        "last_updated": "2025-05-01"
+      },
+      {
+        "id": "beef-mince",
+        "productName": "Premium Beef Mince",
+        "productSlug": "premium-beef-mince",
+        "productSku": "P002",
+        "productBrand": "FreshMart",
+        "descriptionShort": "Premium grass-fed beef mince, perfect for burgers, bolognese, or meatballs.",
+        "descriptionLong": "Our premium beef mince is made from 100% grass-fed Australian beef. \nWith a perfect lean-to-fat ratio of 85/15, it delivers rich flavor and ideal texture for all your favorite recipes.\nSourced from sustainable farms that prioritize animal welfare and environmental stewardship.",
+        "priceRrp": "12.99",
+        "priceCurrent": null,
+        "pricePerUnit": "25.57",
+        "productPerUnit": "kg",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,  
+
+        "productGrossWeight": "500g",
+        "productMeasurements": {},
+        "categories": [
+          "meat-seafood",
+          "beef"
+        ],
+        "related_products": [],        
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "tray",
+          "dietary": [],
+          "servings": {
+            "serving_size": "100g",
+            "servings_per_package": "5"            
+          },
+          "nutrition": {
+            "energy": {
+              "100g": "610.0kJ",
+              "serving": "1220.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "10.2g",
+              "serving": "21.2g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "2.6g",
+              "serving": "5.2g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.7g",
+              "serving": "1.2g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "19.8g",
+              "serving": "39.2g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "4.2g",
+              "serving": "8.4g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "385.0mg",
+              "serving": "770.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            }
+          },
+          "storage_instructions": "Keep refrigerated at 0-4°C. Use within 3 days of purchase or freeze for up to 3 months."
+        },
+        "images": [
+          "beef-577864.avif",
+          "beef-577864_2.avif"
+        ],
+        "imagesVisualDescription": null,
+        "tags": [
+          "beef",
+          "meat",
+          "protein",
+          "australian"
+        ],
+        "productAverageRating": null,
+        "productCountRatings": 0
+      }
+    ] 
+}

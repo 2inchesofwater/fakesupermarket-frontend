@@ -1,0 +1,215 @@
+@use "variables" as *;
+
+// Header structure
+#site-header,
+#site-menu {
+	--header-nav-link-size: var(--size-lg);
+
+  background-color: var(--color-background-header);
+  box-shadow: var(--boxShadow-sm);
+
+  width: 100%;
+
+	.container {
+  	padding: var(--spacing-md) var(--spacing-lg) var(--spacing-xs);
+  }
+}
+#site-header {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	#nav-main {
+	  display: grid;
+	  grid-template-columns: auto 2fr auto auto;
+	  grid-template-areas:
+	  	"logo search actions cart "; /* fs-exit has been removed */
+	  align-items: center;
+	  justify-items: start;
+	  gap: var(--spacing-md);
+	}
+	#site-logo {
+		grid-area: logo;
+	}
+
+	#header-search {
+		grid-area: search;
+	  width: 100%;
+	}
+
+  #header-main-actions {
+  	grid-area: actions;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    list-style: none;
+    gap: var(--spacing-3xs);
+    padding: 0 var(--spacing-md);
+  }	 
+}
+
+#site-menu {
+	.container {
+		padding-top: var(--spacing-xs);
+	}
+	#nav-secondary {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		width: 100%;
+	}
+	#nav-browse, 
+	#nav-location {
+		.nav-link {
+			flex-direction: row;
+		}
+	}	
+  #nav-browse {
+  	flex-grow: 1;
+  }		
+}
+
+
+
+// Logo styling
+#site-header {
+	#site-logo {
+	  text-decoration: none;
+	  font-weight: bold;
+	  font-size: 1.5rem;
+	  color: var(--color-brand-primary);
+	}
+}
+
+
+// Navigation styling
+#site-header,
+#site-menu {
+  .nav-list {
+  	display: flex;
+  	flex-direction: row;
+  }
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2xs);
+    text-decoration: none;
+    min-width: var(--size-3xl);
+    height: 100%;
+    min-height: var(--header-nav-link-size);
+    padding: var(--spacing-2xs) var(--spacing-sm) var(--spacing-2xs);
+		position: relative;
+		background: transparent;
+		border: 1px solid transparent;
+		border-radius: var(--radius-md);
+		transition: var(--transition-sm);
+
+		&.whitespace-none-start {
+			padding-inline-start: 0;
+		}
+		&.whitespace-none-end {
+			padding-inline-end: 0;
+		}
+		.icon {
+			display: flex;
+			align-items: center;
+		}
+    svg {
+    	width: var(--header-nav-link-size);
+    	height: var(--header-nav-link-size);
+    }
+    &.fill-brand svg path {
+    	fill: var(--color-brand-primary);
+    }
+
+    .button-label {
+	  	font-size: var(--size-sm);
+	  	font-weight: var(--weight-regular);
+	  	line-height: 1;
+	  	color: var(--color-text-secondary);
+	  }
+	  &:hover {
+	  	background: var(--color-background-subtle);
+	  	border-color: var(--color-border-light);
+	  }
+
+    &:focus {
+      outline: 2px solid #4d90fe; // Accessibility focus indicator
+      outline-offset: 3px;
+    }
+  }	
+}
+
+#site-header #header-main-actions {
+	.nav-link {
+		flex-direction: column;
+	}
+}
+
+
+#site-header #header-cart {
+  grid-area: cart;
+  button.btn-cart {
+	  display: flex;
+	  flex-direction: row;
+	  align-items: center;
+	  position: relative;
+	  gap: var(--spacing-2xs);
+	  position: relative;
+
+	  background: var(--color-background-subtle);
+	  border: var(--thickness-md) solid var(--color-border-light);
+	  border-radius: var(--radius-md);
+	  padding: var(--spacing-sm) var(--spacing-md);
+
+	  text-decoration: none;
+	  cursor: pointer;
+	  transition: var(--transition-sm);
+
+	  &:hover {
+	  	background: var(--color-background-default);
+	  	border-color: var(--color-border-default);
+	  } 	
+	  &:focus {
+	    outline: 2px solid #4d90fe;
+	    outline-offset: 3px;
+	  }	  
+  }
+
+	.cart-icon {
+	  font-size: 1.5rem;
+	}
+
+	.cart-value {
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+
+	  font-size: var(--size-md);
+	  font-weight: var(--weight-bold);
+	  color: var(--color-text-secondary);
+	}
+
+	.badge-tally {
+		position: absolute;
+		top: calc(-1 * var(--spacing-xs));
+		right: calc(-1 * var(--spacing-xs));
+	}
+	.cart-tally {}
+}
+
+
+#fake-btn_done {
+	grid-area: fs-exit;
+	justify-self: end;
+}
+
+
+
+
+

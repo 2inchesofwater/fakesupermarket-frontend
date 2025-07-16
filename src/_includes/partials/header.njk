@@ -1,25 +1,68 @@
-<header class="site-header">
+{% macro navLinkItem(label, url, className='', iconPath='', iconCreator='') %}
+  <a disabled href="{{ url }}" class="nav-link {{ className }}">    
+    {% if iconPath != '' %}
+      {% set svgContent = ('src/images/icons/' + iconPath) | fs %}
+      <span class="icon {{ className | safe }}">
+          {{ svgContent | safe }}
+      </span>
+    {%  endif %}
+    <span class="button-label">{{ label }}</span>
+  </a>
+{% endmacro %} 
+
+
+<header id="site-header">
   <div class="container">
-    <div class="header-content">
-      <a href="/" class="site-logo">
-        <span>SwiftShop</span>
-      </a>
-      
-      <nav class="main-nav">
-        <ul class="nav-list">
-          <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="/products" class="nav-link">Shop</a></li>
-          <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
-      
-      <div class="header-actions">
-        <a href="/cart" class="cart-link">
-          <span class="cart-icon">🛒</span>
-          <span class="cart-count">0</span>
-        </a>
+    <nav id="nav-main" >
+      {# <div id="fs-exit">
+        <button class="fake-btn_done">I'm done <span class="sr-only"> - Finish the session without making a fake purchase</span></button>
+      </div> #}
+
+      <a href="pages/{{ storefront.slug }}/#" id="site-logo">
+        <span>{{ storefront.storefrontName }}</span>
+      </a> 
+
+      <div id="header-search">
+        {% include "../partials/header-search.njk" %}
       </div>
-    </div>
+
+      <div id="header-main-actions">
+        <ul class="nav-list">
+          <li class="nav-item">{{ navLinkItem('More', '#', 'fs_unavailable', 'noun-more-7849118.svg', 'Created by Soetarman Atmodjo from Noun Project') }}</li>
+          <li class="nav-item">{{ navLinkItem('My account', '#', 'fs_unavailable', 'noun-user-account-6233307-2.svg', 'Created by Meyda from Noun Project') }}</li>
+          <li class="nav-item">{{ navLinkItem('Lists', '#', 'fs_unavailable', 'noun-shopping-list-7687839.svg', 'Created by Humam from Noun Project') }}</li>
+        </ul>
+      </div>
+
+      <div id="header-cart">
+        <button id="btn-modalCart" class="btn btn-cart" href="pages/{{ storefront.slug }}/cart" class="cart" aria-label="Shopping cart summary">
+          <span class="cart-icon" aria-hidden="true">🛒</span>
+          <span class="cart-value">{{ storefront.currencySymbol }}<span id="cart-total">0.00</span><span class="sr-only"> worth of items in the cart</span></span>
+          <span hidden class="badge badge-tally"><span class="sr-only">And there's:</span><span id="cart-tally">0</span><span class="sr-only"> items in the cart</span></span>
+        </button>
+      </div>        
+    </nav>
   </div>
 </header>
+
+<menu id="site-menu" role="banner">
+  <div class="container">
+     <nav id="nav-secondary">
+        <div id="nav-browse">
+          <ul class="nav-list">
+            <li class="nav-item">{{ navLinkItem('Shop products', '#', 'fs_unavailable fill-brand whitespace-none-start', 'noun-food-7543523.svg', 'Created by Fahmi Hidayat from Noun Project') }}</li>
+            <li class="nav-item">{{ navLinkItem('Specials + catalogues', '#', 'fs_unavailable') }}</li>
+            <li class="nav-item">{{ navLinkItem('Previous purchases', '#', 'fs_unavailable') }}</li>
+            <li class="nav-item">{{ navLinkItem('More', '#', 'fs_unavailable') }}</li>
+          </ul>
+        </div>
+
+        <div class="nav-location">
+          <ul class="nav-list">
+            <li class="nav-item">{{ navLinkItem('Your local shop', '#', 'fs_unavailable fill-brand whitespace-none-end', 'noun-add-location-7811864.svg', 'Created by Rumana Islam from Noun Project') }}</li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</menu>

@@ -1,0 +1,117 @@
+@use "variables" as *;
+
+#site-footer {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	align-items: center;
+	margin-block-start: var(--spacing-2xl);
+
+	.row {
+		width: 100%;
+		background: var(--color-background-default);
+		border-bottom: var(--thickness-sm) solid var(--color-white);
+
+		.wrapper {
+			max-width: #{$screen-xl};
+			padding-block-start: var(--spacing-xl);
+			padding-block-end: var(--spacing-xl);
+			padding-inline-start: var(--spacing-xl);
+			padding-inline-end: var(--spacing-xl);	
+			
+			display: flex;
+			flex-direction: row;
+			gap: var(--spacing-md);
+			align-items: start;		
+		}
+	}
+
+	.row .wrapper {
+		.footer-heading {
+			margin-bottom: var(--spacing-sm);
+			color: var(--color-text-primary);
+			font-size: var(--size-lg);
+			font-weight: var(--weight-regular);
+		}
+	  .footer-column {
+			flex: 1;
+			color: var(--color-text-tertiary);
+
+			p {
+				margin-bottom: var(--spacing-sm);
+			}
+		}		
+	}
+	.row#footer-branding .wrapper {
+		padding-block-start: var(--spacing-md);
+		padding-block-end: var(--spacing-md);	
+		align-items: center;
+
+		#footer-logo {
+			flex: auto;
+			h3 {
+				font-size: var(--size-xl);
+				font-weight: var(--weight-heavy);
+				color: var(--color-text-primary);
+				margin-bottom: 0;
+			}
+		}
+	}
+	.row #fs-prompt-reminder {
+		position: relative;
+		background: var(--color-black);
+		color: var(--color-white);
+		box-sizing: border-box;
+		align-self: stretch; 
+		
+		.fs-wrapper {
+			padding: var(--spacing-md);
+		}
+		.fs-identity {
+			margin-bottom: var(--spacing-3xs);
+			font-size: var(--size-lg);
+			font-weight: var(--weight-bold);			
+			opacity: 0.25;
+		}		
+		h3 {
+			margin-bottom: var(--spacing-sm);
+			font-size: var(--size-lg);
+			font-weight: var(--weight-bold);
+		}
+	}
+
+	.row#footer-nav {
+		.nav-list {
+			display: flex;
+			flex-direction: column;
+			gap: var(--spacing-sm);
+		}
+		.nav-item {
+			padding-inline-start: 0;
+			font-size: var(--size-sm);
+			line-height: var(--leading-md);			
+			a {
+				color: var(--color-text-tertiary);
+				text-decoration: none;
+			}
+		} 
+	}
+	.row#footer-acknowledgements {
+		font-size: var(--size-sm);
+		#country {
+			p {
+				margin-inline-end: var(--spacing-3xl);
+			}
+		}
+	}
+	.row#footer-tail {
+		background: var(--color-text-primary);
+		.wrapper {
+			padding-block-start: var(--spacing-sm);
+			padding-block-end: var(--spacing-sm);
+
+			font-size: var(--size-xs);
+			color: var(--color-white);
+		}
+	}
+}

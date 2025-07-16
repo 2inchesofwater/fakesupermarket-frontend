@@ -1,27 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }} | Fake Supermarket</title>
-  <link rel="stylesheet" href="/css/main.css">
+  <base href="http://localhost:8080/" target="_self">
+  <title>{{ storefront.storefrontName }} | Fake Supermarket</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200..700&display=swap" rel="stylesheet">  
 </head>
-<body>
-  <div class="site-wrapper">
-    {% include "partials/header.njk" %}
-    
-    <main class="main-content">
-      {{ content | safe }}
-    </main>
-    
-    {% include "partials/footer.njk" %}
-  </div>
+<body id="top" class="{{ slug }}">
+  {% include "partials/skiplinks.njk" %}
+  {% include "partials/modalBackdrop.njk" %}
   
-  <script src="/js/main.js"></script>
-  {% if additionalScripts %}
-    {% for script in additionalScripts %}
-      <script src="{{ script }}"></script>
-    {% endfor %}
-  {% endif %}
+  {% block content %}
+  {% endblock %}
+    
+  {% include "partials/template-svg.njk" %}
 </body>
+
 </html>

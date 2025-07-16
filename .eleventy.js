@@ -1,9 +1,24 @@
-module.exports = function(eleventyConfig) {
+const fs = require("fs");
+
+module.exports = async function(eleventyConfig) {
+  
   // Pass through static files
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/images");
-  
+  eleventyConfig.addPassthroughCopy("src/pages/**/*.{jpg,jpeg,png,avif,gif,svg,webp}");
+
+  eleventyConfig.addFilter("relativePath", function(path, base) {
+    if (path.startsWith('/')) {
+      path = path.slice(1);
+    }
+    return base + path;
+  });
+
+  eleventyConfig.addFilter("fs", function(path) {
+    return fs.readFileSync(path, "utf8");
+  });
+
   // Add a Nunjucks filter for formatting prices
   eleventyConfig.addNunjucksFilter("toFixed", function(value, decimals = 2) {
     return parseFloat(value).toFixed(decimals);
@@ -22,6 +37,8 @@ module.exports = function(eleventyConfig) {
     return Math.min(a, b);
   });  
   
+  eleventyConfig.setDataFileBaseName("index");
+
   return {
     dir: {
       input: "src",

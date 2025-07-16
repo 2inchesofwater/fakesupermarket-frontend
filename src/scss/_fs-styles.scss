@@ -1,0 +1,28 @@
+.fs_unavailable, 
+[disabled] {
+	filter: blur(1px);
+	opacity: 0.8;
+	pointer-events: none;
+}
+
+
+.fake-btn_done {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: var(--thickness-md) solid var(--header-background);
+  border-radius: var(--radius-md);
+  background-color: var(--fake-brand-pure-purple); 
+  color: var(--color-white);
+  box-shadow: var(--boxShadow-sm);
+  cursor: pointer;
+  transition: var(--transition-md);
+  position: relative;
+  
+  &:focus {
+    outline: var(--thickness-md) solid var(--color-focus-ring);
+    outline-offset: var(--thickness-md);
+  }
+  
+  &:hover {
+    background-color: var(--fake-brand-greek-aubergine);
+  }
+} 

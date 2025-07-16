@@ -1,0 +1,43 @@
+<aside id="cartSummary-modal" hidden role="dialog" aria-modal="true" aria-labelledby="cart-modal-title" tabindex="-1">
+  <header id="cart-modal-header">
+    <h2 id="cart-modal-title">Cart <span id="cart-modal-tally" ></span></h2>
+    <button id="cart-modal-close" class="btn btn-icon" aria-label="Close cart" type="button">
+      {%  include "partials/icon-x.njk" %}
+    </button>
+  </header>
+
+  <section id="cart-modal-content" aria-label="A list of your shopping cart's contents">
+    <div hidden id="cart-modal-items">
+        <div class="wrapper">
+          <ul id="cart-item-products">
+
+
+          </ul>
+        </div>
+    </div>
+    <div id="cart-message-empty">
+      <div class="wrapper">
+        <p class="text-primary">Your cart is empty</p>
+        <p class="text-secondary">Continue shopping to add items</p>
+        <p>---</p>
+        <p>Note to self: Also add a FS 'end session' button here, too</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cart-modal-subtotal">
+    <dl class="cart-summary-row">
+      <dt class="cart-summary-label">Subtotal</dt>
+      <dd id="cart-subtotal-amount" class="cart-summary-amount numeric">$0.00</dd>
+    </dl>
+    {# <small class="cart-summary-hint">Excluding service fees</small> #}
+  </section>
+  <footer id="cart-modal-footer">
+    <div class="cart-primary-actions">
+      <a hidden id="cart-navigate-checkout" href="/pages/{{ storefront.slug }}/checkout.html" class="btn btn-primary">Checkout</a>
+      <button id="cart-continue-shopping" class="btn btn-secondary" type="button">Continue shopping</button>
+
+    </div>
+
+  </footer>
+</aside>

@@ -1,0 +1,45 @@
+{% set storefront = meat %}
+
+{% extends "layouts/base.njk" %}   
+ 
+
+{% block content %}
+    {% include "partials/json-storefront.njk" %}
+    {% include "partials/json-productCards.njk" %}
+    {% include "partials/header.njk" %}
+    
+    <div id="utility-wrapper" role="region">
+    {% set breadcrumbs = (storefront.breadcrumbs) %}
+    {% include "partials/breadcrumbs.njk" %}
+    
+    {% include "partials/banner_ad.njk" %}
+    </div>
+
+  <main id="main" class="main-content">
+    <h1>{{ storefront.categoryTitle }}</h1>
+
+    {% include "partials/category_SortAndFilter.njk" %}
+
+    <div id="products-grid"></div>
+
+    {% include "partials/pagination.njk" %}
+  </main>
+
+  {% include "partials/footer.njk" %}
+  {% include "partials/cartSummary-modal.njk" %}
+
+  <script src="/js/supermarket-productCards.js"></script>
+  <script src="/js/supermarket-cartProductsSummary.js"></script>
+  <script src="/js/addtoCart.js"></script>
+
+  <script>
+  	const storefront = JSON.parse(document.getElementById('storefront').textContent);
+	  const products = JSON.parse(document.getElementById('products').textContent);
+    
+    const productsGrid = document.getElementById('products-grid');
+		renderProductCards(products, storefront, productsGrid);
+  </script>
+
+
+
+{% endblock %}

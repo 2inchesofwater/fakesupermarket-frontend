@@ -1,0 +1,23 @@
+
+dl.table {
+	display: grid;
+	grid-template-columns: 10rem auto;
+	gap: var(--spacing-2xs);
+
+	font-size: var(--size-md);
+
+  dt {
+  	color: var(--color-text-tertiary);
+  }
+  dd {
+  	color: var(--color-text-tertiary);
+  	&.numeric {
+  		text-align: end;
+  	}
+  }
+  dt, dd {
+  	&.emphasis {
+  		font-weight: var(--weight-bold);
+  	}
+  }	
+}

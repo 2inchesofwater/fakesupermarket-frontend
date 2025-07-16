@@ -1,6 +1,30 @@
-# Lovable Store
+## Development Workflow
 
-A modern e-commerce storefront built with Eleventy as the frontend and Kirby CMS as the backend.
+### 1. Start Kirby CMS
+
+```bash
+# Navigate to your Kirby installation directory
+cd path/to/kirby
+
+# If using PHP's built-in server
+php -S localhost:8000 kirby/router.php
+
+```
+
+### 2. Start the Eleventy frontend
+
+```bash
+# In a separate terminal, in your Eleventy project directory
+npm start
+```
+
+This will:
+- Start Eleventy on http://localhost:8080
+- Watch for CSS changes and recompile
+- Watch for JS changes and rebundle
+- Fetch content from Kirby API (localhost:8000)
+
+
 
 ## Project Architecture
 
@@ -33,35 +57,11 @@ KIRBY_API_USERNAME=your-local-username
 KIRBY_API_PASSWORD=your-local-password
 ```
 
-## Development Workflow
-
-### 1. Start Kirby CMS
-
-```bash
-# Navigate to your Kirby installation directory
-cd path/to/kirby
-
-# If using PHP's built-in server
-php -S localhost:8000 -t .
-```
-
-### 2. Start the Eleventy frontend
-
-```bash
-# In a separate terminal, in your Eleventy project directory
-npm start
-```
-
-This will:
-- Start Eleventy on http://localhost:8080
-- Watch for CSS changes and recompile
-- Watch for JS changes and rebundle
-- Fetch content from Kirby API (localhost:8000)
 
 ## Project Structure
 
 ```
-lovable-store/
+fakesupermarket-frontend/
 ├── .eleventy.js      # Eleventy configuration
 ├── gulpfile.js       # Gulp tasks definition
 ├── src/              # Source files

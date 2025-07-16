@@ -1,0 +1,26 @@
+<script id="products" type="application/json">
+	[
+	  {% for product in storefront.productsAll %}
+	    {
+	      "productSku": {{ product.productSku | dump | safe }},
+	      "images": {{ product.images[0] | dump | safe }},
+	      "imagesVisualDescription": {{ product.imagesVisualDescription | dump | safe }},
+	      "productName": {{ product.productName | dump | safe }},
+	      "priceCurrent": {{ product.priceCurrent | dump | safe }},
+	      "priceRrp": {{ product.priceRrp | dump | safe }},
+	      "productBrand": {{ product.productBrand | dump | safe }},
+	      "productSlug": {{ product.productSlug | dump | safe }},
+	      "productGrossWeight": {{ product.productGrossWeight | dump | safe }},
+	      "badgeLabel": {{ product.badgeLabel | dump | safe }},
+	      "badgeClassName": {{ product.badgeClassName | dump | safe }},
+	      "descriptionShort": {{ product.descriptionShort | dump | safe }},
+	      "descriptionLong": {{ product.descriptionLong | dump | safe }},
+	      "pricePerUnit": {{ product.pricePerUnit | dump | safe }},
+	      "productPerUnit": {{ product.productPerUnit | dump | safe }},
+	      "featuredLabel": {{ product.featuredLabel | dump | safe }},
+	      "productAverageRating": {{ product.productAverageRating | dump | safe }},
+	      "productCountRatings": {{ product.productCountRatings | dump | safe }}
+	    }{% if not loop.last %},{% endif %}
+	  {% endfor %}
+	]
+</script>

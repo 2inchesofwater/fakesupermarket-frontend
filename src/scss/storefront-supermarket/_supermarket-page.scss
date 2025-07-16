@@ -1,0 +1,80 @@
+@use "variables" as *;
+
+#utility-wrapper,
+main {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xl);
+
+	max-width: $screen-lg;
+  margin: 0 auto;
+
+  padding-block-start: var(--spacing-xl);
+  padding-block-end: var(--spacing-md);
+}
+
+h1 {
+	font-size: var(--size-2xl);
+	font-weight: var(--weight-heavy);
+}
+
+
+.product-brand {
+	font-size: var(--size-sm);
+	font-weight: var(--weight-regular);
+	color: var(--color-text-secondary);
+
+	margin-top: var(--spacing-2xs);
+	margin-bottom: var(--spacing-2xs);		
+}
+.product-name {
+	font-size: var(--size-lg);
+	font-weight: var(--weight-bold);
+	color: var(--color-text-primary);
+
+	a {
+		text-decoration-color: var(--color-brand-primary);
+		text-decoration-thickness: 1px;
+		transition: var(--transition-md);
+		&:hover {
+			text-decoration-color: var(--color-brand-secondary);
+			text-decoration-thickness: 2px;
+		}
+	}		
+}
+
+.product-grossWeight {
+	color: var(--color-text-secondary);
+	margin-top: var(--spacing-2xs);
+}
+.product-shortDescription {
+	font-size: var(--size-md);
+	font-weight: var(--weight-bold);
+	color: var(--color-text-secondary);
+}
+.product-longDescription {
+	font-size: var(--size-sm);
+	color: var(--color-text-tertiary);
+}
+
+.product-price-current {
+	font-size: var(--size-xl);
+	font-weight: var(--weight-bold);
+	color: var(--color-text-secondary);    		
+}
+
+.product-price-info {
+	display: flex; 
+	flex-direction: row;
+	gap: var(--spacing-2xs);
+
+	font-size: var(--size-sm);
+	font-weight: var(--weight-regular);
+	color: var(--color-text-tertiary);    		
+}
+
+.productCard-ratings {
+	font-size: var(--size-sm);
+	font-weight: var(--weight-light);
+	color: var(--color-text-tertiary);
+} 

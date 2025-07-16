@@ -1,0 +1,119 @@
+
+<div class="products-grid">
+  {% for product in productsAll %}
+    <div id="{{ product.sku }}" class="product-card {{ product.brand }}" role="group" aria-labelledby="product-name">
+      {% if product.images and product.images.length > 0 %}
+      <div class="productCard-image">
+          <img 
+              src="{{ product.images[0] }}"
+              {% if product.imagesVisualDescription %} 
+                alt="{{ product.name }} - Product image showing {{ product.imagesVisualDescription }}"
+              {% endif %} 
+              class="product-image"
+              width="{{ productCardImageSize.width }}"
+              height="{{ productCardImageSize.height }}"
+              loading="lazy"
+          >
+          {% if product.price_current %}
+            <div class="overlay overlay-text productCard-overlay" aria-label="Special offer"><span class="overlay-label">SPECIAL</span></div>
+          {% endif %}
+      </div>
+      {% endif %}
+
+      <div class="productCard-info">
+        <div class="productCard-identification">
+          {% if productCardShowBrands %}
+            <div class="product-brand" aria-label="Brand">{{ product.brand }}</div>
+          {% endif %}
+          <h3 class="product-name" id="product-name">{{ product.name }}</h3>
+          {% if productCardShowShortDescription %}
+            <div class="product-shortDescription" aria-label="Short description:">{{ product.description }}</div>
+          {% endif %}
+          {% if productCardShowLongDescription %}
+            <div class="product-longDescription" aria-label="Longer description:">{{ product.long_description }}</div>
+          {% endif %}          
+        </div>
+
+        <div class="productCard-pricing">
+          {% if product.price_current and product.price_current < product.price_rrp %}
+              <div class="badge badge-positive">
+                Save {{ currencySymbol }}{{ ( product.price_rrp - product.price_current ).toFixed(2) }}
+              </div>
+          {% endif %}  
+          
+          <div class="product-price-current" aria-label="Current price:">        
+            {% if product.price_current %}
+              {{ currencySymbol }}{{ product.price_current }}
+            {% else %}
+              {{ currencySymbol }}{{ product.price_rrp }}
+            {% endif %}
+          </div>
+          
+          <div class="product-price-info">
+            {% if product.price_current %}
+              <div class="product-price-rrp strikethrough" aria-label="Recommended retail price">
+                <del aria-label="Original price:">
+                  {{ currencySymbol }}{{ product.price_rrp }}
+                </del>
+              </div>
+            {% endif %}
+            {%  if product.price_current and productIncludeUnitPrice %}
+              <div class="separator" aria-hidden>|</div>
+            {% endif %}
+            {%  if productIncludeUnitPrice %}
+              <div class="product-price-unit" aria-label="Unit price per weight">
+                {{ currencySymbol }}{{ product.price_unit }}/{{ product.unit }}
+              </div>
+            {%  endif %}
+          </div>
+        </div>
+
+        {% if product.rating and productCardIncludeRatings %}
+          <div class="productCard-ratings">  
+            <div class="product-rating" aria-label="Product rated {{ product.rating }} out of 5 stars based on {{ product.reviews_count }} reviews">
+              <div class="product-rating-count">
+                Ratings <strong>{{ product.rating }}</strong> ({{ product.reviews_count }})
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+        
+      <div class="productCard-actions">
+          <button 
+              class="add-to-cart btn btn-product btn-primary" 
+              aria-label="Add {{ product.name }} to your cart"
+              onclick="addToCart()"
+          >
+              {% if productCardAddIconFilename %}
+                {% set svgContent = ('src/images/icons/' + productCardAddIconFilename) | fs %}
+                <span class="icon {{ className | safe }}">
+                    {{ svgContent | safe }}
+                </span>
+              {% endif %}  
+
+              {% if productCardAddLabel %}
+                {{ productCardAddLabel }}
+              {% endif %}  
+          </button>
+          
+          <button 
+              class="favorite-button btn btn-product btn-secondary" 
+              aria-label="Come back to {{ product.name }} later"
+              onclick="toggleFavorite(this)"
+          >
+              {% if productCardSaveIconFilename %}
+                {% set svgContent = ('src/images/icons/' + productCardSaveIconFilename) | fs %}
+                <span class="icon {{ className | safe }}">
+                    {{ svgContent | safe }}
+                </span>
+              {% endif %}  
+              
+              {% if productCardSaveLabel %}
+                {{ productCardSaveLabel }}
+              {% endif %}
+          </button>
+      </div>
+    </div>
+  {% endfor %}
+</div>

@@ -1,44 +1,84 @@
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-column">
-        <h3 class="footer-heading">SwiftShop</h3>
-        <p class="footer-text">
-          Premium products for all your needs. Quality items at competitive prices.
-        </p>
-      </div>
-      
-      <div class="footer-column">
-        <h3 class="footer-heading">Shop</h3>
-        <ul class="footer-links">
-          <li><a href="/products" class="footer-link">All Products</a></li>
-          <li><a href="/products?category=electronics" class="footer-link">Electronics</a></li>
-          <li><a href="/products?category=accessories" class="footer-link">Accessories</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-column">
-        <h3 class="footer-heading">Company</h3>
-        <ul class="footer-links">
-          <li><a href="/about" class="footer-link">About Us</a></li>
-          <li><a href="/contact" class="footer-link">Contact</a></li>
-          <li><a href="/terms" class="footer-link">Terms of Service</a></li>
-          <li><a href="/privacy" class="footer-link">Privacy Policy</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-column">
-        <h3 class="footer-heading">Contact</h3>
-        <ul class="footer-info">
-          <li>Email: support@swiftshop.com</li>
-          <li>Phone: (123) 456-7890</li>
-          <li>Address: 123 Commerce St, Shopping City</li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; {% year %} SwiftShop. All rights reserved.</p>
+<footer id="site-footer">
+  <div id="footer-branding" class="row">
+    <div class="wrapper">
+      <span id="footer-logo">
+        <h3>Fake Supermarket</h3>
+      </span>
+      <a href="pages/{{ storefront.slug }}/#top" class="btn btn-tertiary">Back to top</a>
     </div>
   </div>
+  <div id="footer-nav" class="row">
+    <div class="wrapper">
+      <div id="fs-prompt-reminder" class="footer-column">
+        <div class="fs-wrapper">
+          <p class="fs-identity">Fake Supermarket</p>
+          <h3>{{ storefront.study.task.instructionTitle }}</h3>
+          {% if storefront.study.task.instructionDetail %}
+            <p>{{ storefront.study.task.instructionDetail }}</p>
+          {% endif %}
+          <p><a href="#" target="_blank">Explainer: What am I meant to do?</a></p>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3 disabled class="fs-unavailable footer-heading">Customer service and support</h3>
+        <ul class="footer-links nav-list">
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Help & FAQs</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Contact us</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Feedback</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Product recalls</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Returns & refunds</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Scam alerts</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Accessibility information</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3 disabled class="fs-unavailable footer-heading">Shopping</h3>
+        <ul class="footer-links nav-list">
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Track my order</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Delivery options</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Click & Collect</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Delivery Saver Pass</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Fake Supermarket app</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">New to online shopping?</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Shop for your business</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Fake Flowers</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3 disabled class="fs-unavailable footer-heading">Contact</h3>
+        <ul class="footer-info nav-list">
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Careers</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Why choose us?</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Our brands</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Community donations</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Vendor information</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Become an affiliate</a></li>
+          <li class="nav-item"><a disabled href="#" class="fs_unavailable">Corporate responsibility</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-acknowledgements" class="row">
+    <div class="wrapper">
+      <div id="country" class="footer-column">
+        <h3 class="footer-heading">Acknowledgement of country</h3>
+        <p>Fake Supermarket has its headquarters on the lands of the Giabal people.</p><p>As such, we wish to acknowledge the Traditional Custodians of the Toowoomba region whose song lines traverse our lands and pay our respect to Elders past, present and emerging, for they hold the knowledge, rich traditions and culture of Australia's First Peoples. We also acknowledge the traditional owners of lands across Australia and the world which were unjustly colonised.</p>
+        <p><strong>Always was. Always will be.</strong></p>
+      </div>
+      <div id="accessibility" class="footer-column">
+        <h3 class="footer-heading">Accessibility and inclusion</h3>
+        <p>Fake Supermarket aims to provide inclusive access for research participants with disabilities.</p>
+        <a href="#" target="_blank">Help us do better <span class="sr-only">– This link will open in a new tab; it links to a Fake Supermarket prioritisation service.</span></a>
+      </div>      
+    </div>
+  </div>
+
+  <div id="footer-tail" class="row">
+    <div class="wrapper">
+      <p>&copy; {% year %} Fake Supermarket. All rights reserved. <a href="#">Privacy Policy</a></p>
+    </div>
+  </div>  
 </footer>

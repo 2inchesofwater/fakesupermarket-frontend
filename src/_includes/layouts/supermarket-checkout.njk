@@ -1,0 +1,71 @@
+{% set storefront = meat %}
+
+{% extends "layouts/base.njk" %}   
+ 
+{% block content %}
+	{% include "partials/header.njk" %}
+	<main id="main" class="checkout main-content">
+
+		<menu class="sr-only">Jump links</menu>
+
+		<article id="checkout">
+			<section id="paymentFlow" class="progress-stepper">
+				<!-- Move this to a dedicated partial -->
+				<details open name="paymentFlow-review" id="paymentFlow-review" class="paymentFlow-step">
+					<summary>
+						<h3>
+							<span class="step-number">1</span>
+							<span class="step-title">Cart</span>
+						</h3>
+						<span id="step-review-status"></span>
+					</summary>
+					<div class="step-details-panel">
+						<ul id="checkout-cart-items" class="checkout-cart-summary">
+						  <!-- Cart items go here -->
+						</ul>
+					</div>
+				</details>
+
+				<details open name="paymentFlow-delivery" id="paymentFlow-delivery" class="paymentFlow-step">
+					<summary>
+						<h3>
+							<span class="step-number">2</span>
+							<span class="step-title">Delivery</span>
+						</h3>
+						<span id="step-delivery-status"></span>
+					</summary>
+					<div class="step-details-panel">
+
+					</div>					
+				</details>
+
+				<details open name="paymentFlow-payment" id="paymentFlow-payment" class="paymentFlow-step">
+					<summary>
+						<h3>
+							<span class="step-number">3</span>
+							<span class="step-title">Payment</span>
+						</h3>
+						<span id="step-review-status"></span>
+					</summary>
+					<div class="step-details-panel">
+
+					</div>					
+				</details>
+			</section>
+
+			<section aria-labelledby="paymentFlow-orderSummary-heading" id="orderSummary">
+				{% include "partials/checkout-orderSummary.njk" %}
+			</section>
+		</article>
+	</main>
+
+  {% include "partials/footer.njk" %}
+	{% include "partials/template-svg.njk" %}
+
+  <script type="module" src="/js/pages/checkout.js"></script>
+   <script>
+    const storefront = JSON.parse(document.getElementById('storefront').textContent);
+    const products = JSON.parse(document.getElementById('products').textContent);
+    // const cartSummaryList = document.getElementById('cart-summary-list');
+  </script>
+{% endblock %}

@@ -1,0 +1,9 @@
+@use "variables" as *;
+
+table {
+	th, td {
+		&.numeric {
+			text-align: end;
+		}
+	}
+}

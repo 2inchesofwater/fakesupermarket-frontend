@@ -1,0 +1,157 @@
+// The site's URL is defined in _data/site.json
+
+$size-sm: 14px;
+$size-base: 16px;
+$size-lg: 18px;
+
+$screen-xs: 300px;
+$screen-sm: 500px;
+$screen-md: 800px;
+$screen-lg: 1200px;
+$screen-xl: 1600px;
+
+
+:root {
+  /* Brand colors */
+  // --color-chin-chin-cherry: hsla(348, 68%, 51%, 1);
+  // --color-sushi: hsla(78, 52%, 42%, 1);
+  // --color-atrium-white: hsla(39, 36%, 92%, 1);
+  // --color-charcoal-storm: hsla(33, 68%, 53%, 1);
+  // --color-evil-sunz-scarlet: hsla(0, 75%, 42%, 1);
+  // --color-sushi-dark: hsla(118, 96%, 28%, 1); 
+
+/* Color Theme Swatches in HSLA */
+  --palette-beer: hsla(33, 89%, 51%, 1);
+  --palette-creamBlush: hsla(28, 77%, 77%, 1);
+  --palette-fieryGlow: hsla(16, 89%, 53%, 1);
+  --palette-crisisRed: hsla(5, 75%, 42%, 1);
+  --palette-charcoalNero: hsla(39, 3%, 14%, 1);
+
+
+
+  /* Neutral colors */
+  --color-black: var(--palette-charcoalNero);
+  --color-white: #FFFFFF;
+  
+  /* Design system palette spectrum */
+  --color-neutrals-000: var(--color-white); 
+  --color-neutrals-025: hsla(16, 47%, 98%, 1);
+  --color-neutrals-050: hsla(16, 51%, 96%, 1);
+  --color-neutrals-075: hsla(16, 55%, 93%, 1);
+  --color-neutrals-100: hsla(16, 59%, 91%, 1); 
+  --color-neutrals-200: hsla(16, 64%, 81%, 1);
+  --color-neutrals-300: hsla(16, 69%, 72%, 1);
+  --color-neutrals-400: hsla(16, 79%, 62%, 1);
+  --color-neutrals-500: var(--palette-fieryGlow);
+  --color-neutrals-600: hsla(22, 68%, 43%, 1);
+  --color-neutrals-700: hsla(28, 46%, 34%, 1);
+  --color-neutrals-800: hsla(33, 24%, 24%, 1);
+  --color-neutrals-900: var(--palette-charcoalNero);
+
+  --color-shadow-light: hsla(22, 68%, 43%, 0.1);
+  --color-shadow-dark: hsla(28, 46%, 34%, 0.2);
+  --color-backdrop-default: hsla(35, 6%, 22%, 0.75);
+
+
+  /* Semantic color aliases */
+  --color-brand-primary: var(--palette-fieryGlow);
+  --color-brand-secondary: var(--palette-crisisRed);
+
+  --color-text-primary: var(--color-neutrals-900);
+  --color-text-secondary: hsla(23deg, 9%, 35%, 1);
+  --color-text-tertiary: hsla(14deg, 7%, 40%, 1);
+  
+  --color-background-default: var(--color-neutrals-050);
+  --color-background-subtle: var(--color-neutrals-025);
+  --color-background-emphasized: var(--color-neutrals-100);
+  --color-background-page: var(--color-white);
+  --color-background-header: var(--color-white);
+  --color-background-footer: var(--color-background-subtle);
+
+  --color-border-light: var(--color-neutrals-100);
+  --color-border-default: var(--color-neutrals-200);
+  --color-border-strong: var(--color-neutrals-300);
+
+  --color-action-primary: var(--color-neutrals-500);
+  --color-action-hover: var(--color-neutrals-600);
+  --color-action-pressed: var(--color-neutrals-700);
+  --color-action-brand: var(--palette-fieryGlow);  
+  
+  --color-focus-ring: hsla(348, 68%, 51%, 0.5);
+
+  --color-link: var(--color-neutrals-700);
+  --color-link-hover: var(--color-neutrals-800); 
+  --color-link-active: var(--color-neutrals-900);
+  --color-link-visited: hsla(348, 45%, 38%, 1);
+  --color-link-focus-ring: hsla(348, 68%, 51%, 0.6);
+
+  --font-display: "Abalos";
+  --font-sans: Outfit, Helvetica, Calibri, sans-serif;
+
+  --height-section-sm: 45vh;
+  --height-section-md: 66vh;
+  --height-section-lg: 90vh;
+
+  --height-verticalRhythm-xs: 5vh;
+  --height-verticalRhythm-sm: 10vh;
+  --height-verticalRhythm-md: 15vh;
+  --height-verticalRhythm-lg: 20vh;
+
+  --spacing-none: 0;
+  --spacing-3xs: 2px;
+  --spacing-2xs: 4px;
+  --spacing-xs: 8px;  
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 20px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  --spacing-3xl: 48px;
+  --spacing-4xl: 64px;
+
+  --thickness-none: 0;
+  --thickness-sm: 1px;
+  --thickness-md: 2px;
+  --thickness-lg: 4px;
+  --thickness-xl: 8px;
+
+  --size-xs: 0.75rem;
+  --size-sm: 0.875rem;
+  --size-md: 1rem;
+  --size-lg: 1.33rem;  
+  --size-xl: 1.77rem;     
+  --size-2xl: 2.37rem;    
+  --size-3xl: 3.15rem;
+  --size-4xl: 4.2rem;
+  --size-5xl: 5.6rem;
+
+  --leading-sm: 0.875;
+  --leading-md: 1;
+  --leading-lg: 1.25em;
+  --leading-xl: 1.5em;
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  --blur-sm: 1px;
+  --blur-md: 2.5px;
+  --blur-lg: 5px;
+  --blur-xl: 10px;
+
+  --boxShadow-xs: 0 var(--spacing-3xs) var(--blur-md) var(--color-shadow-light);
+  --boxShadow-sm: 0 var(--spacing-3xs) var(--blur-lg) var(--color-shadow-light);
+  --boxShadow-md: 0 var(--spacing-2xs) var(--blur-xl) var(--color-shadow-light);
+
+  --transition-sm: all 0.15s ease;
+  --transition-md: all 0.3s ease;
+  --transition-lg: all 0.6s ease;
+
+  --weight-light: 200;
+  --weight-regular: 300;
+  --weight-bold: 500;
+  --weight-heavy: 600;
+
+}
+

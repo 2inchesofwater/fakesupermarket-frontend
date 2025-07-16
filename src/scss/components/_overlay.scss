@@ -1,0 +1,36 @@
+@use "variables" as *;
+
+.overlay {
+		position: absolute;
+		top: var(--spacing-xs);
+		left: var(--spacing-xs);
+
+	&.overlay-text {
+		display: inline-flex;
+		flex-direction: column;
+		justify-content: center;
+		align-content: center;
+
+		font-size: var(--size-xs);
+		font-weight: var(--weight-heavy);
+		color: var(--color-text-primary);
+		padding: var(--spacing-2xs) var(--spacing-2xs);
+		box-sizing: border-box;
+		border-radius: 5rem;
+		width: 4rem;
+		height: 4rem;
+
+		background: var(--color-background-default);
+		border: var(--thickness-lg) solid var(--color-brand-secondary);
+		outline: var(--thickness-md) solid var(--color-white);		 		
+	}
+
+	&.productCardOverlay-alignRight {
+		left: unset;
+		right: var(--spacing-xs);
+	}
+	&.productCardOverlay-alignBottom {
+		top: unset;
+		bottom: var(--spacing-xs);
+	}
+}

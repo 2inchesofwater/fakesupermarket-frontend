@@ -1,0 +1,29 @@
+// Inter is loaded via Google Fonts - src is specified in the HTML head. 
+// Weights 300+500 are available.
+
+/**
+ * @license
+ * MyFonts Webfont Build ID 3867246, 2020-12-16T11:57:38-0500
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: Forrest Bold by Fenotype
+ * URL: https://www.myfonts.com/products/bold-forrest-511451
+ * Copyright: Copyright © 2023 Monotype Imaging Inc. All rights reserved.
+ * 
+ * © 2023 MyFonts Inc. */ 
+
+
+// @font-face {
+//   font-family: "ForrestBold";
+//   src: url('../webfonts/ForrestBold/font.woff2') format('woff2'), url('../webfonts/ForrestBold/font.woff') format('woff');
+// }
+
+@font-face {
+  font-family: "Abalos";
+  src: url('../webfonts/Abalos/OTAbalos-Semibold.woff2') format('woff2'), url('../webfonts/Abalos/OTAbalos-Semibold.otf') format('otf');
+}

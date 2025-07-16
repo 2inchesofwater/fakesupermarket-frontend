@@ -1,0 +1,46 @@
+@use "variables" as *;
+
+.badge {
+	display: inline-block;
+
+	font-size: var(--size-sm);
+	line-height: 1;
+	font-weight: var(--weight-bold);
+	color: var(--color-text-primary); 
+
+	padding: var(--spacing-2xs) var(--spacing-xs);
+	border-radius: var(--radius-sm);
+
+	&.badge-positive {
+		background: var(--color-background-default);
+		color: var(--color-brand-secondary);
+		border: 2px solid var(--color-brand-secondary);
+		text-transform: uppercase;
+	}	
+	&.badge-excitement {
+		background: var(--color-brand-secondary);
+		color: var(--color-white);
+		border: 2px solid var(--color-brand-secondary);
+		text-transform: uppercase;
+	}
+	&.badge-naked {
+		background: transparent;
+		color: var(--color-text-tertiary);
+		font-size: var(--size-xs);
+		font-weight: var(--weight-regular);
+		border: 0;
+		text-transform: uppercase;
+		padding-left: unset;		
+	}
+	&.badge-tally {
+		background: var(--color-brand-secondary);
+		color: var(--color-white);
+		border: var(--thickness-md) solid var(--color-white);
+		aspect-ratio: 1 / 1;
+		border-radius: var(--spacing-md);
+		box-shadow: var(--boxShadow-sm);
+		&[hidden] {
+			display: none;
+		}
+	}
+}

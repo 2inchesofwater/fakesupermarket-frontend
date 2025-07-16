@@ -1,0 +1,19 @@
+<template id="icon-x">
+  {% include "partials/icon-x.njk" %}
+</template>
+
+<template id="icon-minus">
+  {% include "partials/icon-minus.njk" %}
+</template>
+
+<template id="icon-plus">
+  {% include "partials/icon-plus.njk" %}
+</template>
+
+
+<script>
+  function cloneIconTemplate(id) {
+    const tpl = document.getElementById(id);
+    return tpl?.content.cloneNode(true) || document.createTextNode('');
+  }
+</script>

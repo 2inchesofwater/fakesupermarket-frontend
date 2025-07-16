@@ -1,0 +1,10 @@
+<div disabled id="pagination" class="fs-unavailable">
+	<p class="pagination-summary">Page <strong>1</strong> of <strong>{{ storefront.categoryPaginationTotalPages }}</strong></p>
+	<ol class="pagination-list">
+	{% set pagination_selected = 1 %}
+		{% for i in range(1, storefront.categoryPaginationTotalPages + 1) %}
+		  <li class="{% if i == pagination_selected %}active{% endif %} "><a>{{ i }}</a></li>
+		{% endfor %}
+		<li><a href="#">Next {% include "partials/icon-chevron-right.njk" %}</a></li>
+	</ol>
+</div>

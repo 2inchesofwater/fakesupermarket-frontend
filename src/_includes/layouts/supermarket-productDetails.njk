@@ -1,0 +1,351 @@
+{% set storefront = meat %}
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+    {% include "partials/json-storefront.njk" %}
+    {% include "partials/json-productCards.njk" %}
+    {% include "partials/header.njk" %}
+    
+  <div id="utility-wrapper" role="region">
+    {% set breadcrumbs = (storefront.breadcrumbs or []).concat([product.productName]) %}
+    {% include "partials/breadcrumbs.njk" %}
+  </div>
+
+  <main id="{{ product.id }}" class="productDetails" role="main">
+    <article itemscope itemtype="https://schema.org/Product">
+      
+      <!-- Product Title and Meta -->
+      <section class="product-name" aria-labelledby="product-productName">
+        <h1 class="product-productName" id="product-productName" itemprop="name">{{ product.productName }}</h1>
+        {% if storefront.productCardShowGrossWeight %}
+          <div class="product-grossWeight">{{ product.productGrossWeight }}</div>
+        {% endif %}
+        <p class="product-brandInfo"><span itemprop="brand">{{ product.productBrand }}</span>{% if storefront.productDetailsShowProductSku %} • <span itemprop="sku">SKU: {{ product.productSku }}</span>{% endif %}</p>
+        
+        <div class="product-pricing">
+        <!-- Note to self: The pricing section - on both this page and on the Category grid - could be consolidated into a mixin or something. -->
+          <div class="product-pricing-topline">
+  	        {% if product.priceCurrent and product.priceCurrent < product.priceRrp %}
+  	          <div class="badge badge-positive">
+  	            Save {{ storefront.currencySymbol }}{{ product.priceRrp - product.priceCurrent }}
+  	          </div>
+  	        {% endif %}  
+  	        
+  	        <div class="product-price-current price" aria-label="Current price:">
+  						{% if product.priceCurrent %}
+  							<span itemprop="priceCurrency" content="AUD">{{ storefront.currencySymbol }}</span><span itemprop="price" content="{{ product.priceCurrent }}">{{ product.priceCurrent }}</span>
+  	          {% else %}
+  							<span itemprop="priceCurrency" content="AUD">{{ storefront.currencySymbol }}</span><span itemprop="price" content="{{ product.priceRrp }}">{{ product.priceRrp }}</span>
+  	          {% endif %}
+  	        </div>
+  	      </div>
+          
+          <div class="product-price-value">
+            {% if product.priceCurrent %}
+              <div class="product-price-rrp strikethrough" aria-label="Recommended retail price">
+                <del aria-label="Original price:">
+                  {{ storefront.currencySymbol }}{{ product.priceRrp }}
+                </del>
+              </div>
+            {% endif %}
+
+            {%  if product.priceCurrent and storefront.productDetailsShowUnitPrice %}
+              <div class="separator" aria-hidden> • </div>
+            {% endif %}
+            {%  if storefront.productDetailsShowUnitPrice %}
+              <div class="product-price-unit" aria-label="Unit price per weight">
+                {{ storefront.currencySymbol }}{{ product.pricePerUnit }} per {{ product.productPerUnit }}
+              </div>
+            {%  endif %}
+          </div>
+      	</div>
+
+        <div class="product-actions">
+              {%  if product.priceCurrent %}
+                {% set cartPrice = product.priceCurrent %}
+              {%  else %}
+                {% set cartPrice = product.priceRrp %}
+              {% endif %}      
+          <button 
+              class="add-to-cart btn btn-product btn-primary" 
+              data-sku="{{ product.productSku }}" data-price="{{ cartPrice }}"
+              aria-label="Add {{ product.productName }} to your cart"
+              onclick="addToCart(this)"
+          >
+              {% if storefront.productCardAddIconFilename %}
+                {% set svgContent = ('src/images/icons/' + storefront.productCardAddIconFilename) | fs %}
+                <span class="icon {{ className | safe }}">
+                    {{ svgContent | safe }}
+                </span>
+              {% endif %}  
+
+              {% if storefront.productCardAddLabel %}
+                {{ storefront.productCardAddLabel }}
+              {% endif %}  
+          </button>
+          
+          <button 
+              class="favorite-button btn btn-product btn-secondary" 
+              aria-label="Come back to {{ product.name }} later"
+              onclick="toggleFavorite(this)"
+          >
+              {% if storefront.productCardSaveIconFilename %}
+                {% set svgContent = ('src/images/icons/' + storefront.productCardSaveIconFilename) | fs %}
+                <span class="icon {{ className | safe }}">
+                    {{ svgContent | safe }}
+                </span>
+              {% endif %}  
+              
+              {% if storefront.productCardSaveLabel %}
+                {{ storefront.productCardSaveLabel }}
+              {% endif %}
+          </button>
+        </div>  
+      </section>
+
+      <!-- Product Content -->
+      <section class="product-images" role="region" aria-labelledby="product-name">
+        <!-- Column: Image -->
+        <div class="product-images-main" aria-label="Images of {{ product.productName }}">
+          {% if product.images.length %}
+            <figure itemprop="image">
+              <img src="pages/{{ storefront.slug }}/{{ product.images[0] }}" alt="{{ product.imagesVisualDescription }}">
+            </figure>
+          {% endif %}
+        </div>
+
+        {% if product.images.length > 1 %}
+        <div class="product-images-thumbnails"  aria-labelledby="thumbnails-heading">
+          <h2 id="thumbnails-heading" class="sr-only">There are {{ product.images.length }} thumbnail images of the product</h2>
+          <ul role="list">
+            {% for image in product.images %}
+            <li>
+              <button type="button" aria-label="Show image {{ loop.index }}">
+                <img src="pages/{{ storefront.slug }}/{{ image }}" alt="Thumbnail #{{ loop.index }}" style="max-width:100%; max-height:100%;">
+              </button>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </section>
+
+      <section class="product-information accordion" >
+        <!-- Product Description -->
+        {% if storefront.productDetailsShowDescription %}
+          <details open name="productDetails-description" aria-labelledby="description-heading">
+            <summary class="accordion-summary-header">
+              <h3 id="description-heading">Product details</h3>
+            </summary>
+
+            <div class="accordion-details-panel">
+              <p itemprop="description">
+              {% if product.descriptionLong %}
+                {{ product.descriptionLong | safe }}
+              {% elseif product.descriptionShort %}
+                {{ product.descriptionShort | safe }}
+              {% endif %}
+              </p>
+
+              {% if product.attributes.origin %}
+  	            <dl>
+  	              <dt>Country of origin:</dt>
+  	              <dd>{{ product.attributes.origin }}</dd>
+  	            </dl>
+  	          {% endif %}
+            </div>
+          </details>
+        {% endif %}
+
+        <!-- Ingredients and Warnings -->
+        <!-- Note to self: A lot of these H2 + p blocks should probably get replaced by a Nunjucks mixin -->
+        <details aria-labelledby="ingredients-heading">
+          <summary class="accordion-summary-header">
+            <h3 id="ingredients-heading">Ingredients &amp; warnings</h3>
+          </summary>
+          <div class="accordion-details-panel">
+            <dl><dt>Ingredients: </dt><dd>{{ product.attributes.ingredients | safe }}</dd></dl>
+            {% if product.attributes.dietary %}
+              <dl><dt>Allergen advice: </dt><dd>{{ product.attributes.dietary | safe }}</dd></dl>
+            {% endif %}
+          </div>
+        </details>
+
+        <!-- Nutrition Info -->
+        <details aria-labelledby="nutrition-heading">
+          <summary class="accordion-summary-header">
+            <h3 id="nutrition-heading">Nutrition information</h3>
+          </summary>
+          <div class="accordion-details-panel">
+            {%  if product.attributes.nutritional_info.serving_size %}
+              <table>
+                <tbody>
+                  <tr>
+                    <th>Servings per pack</th>
+                    <th>Serving size</th>
+                  </tr>
+                  <tr>
+                    <td>{{ product.attributes.servings.servings_per_package }}</td>
+                    <td>{{ product.attributes.servings.serving_size }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            {% endif %}
+
+            <style>
+              #nutrition-information tr td:nth-of-type(1) {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+              }
+              #nutrition-information tr td .invisible {
+                color: transparent;
+              }
+            </style>
+
+            <table id="nutrition-information">
+              <thead>
+                <tr>
+                  <th scope="col"><span class="sr-only">Nutrient</span></th>
+                  <th scope="col" class="numeric">Per 100g</th>
+                  <th scope="col" class="numeric">Per serving</th>
+                  <th scope="col" class="numeric">% daily intake</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% if product.attributes.nutrition.energy["100g"] %}
+                  <tr>
+                    <td>Energy</td>
+                    <td class="numeric">{{ product.attributes.nutrition.energy["100g"] }}</td>
+                    <td class="numeric">{{ product.attributes.nutrition.energy.serving }}</td>
+                    <td class="numeric">{{ product.attributes.nutrition.energy["pdi"] }}</td>
+                  </tr>
+                {% endif %}
+                {% if product.attributes.nutrition.protein["100g"] %}
+                  <tr>
+                    <td>Protein</td>
+                    <td class="numeric">{{ product.attributes.nutrition.protein["100g"] }}</td>
+                    <td class="numeric">{{ product.attributes.nutrition.protein["serving"] }}</td>
+                    <td class="numeric">{{ product.attributes.nutrition.protein["pdi"] }}</td>
+                  </tr>
+                {% endif %}          
+                {% if product.attributes.nutrition.fat_total["100g"] %}
+                  <tr>
+                    <td>Fat <span class="secondary-label">(total)</span></td>
+                    <td class="numeric">{{ product.attributes.nutrition.fat_total["100g"] }}</td>
+                    <td class="numeric">{{ product.attributes.nutrition.fat_total["serving"] }}</td>
+                    <td class="numeric">{{ product.attributes.nutrition.fat_total["pdi"] }}</td>
+                  </tr>
+                {% endif %} 
+                {% if product.attributes.nutrition.fat_saturated["100g"] %}
+                  <tr>
+                    <td><span class="invisible">Fat</span> <span class="secondary-label">(saturated)</span></td>
+                    <td class="numeric">{{ product.attributes.nutrition.fat_saturated["100g"] }}</td>
+                    <td class="numeric">{{ product.attributes.nutrition.fat_saturated["serving"] }}</td>
+                    <td class="numeric">{{ product.attributes.nutrition.fat_saturated["pdi"] }}</td>
+                  </tr>
+                {% endif %} 
+                {% if product.attributes.nutrition.carbohydrates_total["100g"] %}
+                  <tr>
+                    <td>Carbohydrates <span class="secondary-label">(total)</span></td>
+                    <td class="numeric">{{ product.attributes.nutrition.carbohydrates_total["100g"] }}</td>
+                    <td class="numeric">{{ product.attributes.nutrition.carbohydrates_total["serving"] }}</td>
+                    <td class="numeric">{{ product.attributes.nutrition.carbohydrates_total["pdi"] }}</td>
+                  </tr>
+                {% endif %} 
+                {% if product.attributes.nutrition.carbohydrates_sugar["100g"] %}
+                  <tr>
+                    <td><span class="invisible">Carbohydrates</span> <span class="secondary-label">(sugar)</span></td>
+                    <td class="numeric">{{ product.attributes.nutrition.carbohydrates_sugar["100g"] }}</td>
+                    <td class="numeric">{{ product.attributes.nutrition.carbohydrates_sugar["serving"] }}</td>
+                    <td class="numeric">{{ product.attributes.nutrition.carbohydrates_sugar["pdi"] }}</td>
+                  </tr>
+                {% endif %}           
+                {% if product.attributes.nutritional_info.sodium["100g"] %}
+                  <tr>
+                    <td>Sodium</td>
+                    <td class="numeric">{{ product.attributes.nutritional_info.sodium["100g"] }}</td>
+                    <td class="numeric">{{ product.attributes.nutritional_info.sodium["serving"] }}</td>
+                    <td class="numeric">{{ product.attributes.nutritional_info.sodium["pdi"] }}</td>
+                  </tr>
+                {% endif %} 
+                {% if product.attributes.nutrition.potassium["100g"] %}
+                  <tr>
+                    <td>Potassium</td>
+                    <td class="numeric">{{ product.attributes.nutrition.potassium["100g"] }}</td>
+                    <td class="numeric">{{ product.attributes.nutrition.potassium["serving"] }}</td>
+                    <td class="numeric">{{ product.attributes.nutrition.potassium["pdi"] }}</td>
+                  </tr>
+                {% endif %} 
+                {% if product.attributes.nutrition.fibre["100g"] %}
+                  <tr>
+                    <td>Fibre</td>
+                    <td class="numeric">{{ product.attributes.nutrition.fibre["100g"] }}</td>
+                    <td class="numeric">{{ product.attributes.nutrition.fibre["serving"] }}</td>
+                    <td class="numeric">{{ product.attributes.nutrition.fibre["pdi"] }}</td>
+                  </tr>
+                {% endif %} 
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <!-- Storage -->
+        {% if product.attributes.storage_instructions %}
+          <details aria-labelledby="storage-heading">
+            <summary class="accordion-summary-header">
+              <h3 id="storage-heading">Storage</h3>
+            </summary>
+            <div class="accordion-details-panel">
+              <dl>
+                <dt>Storage instructions</dt>
+                <dd>{{ product.attributes.storage_instructions | safe }}</dd>
+              </dl>
+            </div>
+          </details>
+        {% endif %}
+      </section>
+    </article>
+
+    <!-- Reviews (if applicable) -->
+    {% if storefront.productDetailsShowReviews %}
+      <section class="product-reviews" aria-labelledby="reviews-heading">
+        <h2 class="reviews-heading" id="reviews-heading">{{ storefront.productDetailsLabelReviews }}</h2>
+        {%  if product.productCountRatings > 0 %}
+        	<!-- Display A number of reviews -->
+        {%  else  %}
+        	<p class="reviews-none">No reviews yet. Be the first to review this product.</p>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    <!-- Related products -->
+    {% if storefront.productDetailsShowRelated %}
+      <section class="product-related" aria-labelledby="related-heading">
+        <h2 class="related-heading" id="related-heading">{{ storefront.productDetailsLabelRelated }}</h2>
+        <p class="related-none">No related products at the moment.</p>
+      </section>
+    {% endif %}
+
+    <!-- Recommended (random) products -->
+    {% if storefront.productDetailsShowRecommendations %}
+      <section class="product-recommended" aria-labelledby="recommended-heading">
+        <h2 class="recommended-heading" id="recommended-heading">{{ storefront.productDetailsLabelRecommendations }}</h2>
+        <p class="recommended-none">No recommendations at the moment.</p>
+      </section>
+    {% endif %}
+  </main>
+
+  {% include "partials/footer.njk" %}
+  {% include "partials/cartSummary-modal.njk" %}
+
+  <script src="/js/supermarket-cartProductsSummary.js"></script>
+  <script src="/js/addtoCart.js"></script>
+  <script>
+    const storefront = JSON.parse(document.getElementById('storefront').textContent);
+    const products = JSON.parse(document.getElementById('products').textContent);
+    // const cartSummaryList = document.getElementById('cart-summary-list');
+  </script>
+
+{% endblock %}
