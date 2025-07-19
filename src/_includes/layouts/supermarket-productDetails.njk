@@ -3,8 +3,6 @@
 {% extends "layouts/base.njk" %}
 
 {% block content %}
-    {% include "partials/json-storefront.njk" %}
-    {% include "partials/json-productCards.njk" %}
     {% include "partials/header.njk" %}
     
   <div id="utility-wrapper" role="region">
@@ -70,9 +68,7 @@
           <button 
               class="add-to-cart btn btn-product btn-primary" 
               data-sku="{{ product.productSku }}" data-price="{{ cartPrice }}"
-              aria-label="Add {{ product.productName }} to your cart"
-              onclick="addToCart(this)"
-          >
+              aria-label="Add {{ product.productName }} to your cart" >
               {% if storefront.productCardAddIconFilename %}
                 {% set svgContent = ('src/images/icons/' + storefront.productCardAddIconFilename) | fs %}
                 <span class="icon {{ className | safe }}">
@@ -339,13 +335,11 @@
 
   {% include "partials/footer.njk" %}
   {% include "partials/cartSummary-modal.njk" %}
+  {% include "partials/json-storefront.njk" %}
+  {% include "partials/json-productCards.njk" %}
 
-  <script src="/js/supermarket-cartProductsSummary.js"></script>
-  <script src="/js/addtoCart.js"></script>
-  <script>
-    const storefront = JSON.parse(document.getElementById('storefront').textContent);
-    const products = JSON.parse(document.getElementById('products').textContent);
-    // const cartSummaryList = document.getElementById('cart-summary-list');
-  </script>
+  <script type="module" src="/js/cart/cart.js"></script>
+  <script type="module" src="/js/pages/productDetails.js"></script>
+
 
 {% endblock %}

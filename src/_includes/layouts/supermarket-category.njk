@@ -3,14 +3,14 @@
 {% extends "layouts/base.njk" %}   
  
 {% block content %}
-    {% include "partials/header.njk" %}
+  {% include "partials/header.njk" %}
     
-    <div id="utility-wrapper" role="region">
+  <div id="utility-wrapper" role="region">
     {% set breadcrumbs = (storefront.breadcrumbs) %}
     {% include "partials/breadcrumbs.njk" %}
     
     {% include "partials/banner_ad.njk" %}
-    </div>
+  </div>
 
   <main id="main" class="main-content">
     <h1>{{ storefront.categoryTitle }}</h1>

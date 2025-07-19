@@ -12,11 +12,8 @@
 export function renderProductCards(products, storefront, productsGrid) {
 
   productsGrid.innerHTML = products.map(product => {
-    // Product image logic
-  console.table( storefront );
-
+  
     const hasImage = !!(product.images);
-
 
     const imageSection = hasImage ? `
       <div class="productCard-image">
@@ -132,8 +129,7 @@ export function renderProductCards(products, storefront, productsGrid) {
           <button
             class="add-to-cart btn btn-product btn-primary"
             data-sku="${escapeHtml(product.productSku)}" data-price="${cartPrice}"
-            aria-label="Add ${escapeHtml(product.productName)} to your cart"
-            onclick="addToCart(this)">
+            aria-label="Add ${escapeHtml(product.productName)} to your cart">
             ${addToCartIcon} ${addToCartLabel}
           </button>
           <button

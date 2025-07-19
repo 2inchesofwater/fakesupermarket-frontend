@@ -1,7 +1,5 @@
 const products = JSON.parse(document.getElementById('products').textContent);
 const storefront = JSON.parse(document.getElementById('storefront').textContent);
-const container = document.getElementById('products-grid');
-const importProductCardsPath = `/js/components/${storefront.storefrontType}/productCards.js`;
 
 import Cart from '/js/cart/cart.js'; // Adjust path as needed
 
@@ -26,10 +24,6 @@ function updateCartUI(cartInstance) {
   if (tally) tally.textContent = cartInstance.totalItems;
   if (totalEl) totalEl.textContent = cartInstance.formatPrice(cartInstance.totalCost);
 }
-
-import(importProductCardsPath).then(module => {
-  module.renderProductCards(products, storefront, container);
-});
 
 document.addEventListener('click', function (e) {
   if (e.target.matches('.add-to-cart')) {
