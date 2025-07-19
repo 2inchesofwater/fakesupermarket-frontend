@@ -82,9 +82,7 @@
       <div class="productCard-actions">
           <button 
               class="add-to-cart btn btn-product btn-primary" 
-              aria-label="Add {{ product.name }} to your cart"
-              onclick="addToCart()"
-          >
+              aria-label="Add {{ product.name }} to your cart">
               {% if productCardAddIconFilename %}
                 {% set svgContent = ('src/images/icons/' + productCardAddIconFilename) | fs %}
                 <span class="icon {{ className | safe }}">

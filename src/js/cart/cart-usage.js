@@ -1,11 +1,5 @@
 
-// Load cart from storage on page load
-cart.load();
-
-// Update UI whenever cart changes
-cart.setUpdateHandler(updateCartUI);
-
-// Example UI update function
+// UI update function 
 export function updateCartUI(cartInstance) {
   // Update cart badge/tally in header
   const badge = document.querySelector('.badge.badge-tally');
@@ -27,14 +21,6 @@ export function updateCartUI(cartInstance) {
   // You can also refresh the modal/overlay cart summary here
   // renderCartSummaryList(cartInstance);
 }
-
-// Wire up "Add to cart" button(s)
-document.addEventListener('click', function (e) {
-  if (e.target.matches('.add-to-cart')) {
-    const sku = e.target.dataset.sku;
-    cart.addItem(sku, 1);
-  }
-});
 
 // Wire up quantity controls in cart summary/checkout
 document.addEventListener('click', function (e) {
@@ -89,5 +75,3 @@ export function renderCartSummaryList(cartInstance) {
 
 // You can call renderCartSummaryList(cart) inside updateCartUI if you want summary list to refresh whenever cart changes
 
-// On initial load, trigger UI update
-updateCartUI(cart);

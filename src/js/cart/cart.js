@@ -81,6 +81,8 @@ export class Cart {
 
   // --- Cart Operations ---
   addItem(sku, quantity = 1, options = {}) {
+    console.log('this.items[sku] before:', this.items[sku], typeof this.items[sku]);
+console.log('options:', options, typeof options);
     if (!sku || quantity < 1) return;
     const product = this.getProductBySku(sku);
     if (!product) return;
