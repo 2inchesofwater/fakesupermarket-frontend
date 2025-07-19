@@ -9,10 +9,14 @@
  * Usage:
  *   renderProductCards(products, storefront, document.getElementById('product-list'))
  */
-function renderProductCards(products, storefront, productsGrid) {
+export function renderProductCards(products, storefront, productsGrid) {
+
   productsGrid.innerHTML = products.map(product => {
     // Product image logic
+  console.table( storefront );
+
     const hasImage = !!(product.images);
+
 
     const imageSection = hasImage ? `
       <div class="productCard-image">

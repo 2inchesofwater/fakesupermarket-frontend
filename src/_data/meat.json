@@ -1,5 +1,6 @@
 {
   "storefrontName": "Store",
+  "storefrontType": "supermarket",
   "categoryTitle": "Meat, poultry, and seafood", 
   "slug": "meat",
   "currencySymbol": "$",

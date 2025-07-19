@@ -22,7 +22,7 @@ function css() {
 
 // JavaScript bundling task
 function js() {
-  return src('src/js/main.js')
+  return src('src/js/main.js', { allowEmpty: true })
     .pipe(esbuild({
       bundle: true,
       minify: process.env.NODE_ENV === 'production',

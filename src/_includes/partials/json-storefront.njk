@@ -1,23 +1,24 @@
 
 <script id="storefront" type="application/json">
 	{
-		"slug": "meat",
-  	"currencySymbol": "$",
-	  "productCardImageSize": {
-	    "width": "{{ storefront.productCardImageSize.width }}",
-	    "height": "{{ storefront.productCardImageSize.height }}"
-	  },
-	  "productCardShowBrands": {{ storefront.productCardShowBrands | dump | safe }},
-	  "productCardShowShortDescription": {{ storefront.productCardShowShortDescription | dump | safe }},
-	  "productCardShowLongDescription": {{ storefront.productCardShowLongDescription | dump | safe }},
-	  "productCardShowUnitPrice": {{ storefront.productCardShowUnitPrice | dump | safe }},
-	  "productCardShowGrossWeight": {{ storefront.productCardShowGrossWeight | dump | safe }},
-	  "productCardShowRatings": {{ storefront.productCardShowRatings | dump | safe }},
-	  "productCardAddLabel": {{ storefront.productCardAddLabel | dump | safe }},
-	  "productCardAddIconFilename": {{ storefront.productCardAddIconFilename | dump | safe }},
-	  "productCardSaveLabel": {{ storefront.productCardSaveLabel | dump | safe }},
-	  "productCardSaveIconFilename": {{ storefront.productCardSaveIconFilename | dump | safe }},
-	  "productCardShowOverlayOnLeft": {{ storefront.productCardShowOverlayOnLeft | dump | safe }},
-	  "productCardShowOverlayAtTop": {{ storefront.productCardShowOverlayAtTop | dump | safe }}
+		"storefrontType": "{{ storefront.storefrontType }}",
+		"slug": "{{ storefront.slug }}",
+		"currencySymbol": "$",
+		"productCardImageSize": {
+			"width": "{{ storefront.productCardImageSize.width }}",
+			"height": "{{ storefront.productCardImageSize.height }}"
+		},
+		"productCardShowBrands": {{ storefront.productCardShowBrands | dump | safe }},
+		"productCardShowShortDescription": {{ storefront.productCardShowShortDescription | dump | safe }},
+		"productCardShowLongDescription": {{ storefront.productCardShowLongDescription | dump | safe }},
+		"productCardShowUnitPrice": {{ storefront.productCardShowUnitPrice | dump | safe }},
+		"productCardShowGrossWeight": {{ storefront.productCardShowGrossWeight | dump | safe }},
+		"productCardShowRatings": {{ storefront.productCardShowRatings | dump | safe }},
+		"productCardAddLabel": {{ storefront.productCardAddLabel | dump | safe }},
+		"productCardAddIconFilename": {{ storefront.productCardAddIconFilename | dump | safe }},
+		"productCardSaveLabel": {{ storefront.productCardSaveLabel | dump | safe }},
+		"productCardSaveIconFilename": {{ storefront.productCardSaveIconFilename | dump | safe }},
+		"productCardShowOverlayOnLeft": {{ storefront.productCardShowOverlayOnLeft | dump | safe }},
+		"productCardShowOverlayAtTop": {{ storefront.productCardShowOverlayAtTop | dump | safe }}
 	}
 </script>

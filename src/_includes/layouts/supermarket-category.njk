@@ -2,10 +2,7 @@
 
 {% extends "layouts/base.njk" %}   
  
-
 {% block content %}
-    {% include "partials/json-storefront.njk" %}
-    {% include "partials/json-productCards.njk" %}
     {% include "partials/header.njk" %}
     
     <div id="utility-wrapper" role="region">
@@ -27,19 +24,11 @@
 
   {% include "partials/footer.njk" %}
   {% include "partials/cartSummary-modal.njk" %}
+  {% include "partials/json-storefront.njk" %}
+  {% include "partials/json-productCards.njk" %}
 
-  <script src="/js/supermarket-productCards.js"></script>
-  <script src="/js/supermarket-cartProductsSummary.js"></script>
-  <script src="/js/addtoCart.js"></script>
-
-  <script>
-  	const storefront = JSON.parse(document.getElementById('storefront').textContent);
-	  const products = JSON.parse(document.getElementById('products').textContent);
-    
-    const productsGrid = document.getElementById('products-grid');
-		renderProductCards(products, storefront, productsGrid);
-  </script>
-
-
+  <script type="module" src="/js/cart/cart.js"></script>
+  <script type="module" src="/js/components/{{ storefront.storefrontType }}/productCards.js"></script>
+  <script type="module" src="/js/pages/category.js"></script>
 
 {% endblock %}
