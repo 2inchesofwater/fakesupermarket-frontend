@@ -1,4 +1,7 @@
 
+const containerEmptyMessage = document.getElementById('cart-message-empty');
+const subtotalAmount = document.getElementById('cart-subtotal-amount');
+
 // UI update function 
 export function updateCartUI(cartInstance) {
   // Update cart badge/tally in header
@@ -18,8 +21,11 @@ export function updateCartUI(cartInstance) {
   if (tally) tally.textContent = cartInstance.totalItems;
   if (totalEl) totalEl.textContent = cartInstance.formatPrice(cartInstance.totalCost);
 
-  // You can also refresh the modal/overlay cart summary here
-  // renderCartSummaryList(cartInstance);
+  const cartSummary = document.getElementById('cartSummary-modal');
+  if (cartSummary && !cartSummary.hidden) {
+    // Import or reference your renderCartSummaryModal function here
+    renderCartSummaryList(cartInstance);
+  }
 }
 
 // Wire up quantity controls in cart summary/checkout
@@ -51,25 +57,23 @@ document.addEventListener('change', function (e) {
 });
 
 // Example: Render cart items in modal/summary
-export function renderCartSummaryList(cartInstance) {
-  const container = document.getElementById('cart-modal-items');
-  container.innerHTML = '';
+export function renderCartSummaryList(cartInstance, containerItems) {
+  containerItems.innerHTML = '';
   for (const [sku, item] of Object.entries(cartInstance.items)) {
     const product = cartInstance.getProductBySku(sku);
     if (product) {
       const li = document.createElement('li');
       li.textContent = `${product.productName} x ${item.quantity} = ${cartInstance.formatPrice((product.priceCurrent ?? product.priceRrp) * item.quantity)}`;
-      container.appendChild(li);
+      containerItems.appendChild(li);
     }
   }
   // Show/hide empty message
-  const emptyMessage = document.getElementById('cart-message-empty');
   if (Object.keys(cartInstance.items).length === 0) {
-    container.hidden = true;
-    emptyMessage.hidden = false;
+    containerItems.hidden = true;
+    containerEmptyMessage.hidden = false;
   } else {
-    container.hidden = false;
-    emptyMessage.hidden = true;
+    containerItems.hidden = false;
+    containerEmptyMessage.hidden = true;
   }
 }
 

@@ -8,11 +8,10 @@ const cartSummaryList = document.getElementById('cart-item-products');
 //import { createModalCartItem } from '../cart/cartItemTemplates.js';
 //import { updateCartSubtotal } from '../cart/utils.js';
 
-export function renderCartSummaryModal(cart, subtotalElementId) {
-  //renderCartItems(cartSummaryList, createModalCartItem);
+export function renderCartSummaryModal(cart) {
+  renderCartItems(cartSummaryList, createModalCartItem);
   updateCartItemCount(cart);
-  const subtotalEl = document.getElementById(subtotalElementId);
-  if (subtotalEl) subtotalEl.textContent = cart.formatPrice(cart.totalCost);
+  updateCartSubtotal(cart, 'cart-subtotal-amount');
   updateCartFooter(cart);
 }
 
@@ -21,8 +20,9 @@ export function getProductBySku(sku) {
   return products.find(p => p.productSku === sku);
 }
 
-export function onCartModalOpen(cart) {
-  cart.load();
+function onCartModalOpen(cart) {
+  const freshCart = loadCartFromStorage();
+  Object.assign(cart, freshCart);
   renderCartSummaryModal(cart);
 } 
 
@@ -48,7 +48,7 @@ function updateCartFooter(cart) {
 
 export function openCartSummary(cart) {
   window.dispatchEvent(new Event('show-backdrop'));
-  renderCartSummaryModal(cart);
+  updateCartSummary(cart);
   cartSummary.hidden = false;
   cartSummary.classList.remove('closed');
   cartSummary.classList.add('open');
@@ -74,9 +74,15 @@ const continueBtn = document.getElementById('cart-continue-shopping');
 continueBtn?.addEventListener('click', closeCartSummary);
 closeBtn.addEventListener('click', closeCartSummary);
 
+openBtn.addEventListener('click', () => {
+  console.log("clicked");
+  onCartModalOpen(cart);      // ← refresh cart summary with latest localStorage
+  openCartSummary(cart);      // ← open the modal
+});
+
 // ESC key closes cartSummary
 document.addEventListener('keydown', (e) => {
   if (!cartSummary.hidden && (e.key === "Escape" || e.key === "Esc")) {
-    closeCartSummary();
+    closeModal();
   }
 });
