@@ -73,5 +73,3 @@ export function renderCartSummaryList(cartInstance) {
   }
 }
 
-// You can call renderCartSummaryList(cart) inside updateCartUI if you want summary list to refresh whenever cart changes
-

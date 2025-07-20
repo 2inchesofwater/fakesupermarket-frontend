@@ -4,32 +4,29 @@ const cartSummary = document.getElementById('cartSummary-modal');
 
 const cartSummaryList = document.getElementById('cart-item-products');
 
+//import { renderCartItems } from '../cart/renderCartItems.js';
+//import { createModalCartItem } from '../cart/cartItemTemplates.js';
+//import { updateCartSubtotal } from '../cart/utils.js';
 
-
-
-import { renderCartItems } from '../cart/renderCartItems.js';
-import { createModalCartItem } from '../cart/cartItemTemplates.js';
-import { updateCartSubtotal } from '../cart/utils.js';
-
-function renderCartSummaryModal() {
-  renderCartItems(cartSummaryList, createModalCartItem);
-  updateCartItemCount();
-  updateCartSubtotal(cart, 'cart-subtotal-amount');
-  updateCartFooter();
+export function renderCartSummaryModal(cart, subtotalElementId) {
+  //renderCartItems(cartSummaryList, createModalCartItem);
+  updateCartItemCount(cart);
+  const subtotalEl = document.getElementById(subtotalElementId);
+  if (subtotalEl) subtotalEl.textContent = cart.formatPrice(cart.totalCost);
+  updateCartFooter(cart);
 }
 
 // Helper to get product data by SKU
-function getProductBySku(sku) {
+export function getProductBySku(sku) {
   return products.find(p => p.productSku === sku);
 }
 
-function onCartModalOpen() {
-  const freshCart = loadCartFromStorage();
-  Object.assign(cart, freshCart);
-  renderCartSummaryModal();
+export function onCartModalOpen(cart) {
+  cart.load();
+  renderCartSummaryModal(cart);
 } 
 
-function updateCartItemCount() {
+function updateCartItemCount(cart) {
   const tallyElement = document.getElementById('cart-modal-tally');
   if (!tallyElement) return;
 
@@ -38,7 +35,7 @@ function updateCartItemCount() {
   tallyElement.innerHTML = `<strong>${totalItems}</strong> ${label}`;
 }
 
-function updateCartFooter() {
+function updateCartFooter(cart) {
   const checkoutBtn = document.getElementById('cart-navigate-checkout');
   if (!checkoutBtn) return;
 
@@ -49,15 +46,15 @@ function updateCartFooter() {
   }
 }
 
-function openCartSummary() {
+export function openCartSummary(cart) {
   window.dispatchEvent(new Event('show-backdrop'));
-  updateCartSummary(cart);
+  renderCartSummaryModal(cart);
   cartSummary.hidden = false;
   cartSummary.classList.remove('closed');
   cartSummary.classList.add('open');
 }
 
-function closeCartSummary() {
+export function closeCartSummary() {
   window.dispatchEvent(new Event('hide-backdrop'));
   cartSummary.classList.remove('open');
   cartSummary.classList.add('closed');
@@ -77,20 +74,9 @@ const continueBtn = document.getElementById('cart-continue-shopping');
 continueBtn?.addEventListener('click', closeCartSummary);
 closeBtn.addEventListener('click', closeCartSummary);
 
-openBtn.addEventListener('click', () => {
-  onCartModalOpen();      // ← refresh cart summary with latest localStorage
-  openCartSummary();      // ← open the modal
-});
-
 // ESC key closes cartSummary
 document.addEventListener('keydown', (e) => {
   if (!cartSummary.hidden && (e.key === "Escape" || e.key === "Esc")) {
-    closeModal();
+    closeCartSummary();
   }
-});
-
-
-// Initial render
-document.addEventListener('DOMContentLoaded', () => {
-  renderCartSummaryModal();
 });
