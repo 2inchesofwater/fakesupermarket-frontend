@@ -4,10 +4,6 @@ const cartSummary = document.getElementById('cartSummary-modal');
 
 const cartSummaryList = document.getElementById('cart-item-products');
 
-//import { renderCartItems } from '../cart/renderCartItems.js';
-//import { createModalCartItem } from '../cart/cartItemTemplates.js';
-//import { updateCartSubtotal } from '../cart/utils.js';
-
 export function renderCartSummaryModal(cart) {
   renderCartItems(cartSummaryList, createModalCartItem);
   updateCartItemCount(cart);
@@ -20,7 +16,7 @@ export function getProductBySku(sku) {
   return products.find(p => p.productSku === sku);
 }
 
-function onCartModalOpen(cart) {
+export function onCartModalOpen(cart) {
   const freshCart = loadCartFromStorage();
   Object.assign(cart, freshCart);
   renderCartSummaryModal(cart);

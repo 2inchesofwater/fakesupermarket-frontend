@@ -10,7 +10,7 @@ const cart = new Cart({ products, storefront });
 cart.load();
 cart.setUpdateHandler(updateCartUI);
 updateCartUI(cart);
-renderCartSummaryList(cart, 'cart-item-products');
+renderCartSummaryList(cart);
 
 document.addEventListener('click', function (e) {
   if (e.target.matches('.add-to-cart')) {

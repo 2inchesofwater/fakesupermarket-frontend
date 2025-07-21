@@ -1,4 +1,4 @@
-
+const containerItems = document.getElementById('cart-item-products');
 const containerEmptyMessage = document.getElementById('cart-message-empty');
 const subtotalAmount = document.getElementById('cart-subtotal-amount');
 
@@ -28,36 +28,8 @@ export function updateCartUI(cartInstance) {
   }
 }
 
-// Wire up quantity controls in cart summary/checkout
-document.addEventListener('click', function (e) {
-  if (e.target.matches('.control-plus')) {
-    const sku = e.target.closest('.cart-item-product')?.id?.replace('cart-item-product-', '');
-    if (sku) cart.addItem(sku, 1);
-  }
-  if (e.target.matches('.control-minus')) {
-    const sku = e.target.closest('.cart-item-product')?.id?.replace('cart-item-product-', '');
-    if (sku && cart.items[sku]) cart.updateItemQuantity(sku, cart.items[sku].quantity - 1);
-  }
-  if (e.target.matches('.btn-variant-recessive')) { // Remove item
-    const sku = e.target.closest('.cart-item-product')?.id?.replace('cart-item-product-', '');
-    if (sku) cart.removeItem(sku);
-  }
-  if (e.target.matches('.btn-remove-all')) { // Remove all items (confirmation dialog)
-    if (window.confirm('Remove all items from cart?')) cart.removeAll();
-  }
-});
-
-// Wire up quantity input fields
-document.addEventListener('change', function (e) {
-  if (e.target.matches('input[type="number"][name^="control-product-quantity-input-"]')) {
-    const sku = e.target.name.replace('control-product-quantity-input-', '');
-    const val = parseInt(e.target.value, 10);
-    if (sku && !isNaN(val)) cart.updateItemQuantity(sku, val);
-  }
-});
-
 // Example: Render cart items in modal/summary
-export function renderCartSummaryList(cartInstance, containerItems) {
+export function renderCartSummaryList(cartInstance) {
   containerItems.innerHTML = '';
   for (const [sku, item] of Object.entries(cartInstance.items)) {
     const product = cartInstance.getProductBySku(sku);
@@ -76,4 +48,51 @@ export function renderCartSummaryList(cartInstance, containerItems) {
     containerEmptyMessage.hidden = true;
   }
 }
+
+// Wire up quantity controls in cart summary/checkout
+// Wire up quantity controls in cart summary/checkout
+document.addEventListener('click', function (e) {
+  let cartChanged = false;
+  if (e.target.matches('.control-plus')) {
+    const sku = e.target.closest('.cart-item-product')?.id?.replace('cart-item-product-', '');
+    if (sku) {
+      cart.addItem(sku, 1);
+      cartChanged = true;
+    }
+  }
+  if (e.target.matches('.control-minus')) {
+    const sku = e.target.closest('.cart-item-product')?.id?.replace('cart-item-product-', '');
+    if (sku && cart.items[sku]) {
+      cart.updateItemQuantity(sku, cart.items[sku].quantity - 1);
+      cartChanged = true;
+    }
+  }
+  if (e.target.matches('.btn-variant-recessive')) { // Remove item
+    const sku = e.target.closest('.cart-item-product')?.id?.replace('cart-item-product-', '');
+    if (sku) {
+      cart.removeItem(sku);
+      cartChanged = true;
+    }
+  }
+  if (e.target.matches('.btn-remove-all')) { // Remove all items (confirmation dialog)
+    if (window.confirm('Remove all items from cart?')) {
+      cart.removeAll();
+      cartChanged = true;
+    }
+  }
+  if (cartChanged) updateCartUI(cart);
+});
+
+// Wire up quantity input fields
+document.addEventListener('change', function (e) {
+  if (e.target.matches('input[type="number"][name^="control-product-quantity-input-"]')) {
+    const sku = e.target.name.replace('control-product-quantity-input-', '');
+    const val = parseInt(e.target.value, 10);
+    if (sku && !isNaN(val)) {
+      cart.updateItemQuantity(sku, val);
+      updateCartUI(cart);
+    }
+  }
+});
+
 
