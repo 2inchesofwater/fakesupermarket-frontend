@@ -19,6 +19,16 @@ export function getProductBySku(sku) {
   return products.find(p => p.productSku === sku);
 }
 
+export function updateCartSubtotal(cart, targetElementId) {
+  const subtotalElement = document.getElementById(targetElementId);
+  if (!subtotalElement) return;
+
+  const currency = storefront.currencySymbol || '$';
+  const subtotal = parseFloat(cart.totalCost || 0).toFixed(2);
+
+  subtotalElement.textContent = cart.formatPrice(cart.totalCost);
+}
+
 export function onCartModalOpen(cart) {
   const freshCart = cart.load();
   Object.assign(cart, freshCart);
@@ -32,22 +42,6 @@ function updateCartItemCount(cart) {
   const totalItems = cart.totalItems || 0;
   const label = totalItems === 1 ? 'item' : 'items';
   tallyElement.innerHTML = `<strong>${totalItems}</strong> ${label}`;
-}
-
-function updateCartSubtotal(cart, subtotalId = 'cart-subtotal-amount') {
-  // cart: cart object with items and their price/qty
-  // id: the DOM element id where the subtotal should be updated
-  const subtotal = Object.values(cart.items).reduce((acc, item) => {
-    return acc + item.price * item.quantity;
-  }, 0);
-  const el = document.getElementById(subtotalId);
-  if (el) {
-    el.textContent = subtotal.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD"
-    });
-  }
-  return subtotal;
 }
 
 function updateCartFooter(cart) {

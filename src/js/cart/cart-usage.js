@@ -1,5 +1,5 @@
-const containerItems = document.getElementById('cart-item-products');
-const containerEmptyMessage = document.getElementById('cart-message-empty');
+const cartItemsList = document.getElementById('cart-modal-items');
+const cartItemsEmptyMessage = document.getElementById('cart-message-empty');
 const subtotalAmount = document.getElementById('cart-subtotal-amount');
 
 // UI update function 
@@ -29,22 +29,22 @@ export function updateCartUI(cartInstance) {
 
 // Example: Render cart items in modal/summary
 export function renderCartSummaryList(cartInstance) {
-  containerItems.innerHTML = '';
+  cartItemsList.innerHTML = '';
   for (const [sku, item] of Object.entries(cartInstance.items)) {
     const product = cartInstance.getProductBySku(sku);
     if (product) {
       const li = document.createElement('li');
       li.textContent = `${product.productName} x ${item.quantity} = ${cartInstance.formatPrice((product.priceCurrent ?? product.priceRrp) * item.quantity)}`;
-      containerItems.appendChild(li);
+      cartItemsList.appendChild(li);
     }
   }
   // Show/hide empty message
   if (Object.keys(cartInstance.items).length === 0) {
-    containerItems.hidden = true;
-    containerEmptyMessage.hidden = false;
+    cartItemsList.hidden = true;
+    cartItemsEmptyMessage.hidden = false;
   } else {
-    containerItems.hidden = false;
-    containerEmptyMessage.hidden = true;
+    cartItemsList.hidden = false;
+    cartItemsEmptyMessage.hidden = true;
   }
 }
 

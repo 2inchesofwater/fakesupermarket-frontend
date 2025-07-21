@@ -1,8 +1,11 @@
 // js/pages/checkout.js
 
-import { renderCartItems } from '../cart/renderCartItems.js';
-import { createCheckoutCartItem } from '../cart/cartItemTemplates.js';
-import { updateCartSubtotal } from '../cart/utils.js';
+import Cart from '/js/cart/cart.js';
+import { updateCartUI } from '/js/cart/cart-usage.js';
+
+const cart = new Cart({ products, storefront });
+cart.load();
+cart.setUpdateHandler(updateCartUI);
 
 document.addEventListener('DOMContentLoaded', () => {
   const checkoutList = document.getElementById('checkout-cart-items');
