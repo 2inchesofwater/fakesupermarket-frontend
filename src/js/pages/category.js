@@ -5,14 +5,16 @@ const importProductCardsPath = `/js/components/${storefront.storefrontType}/prod
 
 import Cart from '/js/cart/cart.js';
 import { updateCartUI } from '/js/cart/cart-usage.js';
-import { renderCartSummaryModal, onCartModalOpen, openCartSummary } from '/js/pages/cart-overlay.js';
+import { initCartOverlay, renderCartSummaryModal, onCartModalOpen, openCartSummary } from '/js/pages/cart-overlay.js';
 
 
 const cart = new Cart({ products, storefront });
 cart.load();
 cart.setUpdateHandler(updateCartUI);
+initCartOverlay(cart);
 updateCartUI(cart);
 renderCartSummaryModal(cart);
+
 
 import(importProductCardsPath).then(module => {
   module.renderProductCards(products, storefront, container);

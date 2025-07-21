@@ -4,7 +4,6 @@ const subtotalAmount = document.getElementById('cart-subtotal-amount');
 
 // UI update function 
 export function updateCartUI(cartInstance) {
-  // Update cart badge/tally in header
   const badge = document.querySelector('.badge.badge-tally');
   const tally = document.getElementById('cart-tally');
   const totalEl = document.getElementById('cart-total');

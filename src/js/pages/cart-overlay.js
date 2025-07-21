@@ -4,7 +4,7 @@ const cartSummary = document.getElementById('cartSummary-modal');
 
 const cartSummaryList = document.getElementById('cart-item-products');
 
-import { renderCartSummaryList } from '/js/cart/cart-usage.js';
+import { renderCartSummaryList, updateCartUI } from '/js/cart/cart-usage.js';
 
 
 export function renderCartSummaryModal(cart) {
@@ -20,7 +20,7 @@ export function getProductBySku(sku) {
 }
 
 export function onCartModalOpen(cart) {
-  const freshCart = loadCartFromStorage();
+  const freshCart = cart.load();
   Object.assign(cart, freshCart);
   renderCartSummaryModal(cart);
 } 
@@ -63,7 +63,7 @@ function updateCartFooter(cart) {
 
 export function openCartSummary(cart) {
   window.dispatchEvent(new Event('show-backdrop'));
-  updateCartSummary(cart);
+  renderCartSummaryModal(cart);
   cartSummary.hidden = false;
   cartSummary.classList.remove('closed');
   cartSummary.classList.add('open');
@@ -89,15 +89,16 @@ const continueBtn = document.getElementById('cart-continue-shopping');
 continueBtn?.addEventListener('click', closeCartSummary);
 closeBtn.addEventListener('click', closeCartSummary);
 
-openBtn.addEventListener('click', () => {
-  console.log("clicked");
-  onCartModalOpen(cart);      // ← refresh cart summary with latest localStorage
-  openCartSummary(cart);      // ← open the modal
-});
+export function initCartOverlay(cart) {
+  openBtn.addEventListener('click', () => {
+    onCartModalOpen(cart);      // ← refresh cart summary with latest localStorage
+    openCartSummary(cart);      // ← open the modal
+  });
+}
 
 // ESC key closes cartSummary
 document.addEventListener('keydown', (e) => {
   if (!cartSummary.hidden && (e.key === "Escape" || e.key === "Esc")) {
-    closeModal();
+    closeCartSummary();
   }
 });
