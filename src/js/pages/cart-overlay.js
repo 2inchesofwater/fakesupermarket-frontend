@@ -4,8 +4,11 @@ const cartSummary = document.getElementById('cartSummary-modal');
 
 const cartSummaryList = document.getElementById('cart-item-products');
 
+import { renderCartSummaryList } from '/js/cart/cart-usage.js';
+
+
 export function renderCartSummaryModal(cart) {
-  renderCartItems(cartSummaryList, createModalCartItem);
+  renderCartSummaryList(cart, cartSummaryList);
   updateCartItemCount(cart);
   updateCartSubtotal(cart, 'cart-subtotal-amount');
   updateCartFooter(cart);
@@ -29,6 +32,22 @@ function updateCartItemCount(cart) {
   const totalItems = cart.totalItems || 0;
   const label = totalItems === 1 ? 'item' : 'items';
   tallyElement.innerHTML = `<strong>${totalItems}</strong> ${label}`;
+}
+
+function updateCartSubtotal(cart, subtotalId = 'cart-subtotal-amount') {
+  // cart: cart object with items and their price/qty
+  // id: the DOM element id where the subtotal should be updated
+  const subtotal = Object.values(cart.items).reduce((acc, item) => {
+    return acc + item.price * item.quantity;
+  }, 0);
+  const el = document.getElementById(subtotalId);
+  if (el) {
+    el.textContent = subtotal.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD"
+    });
+  }
+  return subtotal;
 }
 
 function updateCartFooter(cart) {
