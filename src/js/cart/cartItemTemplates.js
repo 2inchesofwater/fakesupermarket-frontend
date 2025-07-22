@@ -32,7 +32,7 @@ export function createBaseCartItem(cart, sku) {
         <h3 id="product-${product.productSku}" class="cart-item-headline-productName">
           <a href="/product/${product.productSlug}">${product.productName}</a>
         </h3>
-        <button class="btn btn-icon btn-variant-recessive">
+        <button class="btn control-remove btn-icon btn-variant-recessive">
           <span class="sr-only">Remove ${product.productName}</span>
           <div class="intent-removeItem"></div>
         </button>

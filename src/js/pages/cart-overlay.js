@@ -8,7 +8,7 @@ import { renderCartSummaryList, updateCartUI } from '/js/cart/cart-usage.js';
 export function renderCartSummaryModal(cart) {
   renderCartSummaryList(cart);
   updateCartItemCount(cart);
-  updateCartSubtotal(cart, 'cart-subtotal-amount');
+  updateCartSubtotal(cart);
   updateCartFooter(cart);
 }
 
@@ -17,7 +17,7 @@ export function getProductBySku(sku) {
   return products.find(p => p.productSku === sku);
 }
 
-export function updateCartSubtotal(cart, targetElementId) {
+export function updateCartSubtotal(cart, targetElementId = 'cart-subtotal-amount') {
   const subtotalElement = document.getElementById(targetElementId);
   if (!subtotalElement) return;
 
@@ -81,12 +81,12 @@ const continueBtn = document.getElementById('cart-continue-shopping');
 continueBtn?.addEventListener('click', closeCartSummary);
 closeBtn.addEventListener('click', closeCartSummary);
 
-export function initCartOverlay(cart) {
-  openBtn.addEventListener('click', () => {
-    onCartModalOpen(cart);      // ← refresh cart summary with latest localStorage
-    openCartSummary(cart);      // ← open the modal
-  });
-}
+// export function initCartOverlay(cart) {
+//   openBtn.addEventListener('click', () => {
+//     onCartModalOpen(cart);      // ← refresh cart summary with latest localStorage
+//     openCartSummary(cart);      // ← open the modal
+//   });
+// }
 
 // ESC key closes cartSummary
 document.addEventListener('keydown', (e) => {
