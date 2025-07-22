@@ -1,10 +1,14 @@
-// js/cart/cartItemTemplates.js
+// Expects: cart = Cart instance, sku = string
+// Does NOT bind events—just returns the DOM node.
 
-function formatPrice(amount) {
-  return `${storefront.currencySymbol || '$'}${parseFloat(amount).toFixed(2)}`;
-}
+import { cloneIconTemplate } from '/js/utils/cloneIcon.js'; 
 
-function createBaseCartItem(product, quantity) {
+export function createBaseCartItem(cart, sku) {
+  const item = cart.items[sku];
+  if (!item) return null;
+  const product = cart.getProductBySku(sku);
+  if (!product) return null;
+  const quantity = item.quantity;
   const price = product.priceCurrent ?? product.priceRrp;
   const savings = product.priceRrp && product.priceCurrent
     ? (parseFloat(product.priceRrp) - parseFloat(product.priceCurrent)).toFixed(2)
@@ -18,10 +22,10 @@ function createBaseCartItem(product, quantity) {
   li.innerHTML = `
     <div class="cart-item-thumbnail">
       <img 
-        src="pages/${storefront.slug}/${product.images}" 
+        src="pages/${cart.storefront.slug}/${product.images}" 
         alt="${product.imagesVisualDescription || product.productName}" 
-        width="${storefront.productCardImageSize.width}" 
-        height="${storefront.productCardImageSize.height}">
+        width="${cart.storefront.productCardImageSize.width}" 
+        height="${cart.storefront.productCardImageSize.height}">
     </div>
     <div class="cart-item-details">
       <div class="cart-item-headline">
@@ -49,14 +53,14 @@ function createBaseCartItem(product, quantity) {
         <div class="cart-item-pricing">
           ${savings ? `
             <div class="cart-item-pricing-savings">
-              <div class="badge badge-positive">Save ${formatPrice(savings)}</div>
+              <div class="badge badge-positive">Save ${cart.formatPrice(savings)}</div>
             </div>
             <div class="cart-item-pricing-rrp">
-              <span>Was ${formatPrice(product.priceRrp)}</span>
+              <span>Was ${cart.formatPrice(product.priceRrp)}</span>
             </div>
           ` : ''}
         </div>
-        <div class="cart-item-subtotal">${formatPrice(price * quantity)}</div>
+        <div class="cart-item-subtotal">${cart.formatPrice(price * quantity)}</div>
       </div>
     </div>
   `;
@@ -64,8 +68,9 @@ function createBaseCartItem(product, quantity) {
   return li;
 }
 
-export function createModalCartItem(product, quantity) {
-  const li = createBaseCartItem(product, quantity);
+export function createModalCartItem(cart, sku) {
+  const li = createBaseCartItem(cart, sku);
+  if (!li) return null;
 
   li.querySelector('.intent-removeItem')?.appendChild(cloneIconTemplate('icon-x'));
   li.querySelector('.intent-minusItem')?.appendChild(cloneIconTemplate('icon-minus'));
@@ -74,8 +79,9 @@ export function createModalCartItem(product, quantity) {
   return li;
 }
 
-export function createCheckoutCartItem(product, quantity) {
-  const li = createBaseCartItem(product, quantity);
+export function createCheckoutCartItem(cart, sku) {
+  const li = createBaseCartItem(cart, sku);
+  if (!li) return null;
 
   const extra = document.createElement('div');
   extra.className = 'checkout-cart-item-extra';

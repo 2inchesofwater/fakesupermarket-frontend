@@ -2,13 +2,11 @@ const openBtn = document.getElementById('btn-modalCart');
 const closeBtn = document.getElementById('cart-modal-close');
 const cartSummary = document.getElementById('cartSummary-modal');
 
-const cartSummaryList = document.getElementById('cart-item-products');
-
 import { renderCartSummaryList, updateCartUI } from '/js/cart/cart-usage.js';
 
 
 export function renderCartSummaryModal(cart) {
-  renderCartSummaryList(cart, cartSummaryList);
+  renderCartSummaryList(cart);
   updateCartItemCount(cart);
   updateCartSubtotal(cart, 'cart-subtotal-amount');
   updateCartFooter(cart);

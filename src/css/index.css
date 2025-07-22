@@ -1644,17 +1644,17 @@ h1 {
   color: var(--color-text-tertiary);
 }
 
-#cart-modal-items .wrapper {
+#cart-overlay-items .wrapper {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
 }
-#cart-modal-items #cart-item-products {
+#cart-overlay-items #cart-products {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-3xs);
 }
-#cart-modal-items #cart-item-products .cart-item-product {
+#cart-overlay-items #cart-products .cart-item-product {
   display: flex;
   flex-direction: row;
   gap: var(--spacing-sm);
@@ -1662,29 +1662,29 @@ h1 {
   border-block-start: var(--thickness-sm) solid var(--color-border-light);
   border-block-end: var(--thickness-sm) solid var(--color-border-light);
 }
-#cart-modal-items #cart-item-products .cart-item-thumbnail {
+#cart-overlay-items #cart-products .cart-item-thumbnail {
   width: 100%;
   max-width: var(--spacing-3xl);
   height: var(--spacing-3xl);
 }
-#cart-modal-items #cart-item-products .cart-item-thumbnail img {
+#cart-overlay-items #cart-products .cart-item-thumbnail img {
   max-width: 100%;
   max-height: 100%;
 }
-#cart-modal-items #cart-item-products .cart-item-details {
+#cart-overlay-items #cart-products .cart-item-details {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
   flex: 1;
 }
-#cart-modal-items #cart-item-products .cart-item-headline,
-#cart-modal-items #cart-item-products .cart-item-controls {
+#cart-overlay-items #cart-products .cart-item-headline,
+#cart-overlay-items #cart-products .cart-item-controls {
   display: flex;
   flex-direction: row;
   gap: var(--spacing-sm);
   align-items: center;
 }
-#cart-modal-items #cart-item-products .cart-item-headline .cart-item-headline-productName {
+#cart-overlay-items #cart-products .cart-item-headline .cart-item-headline-productName {
   flex: 1;
   font-size: var(--size-md);
   font-weight: var(--weight-bold);
@@ -1692,28 +1692,28 @@ h1 {
   color: var(--color-text-primary);
   margin-bottom: 0;
 }
-#cart-modal-items #cart-item-products .cart-item-headline .cart-item-headline-productName a {
+#cart-overlay-items #cart-products .cart-item-headline .cart-item-headline-productName a {
   text-decoration-color: transparent;
   text-underline-offset: var(--spacing-3xs);
   transition: var(--transition-md);
 }
-#cart-modal-items #cart-item-products .cart-item-headline .cart-item-headline-productName a:hover {
+#cart-overlay-items #cart-products .cart-item-headline .cart-item-headline-productName a:hover {
   text-decoration-color: var(--color-brand-secondary);
 }
-#cart-modal-items #cart-item-products .cart-item-pricing {
+#cart-overlay-items #cart-products .cart-item-pricing {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 2;
 }
-#cart-modal-items #cart-item-products .cart-item-pricing .cart-item-pricing-savings > .badge {
+#cart-overlay-items #cart-products .cart-item-pricing .cart-item-pricing-savings > .badge {
   font-size: var(--size-xs);
 }
-#cart-modal-items #cart-item-products .cart-item-pricing .cart-item-pricing-rrp {
+#cart-overlay-items #cart-products .cart-item-pricing .cart-item-pricing-rrp {
   font-size: var(--size-xs);
   color: var(--color-text-tertiary);
 }
-#cart-modal-items #cart-item-products .cart-item-controls .cart-item-subtotal {
+#cart-overlay-items #cart-products .cart-item-controls .cart-item-subtotal {
   flex: 1;
   text-align: right;
   font-size: var(--size-lg);

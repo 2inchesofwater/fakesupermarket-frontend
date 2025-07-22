@@ -1,5 +1,9 @@
-const cartItemsList = document.getElementById('cart-modal-items');
+import { createModalCartItem } from '/js/cart/cartItemTemplates.js';
+
+const cartSummary = document.getElementById('cartSummary-modal');
+const cartItemsBody = document.getElementById('cart-overlay-items');
 const cartItemsEmptyMessage = document.getElementById('cart-message-empty');
+const cartItemsList = document.getElementById('cart-products');
 const subtotalAmount = document.getElementById('cart-subtotal-amount');
 
 // UI update function 
@@ -20,9 +24,7 @@ export function updateCartUI(cartInstance) {
   if (tally) tally.textContent = cartInstance.totalItems;
   if (totalEl) totalEl.textContent = cartInstance.formatPrice(cartInstance.totalCost);
 
-  const cartSummary = document.getElementById('cartSummary-modal');
   if (cartSummary && !cartSummary.hidden) {
-    // Import or reference your renderCartSummaryModal function here
     renderCartSummaryList(cartInstance);
   }
 }
@@ -30,29 +32,27 @@ export function updateCartUI(cartInstance) {
 // Example: Render cart items in modal/summary
 export function renderCartSummaryList(cartInstance) {
   cartItemsList.innerHTML = '';
-  for (const [sku, item] of Object.entries(cartInstance.items)) {
-    const product = cartInstance.getProductBySku(sku);
-    if (product) {
-      const li = document.createElement('li');
-      li.textContent = `${product.productName} x ${item.quantity} = ${cartInstance.formatPrice((product.priceCurrent ?? product.priceRrp) * item.quantity)}`;
+  for (const sku of Object.keys(cartInstance.items)) {
+    const li = createModalCartItem(cartInstance, sku);
+    if (li) {
       cartItemsList.appendChild(li);
     }
   }
   // Show/hide empty message
   if (Object.keys(cartInstance.items).length === 0) {
-    cartItemsList.hidden = true;
+    cartItemsBody.hidden = true;
     cartItemsEmptyMessage.hidden = false;
   } else {
-    cartItemsList.hidden = false;
+    cartItemsBody.hidden = false;
     cartItemsEmptyMessage.hidden = true;
   }
 }
 
 // Wire up quantity controls in cart summary/checkout
-// Wire up quantity controls in cart summary/checkout
 document.addEventListener('click', function (e) {
   let cartChanged = false;
   if (e.target.matches('.control-plus')) {
+    console.log('added');
     const sku = e.target.closest('.cart-item-product')?.id?.replace('cart-item-product-', '');
     if (sku) {
       cart.addItem(sku, 1);

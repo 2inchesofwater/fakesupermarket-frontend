@@ -1,11 +1,11 @@
-#cart-modal-items {
+#cart-overlay-items {
 	.wrapper {
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-md);
 	}
 
-	#cart-item-products {
+	#cart-products {
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-3xs);
