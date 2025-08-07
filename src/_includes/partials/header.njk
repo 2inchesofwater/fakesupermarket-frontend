@@ -35,10 +35,10 @@
       </div>
 
       <div id="header-cart">
-        <button id="btn-modalCart" class="btn btn-cart" href="pages/{{ storefront.slug }}/cart" class="cart" aria-label="Shopping cart summary">
+        <button id="header-cartBtn" class="btn btn-cart" href="pages/{{ storefront.slug }}/cart" class="cart" aria-label="Shopping cart summary">
           <span class="cart-icon" aria-hidden="true">🛒</span>
-          <span class="cart-value"><span id="cart-total">$0.00</span><span class="sr-only"> worth of items in the cart</span></span>
-          <span hidden class="badge badge-tally"><span class="sr-only">And there's:</span><span id="cart-tally">0</span><span class="sr-only"> items in the cart</span></span>
+          <span class="cart-value"><span id="header-cartBtn-subtotal">$0.00</span><span class="sr-only"> worth of items in the cart</span></span>
+          <span hidden class="badge badge-tally" id="header-cartBtn-badge"><span class="sr-only">And there's:</span><span id="header-cartBtn-tally">0</span><span class="sr-only"> items in the cart</span></span>
         </button>
       </div>        
     </nav>

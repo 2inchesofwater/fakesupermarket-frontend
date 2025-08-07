@@ -58,10 +58,10 @@
 		border-color: var(--color-border-default);
 		padding: var(--spacing-xs);
 		aspect-ratio: 1 / 1;
-		color: var(--color-text-tertiary);
+		color: var(--color-text-secondary);
 		> svg > * {
-			fill: var(--color-text-tertiary);
-			stroke: var(--color-text-tertiary);
+			fill: var(--color-text-secondary);
+			stroke: var(--color-text-secondary);
 		}
 		line-height: 0;
 		text-decoration: none;
@@ -71,15 +71,18 @@
 			text-decoration: none;
 		}
 		&.btn-variant-recessive {
-
 			svg {
 				width: var(--spacing-sm);
-			}
+			}			
 		}
 	}
 	&.btn-variant-recessive {
 		border-color: transparent;
-		padding: var(--spacing-2xs);		
+		padding: var(--spacing-2xs);
+		svg > * {
+			fill: var(--color-text-tertiary);
+			stroke: var(--color-text-tertiary);
+		}				
 	}	
 }
 

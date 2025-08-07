@@ -1,68 +1,59 @@
-import { onCartModalOpen, openCartSummary, updateCartSubtotal } from '/js/pages/cart-overlay.js';
+
+
+const cartSummary = document.getElementById('cart-summary');
+const cartSummaryProducts = document.getElementById('cart-summary-products');
+const cartSummaryProductsList = document.getElementById('cart-summary-products-list');
+const cartSummaryProductsEmptyMsg = document.getElementById('cart-summary-products-empty');
+const cartSummarySubtotalAmount = document.getElementById('cart-summary-subtotal-amount');
+
+// import { activateCheckoutBtn } from '/js/pages/cart-overlay.js';
 import { createModalCartItem } from '/js/cart/cartItemTemplates.js';
 
-const cartSummary = document.getElementById('cartSummary-modal');
-const cartItemsBody = document.getElementById('cart-overlay-items');
-const cartItemsEmptyMessage = document.getElementById('cart-message-empty');
-const cartItemsList = document.getElementById('cart-products');
-const subtotalAmount = document.getElementById('cart-subtotal-amount');
 
-// UI update function 
-export function updateCartUI(cartInstance) {
-  const badge = document.querySelector('.badge.badge-tally');
-  const tally = document.getElementById('cart-tally');
-  const totalEl = document.getElementById('cart-total');
-
-  if (badge) {
-    if (cartInstance.totalItems > 0) {
-      badge.hidden = false;
-      badge.textContent = cartInstance.totalItems;
-    } else {
-      badge.textContent = '';
-      badge.hidden = true;
-    }
-  }
-  if (tally) tally.textContent = cartInstance.totalItems;
-  if (totalEl) totalEl.textContent = cartInstance.formatPrice(cartInstance.totalCost);
-
-  if (cartSummary && !cartSummary.hidden) {
-    renderCartSummaryList(cartInstance);
-    updateCartSubtotal(cartInstance);
-  }
+export function renderCartSummary(cartInstance) {
+  renderCartSummaryList(cartInstance);
+  updateCartSubtotal(cartInstance, { el: cartSummarySubtotalAmount });
 }
 
-// Example: Render cart items in modal/summary
-export function renderCartSummaryList(cartInstance) {
-  cartItemsList.innerHTML = '';
+export function getProductBySku(sku) {
+  return products.find(p => p.productSku === sku);
+}
+
+
+
+export function renderCartSummaryList(cartInstance) {  
+  if (!cartSummaryProductsList) return;
+
+  cartSummaryProductsList.innerHTML = '';
   for (const sku of Object.keys(cartInstance.items)) {
     const li = createModalCartItem(cartInstance, sku);
     if (li) {
-      cartItemsList.appendChild(li);
+      cartSummaryProductsList.appendChild(li);
     }
   }
-  // Show/hide empty message
+
+  
   if (Object.keys(cartInstance.items).length === 0) {
-    cartItemsBody.hidden = true;
-    cartItemsEmptyMessage.hidden = false;
+    cartSummary.classList.add('empty');
+    cartSummaryProducts.hidden = true;
+    cartSummaryProductsEmptyMsg.hidden = false;
   } else {
-    cartItemsBody.hidden = false;
-    cartItemsEmptyMessage.hidden = true;
+    cartSummary.classList.remove('empty');
+    cartSummaryProducts.hidden = false;
+    cartSummaryProductsEmptyMsg.hidden = true;
   }
 }
 
-export function bindCartEvents(cartInstance, { addItemToCart = '.add-to-cart', openCloseCartOverlay = 'btn-modalCart' } = {}) {
-  document.addEventListener('DOMContentLoaded', () => {
-  const openCloseBtn = document.getElementById(openCloseCartOverlay);
-    if (!openCloseBtn) {
-      // console.error("Cart open button not found in DOM");
-      return;
-    }
-    openCloseBtn.addEventListener('click', () => {
-      onCartModalOpen(cartInstance);
-      openCartSummary(cartInstance);
-    });
-  });
+function updateCartSubtotal(cartInstance, { el = null } = {}) {
+  if (!el) return;
 
+  const currency = storefront.currencySymbol || '$';
+  const subtotal = parseFloat(cartInstance.totalCost || 0).toFixed(2);
+
+  el.textContent = cartInstance.formatPrice(cartInstance.totalCost);
+}
+
+export function bindCartEvents(cartInstance, { addItemToCart = '.btn.add-to-cart' } = {}) {
   document.addEventListener('click', function (e) {
     if (e.target.closest(addItemToCart)) {
       const sku = e.target.dataset.sku;
@@ -86,7 +77,7 @@ export function bindCartEvents(cartInstance, { addItemToCart = '.add-to-cart', o
       }
     }
     if (e.target.closest('.control-remove')) { 
-      console.log('remove');
+      // console.log('remove');
       const sku = e.target.closest('.cart-item-product')?.id?.replace('cart-item-product-', '');
       if (sku) {
         cartInstance.removeItem(sku);
@@ -99,7 +90,11 @@ export function bindCartEvents(cartInstance, { addItemToCart = '.add-to-cart', o
         cartChanged = true;
       }
     }
-    if (cartChanged) updateCartUI(cartInstance);
+    if (cartChanged) {
+      //renderCartSummary(cartInstance);
+      const evt = new CustomEvent('cartChanged', { detail: { cartInstance } });
+      document.dispatchEvent(evt);
+    }
   });
 
   document.addEventListener('change', function (e) {
@@ -107,48 +102,9 @@ export function bindCartEvents(cartInstance, { addItemToCart = '.add-to-cart', o
       const sku = e.target.name.replace('control-product-quantity-input-', '');
       const val = parseInt(e.target.value, 10);
       if (sku && !isNaN(val)) {
-        cart.updateItemQuantity(sku, val);
-        updateCartUI(cart);
+        cartInstance.updateItemQuantity(sku, val);
+        renderCartSummary(cartInstance);
       }
     }
   });
 }
-
-// Wire up quantity controls in cart summary/checkout
-document.addEventListener('click', function (e) {
-  // let cartChanged = false;
-  // if (e.target.matches('.control-plus')) {
-  //   console.log('added');
-  //   const sku = e.target.closest('.cart-item-product')?.id?.replace('cart-item-product-', '');
-  //   if (sku) {
-  //     cart.addItem(sku, 1);
-  //     cartChanged = true;
-  //   }
-  // }
-  // if (e.target.matches('.control-minus')) {
-  //   const sku = e.target.closest('.cart-item-product')?.id?.replace('cart-item-product-', '');
-  //   if (sku && cart.items[sku]) {
-  //     cart.updateItemQuantity(sku, cart.items[sku].quantity - 1);
-  //     cartChanged = true;
-  //   }
-  // }
-  // if (e.target.matches('.btn-variant-recessive')) { // Remove item
-  //   const sku = e.target.closest('.cart-item-product')?.id?.replace('cart-item-product-', '');
-  //   if (sku) {
-  //     cart.removeItem(sku);
-  //     cartChanged = true;
-  //   }
-  // }
-  // if (e.target.matches('.btn-remove-all')) { // Remove all items (confirmation dialog)
-  //   if (window.confirm('Remove all items from cart?')) {
-  //     cart.removeAll();
-  //     cartChanged = true;
-  //   }
-  // }
-  // if (cartChanged) updateCartUI(cart);
-});
-
-// Wire up quantity input fields
-
-
-

@@ -1,0 +1,24 @@
+<fieldset role="radiogroup" class="radiogroup" aria-label="Available time slots for the selected day">
+  {% set radioIdx = 0 %}
+
+  {% for section in slots %}
+    <h3>{{ section.heading }}</h3>
+    <div class="radio-subgroup">
+      {% for slot in section.times %}
+        {% set radioIdx = radioIdx + 1 %}
+
+        <label for="{{ slotsID }}-{{ radioIdx }}" class="radio">
+          <input type="radio" name="{{slotsID}}-{{ radioIdx }}" id="{{ slotsID }}-{{ radioIdx }}" value="{{ slot.value }}"
+            {% if radioIdx == 2 %}checked{% endif %}>
+          <span class="slot">{{ slot.label }}</span>
+          {% if slot.date %}
+            <span class="date">{{ slot.date }}</span>
+          {% endif %}
+          {% if slot.cost %}
+            <span class="cost">{{ slot.cost }}</span>
+          {% endif %}
+        </label>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</fieldset>

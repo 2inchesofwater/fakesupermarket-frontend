@@ -1,11 +1,11 @@
-#cart-overlay-items {
+#cart-summary-products {
 	.wrapper {
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-md);
 	}
 
-	#cart-products {
+	#cart-summary-products-list {
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-3xs);
@@ -46,7 +46,7 @@
 			.cart-item-headline-productName {
 				flex: 1;
 				font-size: var(--size-md);
-				font-weight: var(--weight-bold);
+				font-weight: var(--weight-regular);
 				line-height: 1;
 				color: var(--color-text-primary);
 				margin-bottom: 0;
@@ -83,7 +83,7 @@
 				flex: 1;
 				text-align: right;
 				font-size: var(--size-lg);
-				font-weight: var(--weight-bold);
+				font-weight: var(--weight-regular);
 				line-height: 1;
 				color: var(--color-text-secondary);				
 			}

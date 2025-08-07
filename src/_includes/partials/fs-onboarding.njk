@@ -1,0 +1,51 @@
+<div id="fs-modalBackdrop" aria-hidden></div>
+
+<div id="fs-onboarding" role="dialog" aria-modal="true" aria-labelledby="onboarding-title">
+  
+  <!-- Stage 1: Sign Up / Log In -->
+  <section id="onboarding-wrapper" role="region" aria-labelledby="onboarding-title">
+    <header>
+      <h1 id="fakesupermarket-logo" aria-label="Fake Supermarket">{% include "partials/logo/fakesupermarket-roundel.njk" %}</h1>
+    </header>
+
+    <region id="onboarding-wrapper-outer">
+      <div id="onboarding-wrapper-inner">
+        <div id="onboarding-researchPrompt">
+          <p id="onboarding-welcome">{{ storefront.fakesupermarket.welcomeMessage }}</p> 
+          <h2 class="researchPrompt-headline">{{ storefront.study.task.instructionTitle | safe }}</h2>
+          {% if storefront.study.task.instructionDetail %}
+            <ul class="researchPrompt-detail">
+              {% for item in storefront.study.task.instructionDetail %}
+                <li>{{ item | safe }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          </p>
+        </div>
+
+        <div id="onboarding-actions">
+          <button class="fs-btn fs-btn-primary">
+            <span class="label">I can do that</span>
+          </button>
+        </div>
+        <div id="onboarding-help">
+          <p><a href="#" target="_blank">Explainer: What am I meant to do?</a>
+        </p>
+        </div>
+      </div>
+    </region>
+  </section>
+
+
+  <region id="onboarding-animationControls">
+    <button class="fs-btn fs-btn-secondary" aria-labelledBy="onboarding-animationControls-play">
+      <span class="icon">{% include "partials/icons/play.njk" %}
+      <span class="label" id="onboarding-animationControls-play" aria-label="Allow animation: The background will gently scroll.">Allow animation</span>
+    </button>
+    <button hidden class="fs-btn fs-btn-secondary" aria-labelledBy="onboarding-animationControls-pause">
+      <span class="icon">{% include "partials/icons/pause.njk" %}
+      <span class="label" id="onboarding-animationControls-pause">Pause animation</span> 
+    </button>      
+  </region>
+
+</div>

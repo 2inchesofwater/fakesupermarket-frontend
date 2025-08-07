@@ -19,24 +19,34 @@
 						</h3>
 						<span id="step-review-status"></span>
 					</summary>
-					<div class="step-details-panel">
-						<ul id="checkout-cart-items" class="checkout-cart-summary">
-						  <!-- Cart items go here -->
-						</ul>
+					<div id="cart-summary" class="step-details-panel">
+						<div id="cart-summary-products">
+							<ul id="cart-summary-products-list" class="checkout-cart-summary">
+							  <!-- Cart items go here -->
+							</ul>
+
+						</div>
+						{% include "partials/cartSummary-empty.njk" %}
 					</div>
+					<section id="paymentFlow-summary-actions" aria-label="Confirm that the items in your cart are correct and final.">
+						<button class="btn btn.primary"><span class="sr-only">Confirm – </span>Yes, all good</button>
+					</section>					
 				</details>
 
 				<details open name="paymentFlow-delivery" id="paymentFlow-delivery" class="paymentFlow-step">
 					<summary>
 						<h3>
 							<span class="step-number">2</span>
-							<span class="step-title">Delivery</span>
+							<span class="step-title">{{ storefront.checkoutLabelDeliveryService }} / {{ storefront.checkoutLabelCollectionService }}</span>
 						</h3>
 						<span id="step-delivery-status"></span>
 					</summary>
-					<div class="step-details-panel">
-
-					</div>					
+					<section id="shipping" class="step-details-panel">
+						{% include "partials/checkout-shipping.njk" %}	
+					</section>
+					<section id="paymentFlow-shipping-actions" aria-label="Confirm that the (fake) settings in the {{ storefront.checkoutLabelDeliveryService }} slash {{ storefront.checkoutLabelCollectionService }} section are correct and final.">
+						<button class="btn btn.primary"><span class="sr-only">Confirm – </span>Yes, all good</button>
+					</section>				
 				</details>
 
 				<details open name="paymentFlow-payment" id="paymentFlow-payment" class="paymentFlow-step">
@@ -47,10 +57,13 @@
 						</h3>
 						<span id="step-review-status"></span>
 					</summary>
-					<div class="step-details-panel">
-
-					</div>					
-				</details>
+					<section id="paymentFlow-payment-options" class="step-details-panel">
+						{% include "partials/checkout-payment.njk" %}
+					</section>					
+						<section id="paymentFlow-payment-actions" aria-label="Confirm that your (fake) payment settings are correct and final.">
+							<button class="btn btn.primary"><span class="sr-only">Confirm – </span>Yes, all good</button>
+						</section>					
+					</details>
 			</section>
 
 			<section aria-labelledby="paymentFlow-orderSummary-heading" id="orderSummary">
@@ -60,11 +73,11 @@
 	</main>
 
   {% include "partials/footer.njk" %}
+  {% include "partials/json-storefront.njk" %}
+  {% include "partials/json-productCards.njk" %}  
 	{% include "partials/template-svg.njk" %}
 
   <script type="module" src="/js/pages/checkout.js"></script>
-   <script>
-    const storefront = JSON.parse(document.getElementById('storefront').textContent);
-    const products = JSON.parse(document.getElementById('products').textContent);
-  </script>
+  <script type="module" src="/js/utils/backdrop.js" ></script>
+
 {% endblock %}

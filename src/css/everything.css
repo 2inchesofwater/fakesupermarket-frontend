@@ -1,7 +1,5 @@
 @charset "UTF-8";
 :root {
-  /* Brand colors */
-  /* Color Theme Swatches in HSLA */
   --palette-beer: hsla(33, 89%, 51%, 1);
   --palette-creamBlush: hsla(28, 77%, 77%, 1);
   --palette-fieryGlow: hsla(16, 89%, 53%, 1);
@@ -24,9 +22,22 @@
   --color-neutrals-700: hsla(28, 46%, 34%, 1);
   --color-neutrals-800: hsla(33, 24%, 24%, 1);
   --color-neutrals-900: var(--palette-charcoalNero);
-  --color-shadow-light: hsla(22, 68%, 43%, 0.1);
-  --color-shadow-dark: hsla(28, 46%, 34%, 0.2);
-  --color-backdrop-default: hsla(35, 6%, 22%, 0.75);
+  --color-grays-000: var(--color-white);
+  --color-grays-025: hsla(0, 0%, 98%, 1);
+  --color-grays-050: hsla(0, 0%, 96%, 1);
+  --color-grays-075: hsla(0, 0%, 93%, 1);
+  --color-grays-100: hsla(0, 0%, 91%, 1);
+  --color-grays-200: hsla(0, 0%, 81%, 1);
+  --color-grays-300: hsla(0, 0%, 72%, 1);
+  --color-grays-400: hsla(0, 0%, 62%, 1);
+  --color-grays-500: hsla(0, 0%, 53%, 1);
+  --color-grays-600: hsla(0, 0%, 43%, 1);
+  --color-grays-700: hsla(0, 0%, 34%, 1);
+  --color-grays-800: hsla(0, 0%, 24%, 1);
+  --color-grays-900: hsla(0, 0%, 14%, 1);
+  --color-shadow-light: hsla(0, 0%, 43%, 0.1);
+  --color-shadow-dark: hsla(0, 0%, 34%, 0.2);
+  --color-backdrop-default: hsla(35, 0%, 22%, 0.75);
   /* Semantic color aliases */
   --color-brand-primary: var(--palette-fieryGlow);
   --color-brand-secondary: var(--palette-crisisRed);
@@ -39,12 +50,15 @@
   --color-background-page: var(--color-white);
   --color-background-header: var(--color-white);
   --color-background-footer: var(--color-background-subtle);
-  --color-border-light: var(--color-neutrals-100);
-  --color-border-default: var(--color-neutrals-200);
-  --color-border-strong: var(--color-neutrals-300);
+  --color-border-light: var(--color-grays-100);
+  --color-border-default: var(--color-grays-200);
+  --color-border-strong: var(--color-neutrals-200);
+  --color-panel-light: var(--color-grays-025);
+  --color-panel-default: var(--color-grays-050);
+  --color-panel-strong: var(--color-grays-100);
   --color-action-primary: var(--color-neutrals-500);
   --color-action-hover: var(--color-neutrals-600);
-  --color-action-pressed: var(--color-neutrals-700);
+  --color-action-pressed: var(--color-grays-900);
   --color-action-brand: var(--palette-fieryGlow);
   --color-focus-ring: hsla(348, 68%, 51%, 0.5);
   --color-link: var(--color-neutrals-700);
@@ -129,18 +143,18 @@
   font-family: "Abalos";
   src: url("../webfonts/Abalos/OTAbalos-Semibold.woff2") format("woff2"), url("../webfonts/Abalos/OTAbalos-Semibold.otf") format("otf");
 }
-body {
+html {
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: var(--weight-light);
 }
 @media (min-width: 500px) {
-  body {
+  html {
     font-size: 16px;
   }
 }
 @media (min-width: 1600px) {
-  body {
+  html {
     font-size: 18px;
   }
 }

@@ -1,16 +1,22 @@
-// js/pages/checkout.js
-
 import Cart from '/js/cart/cart.js';
-import { updateCartUI } from '/js/cart/cart-usage.js';
+import { renderCartSummary, bindCartEvents } from '/js/cart/cart-usage.js';
+import { panelSwitchViews } from '/js/utils/panel-switchViews.js';
+import { updateUpcomingDates } from '/js/utils/pills-updateUpcomingDates.js';
 
+const products = JSON.parse(document.getElementById('products').textContent);
+const storefront = JSON.parse(document.getElementById('storefront').textContent);
 const cart = new Cart({ products, storefront });
+
 cart.load();
-cart.setUpdateHandler(updateCartUI);
+renderCartSummary(cart);
+bindCartEvents(cart);
+panelSwitchViews('shipping-collection', 'shipping-delivery');
 
-document.addEventListener('DOMContentLoaded', () => {
-  const checkoutList = document.getElementById('checkout-cart-items');
-  if (!checkoutList) return;
+document.addEventListener('cartChanged', (e) => {
+  renderCartSummary(e.detail.cartInstance);
+});
 
-  renderCartItems(checkoutList, createCheckoutCartItem);
-  updateCartSubtotal(localCart, 'checkout-subtotal');
+document.addEventListener("DOMContentLoaded", () => {
+  updateUpcomingDates("collection-pills-dates");
+  updateUpcomingDates("delivery-pills-dates");
 });

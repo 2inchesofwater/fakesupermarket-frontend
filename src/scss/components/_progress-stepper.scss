@@ -6,13 +6,11 @@
 	details {
 		border-top: var(--thickness-sm) solid var(--color-border-default);
 		border-bottom: var(--thickness-sm) solid var(--color-border-default);
-		padding-inline-start: var(--spacing-sm);	
-		padding-inline-end: var(--spacing-sm);
-		padding-top: var(--spacing-sm);
-		padding-bottom: var(--spacing-sm);
-		transition: var(--transition-md);
-
-		font-size: var(--size-sm);
+		padding-inline-start: var(--spacing-md);	
+		padding-inline-end: var(--spacing-md);
+		padding-top: var(--spacing-lg);
+		padding-bottom: var(--spacing-lg);
+		transition: var(--transition-sm);
 
 		summary {
 			color: var(--color-text-tertiary);
@@ -27,22 +25,21 @@
 				display: inline-block;
 				margin-bottom: 0;
 				font-size: var(--size-lg);
+				font-weight: var(--weight-regular);
 			}
 		}
 
-		&:hover {
+		summary:hover {
 			cursor: pointer;
-			summary {
-				color: var(--color-action-hover);
-			}
+			color: var(--color-action-hover);
 		}
 
 		&[open] {
-			summary {
+			& > summary {
 				color: var(--color-text-primary);
-				margin-bottom: var(--spacing-xs);
+				margin-bottom: var(--spacing-md);
 				& > * {
-					font-weight: var(--weight-regular);
+					font-weight: var(--weight-bold);
 				}
 			}
 		}

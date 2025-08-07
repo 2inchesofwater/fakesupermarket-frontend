@@ -1,0 +1,19 @@
+details.disclosure-group {
+
+	padding-inline-start: var(--spacing-lg);
+	padding-inline-end: var(--spacing-lg);
+
+
+	summary {
+		font-size: var(--size-md);
+		font-weight: var(--weight-regular);
+		color: var(--color-text-secondary);
+	}
+	.disclosure-wrapper {
+		padding-inline-start: var(--spacing-lg);
+		padding-inline-end: var(--spacing-lg);		
+		padding-block-start: var(--spacing-sm);
+		padding-block-end: var(--spacing-lg);
+	
+	}
+}

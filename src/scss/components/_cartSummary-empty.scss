@@ -1,0 +1,20 @@
+#cart-summary-products-empty {
+	flex: 1;
+	.wrapper {
+		height:100%;
+		min-height: 50vh;
+		display: flex;
+		flex-direction: column;			
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+
+		.text-primary {
+			font-size: var(--size-lg);
+			font-weight: var(--weight-regular);
+		}
+		.text-secondary {
+			color: var(--color-text-secondary);
+		}
+	}
+}

@@ -1,0 +1,57 @@
+.pill-group {
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-xs);
+
+  overflow-x: scroll;
+  overflow-y: visible;
+  padding-top: var(--spacing-2xs);
+  padding-bottom: var(--spacing-2xs);
+}
+
+.pill {
+  // cursor: pointer;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  border: var(--thickness-md) solid var(--color-border-default);
+  transition: var(--transition-md);
+  // font-size: var(--size-md);
+  position: relative;
+
+  flex: 1;
+  align-content: stretch;
+  min-width: 9em;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    align-items: center;
+    color: var(--color-text-secondary);
+    .day {
+      font-size: var(--size-md);
+      font-weight: var(--weight-bold);
+    }
+  }
+}
+
+.pill input[type="radio"] {
+  appearance: none;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Style the label when the radio is checked */
+.pill:has(input[type="radio"]:checked) {
+  background: var(--color-action-pressed);
+  border-color: var(--color-white);
+  box-shadow: 0 0 0 3px var(--color-action-brand);
+}
+.pill input[type="radio"]:checked + label {
+  color: var(--color-white);
+
+}

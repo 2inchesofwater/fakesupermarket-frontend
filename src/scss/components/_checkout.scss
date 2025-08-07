@@ -31,4 +31,15 @@
       align-self: start;
     }
   }
+
+  #cart-summary-products,
+  #paymentFlow-payment-options {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  #paymentFlow-summary-actions,
+  #paymentFlow-shipping-actions,
+  #paymentFlow-payment-actions {
+    text-align: end;
+  }
 }

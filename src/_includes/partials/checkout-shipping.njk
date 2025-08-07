@@ -1,0 +1,56 @@
+	<div id="shipping-collection">
+		<div class="wrapper">
+			<div class="panel-overview ">
+				<div class="overview-icon">Icon</div>
+				<div id="shipping-collection-information" class="overview-information">
+					<p class="overview-serviceName">{{ storefront.checkoutLabelCollectionService }}</p>
+					<p disabled class="fs-unavailable"><strong>Fakersby North</strong><br>Fake Shopping Centre<br>222 Automation Drive, Fakersby</p>
+				</div>
+				<a href="#" class="">Change to: {{ storefront.checkoutLabelDeliveryService }}</a>
+			</div>
+			<hr>
+			<div id="collection-date">
+				<h3>Which day?</h3>
+				<div disabled id="collection-pills-dates" class="fs-unavailable pills pill-group">
+					{% set slotsID = "collection" %}
+					{% include "partials/pills-updateUpcomingDates.njk" %}
+				</div>
+			</div>
+			<div id="collection-time">
+				<h3>What time?</h3>
+				<div disabled id="collection-radio-times" class="fs-unavailable">
+					{% set slots = storefront.slotsCollection %}		
+					{% include "partials/radio-availableTimeSlots.njk" %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="shipping-delivery" hidden>
+		<div class="wrapper">
+			<div class="panel-overview ">
+				<div class="overview-icon">Icon</div>
+				<div id="shipping-delivery-information" class="overview-information">
+					<p class="overview-serviceName">{{ storefront.checkoutLabelDeliveryService }}</p>
+					<p disabled class="fs-unavailable"><strong>222 Holmans Road</strong><br>Fakersby VIC 3210</p>
+					<a disabled class="fs-unavailable" href="#">Other saved addresses</a>
+				</div>
+				<a href="#" class="">Change to: {{ storefront.checkoutLabelCollectionService }}</a>
+			</div>
+			<hr>
+			<div id="delivery-date">
+				<h3>Which day?</h3>
+				<div disabled id="delivery-pills-dates" class="fs-unavailable pills pill-group">
+					{% set nextFiveDates = "delivery-pills-dates" %}
+					{% set slotsID = "delivery" %}
+					{% include "partials/pills-updateUpcomingDates.njk" %}
+				</div>
+			</div>
+			<div id="delivery-time">
+				<h3>What time?</h3>
+				<div disabled id="delivery-radio-times" class="fs-unavailable">
+					{% set slots = storefront.slotsDelivery %}
+					{% include "partials/radio-availableTimeSlots.njk" %}
+				</div>
+			</div>
+			<div id="collection-confirmBtn"></div>			
+	</div>

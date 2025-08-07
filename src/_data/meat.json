@@ -1,4 +1,8 @@
 {
+  "fakesupermarket": {
+    "welcomeMessage": "What's in store today?",
+    "actionLabel": "Let's go shopping"
+  },
   "storefrontName": "Store",
   "storefrontType": "supermarket",
   "categoryTitle": "Meat, poultry, and seafood", 
@@ -45,6 +49,8 @@
   "productDetailsLabelRelated": "Customers also bought",
   "productDetailsShowRecommendations": true,
   "productDetailsLabelRecommendations": "You might also like these",
+  "checkoutLabelCollectionService": "Collect from store",
+  "checkoutLabelDeliveryService": "Delivery",
 
   "study": {
     "studyID": 1234567,
@@ -82,9 +88,12 @@
       }
     },
     "task": {
-      "instructionTitle": "What's for dinner?",
-      "instructionDetail": "Which item(s) will you buy as part of your grocery shopping next week?",
-      "actionLabel": "Let's go shopping!"
+      "instructionTitle": "Checkout with next week’s groceries.",
+      "instructionDetail": [
+        "You'll be shown typical products from the <strong>Meat, poultry, and seafood</strong> section of a supermarket.",
+        "Think about what you expect to buy in next week's groceries.",
+        "Go through the checkout with the products which you would buy for your household."
+      ]
     }
   },
 
@@ -468,5 +477,70 @@
         "productAverageRating": null,
         "productCountRatings": 0
       }
-    ] 
+    ],
+
+  "slotsCollection": [
+    {
+      "icon": "",
+      "heading": "Morning",
+      "times": [
+        { "label": "8am to 10am", "cost": "Free", "value": "slot1" },
+        { "label": "10am to 12pm", "cost": "Free", "value": "slot2" }
+      ]
+    },
+    {
+      "icon": "",
+      "heading": "Afternoon",
+      "times": [
+        { "label": "12pm to 2pm", "cost": "Free", "value": "slot3" },
+        { "label": "2pm to 4pm", "cost": "Free", "value": "slot4" }
+      ]
+    },
+    {
+      "icon": "",
+      "heading": "Evening",
+      "times": [
+        { "label": "4pm to 6pm", "cost": "Free", "value": "slot5" },
+        { "label": "6pm to 8pm", "cost": "Free", "value": "slot6" }
+      ]
+    }
+  ],
+  "slotsDelivery": [
+    {
+      "icon": "",
+      "heading": "Morning",
+      "times": [
+        { "label": "7:30am to 12pm", "cost": "6.00", "value": "slot1" },
+        { "label": "7:30am to 8:30am", "cost": "11.00", "value": "slot2" },
+        { "label": "8:30am to 9:30am", "cost": "11.00", "value": "slot3" },
+        { "label": "9:30am to 10:30am", "cost": "11.00", "value": "slot4" },
+        { "label": "10:30am to 11:30am", "cost": "11.00", "value": "slot5" },
+        { "label": "11:30am to 12:30pm", "cost": "11.00", "value": "slot6" }
+      ]
+    },
+    {
+      "icon": "",
+      "heading": "Afternoon",
+      "times": [
+        { "label": "12pm to 5pm", "cost": "3.00", "value": "slot7" },
+        { "label": "12:30pm to 1:30pm", "cost": "11.00", "value": "slot8" },
+        { "label": "1:30pm to 2:30pm", "cost": "9.00", "value": "slot9" },
+        { "label": "2:30pm to 3:30pm", "cost": "3.00", "value": "slot10" },
+        { "label": "3:30pm to 4:30pm", "cost": "9.00", "value": "slot11" },
+        { "label": "4:30pm to 5:30pm", "cost": "11.00", "value": "slot12" }
+      ]
+    },
+    {
+      "icon": "",
+      "heading": "Evening",
+      "times": [
+        { "label": "5pm to 10pm", "cost": "6.00", "value": "slot13" },
+        { "label": "5:30pm to 6:30pm", "cost": "11.00", "value": "slot14" },
+        { "label": "6:30pm to 7:30pm", "cost": "11.00", "value": "slot15" },
+        { "label": "7:30pm to 8:30pm", "cost": "11.00", "value": "slot16" },
+        { "label": "8:30pm to 9:30pm", "cost": "9.00", "value": "slot17" },
+        { "label": "9pm to 10pm", "cost": "9.00", "value": "slot18" }
+      ]
+    }
+  ]
 }

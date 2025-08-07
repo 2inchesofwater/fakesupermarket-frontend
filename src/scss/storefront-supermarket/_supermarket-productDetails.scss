@@ -12,7 +12,7 @@
 	    "product-information"
 	    "product-reviews";
 
-	  section.product-name         { grid-area: product-name; }
+	  section.product-essentials   { grid-area: product-essentials; }
 	  section.product-images       { grid-area: product-images; }
 	  section.product-information  { grid-area: product-information; }
 	  section.product-reviews      { grid-area: product-reviews; }
@@ -21,15 +21,15 @@
 	    // On larger screens: 6:4 layout, product name moves to the right
 	    grid-template-columns: 6fr 4fr;
 	    grid-template-areas:
-	      "product-images      product-name"
-	      "product-information product-name"
+	      "product-images      product-essentials"
+	      "product-information product-essentials"
 	      "product-reviews     product-reviews";
 	    align-items: start;
 	    position: relative;
 		}
 	}
 
-	.product-name {
+	.product-essentials {
 		top: 2rem;
 		position: sticky;
 		align-self: start;

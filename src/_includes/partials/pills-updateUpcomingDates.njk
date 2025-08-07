@@ -1,0 +1,13 @@
+{% set options = options or [{ loops: 5, label: "Day", dateStr: "Date", value: "value" }] %}
+{% set total = options[0].loops %}
+{% for idx in range(total) %}
+  {% set id = "DateSelectItem" ~ idx %}
+  {% set idy = "date" ~ (idx + 1) %}
+  <div class="pill">
+    <input type="radio" name="{{ slotsID }}" id="{{slotsID}}-{{ id }}" value="{{ idy }}" {% if idx == 1 %}checked{% endif %}>
+    <label for="{{slotsID}}-{{ id }}">
+      <span class="day">{{ options[0].label }}</span>
+      <span class="date">{{ options[0].dateStr }}</span>
+    </label>
+  </div>
+{% endfor %}

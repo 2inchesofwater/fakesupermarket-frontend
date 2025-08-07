@@ -1,0 +1,49 @@
+.radiogroup {
+	h3 {
+		background: var(--color-panel-light);
+		padding: var(--spacing-sm);
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.radio-subgroup {
+		display: flex;
+		flex-direction: row;
+		gap: var(--spacing-xs);
+		padding-block-end: var(--spacing-xl);
+	}
+
+	label {
+		flex: 1;
+
+		//font-size: var(--spacing-md);
+		color: var(--color-text-secondary);
+		padding: var(--spacing-md);
+		border-radius: var(--radius-md);
+		background: var(--color-white);
+		border: var(--thickness-md) solid var(--color-border-default);
+		transition: var(--transition-md);
+
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-xs);
+
+		.slot {
+			font-size: var(--spacing-md);
+			font-weight: var(--weight-bold);
+		}
+	}
+	.radio input[type="radio"] {
+	  appearance: none;
+	  position: absolute;
+	  opacity: 0;
+	  pointer-events: none;
+	}
+
+	/* Style the label when the radio is checked */
+	.radio:has(input[type="radio"]:checked) {
+	  color: var(--color-white);
+	  background: var(--color-action-pressed);
+	  border-color: var(--color-white);
+	  box-shadow: 0 0 0 3px var(--color-action-brand);
+	}		
+}

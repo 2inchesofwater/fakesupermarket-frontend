@@ -25,7 +25,8 @@ export function createBaseCartItem(cart, sku) {
         src="pages/${cart.storefront.slug}/${product.images}" 
         alt="${product.imagesVisualDescription || product.productName}" 
         width="${cart.storefront.productCardImageSize.width}" 
-        height="${cart.storefront.productCardImageSize.height}">
+        height="${cart.storefront.productCardImageSize.height}"
+        loading="lazy" fetchpriority="low">
     </div>
     <div class="cart-item-details">
       <div class="cart-item-headline">

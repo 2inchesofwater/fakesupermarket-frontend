@@ -1,0 +1,37 @@
+form {
+	input[type="text"],
+	input[type="email"],
+	input[type="password"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="url"],
+	input[type="number"],
+	textarea {
+	  padding: var(--spacing-sm);
+	  border: var(--thickness-md) solid var(--color-text-primary);
+	  border-radius: var(--radius-sm);
+	  //font-family: var(--font-sans);
+	  font-size: var(--size-md);
+	  font-weight: var(--weight-regular);
+	  color: var(--color-text-primary);	
+	  width: 100%;
+	  max-width: 60rem;
+		&.input-sm {
+			width: 5rem;
+		}
+	}
+
+	label,
+	.label {
+		display: block;
+		margin-block-end: var(--spacing-3xs);
+		font-size: var(--size-md);
+		font-weight: var(--weight-regular);
+		color: var(--color-text-secondary);
+	}
+	.help {
+		color: var(--color-text-tertiary);
+		font-size: var(--size-xs);
+		margin-block-start: var(--spacing-2xs);
+	}
+}

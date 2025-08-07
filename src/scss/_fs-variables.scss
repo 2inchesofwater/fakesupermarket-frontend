@@ -1,8 +1,28 @@
 :root {
-	--fake-brand-pure-purple: hsla(309, 68%, 26%, 1);
-	--fake-brand-greek-aubergine: hsla(309, 60%, 15%, 1);
-	--fake-brand-victoria-peak: hsla(163, 90%, 23%, 1);
-	--fake-brand-peach-nirvana: hsla(22, 79%, 75%, 1);
-	--fake-brand-beaten-copper: hsla(11, 44%, 31%, 1);
-	
+	--fs-palette-WisteriaTrellis: hsla(258, 14%, 70%, 1);
+	--fs-palette-Bureaucracy: hsla(247, 12%, 45%, 1);
+	--fs-palette-DeadlyDepths: hsla(241, 13%, 36%, 1);
+	--fs-palette-Balanced: hsla(11, 10%, 83%, 1);
+	--fs-palette-PaintedDesert: hsla(11, 5%, 63%, 1);
+
+	--fs-palette-RazzmicBerry: hsla(303, 29%, 42%, 1);
+	--fs-palette-StellarExplorer: hsla(191, 96%, 7%, 1);
+	--fs-palette-HiddenWaters: hsla(185, 49%, 23%, 1);
+	--fs-palette-Flounce: hsla(180, 30%, 42%, 1);
+	--fs-palette-DeepPond: hsla(146, 96%, 12%, 1);
+
+	--fs-color-black: var(--fs-palette-StellarExplorer);
+	--fs-color-white: var(--fs-palette-Balanced);
+
+  --fs-color-brand-primary: var(--fs-palette-DeadlyDepths);
+  --fs-color-brand-secondary: var(--fs-palette-Flounce);
+
+  --fs-color-text-primary: #fff;
+  --fs-color-text-secondary: var(--fs-palette-Balanced);
+  --fs-color-text-tertiary: var(--fs-palette-WisteriaTrellis);
+
+  --fs-color-background-page: var(--fs-color-brand-primary);
+
+  --fs-color-modalScreen-gradient1: hsla(247, 12%, 48%, .75); 
+  --fs-color-modalScreen-gradient2: hsla(247, 12%, 48%, .95); 
 }

@@ -1,96 +1,113 @@
-const openBtn = document.getElementById('btn-modalCart');
-const closeBtn = document.getElementById('cart-modal-close');
-const cartSummary = document.getElementById('cartSummary-modal');
+const cartOverlayBtnOpen = document.getElementById('header-cartBtn');
+const cartHeaderBtn_subtotal = document.getElementById('header-cartBtn-subtotal');
+const cartHeaderBtn_badge = document.getElementById('header-cartBtn-badge');
+const cartHeaderBtn_tally = document.getElementById('header-cartBtn-tally');
 
-import { renderCartSummaryList, updateCartUI } from '/js/cart/cart-usage.js';
+const cartOverlay = document.getElementById('cart-overlay');
+const cartOverlayTally = document.getElementById('cart-overlay-tally');
+const cartOverlayBtnClose = document.getElementById('cart-overlay-btn-close');
+const cartOverlayBtnCheckout = document.getElementById('cart-overlay-btn-checkout');
+const cartOverlayBtnContinue = document.getElementById('cart-continue-shopping');
 
+import { renderCartSummary, renderCartSummaryList } from '/js/cart/cart-usage.js';
 
-export function renderCartSummaryModal(cart) {
-  renderCartSummaryList(cart);
-  updateCartItemCount(cart);
-  updateCartSubtotal(cart);
-  updateCartFooter(cart);
-}
-
-// Helper to get product data by SKU
-export function getProductBySku(sku) {
-  return products.find(p => p.productSku === sku);
-}
-
-export function updateCartSubtotal(cart, targetElementId = 'cart-subtotal-amount') {
-  const subtotalElement = document.getElementById(targetElementId);
-  if (!subtotalElement) return;
-
-  const currency = storefront.currencySymbol || '$';
-  const subtotal = parseFloat(cart.totalCost || 0).toFixed(2);
-
-  subtotalElement.textContent = cart.formatPrice(cart.totalCost);
-}
-
-export function onCartModalOpen(cart) {
-  const freshCart = cart.load();
-  Object.assign(cart, freshCart);
-  renderCartSummaryModal(cart);
-} 
-
-function updateCartItemCount(cart) {
-  const tallyElement = document.getElementById('cart-modal-tally');
-  if (!tallyElement) return;
-
-  const totalItems = cart.totalItems || 0;
-  const label = totalItems === 1 ? 'item' : 'items';
-  tallyElement.innerHTML = `<strong>${totalItems}</strong> ${label}`;
-}
-
-function updateCartFooter(cart) {
-  const checkoutBtn = document.getElementById('cart-navigate-checkout');
-  if (!checkoutBtn) return;
-
-  if (cart.totalItems > 0) {
-    checkoutBtn.removeAttribute('hidden');
-  } else {
-    checkoutBtn.setAttribute('hidden', '');
+export function updateOverlayUI(cartInstance) {
+  updateHeaderBtn(cartInstance);
+  updateCartItemCount(cartInstance);
+  
+  if (Object.keys(cartInstance.items).length === 0) {
+    activateCheckoutBtn(cartInstance);
   }
 }
 
-export function openCartSummary(cart) {
+export function updateHeaderBtn(cartInstance) {
+  if (cartHeaderBtn_badge) {
+    if (cartInstance.totalItems > 0) {
+      cartHeaderBtn_badge.hidden = false;
+      cartHeaderBtn_badge.textContent = cartInstance.totalItems;
+    } else {
+      cartHeaderBtn_badge.textContent = '';
+      cartHeaderBtn_badge.hidden = true;
+    }
+  }
+  if (cartHeaderBtn_tally) cartHeaderBtn_tally.textContent = cartInstance.totalItems;
+  if (cartHeaderBtn_subtotal) cartHeaderBtn_subtotal.textContent = cartInstance.formatPrice(cartInstance.totalCost);
+
+  if (cartOverlay && !cartOverlay.hidden) {
+    renderCartSummaryList(cartInstance);
+  }
+  return;
+}
+
+export function openCartOverlay(cartInstance) {
+  const freshCart = cartInstance.load();
+  Object.assign(cartInstance, freshCart);
+
   window.dispatchEvent(new Event('show-backdrop'));
-  renderCartSummaryModal(cart);
-  cartSummary.hidden = false;
-  cartSummary.classList.remove('closed');
-  cartSummary.classList.add('open');
+  cartOverlay.hidden = false;
+  cartOverlay.classList.remove('closed');
+  cartOverlay.classList.add('open');
+
+  renderCartSummary(cartInstance);
+  activateCheckoutBtn(cartInstance);
 }
 
 export function closeCartSummary() {
   window.dispatchEvent(new Event('hide-backdrop'));
-  cartSummary.classList.remove('open');
-  cartSummary.classList.add('closed');
+  cartOverlay.classList.remove('open');
+  cartOverlay.classList.add('closed');
   // Listen for animation end
-  cartSummary.addEventListener('transitionend', handleTransitionEnd);
+  cartOverlay.addEventListener('transitionend', handleTransitionEnd);
 }
 
-function handleTransitionEnd(e) {
-  if ((e.propertyName === 'transform') && cartSummary.classList.contains('closed')) {
-    cartSummary.hidden = true;
-    cartSummary.removeEventListener('transitionend', handleTransitionEnd);
-    cartSummary.classList.remove('closed');
+
+export function updateCartItemCount(cartInstance) {
+  if (!cartOverlayTally) return;
+
+  const totalItems = cartInstance.totalItems || 0;
+  const label = totalItems === 1 ? 'item' : 'items';
+  cartOverlayTally.innerHTML = `<strong>${totalItems}</strong> ${label}`;
+}
+
+
+export function activateCheckoutBtn(cartInstance) {
+    if (!cartOverlayBtnCheckout) {
+      console.error("Checkout button not found in DOM");
+      return;
+    }
+  if (cartInstance.totalItems > 0) {
+    cartOverlayBtnCheckout.removeAttribute('hidden');
+  } else {
+    cartOverlayBtnCheckout.setAttribute('hidden', '');
   }
 }
 
-const continueBtn = document.getElementById('cart-continue-shopping');
-continueBtn?.addEventListener('click', closeCartSummary);
-closeBtn.addEventListener('click', closeCartSummary);
+export function bindOverlayEvents(cartInstance) {
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!cartOverlayBtnOpen) {
+      console.error("Cart open button not found in DOM");
+      return;
+    }
+    cartOverlayBtnOpen.addEventListener('click', () => {
+      openCartOverlay(cartInstance);
+    });
+  });
+}
 
-// export function initCartOverlay(cart) {
-//   openBtn.addEventListener('click', () => {
-//     onCartModalOpen(cart);      // ← refresh cart summary with latest localStorage
-//     openCartSummary(cart);      // ← open the modal
-//   });
-// }
+function handleTransitionEnd(e) {
+  if ((e.propertyName === 'transform') && cartOverlay.classList.contains('closed')) {
+    cartOverlay.hidden = true;
+    cartOverlay.removeEventListener('transitionend', handleTransitionEnd);
+    cartOverlay.classList.remove('closed');
+  }
+}
+
+cartOverlayBtnContinue?.addEventListener('click', closeCartSummary);
+cartOverlayBtnClose.addEventListener('click', closeCartSummary);
 
 // ESC key closes cartSummary
 document.addEventListener('keydown', (e) => {
-  if (!cartSummary.hidden && (e.key === "Escape" || e.key === "Esc")) {
+  if (!cartOverlay.hidden && (e.key === "Escape" || e.key === "Esc")) {
     closeCartSummary();
   }
 });
