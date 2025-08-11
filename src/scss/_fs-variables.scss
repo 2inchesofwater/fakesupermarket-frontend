@@ -1,9 +1,9 @@
 :root {
-	--fs-palette-WisteriaTrellis: hsla(258, 14%, 70%, 1);
-	--fs-palette-Bureaucracy: hsla(247, 12%, 45%, 1);
-	--fs-palette-DeadlyDepths: hsla(241, 13%, 36%, 1);
-	--fs-palette-Balanced: hsla(11, 10%, 83%, 1);
-	--fs-palette-PaintedDesert: hsla(11, 5%, 63%, 1);
+	--fs-palette-WisteriaTrellis: hsla(258, 14%, 70%, 1); 	// hsla(258, 14, 70, 1)
+	--fs-palette-Bureaucracy: hsla(247, 12%, 45%, 1); 			// hsla(247, 12, 48, 1)
+	--fs-palette-DeadlyDepths: hsla(241, 13%, 36%, 1); 			// hsla(241, 53, 16, 1)
+	--fs-palette-Balanced: hsla(11, 10%, 83%, 1); 					// hsla(11, 10, 83, 1)
+	--fs-palette-PaintedDesert: hsla(11, 5%, 63%, 1);				// hsla(11, 5, 73, 1)
 
 	--fs-palette-RazzmicBerry: hsla(303, 29%, 42%, 1);
 	--fs-palette-StellarExplorer: hsla(191, 96%, 7%, 1);
@@ -21,8 +21,16 @@
   --fs-color-text-secondary: var(--fs-palette-Balanced);
   --fs-color-text-tertiary: var(--fs-palette-WisteriaTrellis);
 
-  --fs-color-background-page: var(--fs-color-brand-primary);
+  --fs-color-action-primary: #fff;
+  --fs-color-action-secondary: hsla(258, 14%, 80%, 1);
+  --fs-color-action-hover: hsla(258, 14%, 90%, 1);
+  --fs-color-action-pressed: var(--fs-palette-WisteriaTrellis);
+  --fs-color-action-brand: var(--fs-palette-Bureaucracy); 
 
-  --fs-color-modalScreen-gradient1: hsla(247, 12%, 48%, .75); 
-  --fs-color-modalScreen-gradient2: hsla(247, 12%, 48%, .95); 
+  --fs-color-background-page: hsla(11, 10%, 93%, 1);
+
+  --fs-color-modalScreen-gradient2: hsla(241, 13%, 16%, .60); 
+  --fs-color-modalScreen-gradient1: hsla(241, 13%, 26%, .65); 
+
+  --fs-spacing-inset: 1.5vh;
 }

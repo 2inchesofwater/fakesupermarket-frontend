@@ -2,7 +2,7 @@
   <div id="footer-branding" class="row">
     <div class="wrapper">
       <span id="footer-logo">
-        <h3>Fake Supermarket</h3>
+        <h3>{{ storefront.storefrontNameHTML | safe }}</h3>
       </span>
       <a href="pages/{{ storefront.slug }}/#top" class="btn btn-tertiary">Back to top</a>
     </div>
@@ -12,10 +12,14 @@
       <div id="fs-prompt-reminder" class="footer-column">
         <div class="fs-wrapper">
           <p class="fs-identity">Fake Supermarket</p>
-          <h3>{{ storefront.study.task.instructionTitle }}</h3>
+          <h3>{{ storefront.study.task.instructionTitle | safe }}</h3>
           {% if storefront.study.task.instructionDetail %}
-            <p>{{ storefront.study.task.instructionDetail }}</p>
-          {% endif %}
+            <ul class="researchPrompt-detail">
+              {% for item in storefront.study.task.instructionDetail %}
+                <li>{{ item | safe }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}            
           <p><a href="#" target="_blank">Explainer: What am I meant to do?</a></p>
         </div>
       </div>

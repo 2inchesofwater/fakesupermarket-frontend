@@ -28,7 +28,10 @@
 	  gap: var(--spacing-md);
 	}
 	#site-logo {
+		/* structural concerns here; stylistic concerns further down this page */
 		grid-area: logo;
+		display: flex;
+		flex-direction: column;
 	}
 
 	#header-search {
@@ -77,8 +80,17 @@
 	#site-logo {
 	  text-decoration: none;
 	  font-weight: bold;
-	  font-size: 1.5rem;
+	  font-size: 1.75rem;
+	  line-height: 1;
 	  color: var(--color-brand-primary);
+		#primary {
+
+		}
+		#secondary {
+			font-size: var(--size-sm);
+			line-height: 1;
+			color: var(--color-text-secondary);
+		}	  
 	}
 }
 

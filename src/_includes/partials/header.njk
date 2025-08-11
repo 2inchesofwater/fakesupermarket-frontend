@@ -19,7 +19,7 @@
       </div> #}
 
       <a href="pages/{{ storefront.slug }}/#" id="site-logo">
-        <span>{{ storefront.storefrontName }}</span>
+        {{ storefront.storefrontNameHTML | safe }}
       </a> 
 
       <div id="header-search">

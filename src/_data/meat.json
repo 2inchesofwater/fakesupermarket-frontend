@@ -3,7 +3,8 @@
     "welcomeMessage": "What's in store today?",
     "actionLabel": "Let's go shopping"
   },
-  "storefrontName": "Store",
+  "storefrontName": "Store supermarkets",
+  "storefrontNameHTML": "<span id='primary'>Store</span><span id='secondary'>Supermarkets</span>",
   "storefrontType": "supermarket",
   "categoryTitle": "Meat, poultry, and seafood", 
   "slug": "meat",
@@ -88,10 +89,10 @@
       }
     },
     "task": {
-      "instructionTitle": "Checkout with next week’s groceries.",
+      "instructionTitle": "Your task:<br/>Checkout with next week’s groceries",
       "instructionDetail": [
-        "You'll be shown typical products from the <strong>Meat, poultry, and seafood</strong> section of a supermarket.",
-        "Think about what you expect to buy in next week's groceries.",
+        "You'll see products from the <strong>Meat, poultry, and seafood</strong> section of a supermarket.",
+        "Think about what <strong>you</strong> expect to buy in next week's groceries.",
         "Go through the checkout with the products which you would buy for your household."
       ]
     }
