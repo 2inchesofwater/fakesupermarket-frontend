@@ -3,7 +3,7 @@
     "welcomeMessage": "What's in store today?",
     "actionLabel": "Let's go shopping"
   },
-  "storefrontName": "Store supermarkets",
+  "storefrontName": "Store Supermarkets",
   "storefrontNameHTML": "<span id='primary'>Store</span><span id='secondary'>Supermarkets</span>",
   "storefrontType": "supermarket",
   "categoryTitle": "Meat, poultry, and seafood", 
@@ -51,7 +51,9 @@
   "productDetailsShowRecommendations": true,
   "productDetailsLabelRecommendations": "You might also like these",
   "checkoutLabelCollectionService": "Collect from store",
+  "checkoutLabelCollectionAddressHTML": "<strong>Fakersby North</strong><br>Fake Shopping Centre<br>222 Automation Drive, Fakersby",
   "checkoutLabelDeliveryService": "Delivery",
+  "checkoutLabelDeliveryAddressHTML": "<strong>222 Holmans Road</strong><br>Fakersby VIC 3210",
 
   "study": {
     "studyID": 1234567,

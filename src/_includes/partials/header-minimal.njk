@@ -1,0 +1,22 @@
+{% macro navLinkItem(label, url, className='', iconPath='', iconCreator='') %}
+  <a disabled href="{{ url }}" class="nav-link {{ className }}">    
+    {% if iconPath != '' %}
+      {% set svgContent = ('src/images/icons/' + iconPath) | fs %}
+      <span class="icon {{ className | safe }}">
+          {{ svgContent | safe }}
+      </span>
+    {%  endif %}
+    <span class="button-label">{{ label }}</span>
+  </a>
+{% endmacro %} 
+
+
+<header id="site-header">
+  <div class="container">
+    <nav id="nav-main" >
+      <a href="pages/{{ storefront.slug }}/#" id="site-logo">
+        {{ storefront.storefrontNameHTML | safe }}
+      </a>       
+    </nav>
+  </div>
+</header>

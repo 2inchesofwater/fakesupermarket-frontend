@@ -4,7 +4,7 @@
 				<div class="overview-icon">Icon</div>
 				<div id="shipping-collection-information" class="overview-information">
 					<p class="overview-serviceName">{{ storefront.checkoutLabelCollectionService }}</p>
-					<p disabled class="fs-unavailable"><strong>Fakersby North</strong><br>Fake Shopping Centre<br>222 Automation Drive, Fakersby</p>
+					<p disabled class="fs-unavailable">{{ storefront.checkoutLabelCollectionAddressHTML | safe }}</p>
 				</div>
 				<a href="#" class="">Change to: {{ storefront.checkoutLabelDeliveryService }}</a>
 			</div>
@@ -31,7 +31,7 @@
 				<div class="overview-icon">Icon</div>
 				<div id="shipping-delivery-information" class="overview-information">
 					<p class="overview-serviceName">{{ storefront.checkoutLabelDeliveryService }}</p>
-					<p disabled class="fs-unavailable"><strong>222 Holmans Road</strong><br>Fakersby VIC 3210</p>
+					<p disabled class="fs-unavailable">{{ storefront.checkoutLabelDeliveryAddressHTML | safe }}</p>
 					<a disabled class="fs-unavailable" href="#">Other saved addresses</a>
 				</div>
 				<a href="#" class="">Change to: {{ storefront.checkoutLabelCollectionService }}</a>
