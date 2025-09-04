@@ -20,6 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
   outputCartSavings(cart);
   outputSalesTax(cart, storefront);
   outputPaymentMethodTotal(cart);
+
+  window.dispatchEvent(new Event('show-backdrop'));
 });
 
 

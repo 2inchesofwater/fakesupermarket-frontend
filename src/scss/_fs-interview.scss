@@ -1,11 +1,11 @@
 #fs-interview {
-	position: absolute;
-	z-index: 1050;
+	position: relative;
+	z-index: 1100;
 	top: 0;
 	right: 0;
 	bottom: 0;
-	width: 50%;
-	max-width: 50%;
+	//width: 50%;
+	//max-width: 50%;
 
 	background: var(--fs-color-background-page2);
 	box-sizing: content-box;

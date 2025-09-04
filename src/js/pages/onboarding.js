@@ -4,7 +4,7 @@ const pauseBtn = document.getElementById("onboarding-animationControls-pause");
 
 document.addEventListener('DOMContentLoaded', function() {
   const affirmBtn = document.getElementById('onboarding-action-affirm');
-  const modalBackdrop = document.getElementById('fs-modalBackdrop');
+  // const modalBackdrop = document.getElementById('fs-modalBackdrop');
   const onboardingDialog = document.getElementById('fs-onboarding');
   const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000; // ms
 
@@ -16,13 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (onboardingExpired) {
     // Show onboarding UI
-    modalBackdrop?.classList.remove('fs-pre_hidden');
+    // modalBackdrop?.classList.remove('fs-pre_hidden');
+    window.dispatchEvent(new Event('show-backdrop'));
     onboardingDialog?.classList.remove('fs-pre_hidden');
     localStorage.removeItem('onboardingAffirmed');
-
-    // Enable animation controls (Play/Pause)
-    // playBtn?.removeAttribute("disabled");
-    // pauseBtn?.removeAttribute("disabled");
 
     // Onboarding can trigger animation if consent present
     if (hasAnimationConsent()) {
@@ -51,33 +48,18 @@ document.addEventListener('DOMContentLoaded', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       updateButtonStates(false);
 
-      // Hide onboarding UI
-      modalBackdrop?.classList.add('hide');
-      setTimeout(() => {
-        modalBackdrop?.setAttribute('hidden', 'true');
-        modalBackdrop?.classList.remove('hide');
-      }, 400);
+      window.dispatchEvent(new Event('hide-backdrop'));
       onboardingDialog?.remove();
       localStorage.setItem('onboardingAffirmed', Date.now().toString());
       // DO NOT revoke animation consent!
     });
 
   } else {
-    // Onboarding has been affirmed and is still valid
-    // Hide onboarding UI if present
-    // modalBackdrop?.classList.add('fs-pre_hidden');
-    // onboardingDialog?.classList.add('fs-pre_hidden');
-
     // Do NOT start animation!
     stopScrollAnimation();
     // DO NOT call setAnimationConsent(false) here!
     updateButtonStates(false);
-
-    // Optionally: disable Play/Pause controls after onboarding
-    // playBtn?.setAttribute("disabled", true);
-    // pauseBtn?.setAttribute("disabled", true);
   }
-
 });
 
 

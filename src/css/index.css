@@ -409,13 +409,11 @@
 }
 
 #fs-interview {
-  position: absolute;
-  z-index: 1050;
+  position: relative;
+  z-index: 1100;
   top: 0;
   right: 0;
   bottom: 0;
-  width: 50%;
-  max-width: 50%;
   background: var(--fs-color-background-page2);
   box-sizing: content-box;
   padding: var(--fs-spacing-inset);
@@ -1539,7 +1537,7 @@ body {
   inset: 0;
   top: 0;
   bottom: 0;
-  z-index: 1050; /* Following Bootstrap's pattern for z-layering */
+  z-index: 1001; /* Following Bootstrap's pattern for z-layering */
   background: var(--color-backdrop-default);
   opacity: 0;
   backdrop-filter: blur(var(--blur-md));
