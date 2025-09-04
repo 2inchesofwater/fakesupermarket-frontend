@@ -1,15 +1,14 @@
 <div id="fs-modalBackdrop" class="fs-pre_hidden"></div>
 
 <div id="fs-onboarding" role="dialog" aria-modal="true" aria-labelledby="onboarding-title" class="fs-pre_hidden">
-  
-  <!-- Stage 1: Sign Up / Log In -->
+
   <section id="onboarding-wrapper" role="region" aria-labelledby="onboarding-title">
     <header>
       <h1 id="fakesupermarket-logo" aria-label="Fake Supermarket"><span id="fakesupermarket-logo-background">{% include "partials/logo/fakesupermarket-roundel.njk" %}</span></h1>
     </header>
 
     <region id="onboarding-wrapper-outer">
-      <div id="onboarding-wrapper-inner">
+      <div id="onboarding-wrapper-inner" class="fs-dialogue">
         <div id="onboarding-researchPrompt">
           <p id="onboarding-welcome">{{ storefront.fakesupermarket.welcomeMessage }}</p> 
           <h2 class="researchPrompt-headline">{{ storefront.study.task.instructionTitle | safe }}</h2>
@@ -21,7 +20,6 @@
             </ul>
           {% endif %} 
         </div>
-
         <div id="onboarding-actions">
           <button id="onboarding-action-affirm" class="fs-btn fs-btn-primary">
             <span class="icon">{% include "partials/icons/check-circle.njk" %}</span>
@@ -29,29 +27,27 @@
           </button>
         </div>
         <div id="onboarding-help">
-          <ul>
-            <li><a href="#" target="_blank">Explainer: What am I meant to do?</a></li>
-            <li><a href="#" target="_blank">What's a fake supermarket?</a></li>
+          <ul class="fs-tiles fs-tiles-tertiary">
+            <li class="fs-tile"><a href="#" target="_blank">Explainer: What am I meant to do?</a></li>
+            <li class="fs-tile"><a href="#" target="_blank">What's a fake supermarket?</a></li>
         </ul>
         </div>
       </div>
     </region>
+
+    <region id="onboarding-animationControls">
+      <div id="onboarding-animationControls-play">
+        <button class="fs-btn fs-btn-secondary" aria-labelledBy="onboarding-animationLabel-play">
+          <span class="icon">{% include "partials/icons/play.njk" %}</span>
+          <span class="label" id="onboarding-animationLabel-play" aria-label="Allow animation: The background will gently scroll.">Allow animation</span>
+        </button>
+      </div>
+      <div hidden id="onboarding-animationControls-pause">
+        <button  class="fs-btn fs-btn-secondary" aria-labelledBy="onboarding-animationLabel-pause">
+          <span class="icon">{% include "partials/icons/pause.njk" %}</span>
+          <span class="label" id="onboarding-animationLabel-pause">Pause animation</span>
+        </button>   
+      </div>   
+    </region>
   </section>
-
-
-  <region id="onboarding-animationControls">
-    <div id="onboarding-animationControls-play">
-      <button class="fs-btn fs-btn-secondary" aria-labelledBy="onboarding-animationLabel-play">
-        <span class="icon">{% include "partials/icons/play.njk" %}</span>
-        <span class="label" id="onboarding-animationLabel-play" aria-label="Allow animation: The background will gently scroll.">Allow animation</span>
-      </button>
-    </div>
-    <div hidden id="onboarding-animationControls-pause">
-      <button  class="fs-btn fs-btn-secondary" aria-labelledBy="onboarding-animationLabel-pause">
-        <span class="icon">{% include "partials/icons/pause.njk" %}</span>
-        <span class="label" id="onboarding-animationLabel-pause">Pause animation</span> 
-      </button>   
-    </div>   
-  </region>
-
 </div>

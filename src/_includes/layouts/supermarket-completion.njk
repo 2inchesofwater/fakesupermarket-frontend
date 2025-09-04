@@ -9,40 +9,16 @@
 		<menu class="sr-only">Jump links</menu>
 
 		<article id="confirmation">
-			<section id="confirmationReceipt" class="">
-				<h1 id="confirmationReceipt-heading">
-					Fake invoice
-				</h1>
+			<section id="confirmationReceipt" disabled class="fs-unavailable">
+				{% include "partials/confirmation-receipt.njk" %}
+			</section>
 
-				<div id="confirmationReceipt-collectFromStore">
-					<h2>Collect from store</h2>
-				</div>
-
-				<div id="confirmationReceipt-total">
-					Total spend
-				</div>
-
-				<div id="confirmationReceipt-products">
-					<ul>
-						<li>Item</li>
-					</ul>
-				</div>
-
-				<div id="confirmationReceipt-priceAdjustments">
-					<p>* Promotional price</p>
-				</div>
-
-				<div id="confirmationReceipt-paymentMethod">
-					<h2>Payment</h2>
-				</div>
-
-				<div id="confirmationReceipt-rewards">
-					<h2>Rewards</h2>
-				</div>
+			<section id="confirmationShipping" disabled class="fs-unavailable">
+				{% include "partials/confirmation-shipping.njk" %}
 			</section>
 
 			<section id="confirmationInterview">
-				
+				{% include "partials/fs-interview.njk" %}
 			</section>
 		</article>
 	</main>
@@ -54,7 +30,7 @@
 	
   <script type="module" src="/js/utils/init.js"></script>
   <script type="module" src="/js/pages/onboarding.js"></script>
-  <script type="module" src="/js/pages/completion.js"></script>
+  <script type="module" src="/js/pages/confirmation.js"></script>
   <script type="module" src="/js/utils/backdrop.js" ></script>
 
 {% endblock %}

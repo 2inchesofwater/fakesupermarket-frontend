@@ -1,0 +1,101 @@
+@use 'fs-variables' as *;
+
+#fs-onboarding {
+  position: fixed;
+  z-index: 1010;
+  left: 0;
+  right: 0;
+
+  > section {
+    display: grid;
+    height: 100vh; 
+    grid-template-rows: 1fr 3fr 1fr; 
+    max-width: #{$screen-sm};
+    margin: 0 auto;
+  }
+
+  header {
+    align-self: end;    
+    justify-self: start;
+    position: relative;
+    margin-top: 5vh;
+
+    #fakesupermarket-logo {
+      margin-bottom: 0;
+      position: absolute;
+      height: 12.5vh;
+      left: 2.5vh;
+      bottom: -5vh;
+      aspect-ratio: 1 / 1;
+      z-index: 1021;             
+    }
+    svg {
+      transform: rotate(-4deg);
+      width: 100%;
+      height: 100%;     
+    }
+  }
+
+  #onboarding-wrapper-outer {
+    align-self: stretch;
+    justify-self: stretch;
+    position: relative;
+
+  }
+  #onboarding-wrapper-inner {
+    z-index: 1020;
+    position: relative; 
+  }
+
+  #onboarding-animationControls {
+    align-self: center;
+    justify-self: start;
+    .fs-btn {
+      display: unset;
+    }
+    .fs-btn:not([hidden]) {
+      display: flex;
+    }
+  }
+}
+
+#fs-onboarding {
+  #onboarding-welcome {
+    color: var(--fs-color-text-tertiary);
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid;
+  }
+  #onboarding-researchPrompt {
+    .researchPrompt-headline {
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 1vh;
+      color: var(--fs-color-text-primary);
+    }
+    .researchPrompt-detail {
+      margin-bottom: 2.5vh;
+      color: var(--fs-color-text-primary);
+      font-size: 1rem;
+      padding-block: 1vh;
+      padding-inline: 2.5vh;
+      margin-inline: 1vh;
+      display: flex;
+      flex-direction: column;
+      gap: 1vh;
+
+      li {
+        list-style: numeric;
+        color: var(--fs-color-text-secondary);
+        &::marker {
+          color: var(--fs-color-text-tertiary);
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  #onboarding-actions {
+    margin-bottom: 2.5vh;
+  }
+}

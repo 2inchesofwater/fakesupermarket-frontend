@@ -1,6 +1,7 @@
-@use 'variables';       		// CSS and Sass variables
-@forward 'fonts';
-@forward 'typography';
+@use 'fs-variables';
+
+// @forward 'fonts';
+// @forward 'typography';
 
 body {
 	padding: 2.5vw;

@@ -1,0 +1,33 @@
+@use 'fs-variables' as *;
+
+.fs-tiles {
+	display: grid;
+	gap: var(--fs-spacing-xs);
+	grid-template-columns: repeat(2, 1fr);
+	container-type: inline-size;
+
+	@container (min-width: #{$screen-sm}) {
+			grid-template-columns: repeat(4, 1fr);
+	}
+
+	@container (min-width: #{$screen-md}) {
+		grid-template-columns: repeat(auto-fit, minmax(125px, 250px));
+	}
+	.fs-tile {
+		border-radius: var(--fs-radius-sm);
+		a {
+			font-size: var(--fs-size-xs);
+			line-height: 1.1;
+			text-decoration: none;
+			padding: 1.25vh;
+			display: block;
+		}
+	}
+	&.fs-tiles-tertiary .fs-tile {
+		background: var(--fs-color-trueWhite);
+		a:hover {
+			text-decoration: underline;
+			text-decoration-color: var(--fs-color-action-brand);
+		}
+	}
+}

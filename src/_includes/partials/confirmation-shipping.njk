@@ -1,0 +1,35 @@
+<div id="confirmationShipping-collection">
+	<h1>{{ storefront.checkoutLabelCollectionService }}</h1>
+	<img class="confirmationShipping-map" src="./images/{{ storefront.checkoutImageCollectionLocation }}" alt="A street map of an unnamed town, sourced from Google Maps.">
+	
+	<div id="confirmationShipping-collection-instructions">
+		<div class="instructions wrapper">
+			<h2>Collection point</h2>
+			<p>{{ storefront.checkoutLabelCollectionAddressHTML | safe }}</p>
+		</div>
+		<div class="instructions wrapper">
+			<h2>When</h2>
+			<div class="datetimeSelection wrapper">
+				<p class="dateSelection">
+					<span class="day">Tomorrow</span>
+					<span class="date">23 Aug</span>
+				</p>
+				<p class="timeSelection">10am - 12pm (noon)</p>
+			</div>		
+		</div>
+		<div class="instructions wrapper arrival">
+			<h2>When you arrive</h2>
+			<p>We'll send your phone an SMS when your order is ready and it's time for you to head to the store for collection. Let us know when you're on your way, and then park in a Collection bay when you arrive.</p>
+		</div>	
+		<div class="instructions wrapper orderPlaced">
+			<h2>Order number</h2>
+			<p>105082086<br/>Placed <span id="confirmationShipping-orderPlaced-date">22 August 2025</span>.</p>
+		</div>			
+	</div>				
+</div>
+
+<div hidden id="confirmationShipping-delivery">
+	<h1>{{ storefront.checkoutLabelDeliveryService }}</h1>
+	<img class="confirmationReceipt-map" src="./images/{{ storefront.checkoutImageDeliveryLocation }}" alt="A street map of an unnamed town, sourced from Google Maps.">
+</div>
+

@@ -1,0 +1,27 @@
+#fs-interview {
+	position: absolute;
+	z-index: 1050;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 50%;
+	max-width: 50%;
+
+	background: var(--fs-color-background-page2);
+	box-sizing: content-box;
+	padding: var(--fs-spacing-inset);
+
+	color: var(--fs-color-white);
+
+
+	#fs-interview-product {
+		background: var(--fs-color-trueWhite);
+		border-radius: var(--fs-radius-sm);
+		padding: var(--fs-spacing-md);
+		color: var(--fs-color-text-primary);
+	}
+
+	label {
+		color: var(--fs-color-white);
+	}
+}

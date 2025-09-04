@@ -1,7 +1,7 @@
 
 dl.table {
 	display: grid;
-	grid-template-columns: 10rem auto;
+	// There was previously a definition of grid-template-columns here; But these tables are too inconsistent to bother setting up default columns. Check in the page-specific CSS for the columns definitions instead. Previous value was '10rem auto'
 	gap: var(--spacing-2xs);
 
 	font-size: var(--size-md);
@@ -11,13 +11,13 @@ dl.table {
   }
   dd {
   	color: var(--color-text-tertiary);
-  	&.numeric {
-  		text-align: end;
-  	}
   }
   dt, dd {
   	&.emphasis {
   		font-weight: var(--weight-bold);
   	}
+    &.numeric {
+        text-align: end;
+    }    
   }	
 }

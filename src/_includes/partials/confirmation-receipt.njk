@@ -1,0 +1,55 @@
+<h1 id="confirmationReceipt-heading">
+	Fake invoice
+</h1>
+
+<div id="confirmationReceipt-collectFromStore">
+	<div class="location wrapper">
+		<h2>{{ storefront.storefrontName }}</h2>
+		<p>{{ storefront.checkoutLabelCollectionAddressHTML | safe }}</p>
+	</div>
+</div>
+
+<div id="confirmationReceipt-total">
+	<div class="wrapper summary">
+		<span class="sr-only">Total (fake) purchase price was:</span>
+		<p id="confirmationReceipt-total-amount" class="text-lg"></p>
+		<p id="confirmationReceipt-total-tally" class="text-sm">(x items)</p>
+	</div>	
+	<dl id="confirmationReceipt-salesTax" class="table">
+		<dd>{{ storefront.salesTaxComponentLabel }}</dd>
+		<dt id="confirmationReceipt-salesTax-amount" class="numeric"></dt>
+	</dl>					
+</div>
+
+<div id="confirmationReceipt-products">
+	<dl id="confirmationReceipt-products-table" class="table">
+		<dd class="emphasis">Description</dd><dt class="numeric emphasis">{{ storefront.currencySymbol }}</dt>
+	</dl>
+	<p class="detail"><span class="indicator">*</span> indicates promotional price</p>
+</div>
+
+<div id="confirmationReceipt-priceAdjustments">
+	<p id="confirmationReceipt-savings"><span class="emoji" data-attribute="celebration">&#127881;</span>You saved&nbsp;<span id="confirmationReceipt-savings-amount" class="numeric"></span>
+	</p>				
+</div>
+
+<div id="confirmationReceipt-paymentMethod">
+	<h2>Payment</h2>
+	<dl class="table">
+		<dd>{% include "partials/icons/visa.njk" %} <span class="sr-only">Card ending in: </span>X-7832</dd>
+		<dt id="confirmationReceipt-paymentMethod-total" class="numeric">$</dt>
+	</dl>
+	<dl class="table">
+		<dd>Change:</dd>
+		<dt class="numeric">{{ storefront.currencySymbol }}0.00</dt>
+	</dl>
+</div>
+
+<div id="confirmationReceipt-rewards">
+	<h2>Rewards</h2>
+	<div class="summary wrapper">
+		<dl class="overview"><dd>Earned today: </dd><dt class="numeric">5</dt></dl>
+		<dl class="overview"><dd>Your balance: </dd><dt class="numeric">89</dt></dl>
+	</div>
+	<p class="disclaimer">T&Cs don't apply. This rewards program is entirely fake; don't visit our website for further details.</p> 
+</div>
