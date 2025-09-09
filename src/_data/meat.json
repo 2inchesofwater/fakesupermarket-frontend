@@ -102,7 +102,30 @@
         "Think about what <strong>you</strong> expect to buy in next week's groceries.",
         "Go through the checkout with the products which you would buy for your household."
       ]
-    }
+    },
+    "interview": [
+      {
+        "questionSlug": "value",
+        "questionInitialRating": 5,
+        "questionLabel": "How would you rate its value for money?",
+        "questionLikertAdjectives": [
+          "Unimpressed",
+          "A bit disappointed",
+          "Okay",
+          "Pleased",
+          "Really impressed"
+        ],
+        "questionMultipleAdjectives": [
+          "Generous size",
+          "High quality",
+          "Trustworthy brand",
+          "Affordable",
+          "Great price",
+          "Loads of flavour"
+        ],
+        "questionIncludeExtendedResponse": null
+      }
+    ]
   },
 
   "productsAll": [

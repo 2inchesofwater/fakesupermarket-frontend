@@ -3,8 +3,9 @@
 @use 'fs-logo';
 @use 'fs-styles';
 @use 'fs-styles-buttons';
-@use 'fs-styles-tiles';
 @use 'fs-styles-dialogue';
+@use 'fs-styles-ratings';
+@use 'fs-styles-tiles';
 
 @forward 'fs-onboarding';
 @forward 'fs-interview';

@@ -154,14 +154,16 @@
   --fs-size-xs: 0.75rem;
   --fs-size-sm: 0.875rem;
   --fs-size-md: 1rem;
-  --fs-size-lg: 1.33rem;
-  --fs-size-xl: 1.77rem;
+  --fs-size-lg: 1.25rem;
+  --fs-size-xl: 1.5rem;
   --fs-size-2xl: 2.37rem;
   --fs-spacing-inset: 1.5vh;
   --fs-spacing-2xs: 3px;
   --fs-spacing-xs: 6px;
   --fs-spacing-sm: 12px;
   --fs-spacing-md: 16px;
+  --fs-spacing-lg: 24px;
+  --fs-spacing-xl: 32px;
   --fs-radius-sm: 4px;
 }
 
@@ -277,6 +279,66 @@
   stroke: var(--fs-color-action-brand);
 }
 
+.fs-dialogue {
+  background: radial-gradient(farthest-corner at 200% 0%, var(--fs-color-trueWhite), var(--fs-palette-lightest));
+  padding: 7.5vh;
+  color: var(--fs-color-text-primary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.fs-dialogue .fs-dialogue-welcome {
+  margin-block-start: var(--fs-spacing-sm);
+  margin-block-end: var(--fs-spacing-xs);
+  color: var(--fs-color-text-tertiary);
+  font-size: var(--fs-size-md);
+  font-weight: 300;
+}
+
+.fs-interview-ratings .fs-interview-ratings-starGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  margin-inline-end: 16.6666666667%;
+}
+.fs-interview-ratings button {
+  flex-grow: 0;
+  border: 0;
+  padding: 0 var(--fs-spacing-xs);
+  margin: 0;
+  background: transparent;
+}
+.fs-interview-ratings button svg {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+.fs-interview-ratings button[aria-pressed=false] .star-outline > * {
+  fill: var(--fs-color-text-tertiary);
+}
+.fs-interview-ratings button[aria-pressed=false] .star-filled {
+  display: none;
+}
+.fs-interview-ratings button:hover {
+  cursor: pointer;
+}
+.fs-interview-ratings button:hover .star-outline > * {
+  fill: var(--fs-color-action-brand);
+}
+.fs-interview-ratings button[aria-pressed=true] .star-outline {
+  display: none;
+}
+.fs-interview-ratings button[aria-pressed=true] .star-filled > * {
+  fill: var(--fs-color-action-brand);
+}
+.fs-interview-ratings button[aria-pressed=true].hovered .star-outline {
+  display: unset;
+}
+.fs-interview-ratings button[aria-pressed=true].hovered .star-outline > * {
+  fill: var(--fs-color-text-tertiary);
+}
+.fs-interview-ratings button[aria-pressed=true].hovered .star-filled {
+  display: none;
+}
+
 .fs-tiles {
   display: grid;
   gap: var(--fs-spacing-xs);
@@ -309,14 +371,6 @@
 .fs-tiles.fs-tiles-tertiary .fs-tile a:hover {
   text-decoration: underline;
   text-decoration-color: var(--fs-color-action-brand);
-}
-
-.fs-dialogue {
-  background: radial-gradient(farthest-corner at 200% 0%, var(--fs-color-trueWhite), var(--fs-palette-lightest));
-  padding: 7.5vh;
-  color: var(--fs-color-text-primary);
-  border-radius: 4px;
-  overflow: hidden;
 }
 
 #fs-onboarding {
@@ -414,19 +468,61 @@
   top: 0;
   right: 0;
   bottom: 0;
-  background: var(--fs-color-background-page2);
   box-sizing: content-box;
-  padding: var(--fs-spacing-inset);
-  color: var(--fs-color-white);
+}
+#fs-interview header {
+  align-self: end;
+  justify-self: start;
+  position: relative;
+  margin-top: 5vh;
+}
+#fs-interview header #fakesupermarket-logo {
+  margin-bottom: 0;
+  position: absolute;
+  height: 12.5vh;
+  left: 2.5vh;
+  bottom: -5vh;
+  aspect-ratio: 1/1;
+  z-index: 1021;
+}
+#fs-interview header svg {
+  transform: rotate(-4deg);
+  width: 100%;
+  height: 100%;
+}
+#fs-interview .fs-dialogue {
+  padding: 5vh 3.75vh;
 }
 #fs-interview #fs-interview-product {
+  display: block;
   background: var(--fs-color-trueWhite);
   border-radius: var(--fs-radius-sm);
-  padding: var(--fs-spacing-md);
+  padding: var(--fs-spacing-sm);
   color: var(--fs-color-text-primary);
+  position: relative;
+  margin-left: calc(var(--fs-spacing-md) * -1);
+  margin-right: calc(var(--fs-spacing-md) * -1);
+}
+#fs-interview #fs-interview-product .cart-item-product {
+  border-block-start: 0;
+  border-block-end: 0;
+  padding: 0;
+}
+#fs-interview #fs-interview-product .cart-item-subtotal {
+  font-weight: var(--weight-regular);
 }
 #fs-interview label {
-  color: var(--fs-color-white);
+  color: var(--fs-color-text-primary);
+  font-size: var(--fs-size-lg);
+  font-weight: 300;
+  margin-block-start: var(--fs-spacing-lg);
+  margin-block-end: var(--fs-spacing-sm);
+}
+#fs-interview .fs-interview-LikertQuestion-adjectives {
+  color: var(--fs-color-text-tertiary);
+  font-size: var(--fs-size-sm);
+  font-weight: 200;
+  margin-block-start: var(--fs-spacing-xs);
 }
 
 /**
@@ -2400,12 +2496,14 @@ h1 {
   flex-direction: column;
   gap: var(--spacing-md);
 }
-#cart-summary-products #cart-summary-products-list {
+
+#cart-summary-products-list {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-3xs);
 }
-#cart-summary-products #cart-summary-products-list .cart-item-product {
+
+.cart-item-product {
   display: flex;
   flex-direction: row;
   gap: var(--spacing-sm);
@@ -2413,29 +2511,69 @@ h1 {
   border-block-start: var(--thickness-sm) solid var(--color-border-light);
   border-block-end: var(--thickness-sm) solid var(--color-border-light);
 }
-#cart-summary-products #cart-summary-products-list .cart-item-thumbnail {
+
+.cart-item-thumbnail {
   width: 100%;
   max-width: var(--spacing-3xl);
   height: var(--spacing-3xl);
 }
-#cart-summary-products #cart-summary-products-list .cart-item-thumbnail img {
+.cart-item-thumbnail img {
   max-width: 100%;
   max-height: 100%;
 }
-#cart-summary-products #cart-summary-products-list .cart-item-details {
-  display: flex;
-  flex-direction: column;
+
+.cart-item-details {
+  display: grid;
   gap: var(--spacing-sm);
-  flex: 1;
+  container-type: inline-size;
+  grid-template-columns: 1fr;
+  width: 100%;
 }
-#cart-summary-products #cart-summary-products-list .cart-item-headline,
-#cart-summary-products #cart-summary-products-list .cart-item-controls {
+.cart-item-details .cart-item-headline {
+  justify-self: stretch;
+  grid-column: span 2;
+}
+.cart-item-details .cart-item-pricing {
+  grid-row: 2;
+  grid-column: 1;
+  justify-self: start;
+}
+.cart-item-details .cart-item-subtotal {
+  grid-row: 2;
+  grid-column: 2;
+  justify-self: end;
+}
+@container (min-width: 400px) {
+  .cart-item-details {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  .cart-item-details .cart-item-headline {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+  }
+  .cart-item-details .cart-item-pricing {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+  }
+  .cart-item-details .cart-item-subtotal {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+  }
+}
+
+.cart-item-headline,
+.cart-item-controls {
   display: flex;
   flex-direction: row;
   gap: var(--spacing-sm);
   align-items: center;
 }
-#cart-summary-products #cart-summary-products-list .cart-item-headline .cart-item-headline-productName {
+
+.cart-item-headline .cart-item-headline-productName {
   flex: 1;
   font-size: var(--size-md);
   font-weight: var(--weight-regular);
@@ -2443,28 +2581,30 @@ h1 {
   color: var(--color-text-primary);
   margin-bottom: 0;
 }
-#cart-summary-products #cart-summary-products-list .cart-item-headline .cart-item-headline-productName a {
+.cart-item-headline .cart-item-headline-productName a {
   text-decoration-color: transparent;
   text-underline-offset: var(--spacing-3xs);
   transition: var(--transition-md);
 }
-#cart-summary-products #cart-summary-products-list .cart-item-headline .cart-item-headline-productName a:hover {
+.cart-item-headline .cart-item-headline-productName a:hover {
   text-decoration-color: var(--color-brand-secondary);
 }
-#cart-summary-products #cart-summary-products-list .cart-item-pricing {
+
+.cart-item-pricing {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 2;
 }
-#cart-summary-products #cart-summary-products-list .cart-item-pricing .cart-item-pricing-savings > .badge {
+.cart-item-pricing .cart-item-pricing-savings > .badge {
   font-size: var(--size-xs);
 }
-#cart-summary-products #cart-summary-products-list .cart-item-pricing .cart-item-pricing-rrp {
+.cart-item-pricing .cart-item-pricing-rrp {
   font-size: var(--size-xs);
   color: var(--color-text-tertiary);
 }
-#cart-summary-products #cart-summary-products-list .cart-item-controls .cart-item-subtotal {
+
+.cart-item-controls .cart-item-subtotal {
   flex: 1;
   text-align: right;
   font-size: var(--size-lg);

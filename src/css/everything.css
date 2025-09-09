@@ -28,14 +28,16 @@
   --fs-size-xs: 0.75rem;
   --fs-size-sm: 0.875rem;
   --fs-size-md: 1rem;
-  --fs-size-lg: 1.33rem;
-  --fs-size-xl: 1.77rem;
+  --fs-size-lg: 1.25rem;
+  --fs-size-xl: 1.5rem;
   --fs-size-2xl: 2.37rem;
   --fs-spacing-inset: 1.5vh;
   --fs-spacing-2xs: 3px;
   --fs-spacing-xs: 6px;
   --fs-spacing-sm: 12px;
   --fs-spacing-md: 16px;
+  --fs-spacing-lg: 24px;
+  --fs-spacing-xl: 32px;
   --fs-radius-sm: 4px;
 }
 

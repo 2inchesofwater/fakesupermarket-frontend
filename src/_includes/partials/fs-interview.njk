@@ -1,42 +1,76 @@
-<div id="fs-interview" aria-label="A short interview about your (fake) purchases">
-	
-	<!-- FS logo -->
+<div id="fs-interview" role="dialog" aria-modal="true" aria-label="A short interview about your (fake) purchases">
 
-	<div class="container">
-	
-		<h1>You bought this...</h1>
+  <section id="interview-wrapper" role="region" aria-labelledby="interview-title">
+    <header>
+      <h1 id="fakesupermarket-logo" aria-label="Fake Supermarket"><span id="fakesupermarket-logo-background">{% include "partials/logo/fakesupermarket-roundel.njk" %}</span></h1>
+    </header>
 
-		<div id="fs-interview-product" aria-labelledBy="">
-<li class="cart-item-product" id="cart-item-product-6022648" aria-labelledby="product-6022648">
-    <div class="cart-item-thumbnail">
-      <img src="pages/meat/luv-a-duck-thai-red-duck-curry-1.jpg" alt="Luv-A-Duck Thai Red Duck Curry" width="200" height="200" loading="lazy" fetchpriority="low">
+		<region id="interview-wrapper-outer" aria-labelledBy="">
+      <div id="interview-wrapper-inner" class="fs-dialogue">
+        <h2 class="fs-dialogue-welcome">You bought this –</h2>
+        <ul id="fs-interview-product" >
+          <li class="cart-item-product" id="cart-item-product-6022648" aria-labelledby="product-6022648">
+            <div class="cart-item-thumbnail">
+              <img src="pages/meat/luv-a-duck-thai-red-duck-curry-1.jpg" alt="Luv-A-Duck Thai Red Duck Curry" width="200" height="200" loading="lazy" fetchpriority="low">
+            </div>
+            <div class="cart-item-details">
+              <div class="cart-item-headline">
+                <h3 id="product-6022648" class="cart-item-headline-productName">
+                  <a href="/product/luv-a-duck-thai-red-duck-curry">Luv-A-Duck Thai Red Duck Curry</a>
+                </h3>
+              </div>
+              <div class="cart-item-pricing">
+                  <div class="cart-item-pricing-savings">
+                    <div class="badge badge-positive">Save $2.25</div>
+                  </div>
+                  <div class="cart-item-pricing-rrp">
+                    <span>Was $16.50</span>
+                  </div>
+              </div>
+              <div class="cart-item-subtotal">$14.25</div>
+            </div>
+          </li>	
+        </ul>
+
+    		<form id="fs-interview-questions">
+          {% include 'partials/icons/stars-interactive.njk' %}
+{% for question in storefront.study.interview %}
+  
+  <div id="{{ question.questionSlug }}" class="fs-interview-ratings" data-initial-rating="{{ question.questionInitialRating | default(5) }}">
+    <label>{{ question.questionLabel }}</label>
+    <div class="fs-interview-ratings-starGroup">
+    {%- for i in range(1, 6) %}
+      <button
+        type="button"
+        class="star"
+        data-value="{{ i }}"
+        aria-label="{{ i }} star"
+        aria-pressed="true">
+        <!-- Outline star SVG -->
+        <svg class="star star-outline"><use href="#star-outline"></use></svg>
+
+        <!-- Filled star SVG -->
+        <svg class="star star-filled"><use href="#star-filled"></use></svg>
+      </button>
+    {%- endfor %}
+      <select id="rating-select" name="{{ rating_field_name | default('rating') }}" class="sr-only">
+        {# <option value="0" {% if question.questionInitialRating == 0 %}selected{% endif %}>No rating</option> #}
+        {%- for i in range(1, 6) %}
+          <option value="{{ i }}" {% if question.questionInitialRating == i %}selected{% endif %}>{{ i }} star{% if i > 1 %}s{% endif %}</option>
+        {%- endfor %}
+      </select>    
     </div>
-    <div class="cart-item-details">
-      <div class="cart-item-headline">
-        <h3 id="product-6022648" class="cart-item-headline-productName">
-          <a href="/product/luv-a-duck-thai-red-duck-curry">Luv-A-Duck Thai Red Duck Curry</a>
-        </h3>
+    <ul class="fs-interview-LikertQuestion-adjectives">
+      {% for adjective in question.questionLikertAdjectives %}
+        <li id="{{ question.questionSlug }}-{{ loop.index }}" hidden>{{ adjective }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endfor %}  
+
+    		</form>
+
       </div>
-      <div class="cart-item-pricing">
-          <div class="cart-item-pricing-savings">
-            <div class="badge badge-positive">Save $2.25</div>
-          </div>
-          <div class="cart-item-pricing-rrp">
-            <span>Was $16.50</span>
-          </div>
-      </div>
-      <div class="cart-item-subtotal">$14.25</div>
-    </div>
-  </li>	
-
-		</div>
-
-		<form>
-			
-			<label>Why did you choose it?</label>
-			
-
-		</form>
-
-	</div>	
+    </region>
+	</section>	
 </div>

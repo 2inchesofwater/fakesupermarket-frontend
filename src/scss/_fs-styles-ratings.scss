@@ -1,0 +1,57 @@
+.fs-interview-ratings {
+	.fs-interview-ratings-starGroup {
+		display: flex;
+		flex-direction: row;
+		gap: 0;
+		margin-inline-end: calc(1/6 * 100%);
+	}
+
+	button{
+		flex-grow: 0;
+		border: 0;
+		padding: 0 var(--fs-spacing-xs);
+		margin: 0;
+		background: transparent;
+
+		svg {
+			width: 100%;
+			aspect-ratio: 1 / 1;
+		}
+		&[aria-pressed="false"] {
+ 			.star-outline > * {
+				fill: var(--fs-color-text-tertiary);
+			}
+			.star-filled{
+				display: none;
+			}
+		}
+
+			&:hover {
+				cursor: pointer;
+			}
+			&:hover .star-outline > * {
+				fill: var(--fs-color-action-brand);
+			}
+
+		&[aria-pressed="true"] {
+			.star-outline {
+				display: none;
+			}
+			.star-filled > * {
+				fill: var(--fs-color-action-brand);
+			}
+
+			&.hovered {
+				.star-outline {
+					display: unset;
+					> * {
+						fill: var(--fs-color-text-tertiary);
+					}
+				}
+				.star-filled{
+					display: none;
+				}
+			}			
+		}
+	}
+}
