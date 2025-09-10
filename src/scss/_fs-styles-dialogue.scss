@@ -5,11 +5,11 @@
   border-radius: 4px;
   overflow: hidden;  
 
-  .fs-dialogue-welcome {
+  .fs-dialogue-title {
     margin-block-start: var(--fs-spacing-sm);
     margin-block-end: var(--fs-spacing-xs);
     color: var(--fs-color-text-tertiary);
-    font-size: var(--fs-size-md);
+    font-size: var(--fs-size-lg);
     font-weight: 300;
   }
 }

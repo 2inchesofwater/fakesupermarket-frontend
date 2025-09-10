@@ -7,7 +7,7 @@
 
 		<region id="interview-wrapper-outer" aria-labelledBy="">
       <div id="interview-wrapper-inner" class="fs-dialogue">
-        <h2 class="fs-dialogue-welcome">You bought this –</h2>
+        <h2 class="fs-dialogue-title fs-interview-welcome">You bought this –</h2>
         <ul id="fs-interview-product" >
           <li class="cart-item-product" id="cart-item-product-6022648" aria-labelledby="product-6022648">
             <div class="cart-item-thumbnail">
@@ -37,7 +37,7 @@
 {% for question in storefront.study.interview %}
   
   <div id="{{ question.questionSlug }}" class="fs-interview-ratings" data-initial-rating="{{ question.questionInitialRating | default(5) }}">
-    <label>{{ question.questionLabel }}</label>
+    <label class="fs-interview-question">{{ question.questionLabel }}</label>
     <div class="fs-interview-ratings-starGroup">
     {%- for i in range(1, 6) %}
       <button
@@ -60,11 +60,30 @@
         {%- endfor %}
       </select>    
     </div>
+
     <ul class="fs-interview-LikertQuestion-adjectives">
       {% for adjective in question.questionLikertAdjectives %}
         <li id="{{ question.questionSlug }}-{{ loop.index }}" hidden>{{ adjective }}</li>
       {% endfor %}
     </ul>
+
+    <hr />
+    
+    <div class="fs-interview-multipleSelect-reasons">
+      <h2 class="fs-dialogue-title fs-interview-multipleSelect-title">What stood out for you?</h2>
+      {% for adjective in question.questionMultipleAdjectives %}
+        <label class="fs-pill">
+          <input
+            type="checkbox"
+            name="adjectives"
+            value="{{ adjective | trim | replace(' ', '_') | replace(\"'\", '_') | lower }}"
+            aria-checked="false"
+            autocomplete="off"
+          >
+          <span>{{ adjective }}</span>
+        </label>
+      {% endfor %}
+    </div>
   </div>
 {% endfor %}  
 
