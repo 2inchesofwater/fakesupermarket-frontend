@@ -19,7 +19,7 @@
           {% endif %} 
         </div>
         <div id="onboarding-actions">
-          <button id="onboarding-action-affirm" class="fs-btn fs-btn-primary">
+          <button id="onboarding-action-affirm" class="fs-btn fs-btn-primary fs-btn-icon">
             <span class="icon">{% include "partials/icons/check-circle.njk" %}</span>
             <span class="label">I can do that</span>
           </button>
@@ -35,13 +35,13 @@
 
     <region id="onboarding-animationControls">
       <div id="onboarding-animationControls-play">
-        <button class="fs-btn fs-btn-secondary" aria-labelledBy="onboarding-animationLabel-play">
+        <button class="fs-btn fs-btn-secondary fs-btn-icon" aria-labelledBy="onboarding-animationLabel-play">
           <span class="icon">{% include "partials/icons/play.njk" %}</span>
           <span class="label" id="onboarding-animationLabel-play" aria-label="Allow animation: The background will gently scroll.">Allow animation</span>
         </button>
       </div>
       <div hidden id="onboarding-animationControls-pause">
-        <button  class="fs-btn fs-btn-secondary" aria-labelledBy="onboarding-animationLabel-pause">
+        <button  class="fs-btn fs-btn-secondary fs-btn-icon" aria-labelledBy="onboarding-animationLabel-pause">
           <span class="icon">{% include "partials/icons/pause.njk" %}</span>
           <span class="label" id="onboarding-animationLabel-pause">Pause animation</span>
         </button>   

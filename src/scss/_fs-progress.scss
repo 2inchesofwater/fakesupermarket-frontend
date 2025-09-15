@@ -1,0 +1,20 @@
+.fs-interview-progress {
+	background: var(--fs-palette-light);
+	margin-block-start: var(--fs-spacing-sm);
+	margin-block-end: var(--fs-spacing-sm);
+	height: 2px;
+
+	::-webkit-progress-bar {
+		background: var(--fs-palette-light);
+	}
+	::-webkit-progress-value {
+		background: var(--fs-palette-middle);	
+	}
+	
+	progress {
+		display: block;
+		height: 100%;
+		border-radius: 0;
+		background: var(--fs-palette-middle);		
+	}
+}

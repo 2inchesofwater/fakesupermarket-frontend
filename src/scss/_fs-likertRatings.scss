@@ -1,9 +1,29 @@
-.fs-interview-ratings {
-	.fs-interview-ratings-starGroup {
+.fs-interview-likertRatings {
+	width: 100%;
+  max-width: 100%;
+  margin-block-start: var(--fs-spacing-lg);
+  padding-inline-start: var(--fs-spacing-2xs);
+
+	label {
+		// color: var(--fs-color-text-primary);
+		// font-size: var(--fs-size-lg);
+		// font-weight: 300;
+		// margin-block-start: var(--fs-spacing-lg);
+		margin-block-end: var(--fs-spacing-xs);
+	}
+
+	.fs-interview-likertRatings-starGroup {
 		display: flex;
 		flex-direction: row;
 		gap: 0;
 		margin-inline-end: calc(1/6 * 100%);
+	}
+
+	.fs-interview-likertRatings-adjectives {
+		color: var(--fs-color-text-tertiary);
+		font-size: var(--fs-size-sm);
+		font-weight: 200;
+		margin-block-start: var(--fs-spacing-xs);
 	}
 
 	button{

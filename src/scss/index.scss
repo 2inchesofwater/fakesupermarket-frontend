@@ -1,12 +1,13 @@
 @use 'variables';       		// CSS and Sass variables
 @use 'fs-variables';
-@use 'fs-logo';
 @use 'fs-styles';
-@use 'fs-styles-buttons';
-@use 'fs-styles-dialogue';
-@use 'fs-styles-ratings';
-@use 'fs-styles-multiSelect';
-@use 'fs-styles-tiles';
+@use 'fs-buttons';
+@use 'fs-dialogue';
+@use 'fs-likertRatings';
+@use 'fs-logo';
+@use 'fs-multiSelect';
+@use 'fs-progress';
+@use 'fs-tiles';
 
 @forward 'fs-onboarding';
 @forward 'fs-interview';

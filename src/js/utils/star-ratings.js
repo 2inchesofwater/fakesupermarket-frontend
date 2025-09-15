@@ -4,9 +4,8 @@ function initStarRating(questionId) {
 
   const stars = Array.from(container.querySelectorAll('button.star'));
   const select = container.querySelector('select');
-  const adjectiveLis = container.querySelectorAll('.fs-interview-LikertQuestion-adjectives li');
-
-
+  const adjectiveLis = container.querySelectorAll('.fs-interview-likertRatings-adjectives li');
+  
   let committedRating = parseInt(select.value, 10) || 0;
 
 
@@ -77,7 +76,7 @@ function initStarRating(questionId) {
 
 // Usage example (call for each question on page)
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.fs-interview-ratings').forEach(container => {
+  document.querySelectorAll('.fs-interview-question').forEach(container => {
     initStarRating(container.id);
   });
 });

@@ -107,7 +107,7 @@
       {
         "questionSlug": "value",
         "questionInitialRating": 5,
-        "questionLabel": "How would you rate its value for money?",
+        "questionLabel": "Rate its value for money?",
         "questionLikertAdjectives": [
           "Unimpressed",
           "A bit disappointed",
@@ -117,6 +117,27 @@
         ],
         "questionMultipleAdjectives": [
           "Generous size",
+          "High quality",
+          "Trustworthy brand",
+          "Affordable",
+          "Great price",
+          "Loads of flavour"
+        ],
+        "questionIncludeExtendedResponse": null
+      },
+      {
+        "questionSlug": "previous",
+        "questionInitialRating": 5,
+        "questionLabel": "Would you buy it again?",
+        "questionLikertAdjectives": [
+          "No way",
+          "Unlikely",
+          "We'll see",
+          "Probably",
+          "All the time"
+        ],
+        "questionMultipleAdjectives": [
+          "I'm curious",
           "High quality",
           "Trustworthy brand",
           "Affordable",

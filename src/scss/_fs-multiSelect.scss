@@ -1,10 +1,23 @@
-#fs-interview {
+.fs-interview-multipleSelect {
+  width: 100%;
+  max-width: 100%;
+  padding-inline-start: var(--fs-spacing-2xs);
+
   .fs-interview-multipleSelect-reasons {
     display: flex;
     flex-wrap: wrap;
     gap: var(--fs-spacing-xs);
-    margin-block-start: var(--fs-spacing-xl);
+    
+    // max-width: 100%;
 
+    .fs-dialogue-title {
+      margin-block-start: 0;
+    }
+
+    label {
+      margin-block-end: 0;
+      margin-block-start: 0;
+    }
     .fs-pill {
       flex: 0 0 auto;
       display: flex;
@@ -23,20 +36,24 @@
           margin: 0;
           margin-block-end: 0;
           border: 2px solid var(--fs-palette-light);
-          border-radius: 999px;
+          border-radius: 4px;
           background: transparent;
-          color: #333;
+          color: var(--fs-color-text-secondary);
           font-size: 1em;          
         }
 
-        // Focus style on the pill when input is focused (keyboard users)
+        &:hover + span {
+          background: var(--fs-color-action-hover);
+        }
+
         &:focus + span {
           outline: 2px solid var(--fs-color-action-focus);
           //outline-offset: 2px;
         }
-        // Checked style
+
         &:checked + span {
           background: var(--fs-color-trueWhite);
+          color: var(--fs-color-text-primary);
           border-color: var(--fs-color-action-brand);
         }
       }
