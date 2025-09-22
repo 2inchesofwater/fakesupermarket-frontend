@@ -1,12 +1,14 @@
 	<div id="shipping-collection">
 		<div class="wrapper">
 			<div class="panel-overview ">
-				<div class="overview-icon">Icon</div>
+				<div class="overview-icon">
+					<svg class="icon icon-collect"><use href="#icon-collect"></use></svg>
+				</div>
 				<div id="shipping-collection-information" class="overview-information">
 					<p class="overview-serviceName">{{ storefront.checkoutLabelCollectionService }}</p>
 					<p disabled class="fs-unavailable">{{ storefront.checkoutLabelCollectionAddressHTML | safe }}</p>
 				</div>
-				<a href="#" class="">Change to: {{ storefront.checkoutLabelDeliveryService }}</a>
+				<a class="">Change to: {{ storefront.checkoutLabelDeliveryService }}</a>
 			</div>
 			<hr>
 			<div id="collection-date">
@@ -28,7 +30,9 @@
 	<div id="shipping-delivery" hidden>
 		<div class="wrapper">
 			<div class="panel-overview ">
-				<div class="overview-icon">Icon</div>
+				<div class="overview-icon">
+					<svg class="icon icon-delivery"><use href="#icon-delivery"></use></svg>
+				</div>
 				<div id="shipping-delivery-information" class="overview-information">
 					<p class="overview-serviceName">{{ storefront.checkoutLabelDeliveryService }}</p>
 					<p disabled class="fs-unavailable">{{ storefront.checkoutLabelDeliveryAddressHTML | safe }}</p>

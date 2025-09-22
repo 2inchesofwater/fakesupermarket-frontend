@@ -32,14 +32,54 @@
     }
   }
 
+  #paymentFlow > details > summary {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: wrap;
+
+    h3 {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      gap: var(--spacing-sm);
+      align-content: center;
+      flex-wrap: wrap;
+    }
+    .badge[hidden] {
+      display: none;
+    }
+  }
+
+
   #cart-summary-products,
   #paymentFlow-payment-options {
     margin-bottom: var(--spacing-lg);
   }
 
+  // Switch the 'cehcked' icons inside the 'Complete' button inside each section
   #paymentFlow-summary-actions,
   #paymentFlow-shipping-actions,
   #paymentFlow-payment-actions {
     text-align: end;
+    .btn {
+      justify-self: end;
+    }
+    .btn-icon[aria-pressed="false"] {
+      .check-empty {
+        display: unset;
+      }
+      .check-filled {
+        display: none;
+      }      
+    }
+    .btn-icon[aria-pressed="true"] {
+      .check-empty {
+        display: none;
+      }
+      .check-filled {
+        display: unset;
+      }      
+    }
   }
 }

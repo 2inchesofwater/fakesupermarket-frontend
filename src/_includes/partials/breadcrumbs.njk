@@ -5,7 +5,7 @@
     {% for crumb in breadcrumbs %}
       <li class="breadcrumb-item{% if loop.last %} active" aria-current="page{% endif %}">
         {% if not loop.last %}
-          <a href="#" class="fs_unavailable">{{ crumb }}</a>
+          <span disabled class="fs-unavailable"><a>{{ crumb }}</a></span>
           <span class="separator" aria-hidden="true">/</span>
         {% else %}
           <span>{{ crumb }}</span>

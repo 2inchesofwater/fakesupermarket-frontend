@@ -1,14 +1,17 @@
-.control-product-quantity {
+.cart-item-controls {
+	.control-product-quantity {
 	display: flex;
 	flex-direction: row;
 	gap: 0;
 	align-content: center;
 	justify-content: stretch;
+	border: var(--thickness-sm) solid var(--color-border-default);
+	border-radius: var(--radius-md);
+	overflow: hidden;
 
 	.control {
-		background: var(--color-brand-primary);
+		background: var(--color-background-default);
 		border: 0;
-		border-radius: var(--radius-md);
 		padding: var(--spacing-xs);
 
 		line-height: 1.25;
@@ -20,32 +23,34 @@
 		}
 
 		transition: var(--transition-md);
-
+		svg {
+			& > path {
+				fill: var(--color-grays-600);
+				stroke: var(--color-grays-600);
+			}
+		}
 		&:hover {
-			background: var(--color-brand-secondary);
+			background: var(--color-brand-primary);
 			cursor: pointer;
+			svg {
+				& > path {
+					fill: var(--color-white);
+					stroke: var(--color-white);
+				}
+			}			
 		}
 		&.control-minus {
-			border-start-end-radius: 0;
-			border-end-end-radius: 0;
+			// border-start-end-radius: 0;
+			// border-end-end-radius: 0;
 		}
 		&.control-plus {
-			border-start-start-radius: 0;
-			border-end-start-radius: 0;
-		}
-		svg {
-			box-shadow: var(--boxShadow-xs);
-			& > path {
-				fill: var(--color-white);
-				stroke: var(--color-white);
-			}
+			// border-start-start-radius: 0;
+			// border-end-start-radius: 0;
 		}
 	}
 	input {
-		width: var(--spacing-3xl);
+		width: var(--spacing-2xl);
 		border: 0;
-		border-top: var(--thickness-sm) solid var(--color-border-default);
-		border-bottom: var(--thickness-sm) solid var(--color-border-default);
 
 		text-align: center;
 		font-size: var(--size-sm);
@@ -56,5 +61,26 @@
 			display: none;
 		}
 
+	}
+}
+
+	.control-remove {
+		background: none;
+
+		padding: var(--spacing-xs);
+		border: 0;
+		border-radius: var(--radius-sm);
+		font-family: var(--font-sans);
+		font-size: var(--size-xs);
+		line-height: 1em;
+		font-weight: 300;
+		color: var(--color-text-tertiary);
+		cursor: pointer;
+		transition: all 0.2s ease;
+
+		&:hover,
+		&:active {
+			background: var(--color-background-default);
+		}
 	}
 }

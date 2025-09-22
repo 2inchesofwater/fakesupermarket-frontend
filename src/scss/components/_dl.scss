@@ -8,9 +8,14 @@ dl.table {
 
   dt {
   	color: var(--color-text-tertiary);
+    grid-column: 1;
+    &.header {
+      grid-column: 1 / span 2;
+    }
   }
   dd {
   	color: var(--color-text-tertiary);
+    grid-column: 2;
   }
   dt, dd {
   	&.emphasis {

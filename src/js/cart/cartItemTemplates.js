@@ -33,12 +33,24 @@ export function createBaseCartItem(cart, sku) {
         <h3 id="product-${product.productSku}" class="cart-item-headline-productName">
           <a href="/product/${product.productSlug}">${product.productName}</a>
         </h3>
-        <button class="btn control-remove btn-icon btn-variant-recessive">
-          <span class="sr-only">Remove ${product.productName}</span>
-          <div class="intent-removeItem"></div>
-        </button>
       </div>
-      <div class="cart-item-messages" hidden></div>
+
+      <div class="cart-item-subtotal">${cart.formatPrice(price * quantity)}</div>
+
+      <div class="cart-item-savings">
+        ${savings ? `
+          <div class="cart-item-pricing-savings">
+            <div class="badge badge-positive">Save ${cart.formatPrice(savings)}</div>
+          </div>
+          <div class="cart-item-pricing-rrp">
+            <span>Was ${cart.formatPrice(product.priceRrp)}</span>
+          </div>
+        ` : ''}
+      </div> 
+
+      <!-- <div class="cart-item-messages" hidden></div> -->
+        <!-- In case we need to add in text such as "Out of stock" or "Promoted" -->
+
       <div class="cart-item-controls">
         <div class="control-product-quantity">
           <button class="control control-minus">
@@ -51,17 +63,10 @@ export function createBaseCartItem(cart, sku) {
             <div class="intent-plusItem"></div>
           </button>
         </div>
-        <div class="cart-item-pricing">
-          ${savings ? `
-            <div class="cart-item-pricing-savings">
-              <div class="badge badge-positive">Save ${cart.formatPrice(savings)}</div>
-            </div>
-            <div class="cart-item-pricing-rrp">
-              <span>Was ${cart.formatPrice(product.priceRrp)}</span>
-            </div>
-          ` : ''}
-        </div>
-        <div class="cart-item-subtotal">${cart.formatPrice(price * quantity)}</div>
+        <button class="control-remove">
+          Remove <span class="sr-only">${product.productName}</span>
+          <!-- <div class="intent-removeItem"></div> -->
+        </button>
       </div>
     </div>
   `;
@@ -73,7 +78,7 @@ export function createModalCartItem(cart, sku) {
   const li = createBaseCartItem(cart, sku);
   if (!li) return null;
 
-  li.querySelector('.intent-removeItem')?.appendChild(cloneIconTemplate('icon-x'));
+  // li.querySelector('.intent-removeItem')?.appendChild(cloneIconTemplate('icon-x'));
   li.querySelector('.intent-minusItem')?.appendChild(cloneIconTemplate('icon-minus'));
   li.querySelector('.intent-plusItem')?.appendChild(cloneIconTemplate('icon-plus'));
 

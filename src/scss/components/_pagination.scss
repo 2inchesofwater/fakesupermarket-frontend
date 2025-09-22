@@ -1,9 +1,9 @@
 #pagination {
 	display: flex;
 	flex-direction: column;
-	width: 100%;
 	align-items: center;
 
+	margin-inline: auto;
 	margin-block-start: var(--spacing-xl);
 
 	.pagination-summary {

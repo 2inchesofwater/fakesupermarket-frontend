@@ -8,7 +8,7 @@ form {
 	input[type="number"],
 	textarea {
 	  padding: var(--spacing-sm);
-	  border: var(--thickness-md) solid var(--color-text-primary);
+	  border: var(--thickness-md) solid var(--color-text-tertiary);
 	  border-radius: var(--radius-sm);
 	  //font-family: var(--font-sans);
 	  font-size: var(--size-md);
@@ -34,4 +34,55 @@ form {
 		font-size: var(--size-xs);
 		margin-block-start: var(--spacing-2xs);
 	}
+
+	.input-checkboxCustom {
+		display: flex;
+		flex-direction: row;
+		gap: var(--spacing-sm);
+		align-content: center;
+		flex-wrap: wrap;
+		line-height: var(--size-lg);
+
+		.checkboxCustom {
+	    position: relative;
+	    width: var(--size-lg);
+	    height: var(--size-lg);
+	    display: inline-block;
+
+	    border: var(--thickness-md) solid var(--color-text-tertiary);
+	    border-radius: var(--radius-sm);
+
+			&::after {
+	      content: "";
+	      position: absolute;
+	      left: 50%; 
+	      right: 50%;
+	      top: 50%;
+	      bottom: 50%;
+	      width: var(--size-lg);
+	      height: var(--size-lg);
+	      background: var(--color-brand-primary);
+	      border-radius: var(--radius-sm);
+	      transform: translate(-50%, -50%) scale(0.8);
+	      opacity: 0;
+	      transition: opacity 0.1s, transform 0.1s;
+	      pointer-events: none;
+	      z-index: -1;
+	    }		    
+		}
+
+	  input[type="checkbox"] {
+	    // Hide the native checkbox (but remain accessible)
+	    position: absolute;
+	    opacity: 0;
+	    width: 0;
+	    height: 0;
+
+	    &:checked + span::after {
+	      opacity: 1;
+	      transform: translate(-50%, -50%) scale(1);
+	    }	    
+	  }  				
+	}
+
 }

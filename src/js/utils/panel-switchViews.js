@@ -4,24 +4,22 @@ export function panelSwitchViews(panelIdA, panelIdB) {
 
   if (!panelA || !panelB) return;
 
-  // Helper to show one panel, hide the other
-  function showPanel(show, hide) {
+  function switchPanel(show, hide) {
     show.removeAttribute('hidden');
     hide.setAttribute('hidden', 'hidden');
   }
 
   // Attach event listeners to links/buttons within each panel
-  // Assumes the toggle trigger has class "toggle-panel"
-  panelA.querySelectorAll('.panel-overview').forEach(link => {
+  panelA.querySelectorAll('.panel-overview a').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
-      showPanel(panelB, panelA);
+      switchPanel(panelB, panelA);
     });
   });
-  panelB.querySelectorAll('.panel-overview').forEach(link => {
+  panelB.querySelectorAll('.panel-overview a').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
-      showPanel(panelA, panelB);
+      switchPanel(panelA, panelB);
     });
   });
 }

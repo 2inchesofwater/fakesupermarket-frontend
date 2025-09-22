@@ -81,22 +81,24 @@
               {% endif %}  
           </button>
           
-          <button 
-              class="favorite-button btn btn-product btn-secondary" 
-              aria-label="Come back to {{ product.name }} later"
-              onclick="toggleFavorite(this)"
-          >
-              {% if storefront.productCardSaveIconFilename %}
-                {% set svgContent = ('src/images/icons/' + storefront.productCardSaveIconFilename) | fs %}
-                <span class="icon {{ className | safe }}">
-                    {{ svgContent | safe }}
-                </span>
-              {% endif %}  
-              
-              {% if storefront.productCardSaveLabel %}
-                {{ storefront.productCardSaveLabel }}
-              {% endif %}
-          </button>
+          <span disabled class="fs-unavailable">
+            <button 
+                class="favourite-button btn btn-product btn-secondary" 
+                aria-label="Come back to {{ product.name }} later"
+                onclick="toggleFavorite(this)"
+            >
+                {% if storefront.productCardSaveIconFilename %}
+                  {% set svgContent = ('src/images/icons/' + storefront.productCardSaveIconFilename) | fs %}
+                  <span class="icon {{ className | safe }}">
+                      {{ svgContent | safe }}
+                  </span>
+                {% endif %}  
+                
+                {% if storefront.productCardSaveLabel %}
+                  {{ storefront.productCardSaveLabel }}
+                {% endif %}
+            </button>
+          </span>
         </div>  
       </section>
 

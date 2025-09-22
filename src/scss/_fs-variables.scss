@@ -14,10 +14,7 @@ $screen-xl: 1600px;
     --fs-palette-middle-alt: hsla(0, 71%, 40%, 1);
     --fs-palette-dark-alt: hsla(0, 100%, 25%, 1);
 
-	// --fs-palette-RazzmicBerry: hsla(303, 29%, 42%, 1);
-	// --fs-palette-HiddenWaters: hsla(185, 49%, 23%, 1);
 	--fs-palette-Flounce: hsla(180, 30%, 42%, 1);
-	// --fs-palette-DeepPond: hsla(146, 96%, 12%, 1);
 
 	--fs-color-black: var(--fs-palette-darkest);
 	--fs-color-white: var(--fs-palette-lightest);
@@ -42,6 +39,8 @@ $screen-xl: 1600px;
 
   --fs-color-modalScreen-gradient2: hsla(241, 13%, 85%, .55); 
   --fs-color-modalScreen-gradient1: hsla(241, 13%, 80%, .50); 
+
+  --fs-color-unavailable-pulse: var(--fs-palette-middle-alt);
 
   --fs-size-xs: 0.75rem;
   --fs-size-sm: 0.875rem;

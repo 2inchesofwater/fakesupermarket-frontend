@@ -1,6 +1,7 @@
 
 import Cart from '/js/cart/cart.js';
 import { renderCartSummary, bindCartEvents } from '/js/cart/cart-usage.js';
+import { checkoutPreflight } from '/js/pages/checkout-preflight.js';
 import { panelSwitchViews } from '/js/utils/panel-switchViews.js';
 import { updateUpcomingDates } from '/js/utils/pills-updateUpcomingDates.js';
 
@@ -10,6 +11,7 @@ const cart = new Cart({ products, storefront });
 
 cart.load();
 renderCartSummary(cart);
+checkoutPreflight();
 bindCartEvents(cart);
 panelSwitchViews('shipping-collection', 'shipping-delivery');
 

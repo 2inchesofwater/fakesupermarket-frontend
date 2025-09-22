@@ -1,4 +1,6 @@
 
+<!-- This file may be redundant – it looks like layouts/supermarket-productDetails.njk has the real version of the code -->
+
 <div class="products-grid">
   {% for product in productsAll %}
     <div id="{{ product.sku }}" class="product-card {{ product.brand }}" role="group" aria-labelledby="product-name">
@@ -95,22 +97,24 @@
               {% endif %}  
           </button>
           
-          <button 
-              class="favorite-button btn btn-product btn-secondary" 
-              aria-label="Come back to {{ product.name }} later"
-              onclick="toggleFavorite(this)"
-          >
-              {% if productCardSaveIconFilename %}
-                {% set svgContent = ('src/images/icons/' + productCardSaveIconFilename) | fs %}
-                <span class="icon {{ className | safe }}">
-                    {{ svgContent | safe }}
-                </span>
-              {% endif %}  
-              
-              {% if productCardSaveLabel %}
-                {{ productCardSaveLabel }}
-              {% endif %}
-          </button>
+          <span disabled class="fs-unavailable">
+            <button 
+                class="favorite-button btn btn-product btn-secondary" 
+                aria-label="Come back to {{ product.name }} later"
+                onclick="toggleFavorite(this)"
+            >
+                {% if productCardSaveIconFilename %}
+                  {% set svgContent = ('src/images/icons/' + productCardSaveIconFilename) | fs %}
+                  <span class="icon {{ className | safe }}">
+                      {{ svgContent | safe }}
+                  </span>
+                {% endif %}  
+                
+                {% if productCardSaveLabel %}
+                  {{ productCardSaveLabel }}
+                {% endif %}
+            </button>
+          </span>
       </div>
     </div>
   {% endfor %}

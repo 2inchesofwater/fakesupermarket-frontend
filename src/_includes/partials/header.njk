@@ -14,10 +14,6 @@
 <header id="site-header">
   <div class="container">
     <nav id="nav-main" >
-      {# <div id="fs-exit">
-        <button class="fake-btn_done">I'm done <span class="sr-only"> - Finish the session without making a fake purchase</span></button>
-      </div> #}
-
       <a href="pages/{{ storefront.slug }}/#" id="site-logo">
         {{ storefront.storefrontNameHTML | safe }}
       </a> 
@@ -27,7 +23,7 @@
       </div>
 
       <div id="header-main-actions">
-        <ul class="nav-list">
+        <ul disabled class="fs-unavailable nav-list">
           <li class="nav-item">{{ navLinkItem('More', '#', 'fs_unavailable', 'noun-more-7849118.svg', 'Created by Soetarman Atmodjo from Noun Project') }}</li>
           <li class="nav-item">{{ navLinkItem('My account', '#', 'fs_unavailable', 'noun-user-account-6233307-2.svg', 'Created by Meyda from Noun Project') }}</li>
           <li class="nav-item">{{ navLinkItem('Lists', '#', 'fs_unavailable', 'noun-shopping-list-7687839.svg', 'Created by Humam from Noun Project') }}</li>
@@ -49,7 +45,7 @@
   <div class="container">
      <nav id="nav-secondary">
         <div id="nav-browse">
-          <ul class="nav-list">
+          <ul disabled class="fs-unavailable nav-list">
             <li class="nav-item">{{ navLinkItem('Shop products', '#', 'fs_unavailable fill-brand whitespace-none-start', 'noun-food-7543523.svg', 'Created by Fahmi Hidayat from Noun Project') }}</li>
             <li class="nav-item">{{ navLinkItem('Specials + catalogues', '#', 'fs_unavailable') }}</li>
             <li class="nav-item">{{ navLinkItem('Previous purchases', '#', 'fs_unavailable') }}</li>
@@ -58,7 +54,7 @@
         </div>
 
         <div class="nav-location">
-          <ul class="nav-list">
+          <ul disabled class="fs-unavailable nav-list">
             <li class="nav-item">{{ navLinkItem('Your local shop', '#', 'fs_unavailable fill-brand whitespace-none-end', 'noun-add-location-7811864.svg', 'Created by Rumana Islam from Noun Project') }}</li>
           </ul>
         </div>

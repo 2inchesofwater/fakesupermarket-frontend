@@ -6,6 +6,9 @@ import {
   hasAnimationConsent
 } from '../pages/onboarding-animation.js';
 
+import {
+  unavailableRipple
+} from '../utils/unavailable-ripple.js';
 
 document.addEventListener('DOMContentLoaded', function() {
   // Affirm whether the user has already been through the current research task onboarding
@@ -25,3 +28,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // User has affirmed; No action needed, elements stay hidden
   }
 });
+
+unavailableRipple();

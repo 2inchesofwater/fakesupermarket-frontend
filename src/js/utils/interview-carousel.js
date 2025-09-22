@@ -16,6 +16,8 @@ Before the Next button or Submit button cause the carousel slides to animate, th
 const track = document.querySelector('.fs-carousel-track');
 const slides = Array.from(document.querySelectorAll('.fs-carousel-slide.fs-interview-question'));
 const postSlide = document.querySelector('#fs-interview-complete.fs-carousel-slide');
+
+const progressBar = document.querySelector('.fs-progressBar');
 const nextBtn = document.querySelector('.fs-btn-next');
 const submitBtn = document.querySelector('.fs-btn-submit');
 
@@ -26,6 +28,11 @@ export function updateInterviewCarouselUI() {
   const offset = currentSlide * -100;
   if (track) {
     track.style.transform = `translateX(${offset}%)`;
+  }
+
+  if (progressBar) {
+    progressBar.value = currentSlide + 1;
+    progressBar.setAttribute('aria-valuenow', currentSlide + 1);
   }
 
   // Button visibility logic

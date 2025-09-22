@@ -89,12 +89,12 @@
 			align-items: center;
 			dt {
 				flex: 1;
-				color: var(--color-text-tertiary);
+				color: var(--color-text-secondary);
 			}
 			dd {
 				flex: 1;
 				font-size: var(--size-lg);
-				color: var(--color-text-primary);
+				color: var(--color-text-secondary);
 				font-weight: var(--weight-bold);
 			}
 		}		
