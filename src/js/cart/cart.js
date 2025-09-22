@@ -136,6 +136,20 @@ console.log('options:', options, typeof options);
     this.totalCost = totalCost;
   }
 
+  getTotalSavings() {
+    let totalSavings = 0;
+    for (const [sku, item] of Object.entries(this.items)) {
+      const product = this.getProductBySku(sku);
+      if (!product) continue;
+      const rrp = parseFloat(product.priceRrp);
+      const current = parseFloat(product.priceCurrent ?? product.priceRrp);
+      if (rrp > current) {
+        totalSavings += (rrp - current) * item.quantity;
+      }
+    }
+    return totalSavings;
+  }
+
   // --- Product Lookup ---
   getProductBySku(sku) {
     return this.products.find(p => p.productSku === sku);

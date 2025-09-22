@@ -4,6 +4,8 @@ import { renderCartSummary, bindCartEvents } from '/js/cart/cart-usage.js';
 import { checkoutPreflight } from '/js/pages/checkout-preflight.js';
 import { panelSwitchViews } from '/js/utils/panel-switchViews.js';
 import { updateUpcomingDates } from '/js/utils/pills-updateUpcomingDates.js';
+import { updateTotalSavings } from '/js/pages/checkout-updateSavings.js';
+
 
 const products = JSON.parse(document.getElementById('products').textContent);
 const storefront = JSON.parse(document.getElementById('storefront').textContent);
@@ -20,6 +22,7 @@ document.addEventListener('cartChanged', (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  updateTotalSavings(cart);
   updateUpcomingDates("collection-pills-dates");
   updateUpcomingDates("delivery-pills-dates");
 });
