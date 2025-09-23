@@ -18,7 +18,8 @@ bindCartEvents(cart);
 panelSwitchViews('shipping-collection', 'shipping-delivery');
 
 document.addEventListener('cartChanged', (e) => {
-  renderCartSummary(e.detail.cartInstance);
+  renderCartSummary(cart); //e.detail.cartInstance
+  updateTotalSavings(cart);
 });
 
 document.addEventListener("DOMContentLoaded", () => {

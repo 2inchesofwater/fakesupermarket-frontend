@@ -1,8 +1,23 @@
 #checkout #orderSummary {
 	background: var(--color-background-default);
-	border: 0; //var(--thickness-sm) solid var(--color-border-default);
+	border: 1px solid transparent; //var(--thickness-sm) solid var(--color-border-default);
+
+	&.incomplete {
+		background: var(--color-background-page);
+		border: 1px solid var(--color-border-default);
+		transition: var(--transition-md);
+		.step-heading {
+			color: var(--color-text-tertiary);
+		}
+		#paymentFlow-CTA a {
+			background: var(--color-background-page);
+			color: var(--color-text-tertiary);
+		}
+	}
+
 	padding: var(--spacing-xl);
 	// box-shadow: var(--boxShadow-md);
+
 
 	display: flex;
 	flex-direction: column;
@@ -49,13 +64,15 @@
 	}
 
 	#paymentFlow-subTotal {}
-
+	#paymentFlow-totalAmt {
+		margin-block-end: var(--spacing-2xs);
+	}
 	#paymentFlow-disclaimer {
 		color: var(--color-text-tertiary);
 	}
 
 	#paymentFlow-customerAgreement {
-		font-size: var(--size-md);
+		font-size: var(--size-xs);
 		color: var(--color-text-tertiary);
 	}
 
@@ -68,6 +85,8 @@
 	}
 
 	#paymentFlow-postScript {
-		font-size: var(--size-md);
+		font-size: var(--size-sm);
+		background: var(--color-white);
+		padding: var(--spacing-sm);
 	}
 }

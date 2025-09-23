@@ -18,7 +18,7 @@
 							<span class="step-number">1</span>
 							<span class="step-title">Cart</span>
 						</h3>
-						<span hidden class="step-review-status badge badge-information">Confirmed</span>
+						{% include "partials/checkout-badgeConfirmed.njk" %}
 					</summary>
 					<div id="cart-summary" class="step-details-panel">
 						<div id="cart-summary-products">
@@ -44,7 +44,7 @@
 							<span class="step-number">2</span>
 							<span class="step-title">Where and when</span>
 						</h3>
-						<span hidden class="step-review-status badge badge-information">Confirmed</span>
+						{% include "partials/checkout-badgeConfirmed.njk" %}
 					</summary>
 					<section id="shipping" class="step-details-panel">
 						{% include "partials/checkout-shipping.njk" %}	
@@ -64,7 +64,7 @@
 							<span class="step-number">3</span>
 							<span class="step-title">Payment</span>
 						</h3>
-						<span hidden class="step-review-status badge badge-information">Confirmed</span>
+						{% include "partials/checkout-badgeConfirmed.njk" %}
 					</summary>
 					<section disabled id="paymentFlow-payment-options" class="fs-unavailable step-details-panel">
 						{% include "partials/checkout-payment.njk" %}
@@ -79,7 +79,7 @@
 					</details>
 			</section>
 
-			<section aria-labelledby="paymentFlow-orderSummary-heading" id="orderSummary">
+			<section aria-labelledby="paymentFlow-orderSummary-heading" id="orderSummary" class="incomplete">
 				{% include "partials/checkout-orderSummary.njk" %}
 			</section>
 		</article>

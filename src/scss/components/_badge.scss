@@ -25,11 +25,23 @@
 	}
 	&.badge-information {
 		background: var(--color-background-default);
-		//color: var(--color-white);
+		color: var(--color-text-primary); 
 		border: 2px solid var(--color-background-default);
 		text-transform: uppercase;
+		svg > * {
+			fill: var(--color-text-primary);
+			stroke: var(--color-text-primary); 
+		}
 	}
-
+	&.badge-icon {
+		display: flex;
+		flex-direction: row;
+		gap: var(--spacing-2xs);
+		svg {
+			width: 1em;
+			height: 1em;
+		}
+	}
 	&.badge-naked {
 		background: transparent;
 		color: var(--color-text-tertiary);

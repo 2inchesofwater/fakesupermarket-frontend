@@ -964,8 +964,22 @@ a.skiplink:focus {
 }
 .badge.badge-information {
   background: var(--color-background-default);
+  color: var(--color-text-primary);
   border: 2px solid var(--color-background-default);
   text-transform: uppercase;
+}
+.badge.badge-information svg > * {
+  fill: var(--color-text-primary);
+  stroke: var(--color-text-primary);
+}
+.badge.badge-icon {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-2xs);
+}
+.badge.badge-icon svg {
+  width: 1em;
+  height: 1em;
 }
 .badge.badge-naked {
   background: transparent;
@@ -1479,11 +1493,23 @@ nav.breadcrumbs a:hover {
 
 #checkout #orderSummary {
   background: var(--color-background-default);
-  border: 0;
+  border: 1px solid transparent;
   padding: var(--spacing-xl);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-2xl);
+}
+#checkout #orderSummary.incomplete {
+  background: var(--color-background-page);
+  border: 1px solid var(--color-border-default);
+  transition: var(--transition-md);
+}
+#checkout #orderSummary.incomplete .step-heading {
+  color: var(--color-text-tertiary);
+}
+#checkout #orderSummary.incomplete #paymentFlow-CTA a {
+  background: var(--color-background-page);
+  color: var(--color-text-tertiary);
 }
 #checkout #orderSummary .step-heading {
   font-size: var(--size-xl);
@@ -1517,11 +1543,14 @@ nav.breadcrumbs a:hover {
   padding-block-start: var(--spacing-xs);
   padding-block-end: var(--spacing-xs);
 }
+#checkout #orderSummary #paymentFlow-totalAmt {
+  margin-block-end: var(--spacing-2xs);
+}
 #checkout #orderSummary #paymentFlow-disclaimer {
   color: var(--color-text-tertiary);
 }
 #checkout #orderSummary #paymentFlow-customerAgreement {
-  font-size: var(--size-md);
+  font-size: var(--size-xs);
   color: var(--color-text-tertiary);
 }
 #checkout #orderSummary #paymentFlow-CTA button {
@@ -1530,7 +1559,9 @@ nav.breadcrumbs a:hover {
   border-radius: var(--size-xl);
 }
 #checkout #orderSummary #paymentFlow-postScript {
-  font-size: var(--size-md);
+  font-size: var(--size-sm);
+  background: var(--color-white);
+  padding: var(--spacing-sm);
 }
 
 #paymentOptions-card #cards-accepted {
@@ -1765,6 +1796,42 @@ details.disclosure-group .disclosure-wrapper {
   padding-inline-end: var(--spacing-lg);
   padding-block-start: var(--spacing-sm);
   padding-block-end: var(--spacing-lg);
+}
+
+.error-summary {
+  border-inline-start: var(--thickness-xl) solid var(--color-brand-primary);
+  background: var(--color-background-default);
+  padding: var(--spacing-md);
+}
+.error-summary h2 {
+  font-size: var(--size-lg);
+  font-weight: var(--weight-bold);
+  margin-block-end: var(--spacing-xs);
+}
+.error-summary ul {
+  padding-block-end: var(--spacing-sm);
+  margin-block-end: var(--spacing-xs);
+  border-block-end: var(--thickness-sm) solid var(--color-border-strong);
+}
+.error-summary ul li {
+  padding-inline-start: var(--spacing-xs);
+}
+.error-summary ul li + li {
+  margin-block-start: var(--spacing-xs);
+}
+.error-summary a {
+  color: var(--color-text-tertiary);
+  text-decoration: none;
+  display: inline-block;
+}
+.error-summary a:hover, .error-summary a:active {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-brand-primary);
+  text-underline-offset: var(--thickness-md);
+}
+.error-summary .error-close {
+  font-size: var(--size-xs);
 }
 
 form {

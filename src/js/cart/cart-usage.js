@@ -5,6 +5,7 @@ const cartSummaryProducts = document.getElementById('cart-summary-products');
 const cartSummaryProductsList = document.getElementById('cart-summary-products-list');
 const cartSummaryProductsEmptyMsg = document.getElementById('cart-summary-products-empty');
 const cartSummarySubtotalAmount = document.getElementById('cart-summary-subtotal-amount');
+const cartSummaryTotalAmount = document.getElementById('cart-summary-totalAmount');
 
 // import { activateCheckoutBtn } from '/js/pages/cart-overlay.js';
 import { createModalCartItem } from '/js/cart/cartItemTemplates.js';
@@ -13,6 +14,7 @@ import { createModalCartItem } from '/js/cart/cartItemTemplates.js';
 export function renderCartSummary(cartInstance) {
   renderCartSummaryList(cartInstance);
   updateCartSubtotal(cartInstance, { el: cartSummarySubtotalAmount });
+  updateCartTotal(cartInstance, { el: cartSummaryTotalAmount });
 }
 
 export function getProductBySku(sku) {
@@ -51,6 +53,15 @@ function updateCartSubtotal(cartInstance, { el = null } = {}) {
   const subtotal = parseFloat(cartInstance.totalCost || 0).toFixed(2);
 
   el.textContent = cartInstance.formatPrice(cartInstance.totalCost);
+}
+
+function updateCartTotal(cartInstance, { el = null } = {}) {
+  if (!el) return;
+
+  const currency = storefront.currencySymbol || '$';
+  const subtotal = parseFloat(cartInstance.totalCost || 0).toFixed(2);
+  const totalPlusSavings = cartInstance.totalCost + 1.50;
+  el.textContent = cartInstance.formatPrice(totalPlusSavings);
 }
 
 export function bindCartEvents(cartInstance, { addItemToCart = '.btn.add-to-cart' } = {}) {
