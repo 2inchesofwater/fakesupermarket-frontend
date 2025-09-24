@@ -42,12 +42,12 @@
 		}
 	}
 
-	#fs-interview-product {
+	.fs-interview-product {
 		display: block;
 		background: var(--fs-color-trueWhite);
 		border-radius: var(--fs-radius-sm);
 		padding: var(--fs-spacing-sm);
-		color: var(--fs-color-text-primary);
+		box-shadow: var(--boxShadow-md);
 		position: relative;
 			margin-left: calc( var(--fs-spacing-md) * -1);
 			margin-right: calc( var(--fs-spacing-md) * -1);

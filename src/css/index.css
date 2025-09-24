@@ -641,22 +641,22 @@
   height: 1px;
   background: var(--fs-palette-light);
 }
-#fs-interview #fs-interview-product {
+#fs-interview .fs-interview-product {
   display: block;
   background: var(--fs-color-trueWhite);
   border-radius: var(--fs-radius-sm);
   padding: var(--fs-spacing-sm);
-  color: var(--fs-color-text-primary);
+  box-shadow: var(--boxShadow-md);
   position: relative;
   margin-left: calc(var(--fs-spacing-md) * -1);
   margin-right: calc(var(--fs-spacing-md) * -1);
 }
-#fs-interview #fs-interview-product .cart-item-product {
+#fs-interview .fs-interview-product .cart-item-product {
   border-block-start: 0;
   border-block-end: 0;
   padding: 0;
 }
-#fs-interview #fs-interview-product .cart-item-subtotal {
+#fs-interview .fs-interview-product .cart-item-subtotal {
   font-weight: var(--weight-regular);
 }
 
@@ -1995,14 +1995,14 @@ dl.table {
   gap: var(--spacing-2xs);
   font-size: var(--size-md);
 }
-dl.table dt {
+dl.table dd {
   color: var(--color-text-tertiary);
   grid-column: 1;
 }
-dl.table dt.header {
+dl.table dd.header {
   grid-column: 1/span 2;
 }
-dl.table dd {
+dl.table dt {
   color: var(--color-text-tertiary);
   grid-column: 2;
 }
@@ -2926,6 +2926,7 @@ h1 {
   grid-row: 1;
   grid-column: 3;
   justify-self: end;
+  align-content: center;
 }
 .cart-item-details .cart-item-savings {
   grid-row: 2;

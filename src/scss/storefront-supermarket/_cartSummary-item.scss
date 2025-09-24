@@ -43,7 +43,8 @@
   .cart-item-subtotal {
 	  grid-row: 1;
 	  grid-column: 3;
-	  justify-self: end;  	
+	  justify-self: end; 
+	  align-content: center;  	
   }  
   .cart-item-savings {
 	  grid-row: 2;

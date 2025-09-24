@@ -65,7 +65,6 @@ export function createBaseCartItem(cart, sku) {
         </div>
         <button class="control-remove">
           Remove <span class="sr-only">${product.productName}</span>
-          <!-- <div class="intent-removeItem"></div> -->
         </button>
       </div>
     </div>
@@ -78,22 +77,37 @@ export function createModalCartItem(cart, sku) {
   const li = createBaseCartItem(cart, sku);
   if (!li) return null;
 
-  // li.querySelector('.intent-removeItem')?.appendChild(cloneIconTemplate('icon-x'));
   li.querySelector('.intent-minusItem')?.appendChild(cloneIconTemplate('icon-minus'));
   li.querySelector('.intent-plusItem')?.appendChild(cloneIconTemplate('icon-plus'));
+  // To-do: Replace the JS cloneIcon function with SVG symbols
 
   return li;
 }
 
-export function createCheckoutCartItem(cart, sku) {
+export function createResearchCartItem(cart, sku) {
+  // Get the base cart item DOM node
   const li = createBaseCartItem(cart, sku);
   if (!li) return null;
 
-  const extra = document.createElement('div');
-  extra.className = 'checkout-cart-item-extra';
-  extra.innerHTML = `<label><input type="checkbox"> Add gift wrap</label>`;
+  // Replace the <a> in the product name with a <span>
+  const headline = li.querySelector('.cart-item-headline-productName a');
+  if (headline) {
+    const span = document.createElement('span');
+    span.textContent = headline.textContent;
+    headline.parentNode.replaceChild(span, headline);
+  }
 
-  li.querySelector('.cart-item-details')?.appendChild(extra);
+  const hiddenSku = document.createElement('input');
+  hiddenSku.type = 'hidden';
+  hiddenSku.name = `interview_product_sku`;
+  hiddenSku.value = sku;
+  li.appendChild(hiddenSku);
+
+  // Remove the quantity controls and remove button
+  const controls = li.querySelector('.cart-item-controls');
+  if (controls) {
+    controls.parentNode.removeChild(controls);
+  }
 
   return li;
 }
