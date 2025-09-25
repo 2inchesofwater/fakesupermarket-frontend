@@ -1,13 +1,14 @@
 .fs-btn {
   border: 0;
   border-radius: 5vh;
-  padding: 1vh 2vh 1vh 1vh;
+  padding: 1vh 2vh;
   font-size: 1rem;
   font-family: var(--font-sans);
   font-weight: 300;
   color: var(--fs-color-brand-primary);
   cursor: pointer;
   transition: all 0.2s ease;
+  text-decoration: none;
 
   &.fs-btn-primary {
     color: var(--fs-color-text-primary);
@@ -68,7 +69,8 @@
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
-    align-items: center;    
+    align-items: center;
+    padding-inline-start: 1vh;    
   }
   
   .icon {

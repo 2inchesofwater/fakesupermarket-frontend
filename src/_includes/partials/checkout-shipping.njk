@@ -11,16 +11,17 @@
 				<a class="">Change to: {{ storefront.checkoutLabelDeliveryService }}</a>
 			</div>
 			<hr>
-			<div id="collection-date">
+			{% include "partials/fs-unavailableOptions.njk" %}
+			<div disabled id="collection-date" class="fs-unavailable">
 				<h3>Which day?</h3>
-				<div disabled id="collection-pills-dates" class="fs-unavailable pills pill-group">
+				<div id="collection-pills-dates" class="pills pill-group">
 					{% set slotsID = "collection" %}
 					{% include "partials/pills-updateUpcomingDates.njk" %}
 				</div>
 			</div>
-			<div id="collection-time">
+			<div disabled id="collection-time" class="fs-unavailable">
 				<h3>What time?</h3>
-				<div disabled id="collection-radio-times" class="fs-unavailable">
+				<div id="collection-radio-times">
 					{% set slots = storefront.slotsCollection %}		
 					{% include "partials/radio-availableTimeSlots.njk" %}
 				</div>
@@ -41,17 +42,18 @@
 				<a href="#" class="">Change to: {{ storefront.checkoutLabelCollectionService }}</a>
 			</div>
 			<hr>
-			<div id="delivery-date">
+			{% include "partials/fs-unavailableOptions.njk" %}
+			<div disabled id="delivery-date" class="fs-unavailable ">
 				<h3>Which day?</h3>
-				<div disabled id="delivery-pills-dates" class="fs-unavailable pills pill-group">
+				<div id="delivery-pills-dates" class="pills pill-group">
 					{% set nextFiveDates = "delivery-pills-dates" %}
 					{% set slotsID = "delivery" %}
 					{% include "partials/pills-updateUpcomingDates.njk" %}
 				</div>
 			</div>
-			<div id="delivery-time">
+			<div disabled id="delivery-time" class="fs-unavailable">
 				<h3>What time?</h3>
-				<div disabled id="delivery-radio-times" class="fs-unavailable">
+				<div id="delivery-radio-times">
 					{% set slots = storefront.slotsDelivery %}
 					{% include "partials/radio-availableTimeSlots.njk" %}
 				</div>

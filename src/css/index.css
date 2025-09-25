@@ -218,13 +218,14 @@
 .fs-btn {
   border: 0;
   border-radius: 5vh;
-  padding: 1vh 2vh 1vh 1vh;
+  padding: 1vh 2vh;
   font-size: 1rem;
   font-family: var(--font-sans);
   font-weight: 300;
   color: var(--fs-color-brand-primary);
   cursor: pointer;
   transition: all 0.2s ease;
+  text-decoration: none;
 }
 .fs-btn.fs-btn-primary {
   color: var(--fs-color-text-primary);
@@ -277,6 +278,7 @@
   flex-direction: row;
   gap: 0.5rem;
   align-items: center;
+  padding-inline-start: 1vh;
 }
 .fs-btn .icon {
   aspect-ratio: 1/1;
@@ -305,12 +307,77 @@
   border-radius: 4px;
   overflow: hidden;
 }
+.fs-dialogue.fs-dialogue-xs {
+  padding: var(--fs-spacing-md);
+}
 .fs-dialogue .fs-dialogue-title {
   margin-block-start: var(--fs-spacing-sm);
   margin-block-end: var(--fs-spacing-xs);
   color: var(--fs-color-text-secondary);
   font-size: var(--fs-size-md);
   font-weight: 300;
+}
+
+.fs-inlineDialogue {
+  container: fs-dialogue/inline-size;
+  width: 100%;
+  max-width: 35rem;
+  position: relative;
+  margin-inline: auto;
+}
+.fs-inlineDialogue .fs-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+@container fs-dialogue (width > 400px) {
+  .fs-inlineDialogue .fs-wrapper {
+    flex-direction: row;
+  }
+}
+.fs-inlineDialogue .fakesupermarket-logo {
+  width: var(--size-4xl);
+  height: var(--size-4xl);
+  margin-block-start: -1vh;
+  margin-inline-end: -2vh;
+  position: relative;
+}
+.fs-inlineDialogue .fakesupermarket-logo svg {
+  width: 100%;
+  height: 100%;
+}
+.fs-inlineDialogue .fs-dialogue {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+@container fs-dialogue (width > 400px) {
+  .fs-inlineDialogue .fs-dialogue {
+    flex-direction: row;
+    padding-inline-start: var(--fs-spacing-lg);
+  }
+  .fs-inlineDialogue .fs-dialogue .fs-dialogue-content {
+    flex: 1;
+  }
+  .fs-inlineDialogue .fs-dialogue .fs-dialogue-title {
+    margin-block-start: 0;
+  }
+  .fs-inlineDialogue .fs-dialogue .fs-dialogue-text {
+    font-size: var(--fs-size-sm);
+    color: var(--fs-color-text-secondary);
+    max-width: 35rem;
+  }
+  .fs-inlineDialogue .fs-dialogue .fs-dialogue-actions {
+    justify-items: end;
+  }
+  .fs-inlineDialogue .fs-dialogue .fs-dialogue-actions .fs-btn {
+    display: block;
+  }
+}
+
+#fs-unavailableOptions.fs-inlineDialogue {
+  max-width: none;
 }
 
 .fs-interview-likertRatings {
@@ -373,23 +440,23 @@
   display: none;
 }
 
-#fakesupermarket-logo svg {
+.fakesupermarket-logo svg {
   shape-rendering: crispEdges;
   position: relative;
 }
-#fakesupermarket-logo svg #logo-background {
+.fakesupermarket-logo svg #logo-background {
   fill: var(--fs-palette-light-alt);
 }
-#fakesupermarket-logo svg #logo-words {
+.fakesupermarket-logo svg #logo-words {
   fill: var(--fs-palette-darkest);
 }
-#fakesupermarket-logo svg #logo-border-emphasis {
+.fakesupermarket-logo svg #logo-border-emphasis {
   fill: var(--fs-palette-middle-alt);
 }
-#fakesupermarket-logo svg #logo-border-outer {
+.fakesupermarket-logo svg #logo-border-outer {
   fill: var(--fs-color-white);
 }
-#fakesupermarket-logo svg #logo-border-inner {
+.fakesupermarket-logo svg #logo-border-inner {
   fill: var(--fs-color-white);
 }
 
@@ -1239,12 +1306,25 @@ nav.breadcrumbs a:hover {
   justify-content: center;
   width: 100%;
 }
-#cart-summary-products-empty .wrapper .text-primary {
+#cart-summary-products-empty .cart-summary-empty-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+#cart-summary-products-empty .cart-summary-empty-title {
   font-size: var(--size-lg);
   font-weight: var(--weight-regular);
+  margin-block-end: var(--spacing-sm);
 }
-#cart-summary-products-empty .wrapper .text-secondary {
+#cart-summary-products-empty .cart-summary-empty-action {
   color: var(--color-text-secondary);
+}
+#cart-summary-products-empty .cart-summary-empty-endEarly {
+  width: 100%;
+  padding: var(--spacing-xl);
 }
 
 #category-SortAndFilter {
@@ -1562,6 +1642,10 @@ nav.breadcrumbs a:hover {
   font-size: var(--size-sm);
   background: var(--color-white);
   padding: var(--spacing-sm);
+}
+
+#paymentFlow-payment #fs-unavailableOptions {
+  margin-block-end: var(--spacing-md);
 }
 
 #paymentOptions-card #cards-accepted {
