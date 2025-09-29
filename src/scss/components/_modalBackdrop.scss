@@ -12,12 +12,19 @@ body {
   opacity: 0;
   backdrop-filter: blur( var(--blur-md) );
   pointer-events: auto;
-  transition: opacity .25s ease;
+  
 
   &.show {
     opacity: 1;
+    transition: opacity .25s ease;
+  }
+  &.show-slow {
+    opacity: 1;
+    transition: opacity 10s ease;
   }
   &.hide {
     opacity: 0;
+    transition: opacity .25s ease;
   }
+
 }

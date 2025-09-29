@@ -1,31 +1,27 @@
 .fs-dialogue {
-  background: radial-gradient(farthest-corner at 200% 0%, var(--fs-color-trueWhite), var(--fs-palette-lightest));
-  padding: 7.5vh;
-  color: var(--fs-color-text-primary);
-  border-radius: 4px;
-  overflow: hidden;  
-
-  &.fs-dialogue-xs {
-    padding: var(--fs-spacing-md);
+  .fs-dialogue-outer {
+    display: flex;
+    container: fs-dialogue / inline-size;
   }
-
-  .fs-dialogue-title {
-    margin-block-start: var(--fs-spacing-sm);
-    margin-block-end: var(--fs-spacing-xs);
-    color: var(--fs-color-text-secondary);
-    font-size: var(--fs-size-md);
-    font-weight: 300;
+  &:not(.fs-dialogue-inline) {
+    .fs-dialogue-outer {
+      flex-direction: column;
+    }
+  }
+  &.fs-dialogue-inline {
+    .fs-dialogue-outer {
+      flex-direction: row;
+    }
   }
 }
 
-.fs-inlineDialogue {
-  container: fs-dialogue / inline-size;
+.fs-dialogue-inline {
   width: 100%;
   max-width: 35rem;
   position: relative;
   margin-inline: auto;
 
-  .fs-wrapper {
+  .fs-dialogue-outer {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -33,52 +29,134 @@
       flex-direction: row;
     }
   }
+}
 
+
+.fs-dialogue-xs {
   .fakesupermarket-logo {
     width: var(--size-4xl);
     height: var(--size-4xl);
-    margin-block-start: -1vh;
-    margin-inline-end: -2vh;
-    position: relative;
+    position: absolute;
+    top: -1.5vh;
+    left: 1vh;
     svg {
       width: 100%;
       height: 100%;
     }
+    @container fs-dialogue (width > 400px) {
+      top: -1.5vh;
+      left: 1vh;
+    }
   }
-  .fs-dialogue {
-    flex: 1;
+
+  &:not(.fs-dialogue-inline) .fs-dialogue-inner {
+    padding: var(--fs-spacing-md);
+  } 
+  &.fs-dialogue-inline .fs-dialogue-inner {
+    padding: var(--fs-spacing-md) var(--fs-spacing-lg) var(--fs-spacing-md) var(--size-5xl);
+  }   
+}
+
+.fs-dialogue-sm {
+  .fakesupermarket-logo {
+    width: var(--size-5xl);
+    height: var(--size-5xl);
+    top: -2vh;
+    left: 2vh;
+    position: absolute;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+    @container fs-dialogue (width > 400px) {
+      top: -2vh;
+      left: 2vh;
+    }
+  }
+  &:not(.fs-dialogue-inline) .fs-dialogue-inner {
+    padding: var(--size-5xl) var(--fs-spacing-lg) var(--fs-spacing-xl) var(--fs-spacing-lg);
+  } 
+  &.fs-dialogue-inline .fs-dialogue-inner {
+    padding: var(--fs-spacing-lg);
+  } 
+}
+
+
+.fs-dialogue {
+  .fs-dialogue-inner {
     display: flex;
     flex-direction: column;
     width: 100%;
-    @container fs-dialogue (width > 400px) {
-      flex-direction: row;
-      padding-inline-start: var(--fs-spacing-lg);
-
-      .fs-dialogue-content {
-        flex: 1;
-
-      }
-      .fs-dialogue-title {
-        margin-block-start: 0;
-      }
-      .fs-dialogue-text {
-        font-size: var(--fs-size-sm);
-        color: var(--fs-color-text-secondary);
-        max-width: 35rem;
-      }
-      .fs-dialogue-actions {
-        justify-items: end;
-
-        .fs-btn {
-          display: block;
-        }
+    gap: var(--fs-spacing-md);
+  }
+  &.fs-dialogue-inline {
+    .fs-dialogue-inner {
+      flex-direction: column;
+    }
+    @container fs-dialogue (width > 500px) {
+      .fs-dialogue-inner {
+        flex-direction: row;
       }
     }
   }
 }
 
+.fs-dialogue-inner {
+  background: radial-gradient(farthest-corner at 200% 0%, var(--fs-palette-dark), var(--fs-palette-darkest));
+  padding: 7.5vh;
+  color: var(--fs-palette-lightest);
+  border-radius: 4px;
+  overflow: hidden;  
+}
+
+.fs-dialogue {
+  .fs-dialogue-title {
+    margin-block-start: 0;
+    margin-block-end: var(--fs-spacing-xs);
+    font-size: var(--fs-size-lg);
+    font-weight: 300;
+  }
+  &.fs-dialogue-lg .fs-dialogue-title {
+    font-size: var(--fs-size-xl);
+  }
+  &.fs-dialogue-inline {
+    .fs-dialogue-title { 
+      margin-block-start: 0;
+      margin-block-end: var(--fs-spacing-xs);
+    }
+  }  
+}
+
+.fs-dialogue {
+  .fs-dialogue-text {
+    font-size: var(--fs-size-md);
+    max-width: 35rem;
+    color: var(--fs-palette-light);
+  }
+  &.fs-dialogue-xs .fs-dialogue-text {
+    font-size: var(--fs-size-sm);
+  }
+
+  ul {
+    li {
+      & + li {
+        margin-block-start: var(--fs-spacing-sm);
+      }
+    }
+  }
+
+  .fs-dialogue-actions {
+    justify-items: end;
+
+    .fs-btn {
+      display: block;
+    }
+  }
+}
+
+
 #fs-unavailableOptions {
-  &.fs-inlineDialogue {
+  &.fs-dialogue-inline {
     max-width: none;
   }
 }

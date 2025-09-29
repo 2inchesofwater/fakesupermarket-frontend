@@ -11,6 +11,14 @@
         <form id="fs-interview-dataCollection">
           <div class="fs-carousel">
             <div class="fs-carousel-track">
+              <div id="fs-interview-intro" class="fs-carousel-slide">
+                <h1 class="sr-only">Post-purchase interview</h1>
+                <h2 class="fs-dialogue-title fs-interview-welcome">Next up: A few questions</h2>
+                <p>You just (fake) bought some products for your household. We'd like to understand why those products are the best match for you and your situation.</p>
+                <input type="hidden" name="fs-interview-studyID" value="{{ storefront.study.studyID }}" >
+                <input type="hidden" name="fs-interview-participantID" value="001">
+                <input type="hidden" name="fs-interview-sessionDateTime" value="">
+              </div>
               {% for question in storefront.study.interview %}
                 <div id="{{ question.questionSlug }}" class="fs-carousel-slide fs-interview-question">
                   <h2 class="fs-dialogue-title fs-interview-welcome">You bought this:</h2>

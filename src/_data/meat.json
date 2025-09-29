@@ -106,6 +106,7 @@
     "interview": [
       {
         "questionSlug": "value",
+        "questionSelectPurchasedItem": true,
         "questionInitialRating": 5,
         "questionLabel": "Rate its value for money?",
         "questionLikertAdjectives": [
@@ -127,6 +128,7 @@
       },
       {
         "questionSlug": "previous",
+        "questionSelectPurchasedItem": true,
         "questionInitialRating": 5,
         "questionLabel": "Would you buy it again?",
         "questionLikertAdjectives": [

@@ -12,7 +12,7 @@ import {
 
 document.addEventListener('DOMContentLoaded', function() {
   // Affirm whether the user has already been through the current research task onboarding
-  const modalBackdrop = document.getElementById('fs-modalBackdrop');
+  const modalBackdrop = document.getElementById('modalBackdrop');
   const onboardingDialog = document.getElementById('fs-onboarding');
   const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000; // ms
 

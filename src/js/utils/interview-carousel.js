@@ -21,8 +21,8 @@ const progressBar = document.querySelector('.fs-progressBar');
 const nextBtn = document.querySelector('.fs-btn-next');
 const submitBtn = document.querySelector('.fs-btn-submit');
 
-const totalSlides = slides.length + 1; // interview questions + post-interview slide
-let currentSlide = 0; // 0-based index; interview questions first
+const totalSlides = 1 + slides.length + 1; // interview questions + welcome + post-interview slide
+let currentSlide = 0; 
 
 export function updateInterviewCarouselUI() {
   const offset = currentSlide * -100;
@@ -31,25 +31,32 @@ export function updateInterviewCarouselUI() {
   }
 
   if (progressBar) {
-    progressBar.value = currentSlide + 1;
+    progressBar.value = currentSlide + 1; // 1-based for progress bar
+    progressBar.max = totalSlides;
     progressBar.setAttribute('aria-valuenow', currentSlide + 1);
+    progressBar.setAttribute('aria-valuemax', totalSlides);
   }
 
-  // Button visibility logic
-  if (currentSlide < slides.length - 1) {
-    // Show Next, hide Submit
+  if (currentSlide < slides.length) {
+    // Welcome slide and all interview questions except the last show 'Next'
     nextBtn.hidden = false;
     submitBtn.hidden = true;
-  } else if (currentSlide === slides.length - 1) {
-    // Last interview question: Show Submit, hide Next
+  } else if (currentSlide === slides.length) {
+    // Last interview question: Show 'Submit', hide 'Next'
     nextBtn.hidden = true;
     submitBtn.hidden = false;
   } else {
-    // Post-interview slide: hide both buttons
+    // Post-interview slide: hide both
     nextBtn.hidden = true;
     submitBtn.hidden = true;
   }
 }
+
+export function resetInterviewCarousel() {
+  currentSlide = 0;
+  updateInterviewCarouselUI();
+}
+
 
 function validateCurrentSlide(slideIdx) {
   // TODO: Implement real validation logic!
@@ -68,9 +75,11 @@ nextBtn?.addEventListener('click', () => {
 // Submit button handler
 submitBtn?.addEventListener('click', () => {
   if (!validateCurrentSlide(currentSlide)) return;
-  if (currentSlide === slides.length - 1) {
-    currentSlide += 1; // Go to post-interview slide
+  if (currentSlide === slides.length) {
+    currentSlide += 1; // Move to post-interview slide
     updateInterviewCarouselUI();
   }
 });
 
+
+document.addEventListener('DOMContentLoaded', resetInterviewCarousel);

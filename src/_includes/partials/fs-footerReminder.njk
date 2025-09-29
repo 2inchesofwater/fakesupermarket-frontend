@@ -1,0 +1,28 @@
+<div id="fs-footerReminder" class="fs-dialogue fs-dialogue-sm">
+	<div class="fs-dialogue-outer">
+
+		<div class="fakesupermarket-logo">
+			{% include "partials/logo/fakesupermarket-roundel.njk" %}
+		</div>
+
+		<div class="fs-dialogue-inner">
+			<div class="fs-dialogue-content">
+				<h3 class="fs-dialogue-title">{{ storefront.study.task.instructionTitle | safe }}</h3>
+        {% if storefront.study.task.instructionDetail %}
+          <ul class="fs-dialogue-text researchPrompt-detail">
+            {% for item in storefront.study.task.instructionDetail %}
+              <li>{{ item | safe }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+      <div class="fs-dialogue-actions">             
+        <ul class="fs-tiles fs-tiles-tertiary">
+        	<li class="fs-tile">
+        		<a href="#" target="_blank">Explainer: What am I meant to do?</a>
+      		</li>
+        </p>
+			</div>
+		</div>
+	</div>
+</div>

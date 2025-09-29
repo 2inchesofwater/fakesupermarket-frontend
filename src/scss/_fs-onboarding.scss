@@ -36,9 +36,9 @@
     position: relative;
 
   }
-  #onboarding-wrapper-inner {
-    z-index: 1020;
-    position: relative; 
+
+  #onboarding-actions {
+    flex: 1;
   }
 
   #onboarding-animationControls {
@@ -56,40 +56,27 @@
 #fs-onboarding {
   #onboarding-welcome {
     color: var(--fs-color-text-tertiary);
-    font-size: 1rem;
     font-weight: 300;
-    margin-bottom: 1.25rem;
+    margin-bottom: var(--fs-spacing-sm);
     border-bottom: 1px solid;
   }
   #onboarding-researchPrompt {
-    .researchPrompt-headline {
-      font-size: 2rem;
-      font-weight: 500;
-      margin-bottom: 1vh;
-      color: var(--fs-color-text-primary);
+    .fs-dialogue-title {
+
     }
-    .researchPrompt-detail {
-      margin-bottom: 2.5vh;
-      color: var(--fs-color-text-primary);
-      font-size: 1rem;
+    .fs-dialogue-text {
       padding-block: 1vh;
       padding-inline: 2.5vh;
-      margin-inline: 1vh;
-      display: flex;
-      flex-direction: column;
-      gap: 1vh;
 
       li {
         list-style: numeric;
-        color: var(--fs-color-text-secondary);
         &::marker {
-          color: var(--fs-color-text-tertiary);
           font-weight: 400;
         }
       }
     }
   }
   #onboarding-actions {
-    margin-bottom: 2.5vh;
+    //margin-bottom: 2.5vh;
   }
 }

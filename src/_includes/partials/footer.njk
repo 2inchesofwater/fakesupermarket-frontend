@@ -9,20 +9,7 @@
   </div>
   <div id="footer-nav" class="row">
     <div class="wrapper">
-      <div id="fs-prompt-reminder" class="footer-column">
-        <div class="fs-wrapper">
-          <p class="fs-identity">Fake Supermarket</p>
-          <h3>{{ storefront.study.task.instructionTitle | safe }}</h3>
-          {% if storefront.study.task.instructionDetail %}
-            <ul class="researchPrompt-detail">
-              {% for item in storefront.study.task.instructionDetail %}
-                <li>{{ item | safe }}</li>
-              {% endfor %}
-            </ul>
-          {% endif %}            
-          <p><a href="#" target="_blank">Explainer: What am I meant to do?</a></p>
-        </div>
-      </div>
+      {% include "partials/fs-footerReminder.njk" %}
       <div disabled class="fs-unavailable footer-column">
         <h3 class="footer-heading">Customer service and support</h3>
         <ul class="footer-links nav-list">

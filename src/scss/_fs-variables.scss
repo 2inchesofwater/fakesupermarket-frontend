@@ -23,13 +23,13 @@ $screen-xl: 1600px;
   --fs-color-brand-primary: var(--fs-palette-dark);
   --fs-color-brand-secondary: var(--fs-palette-middle);
 
-  --fs-color-text-primary: var(--fs-palette-darkest);
-  --fs-color-text-secondary: var(--fs-palette-dark);
+  --fs-color-text-primary: var(--fs-palette-lightest);
+  --fs-color-text-secondary: var(--fs-palette-light);
   --fs-color-text-tertiary: var(--fs-palette-middle);
 
-  --fs-color-action-primary: var(--fs-color-trueWhite);
-  --fs-color-action-secondary: hsla(258, 14%, 80%, 1);
-  --fs-color-action-hover: var(--fs-palette-light-alt);
+  --fs-color-action-primary: var(--fs-palette-dark-alt);
+  --fs-color-action-secondary: var(--fs-palette-dark);
+  --fs-color-action-hover: var(--fs-palette-dark-alt);
   --fs-color-action-pressed: var(--fs-palette-lightest);
   --fs-color-action-brand: var(--fs-palette-middle-alt);
   --fs-color-action-focus: #F2C12E; 
@@ -59,4 +59,6 @@ $screen-xl: 1600px;
   --fs-spacing-xl: 32px;
   
   --fs-radius-sm: 4px;
+
+  --fs-transition-md: all 0.3s ease;
 }

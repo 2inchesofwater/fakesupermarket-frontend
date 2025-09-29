@@ -1,35 +1,33 @@
 <div id="fs-onboarding" role="dialog" aria-modal="true" aria-labelledby="onboarding-title" class="fs-pre_hidden">
 
-  <section id="onboarding-wrapper" role="region" aria-labelledby="onboarding-title">
+  <section id="onboarding-wrapper" class="fs-dialogue fs-dialogue-lg" role="region" aria-labelledby="onboarding-title">
     <header>
       <h1 id="fakesupermarket-logo" aria-label="Fake Supermarket" class="fakesupermarket-logo"><span id="fakesupermarket-logo-background">{% include "partials/logo/fakesupermarket-roundel.njk" %}</span></h1>
     </header>
 
-    <region id="onboarding-wrapper-outer">
-      <div id="onboarding-wrapper-inner" class="fs-dialogue">
-        <div id="onboarding-researchPrompt">
+    <region id="onboarding-wrapper-outer" class="fs-dialogue-inner">
+      <div id="onboarding-researchPrompt" class="fs-dialogue-content">
           <p id="onboarding-welcome">{{ storefront.fakesupermarket.welcomeMessage }}</p> 
-          <h2 class="researchPrompt-headline">{{ storefront.study.task.instructionTitle | safe }}</h2>
+          <h2 class="fs-dialogue-title">{{ storefront.study.task.instructionTitle | safe }}</h2>
           {% if storefront.study.task.instructionDetail %}
-            <ul class="researchPrompt-detail">
+            <ul class="fs-dialogue-text">
               {% for item in storefront.study.task.instructionDetail %}
                 <li>{{ item | safe }}</li>
               {% endfor %}
             </ul>
           {% endif %} 
-        </div>
-        <div id="onboarding-actions">
+      </div>
+      <div id="onboarding-actions">
           <button id="onboarding-action-affirm" class="fs-btn fs-btn-primary fs-btn-icon">
             <span class="icon">{% include "partials/icons/check-circle.njk" %}</span>
             <span class="label">I can do that</span>
           </button>
-        </div>
-        <div id="onboarding-help">
-          <ul class="fs-tiles fs-tiles-tertiary">
-            <li class="fs-tile"><a href="#" target="_blank">Explainer: What am I meant to do?</a></li>
-            <li class="fs-tile"><a href="#" target="_blank">What's a fake supermarket?</a></li>
+      </div>
+      <div id="onboarding-help">
+        <ul class="fs-tiles fs-tiles-tertiary">
+          <li class="fs-tile"><a href="#" target="_blank">Explainer: What am I meant to do?</a></li>
+          <li class="fs-tile"><a href="#" target="_blank">What's a fake supermarket?</a></li>
         </ul>
-        </div>
       </div>
     </region>
 

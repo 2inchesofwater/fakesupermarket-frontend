@@ -27,5 +27,5 @@ export function selectInterviewProducts(cart) {
 document.addEventListener("DOMContentLoaded", () => {
   updateInterviewCarouselUI();
   selectInterviewProducts(cart);
-  window.dispatchEvent(new Event('show-backdrop'));
+  window.dispatchEvent(new Event('show-backdrop-slow'));
 });
