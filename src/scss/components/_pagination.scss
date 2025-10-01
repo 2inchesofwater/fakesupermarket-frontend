@@ -1,10 +1,18 @@
+@use "fs-variables" as *;
+
 #pagination {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
 	margin-inline: auto;
-	margin-block-start: var(--spacing-xl);
+
+
+	margin-block-start: var(--spacing-lg);
+	margin-block-end: var(--spacing-lg);
+	@media (min-width: $screen-sm) {
+		margin-block-start: var(--spacing-xl);
+		margin-block-end: var(--spacing-sm);
+	}
 
 	.pagination-summary {
 		margin-bottom: var(--spacing-sm);

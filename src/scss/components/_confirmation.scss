@@ -1,16 +1,20 @@
+@use "fs-variables" as *;
 
 #confirmation {
-	display: grid;
-  	grid-template-columns: 1fr 1fr 1fr;
+	display: grid;	
 	gap: var(--spacing-md);
+	position: relative;
 	min-height: 100vh;
 	width: 100%;
+	
+	grid-template-columns: 1fr;
+	@media (min-width: $screen-sm) {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
 }
 #confirmationReceipt {
-	flex: 1;
 	background: var(--color-background-subtle);
 	padding: var(--spacing-xl);
-	max-width: 25rem;
 
 	display: flex;
 	flex-direction: column;
@@ -155,10 +159,8 @@
 }
 
 #confirmationShipping {
-	flex: 1;
 	background: var(--color-background-subtle);
 	padding: var(--spacing-xl);
-	max-width: 25rem;
 
 	#confirmationShipping-collection,
 	#confirmationShipping-delivery {
@@ -232,5 +234,11 @@
 	order: 3;
 	flex: 1;
 	min-width: 0;
-	overflow-x: hidden;
+	// overflow-x: hidden;
+
+	@media (max-width: $screen-sm) {
+		position: absolute;
+		top: 50vh;
+		width: 100%;
+	}
 }

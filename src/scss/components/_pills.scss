@@ -1,3 +1,5 @@
+@use "fs-variables" as *;
+
 .pill-group {
   border: none;
   padding: 0;
@@ -12,8 +14,6 @@
 }
 
 .pill {
-  // cursor: pointer;
-  padding: var(--spacing-md);
   border-radius: var(--radius-md);
   background: var(--color-white);
   border: var(--thickness-md) solid var(--color-border-default);
@@ -24,6 +24,11 @@
   flex: 1;
   align-content: stretch;
   min-width: 9em;
+
+  padding: var(--spacing-sm);
+  @media (min-width: $screen-sm) {
+    padding: var(--spacing-md);
+  }
 
   label {
     display: flex;

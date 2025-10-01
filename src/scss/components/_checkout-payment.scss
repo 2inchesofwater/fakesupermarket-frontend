@@ -1,8 +1,40 @@
+@use "fs-variables" as *;
+
 #paymentFlow-payment #fs-unavailableOptions {
 	margin-block-end: var(--spacing-md);
 }
 
 #paymentOptions-card {
+	.disclosure-wrapper {
+		@media (max-width: $screen-sm) {
+			padding-inline-start: 0;
+			padding-inline-end: 0;
+		}
+	}
+	#payment-form .form-row:nth-of-type(1) {
+		@media (max-width: $screen-sm) {
+			flex-direction: column;
+			gap: var(--spacing-xs);
+			.form-group {
+				flex-direction: row;
+				align-items: center;
+				width: 100%;
+
+				label {
+					display: none;
+				}
+				.help {
+					order: -1;
+					flex: 1;
+					//text-align: start;
+					margin-block-start: 0;
+				}
+				#cards-accepted {
+					justify-content: end;
+				}
+			}
+		}
+	}
 	#cards-accepted {
 		display: flex;
 		flex-direction: row;

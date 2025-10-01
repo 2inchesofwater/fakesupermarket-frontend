@@ -1,23 +1,31 @@
+@use "fs-variables" as *;
+
 .productDetails {
 	> article {
 		display: grid;
-		gap: var(--spacing-2xl);
 		align-self: start;
 
-	  // Mobile-first: stack everything
-	  grid-template-columns: 1fr;
+		grid-template-columns: 1fr;
 	  grid-template-areas:
-	    "product-name"
+	    "product-essentials"
 	    "product-images"
 	    "product-information"
 	    "product-reviews";
+	    
+		gap: var(--spacing-md);
+
+		@media (min-width: $screen-sm) {
+			gap: var(--spacing-2xl);
+		}
 
 	  section.product-essentials   { grid-area: product-essentials; }
 	  section.product-images       { grid-area: product-images; }
 	  section.product-information  { grid-area: product-information; }
 	  section.product-reviews      { grid-area: product-reviews; }
 
-	  @media (min-width: 768px) {
+
+
+	  @media (min-width: $screen-md) {
 	    // On larger screens: 6:4 layout, product name moves to the right
 	    grid-template-columns: 6fr 4fr;
 	    grid-template-areas:
@@ -49,7 +57,7 @@
 		}
 		.product-grossWeight {
 			font-size: var(--size-lg);
-			 font-weight: var(--weight-regular);
+			font-weight: var(--weight-regular);
 			color: var(--color-text-tertiary);
 		}
 		.product-brandInfo {
@@ -57,10 +65,12 @@
 			color: var(--color-text-tertiary);
 		}
 		.product-pricing {
-			margin-block-start: var(--spacing-md);
-			margin-block-end: var(--spacing-md);
-			// padding-inline-start: var(--spacing-xs);
-
+			margin-block-start: var(--spacing-xs);
+			margin-block-end: var(--spacing-xs);
+			@media (min-width: $screen-sm) {
+				margin-block-start: var(--spacing-md);
+				margin-block-end: var(--spacing-md);
+			}
 			.product-pricing-topline {
 				display: flex;
 				flex-direction: row;
@@ -105,6 +115,9 @@
 		.product-images-main {
 			figure {
 				text-align: center;
+				img {
+					max-width: 100%;
+				}
 			}
 		}
 		.product-images-thumbnails {

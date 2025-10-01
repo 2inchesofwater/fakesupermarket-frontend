@@ -8,7 +8,7 @@
 					<p class="overview-serviceName">{{ storefront.checkoutLabelCollectionService }}</p>
 					<p disabled class="fs-unavailable">{{ storefront.checkoutLabelCollectionAddressHTML | safe }}</p>
 				</div>
-				<a class="">Change to: {{ storefront.checkoutLabelDeliveryService }}</a>
+				<a class="overview-switch">Change to: {{ storefront.checkoutLabelDeliveryService }}</a>
 			</div>
 			<hr>
 			{% include "partials/fs-unavailableOptions.njk" %}
@@ -39,7 +39,7 @@
 					<p disabled class="fs-unavailable">{{ storefront.checkoutLabelDeliveryAddressHTML | safe }}</p>
 					<a disabled class="fs-unavailable" href="#">Other saved addresses</a>
 				</div>
-				<a href="#" class="">Change to: {{ storefront.checkoutLabelCollectionService }}</a>
+				<a class="overview-switch">Change to: {{ storefront.checkoutLabelCollectionService }}</a>
 			</div>
 			<hr>
 			{% include "partials/fs-unavailableOptions.njk" %}

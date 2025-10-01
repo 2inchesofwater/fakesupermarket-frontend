@@ -4,13 +4,21 @@
 main {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-xl);
 
 	max-width: $screen-lg;
-  margin: 0 auto;
+	margin: 0 auto;
 
-  padding-block-start: var(--spacing-xl);
-  padding-block-end: var(--spacing-md);
+	padding-block-start: var(--spacing-xl);
+	padding-block-end: var(--spacing-md);	
+	@media (max-width: $screen-sm) {
+		gap: var(--spacing-md);
+		padding-block-start: var(--spacing-md);
+		padding-block-end: var(--spacing-md);	
+		padding-inline: var(--spacing-sm);
+	}
+	@media (min-width: $screen-sm) {
+		gap: var(--spacing-xl);
+	}
 }
 
 h1 {

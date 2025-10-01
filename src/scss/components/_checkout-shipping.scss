@@ -1,3 +1,5 @@
+@use "fs-variables" as *;
+
 #shipping {
 	container: shipping / inline-size;
 	font-size: var(--size-md);
@@ -31,18 +33,29 @@
 
 
 	.panel-overview {
-		display: flex;
-		flex-direction: row;
-		gap: var(--spacing-md);
+		display: grid;
+		grid-template-columns: auto 1fr;
+		grid-template-areas:
+		  "icon info"
+		  "icon link";
+		gap: var(--spacing-sm);
 		width: 100%;
-
 		background: var(--color-panel-light);
 		padding: var(--spacing-lg);
 		border-radius: var(--radius-md);
 
 		color: var(--color-text-secondary);
 
+		@media (min-width: $screen-sm) {
+			gap: var(--spacing-md);
+			grid-template-columns: auto 1fr auto;
+	    grid-template-areas: "icon info link";
+	    align-items: center;
+		}
+
 		.overview-icon {
+			grid-area: icon;
+    	align-self: start;
 			.icon {
 				width: var(--spacing-3xl);
 				aspect-ratio: 1 / 1;
@@ -53,21 +66,26 @@
 		}
 
 		.overview-information {
-			flex: 1;
+			grid-area: info;
 			.overview-serviceName {
 				font-size: var(--size-lg);
-				font-weight: var(--weight-regular);
+				font-weight: var(--weight-bold);
 			}
+		}
+		.overview-switch {
+			grid-area: link;
+    	align-self: start;
 		}
 	}
 
-	#collection-date {
-		@container shipping (width < 550px) {
+	#collection-date,
+	#delivery-date {
+		@container shipping (width < #{$screen-sm}) {
 			.pill-group {
 				flex-direction: column;
 				gap: var(--spacing-xs);
-				padding-inline: var(--spacing-xs);
-
+				overflow-x: visible;
+				
 				label {
 					flex-direction: row;
 					.day {
@@ -82,6 +100,11 @@
 				}
 			}
 		}
+		@container shipping (width >= #{$screen-md}) {
+			.pill-group {
+				padding-inline: var(--spacing-xs);
+			}
+		}
 	}
 
 
@@ -89,9 +112,12 @@
 		.radiogroup {
 			display: grid;
 			grid-template-columns: 1fr;
-			gap: var(--spacing-md);
+			gap: var(--spacing-xs);
+			@media (min-width: $screen-sm) {
+				gap: var(--spacing-md);
+			}
 		}
-		@container shipping (width < 550px) {
+		@container shipping (width < #{$screen-sm}) {
 			.radiogroup {
 				gap: var(--spacing-xs);
 				h3 {
@@ -109,7 +135,7 @@
 				}
 			}
 		}
-		@container shipping (width > 550px) {
+		@container shipping (width > $screen-md) {
 			.radiogroup {
 				grid-template-columns: 1fr 2fr;
 				align-items: start;

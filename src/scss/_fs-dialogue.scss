@@ -1,3 +1,5 @@
+@use "fs-variables" as *;
+
 .fs-dialogue {
   .fs-dialogue-outer {
     display: flex;
@@ -25,7 +27,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    @container fs-dialogue (width > 400px) {
+    @container fs-dialogue (width > #{$screen-sm}) {
       flex-direction: row;
     }
   }
@@ -43,7 +45,7 @@
       width: 100%;
       height: 100%;
     }
-    @container fs-dialogue (width > 400px) {
+    @container fs-dialogue (width > #{$screen-sm}) {
       top: -1.5vh;
       left: 1vh;
     }
@@ -68,7 +70,7 @@
       width: 100%;
       height: 100%;
     }
-    @container fs-dialogue (width > 400px) {
+    @container fs-dialogue (width > #{$screen-sm}) {
       top: -2vh;
       left: 2vh;
     }
@@ -81,6 +83,29 @@
   } 
 }
 
+.fs-dialogue-md {
+  .fakesupermarket-logo {
+    width: var(--size-5xl);
+    height: var(--size-5xl);
+    top: -2vh;
+    left: 2vh;
+    position: absolute;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+    @container fs-dialogue (width > #{$screen-sm}) {
+      top: -2vh;
+      left: 2vh;
+    }
+  }
+  &:not(.fs-dialogue-inline) .fs-dialogue-inner {
+    padding: var(--size-4xl) var(--fs-spacing-sm) var(--fs-spacing-xl) var(--fs-spacing-sm);
+  } 
+  &.fs-dialogue-inline .fs-dialogue-inner {
+    padding: var(--fs-spacing-lg);
+  } 
+}
 
 .fs-dialogue {
   .fs-dialogue-inner {
@@ -93,7 +118,7 @@
     .fs-dialogue-inner {
       flex-direction: column;
     }
-    @container fs-dialogue (width > 500px) {
+    @container fs-dialogue (width > #{$screen-sm}) {
       .fs-dialogue-inner {
         flex-direction: row;
       }
