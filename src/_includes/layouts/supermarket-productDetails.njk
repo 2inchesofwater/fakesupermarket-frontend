@@ -108,7 +108,7 @@
         <div class="product-images-main" aria-label="Images of {{ product.productName }}">
           {% if product.images.length %}
             <figure itemprop="image">
-              <img src="pages/{{ storefront.slug }}/{{ product.images[0] }}" alt="{{ product.imagesVisualDescription }}">
+              <img src="/pages/{{ storefront.slug }}/{{ product.images[0] }}" alt="{{ product.imagesVisualDescription }}">
             </figure>
           {% endif %}
         </div>
@@ -120,7 +120,7 @@
             {% for image in product.images %}
             <li>
               <button type="button" aria-label="Show image {{ loop.index }}">
-                <img src="pages/{{ storefront.slug }}/{{ image }}" alt="Thumbnail #{{ loop.index }}" style="max-width:100%; max-height:100%;">
+                <img src="/pages/{{ storefront.slug }}/{{ image }}" alt="Thumbnail #{{ loop.index }}" style="max-width:100%; max-height:100%;">
               </button>
             </li>
             {% endfor %}

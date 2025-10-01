@@ -739,18 +739,8 @@
   justify-self: start;
   position: relative;
 }
-@media (min-width: 500px) {
-  #fs-interview header {
-    margin-top: 7.5vh;
-  }
-}
 #fs-interview header #fakesupermarket-logo {
   margin-bottom: 0;
-}
-@media (min-width: 500px) {
-  #fs-interview .fs-dialogue {
-    padding: 5vh 0;
-  }
 }
 #fs-interview .fs-dialogue .fs-carousel-slide {
   box-sizing: border-box;
@@ -762,6 +752,9 @@
     padding-inline: var(--fs-spacing-lg);
     padding-block-start: unset;
   }
+}
+#fs-interview #interview-wrapper-inner {
+  margin-block-start: var(--fs-spacing-lg);
 }
 #fs-interview #interview-wrapper-inner hr {
   margin-block-start: var(--fs-spacing-lg);
@@ -2528,8 +2521,8 @@ table th.numeric, table td.numeric {
 }
 #site-footer .row .wrapper {
   max-width: 1600px;
-  padding-block-start: var(--spacing-xl);
-  padding-block-end: var(--spacing-xl);
+  margin-inline: auto;
+  padding-block: var(--spacing-xl);
   padding-inline: var(--spacing-sm);
   display: flex;
   flex-direction: column;
@@ -2540,6 +2533,7 @@ table th.numeric, table td.numeric {
   #site-footer .row .wrapper {
     flex-direction: row;
     padding-inline: var(--spacing-xl);
+    gap: var(--spacing-2xl);
   }
 }
 #site-footer .row .wrapper .footer-heading {
@@ -2584,10 +2578,11 @@ table th.numeric, table td.numeric {
   position: relative;
   flex: 1;
   width: 100%;
-  order: 4;
+  order: -1;
 }
 @media (max-width: 500px) {
   #site-footer .row #fs-footerReminder {
+    order: 1;
     margin-block-start: var(--spacing-md);
   }
 }
@@ -2856,7 +2851,7 @@ table th.numeric, table td.numeric {
 main {
   display: flex;
   flex-direction: column;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding-block-start: var(--spacing-xl);
   padding-block-end: var(--spacing-md);
@@ -2874,6 +2869,7 @@ main {
   #utility-wrapper,
   main {
     gap: var(--spacing-xl);
+    padding-inline: var(--spacing-md);
   }
 }
 

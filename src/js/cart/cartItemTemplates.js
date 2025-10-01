@@ -22,7 +22,7 @@ export function createBaseCartItem(cart, sku) {
   li.innerHTML = `
     <div class="cart-item-thumbnail">
       <img 
-        src="pages/${cart.storefront.slug}/${product.images}" 
+        src="/pages/${cart.storefront.slug}/${product.images}" 
         alt="${product.imagesVisualDescription || product.productName}" 
         width="${cart.storefront.productCardImageSize.width}" 
         height="${cart.storefront.productCardImageSize.height}"
