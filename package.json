@@ -6,7 +6,9 @@
   "scripts": {
     "start": "gulp dev",
     "build": "NODE_ENV=production gulp build",
-    "clean": "gulp clean"
+    "clean": "gulp clean",
+    "scrape": "node scripts/scrape-products.js",
+    "scrape:demo": "node scripts/demo.js"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +22,8 @@
   },
   "devDependencies": {
     "@types/gulp-sass": "^5.0.4",
+    "axios": "^1.12.2",
+    "cheerio": "^1.1.2",
     "cssnano": "^7.0.6",
     "gulp": "^5.0.0",
     "gulp-esbuild": "^0.14.0",

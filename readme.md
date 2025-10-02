@@ -116,6 +116,19 @@ Products in Kirby are structured as follows:
 
 Add test products through the Kirby Panel at http://localhost:8000/panel
 
+### Automated Product Scraping
+
+For quickly populating product data from rival supermarket websites, you can use the automated scraper tool:
+
+```bash
+node scripts/scrape-products.js \
+  --urls "https://example-supermarket.com/meat" \
+  --output src/_data/meat.json \
+  --count 25
+```
+
+See [scripts/README.md](scripts/README.md) for detailed documentation on using the product scraper.
+
 ## Troubleshooting
 
 ### CORS Issues
