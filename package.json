@@ -6,7 +6,9 @@
   "scripts": {
     "start": "gulp dev",
     "build": "NODE_ENV=production gulp build",
-    "clean": "gulp clean"
+    "clean": "gulp clean",
+    "scrape": "node scripts/scrape-products.js",
+    "scrape:demo": "node scripts/demo.js"
   },
   "keywords": [],
   "author": "",

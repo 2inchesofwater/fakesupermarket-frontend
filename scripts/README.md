@@ -28,9 +28,40 @@ From the project root:
 npm install
 ```
 
+## Quick Start / Demo
+
+To verify the scraper is working correctly, run the demo:
+
+```bash
+npm run scrape:demo
+```
+
+Or directly:
+
+```bash
+node scripts/demo.js
+```
+
+This will:
+- Start a temporary HTTP server with sample HTML
+- Run the scraper against it
+- Display the scraped product data
+- Confirm everything is working
+
 ## Usage
 
 ### Basic Usage
+
+Using npm script (recommended):
+
+```bash
+npm run scrape -- \
+  --urls "https://example-supermarket.com/meat" "https://rival-market.com/meat" \
+  --output src/_data/meat-scraped.json \
+  --count 25
+```
+
+Or directly:
 
 ```bash
 node scripts/scrape-products.js \
