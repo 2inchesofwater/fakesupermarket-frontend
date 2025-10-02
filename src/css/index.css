@@ -1403,13 +1403,15 @@ nav.breadcrumbs a:hover {
   border: 0;
   padding: var(--spacing-xs);
   line-height: 1.25;
-  transition: var(--transition-md);
 }
 .cart-item-controls .control-product-quantity .control > div {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+.cart-item-controls .control-product-quantity .control {
+  transition: var(--transition-md);
 }
 .cart-item-controls .control-product-quantity .control svg > path {
   fill: var(--color-grays-600);
@@ -1663,10 +1665,6 @@ nav.breadcrumbs a:hover {
 #checkout #orderSummary {
   background: var(--color-background-default);
   border: 1px solid transparent;
-  padding: var(--spacing-xl);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-2xl);
 }
 #checkout #orderSummary.incomplete {
   background: var(--color-background-page);
@@ -1679,6 +1677,12 @@ nav.breadcrumbs a:hover {
 #checkout #orderSummary.incomplete #paymentFlow-CTA a {
   background: var(--color-background-page);
   color: var(--color-text-tertiary);
+}
+#checkout #orderSummary {
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
 }
 #checkout #orderSummary .step-heading {
   font-size: var(--size-xl);
@@ -2350,9 +2354,6 @@ body {
   color: var(--color-white);
 }
 
-.radiogroup {
-  /* Style the label when the radio is checked */
-}
 .radiogroup h3 {
   background: var(--color-panel-light);
   padding: var(--spacing-sm);
@@ -2390,6 +2391,9 @@ body {
   position: absolute;
   opacity: 0;
   pointer-events: none;
+}
+.radiogroup {
+  /* Style the label when the radio is checked */
 }
 .radiogroup .radio:has(input[type=radio]:checked) {
   color: var(--color-white);

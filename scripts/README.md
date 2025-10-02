@@ -6,6 +6,8 @@ This directory contains automated tools for scraping product data from supermark
 
 The product scraper tool (`scrape-products.js`) automates the process of gathering product information from rival supermarket chains. Instead of manually copy-pasting product data into JSON files, you can now provide URLs to supermarket category pages and automatically extract ~25 products with their details.
 
+**For a complete step-by-step guide, see [WORKFLOW.md](WORKFLOW.md).**
+
 ## Prerequisites
 
 Before using the scraper, you need to install required dependencies:
