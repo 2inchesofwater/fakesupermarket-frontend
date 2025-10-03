@@ -5,7 +5,8 @@
 	gap: var(--fs-spacing-xs);
 	grid-template-columns: repeat(2, 1fr);
 	container-type: fs-tiles / inline-size;
-
+	margin-block-start: 2.5vh;
+	
 	@container (width > 500px) {
 		grid-template-columns: repeat(4, 1fr);
 	}
@@ -17,7 +18,7 @@
 		a {
 			background: radial-gradient(farthest-corner at 200% 0%, var(--fs-palette-dark), var(--fs-palette-dark));
 			color: var(--fs-palette-light);
-			font-size: var(--fs-size-xs);
+			font-size: var(--fs-size-sm);
 			line-height: 1.1;
 			text-decoration: none;
 			padding: 1.25vh;

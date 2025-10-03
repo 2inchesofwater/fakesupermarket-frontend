@@ -1,22 +1,21 @@
 .accordion {
 	details {
 		border-top: var(--thickness-sm) solid var(--color-border-default);
-		border-bottom: var(--thickness-sm) solid var(--color-border-default);
-		padding-inline-start: var(--spacing-sm);	
-		padding-inline-end: var(--spacing-sm);
-		padding-top: var(--spacing-sm);
-		padding-bottom: var(--spacing-sm);
 		transition: var(--transition-md);
-
 		font-size: var(--size-sm);
+		&:last-of-type {
+			border-bottom: var(--thickness-sm) solid var(--color-border-default);
+		}
+		&[open] summary {
+			background: var(--color-panel-strong);
+		}
 
 		summary {
 			color: var(--color-text-tertiary);
-			& > * {
-				margin-inline-start: var(--spacing-3xs);
-			}
-			&:marker {
-				color: green;
+			padding: var(--spacing-sm);			
+			& + div {
+				padding-inline: var(--spacing-sm);
+				padding-block: var(--spacing-sm);
 			}
 
 			h2, h3 {
@@ -36,7 +35,6 @@
 		&[open] {
 			summary {
 				color: var(--color-text-primary);
-				margin-bottom: var(--spacing-xs);
 				& > * {
 					font-weight: var(--weight-regular);
 				}

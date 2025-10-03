@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 #cart-overlay {
 	position: fixed;
 	top: 0;
@@ -73,15 +75,13 @@
 		
 		height:100%;
 		padding: var(--spacing-md);
-		padding-inline-start: var(--spacing-lg);
-		border-block-end: var(--thickness-sm) solid var(--color-border-light);
+		padding-inline: var(--spacing-lg);
 	}
 
 	#cart-summary-subtotal {
 		padding: var(--spacing-sm);
-		padding-inline-start: var(--spacing-lg);
-		padding-inline-end: var(--spacing-lg);
-		border-block-end: var(--thickness-sm) solid var(--color-border-light);
+		padding-inline: var(--spacing-xl);
+		border-block: var(--thickness-sm) solid var(--color-border-light);
 
 		.cart-summary-row {
 			display: flex;

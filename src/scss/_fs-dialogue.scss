@@ -113,6 +113,10 @@
     flex-direction: column;
     width: 100%;
     gap: var(--fs-spacing-md);
+      padding: 3.75vh;
+    @media (min-width: $screen-sm) {
+      padding: 7.5vh;
+    }
   }
   &.fs-dialogue-inline {
     .fs-dialogue-inner {
@@ -128,7 +132,6 @@
 
 .fs-dialogue-inner {
   background: radial-gradient(farthest-corner at 200% 0%, var(--fs-palette-dark), var(--fs-palette-darkest));
-  padding: 7.5vh;
   color: var(--fs-palette-lightest);
   border-radius: 4px;
   overflow: hidden;  
@@ -175,6 +178,7 @@
 
     .fs-btn {
       display: block;
+      width: auto;
     }
   }
 }

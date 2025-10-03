@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 #cart-summary-products {
 	.wrapper {
 		display: flex;
@@ -9,16 +11,19 @@
 #cart-summary-products-list {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-3xs);
+	//gap: var(--spacing-3xs);
 }
 
 .cart-item-product {
+	container: cart-item-product / inline-size;
 	display: flex;
 	flex-direction: row;
 	gap: var(--spacing-sm);
 	padding: var(--spacing-sm);
 	border-block-start: var(--thickness-sm) solid var(--color-border-light);
-	border-block-end: var(--thickness-sm) solid var(--color-border-light);
+	&:last-of-type {
+		border-block-end: var(--thickness-sm) solid var(--color-border-light);
+	}
 }
 .cart-item-thumbnail {
 	width: 100%;
@@ -88,13 +93,20 @@
 
 .cart-item-savings {
 	display: flex;
-	flex-direction: row-reverse;
-	align-items: center;
-	flex: 2;
+	flex-direction: column;
+	align-items: end;
 	gap: var(--spacing-2xs);
+	@container cart-item-product (width > #{$screen-xs}) {
+		flex-direction: row-reverse;
+		align-items: center;
+		flex: 2;
+	}
 
 	.cart-item-pricing-savings > .badge {
 		font-size: var(--size-xs);
+		@container cart-item-product (width <= #{$screen-xs}) {
+			margin-inline-end: calc(var(--spacing-xs) * -1);
+		}		
 	}
 	.cart-item-pricing-rrp{
 		font-size: var(--size-xs);

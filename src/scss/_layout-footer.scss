@@ -78,13 +78,25 @@
 			order: 1;
 			margin-block-start: var(--spacing-md);
 		}
+		.researchPrompt-detail {
+			padding-inline-start: 2.5vh;
+			li {
+				list-style: numeric;
+				&::marker {
+					font-weight: 400;
+				}
+			}
+		}
 	}
 
 	.row#footer-nav {
 		.nav-list {
 			display: flex;
 			flex-direction: column;
-			gap: var(--spacing-sm);
+			gap: var(--spacing-xs);
+			@media (min-width: $screen-sm) {
+				gap: var(--spacing-sm);
+			}
 		}
 		.nav-item {
 			padding-inline-start: 0;
@@ -97,7 +109,15 @@
 		} 
 	}
 	.row#footer-acknowledgements {
-		font-size: var(--size-sm);
+		font-size: var(--size-xs);
+		.wrapper .footer-column {
+			@media (max-width: $screen-sm) {
+				padding-inline: var(--spacing-xs);
+			}
+		}
+		@media (min-width: $screen-sm) {
+			font-size: var(--size-sm);
+		}
 		#country {
 			p {
 				margin-inline-end: var(--spacing-3xl);

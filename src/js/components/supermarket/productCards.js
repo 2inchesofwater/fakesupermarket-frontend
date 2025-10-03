@@ -132,8 +132,8 @@ export function renderProductCards(products, storefront, productsGrid) {
             aria-label="Add ${escapeHtml(product.productName)} to your cart">
             ${addToCartIcon} ${addToCartLabel}
           </button>
-          <button
-            class="favorite-button btn btn-product btn-secondary"
+          <button disabled
+            class="favorite-button btn btn-product btn-secondary fs-unavailable"
             aria-label="Come back to ${escapeHtml(product.productName)} later"
             onclick="toggleFavorite(this)">
             ${saveToListIcon} ${saveToListLabel}

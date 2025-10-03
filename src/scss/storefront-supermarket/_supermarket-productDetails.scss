@@ -1,4 +1,4 @@
-@use "fs-variables" as *;
+@use "variables" as *;
 
 .productDetails {
 	> article {
@@ -25,7 +25,7 @@
 
 
 
-	  @media (min-width: $screen-md) {
+	  @media (min-width: $screen-sm) {
 	    // On larger screens: 6:4 layout, product name moves to the right
 	    grid-template-columns: 6fr 4fr;
 	    grid-template-areas:
@@ -38,6 +38,7 @@
 	}
 
 	.product-essentials {
+		container: essentials / inline-size;
 		top: 2rem;
 		position: sticky;
 		align-self: start;
@@ -56,7 +57,7 @@
 			margin-bottom: 0;
 		}
 		.product-grossWeight {
-			font-size: var(--size-lg);
+			font-size: var(--size-md);
 			font-weight: var(--weight-regular);
 			color: var(--color-text-tertiary);
 		}
@@ -67,15 +68,23 @@
 		.product-pricing {
 			margin-block-start: var(--spacing-xs);
 			margin-block-end: var(--spacing-xs);
-			@media (min-width: $screen-sm) {
-				margin-block-start: var(--spacing-md);
-				margin-block-end: var(--spacing-md);
+			display: flex;
+			flex-direction: column;
+			@container essentials (width > #{$screen-2xs}) {
+				flex-direction: row;
+				margin-block-start: var(--spacing-xs);
+				margin-block-end: var(--spacing-xs);
 			}
 			.product-pricing-topline {
 				display: flex;
 				flex-direction: row;
 				align-items: center;
-				margin-block-end: var(--spacing-2xs);
+				//margin-block-end: var(--spacing-2xs);
+				@container essentials (width > #{$screen-2xs}) {
+					flex: 1;
+					justify-content: start;
+					align-items: center;
+				}
 			}
 			.badge {
 				margin-inline-start: var(--spacing-xs);
@@ -83,22 +92,30 @@
 			.price {
 				font-size: var(--size-xl);
 				font-weight: var(--weight-bold);
-				order: -1;	
+				order: -1;
 			}
 			.product-price-value {
 				display: flex;
 				flex-direction: row;
 				gap: var(--spacing-xs);
 				color: var(--color-text-tertiary);
+				@container essentials (width > #{$screen-2xs}) {
+					flex: 1;
+					justify-content: end;
+					align-items: center;
+				}
 			}
 		}
 		.product-actions {
 			display: flex;
-			flex-direction: row;
+			flex-direction: column;
 			gap: var(--spacing-xs);
-
+			@container essentials (width > #{$screen-2xs}) {
+				flex-direction: row;
+			}
 			button {
 				flex: 1;
+				width: 100%;
 			}
 			button.btn-primary {
 				border-width: var(--thickness-md);
