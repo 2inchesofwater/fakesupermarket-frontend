@@ -1,0 +1,98 @@
+      {
+        "id": "kellogg-s-sultana-bran-oat-cluster-breakfast-cereal",
+        "productName": "Sultana Bran Oat Cluster Breakfast Cereal",
+        "productSlug": "kellogg-s-sultana-bran-oat-cluster-breakfast-cereal",
+        "productSku": "202490",
+        "productBrand": "Kellogg's",
+        "descriptionShort": "",
+        "descriptionLong": "Delicious high fibre breakfast cereal with malty flakes of whole wheat and wheat bran with juicy sultanas, and crunchy oat, wheat and rice clusters.<br><br>Delicious high fibre breakfast cereal with malty flakes of whole wheat and wheat bran with juicy sultanas, and crunchy oat, wheat and rice clusters.<br><br>Kellogg's Sultana Bran breakfast cereal with Oat Clusters cereal is a tasty combination of malty flakes of whole wheat and wheat bran, juicy sultanas, and crunchy oat, wheat and rice clusters. With a 4 health star rating and a good source of fibre, a source of 4 vitamins, iron and zinc, Sultana Bran is a delicious way to start your day, or have as an afternoon snack.<br><br>High in fibre and goodness of whole grains<br><br>Source of 4 vitamins- B2, Niacin, B6 &amp; Folate<br><br>Source of Iron<br><br>No artificial colours or flavours",
+        "priceRrp": "8.00",
+        "priceCurrent": "6.40",
+        "pricePerUnit": "1.33",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": "20% off",
+
+        "productGrossWeight": "480g",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [
+          "701732",
+          "86462"
+        ],        
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Whole grains 42% (wheat, rolled oats 6%), wheat bran (22%), sultanas (16%), sugar, rice syrup, invert syrup, rice, barley malt extract, salt, vegetable oil, corn starch, minerals (iron, zinc oxide), vitamins (niacin, vitamin B6, riboflavin, folate).", 
+          "dietary": "Contains: <strong>Gluten, Wheat</strong>. <em>May contain:</em> Tree Nuts, Peanuts, Sesame, Soy",
+          "servings": {
+            "serving_size": "45g",
+            "servings_per_package": 10
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1510.0kJ",
+              "serving": "680.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "9.0g",
+              "serving": "4.0g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "3.2g",
+              "serving": "1.4g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.7g",
+              "serving": "0.3g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "66.0g",
+              "serving": "29.7g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "28.1g",
+              "serving": "12.6g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "230.0mg",
+              "serving": "104.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "14.3g",
+              "serving": "6.4g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store in normal, dry conditions."
+        },
+        "images": [
+          "202490.jpg",
+          "202490_2.webp",
+          "202490_7.avif",
+          "202490_8.avif",
+          "202490_10.jpg"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": null,
+        "productCountRatings": 0
+      },

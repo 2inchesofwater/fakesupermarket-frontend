@@ -1,0 +1,97 @@
+      {
+        "id": "kellogg-s-sustain-original-breakfast-cereal",
+        "productName": "Sustain Original Breakfast Cereal",
+        "productSlug": "kellogg-s-sustain-original-breakfast-cereal",
+        "productSku": "243805",
+        "productBrand": "Kellogg's",
+        "descriptionShort": "",
+        "descriptionLong": "Kellogg's Sustain breakfast cereal is a combination of grain flakes, sultanas, apple and almonds. With 56% whole grains.<br><br>Kellogg's Sustain Original breakfast cereal with 56% whole grains is an energising combination of wheat, corn, rice and oat flakes, mixed with fruit and nuts including sultanas, currants and apple pieces with crunchy sliced almonds. It's a nutritious and delicious source of energy to start your day.<br><br>So whether it's at breakfast to help get you started in the morning or as a nutritious snack before training, Sustain provides you with energy (contains 630kJ per serve) to support you as part of a healthy varied diet.<br><br>Get active... and enjoy Sustain.<br><br>High in whole grain<br><br>Source of fibre<br><br>Good source of B vitamins and iron<br><br>No artificial colours or flavours<br><br>Suitable for vegans",
+        "priceRrp": "15.00",
+        "priceCurrent": null,
+        "pricePerUnit": "1.41",
+        "productPerUnit": "100g",
+        "badgeLabel": "Everyday low price",
+        "badgeClassName": "special",        
+        "featuredLabel": null,
+
+        "productGrossWeight": "460g",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [
+          "701732"
+        ],         
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Whole grains (56%)(wheat, brown rice, rolled oats), corn, fruit (12%)(sultanas, apple preservative (223 sulphites), currants), sugar, almonds (2%), invert syrup, barley malt extract, salt, minerals (iron, zinc oxide), vitamins (niacin, vitamin B6, riboflavin, folate).", 
+          "dietary": "Contains: <strong>Sulphites, Gluten, Almond, Wheat</strong>. <em>May contain:</em> Tree Nuts, Peanuts",
+          "servings": {
+            "serving_size": "40g",
+            "servings_per_package": "11"
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1570.0kJ",
+              "serving": "630.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "7.9g",
+              "serving": "3.2g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "3.6g",
+              "serving": "1.4g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "1.0g",
+              "serving": "0.4g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "73.3g",
+              "serving": "29.3g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "21.4g",
+              "serving": "8.6g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "80.0mg",
+              "serving": "32.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "6.6g",
+              "serving": "2.6g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store in normal, dry conditions."
+        },
+        "images": [
+          "243805.webp",
+          "243805_2.webp",
+          "243805_7.avif",
+          "243805_8.jpg",
+          "243805_10.jpg"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": null,
+        "productCountRatings": 0
+      },

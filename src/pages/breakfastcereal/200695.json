@@ -1,0 +1,96 @@
+      {
+        "id": "weet-bix-breakfast-cereal",
+        "productName": "Weet-Bix Breakfast Cereal",
+        "productSlug": "weet-bix-breakfast-cereal",
+        "productSku": "200695",
+        "productBrand": "Sanitarium",
+        "descriptionShort": "",
+        "descriptionLong": "You’ll find them in households all over the country each and every day. They’ve been loved by generations of Aussies and Weet-Bix™ is still Australia’s No.1 breakfast cereal. Sanitarium Weet-Bix™ contains 97% whole grain, low sugar and saturated fat, high fibre, and is a good source of iron and B-vitamins. Aussie owned & made. ",
+        "priceRrp": "7.00",
+        "priceCurrent": null,
+        "pricePerUnit": "0.58",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,
+
+        "productGrossWeight": "1.2kg",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [],        
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Duck (60%) Sauce (Water, Maltodextrin, Sugar, Salt, Thickeners (1442, 415, 412), Dehydrated Vegetables, Spices & Herb, Natural Flavour, Food Acid (330), Natural Colour (160c), Herb Extracts, Spice Extracts, Vinegar Powder, Yeast Extract.)",          
+          "dietary": "Contains: <strong>Gluten, Wheat</strong>. <em>May contain</em>: Lupin",
+          "servings": {
+            "serving_size": "33.0g",
+            "servings_per_package": 36
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1480.0kJ",
+              "serving": "488.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "12.4g",
+              "serving": "4.1g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "1.3g",
+              "serving": "0.4g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.3g",
+              "serving": "0.1g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "65.9g",
+              "serving": "21.7g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "3.0g",
+              "serving": "1.0g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "270.0mg",
+              "serving": "89.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "12.9g",
+              "serving": "4.3g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store in a cool, dry place."
+        },
+        "images": [
+          "200695.jpg",
+          "200695_1.jpg",
+          "200695_2.jpg",
+          "200695_3.jpg",
+          "200695_4.jpg",
+          "200695_7.webp"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": 5,
+        "productCountRatings": 1
+      },

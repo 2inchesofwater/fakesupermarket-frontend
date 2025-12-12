@@ -1,0 +1,95 @@
+      {
+        "id": "kellogg-s-coco-pops-chocolatey-breakfast-cereal",
+        "productName": "Coco Pops Chocolatey Breakfast Cereal",
+        "productSlug": "kellogg-s-coco-pops-chocolatey-breakfast-cereal",
+        "productSku": "701705",
+        "productBrand": "Kellogg's",
+        "descriptionShort": "",
+        "descriptionLong": "Delicious breakfast cereal with grains of puffed rice and real cocoa.<br><br>Kellogg's Coco Pops is the tasty chocolatey breakfast cereal treat that families have loved for generations. Coco Pops and milk are just like a chocolate milkshake, only crunchy! As a good source of vitamins and minerals, why not surprise the kids with an afternoon treat of Coco Pops?<br><br>Chocolatey taste<br><br>Chocolatey breakfast cereal<br><br>No artificial colours or flavours<br><br>No preservatives<br><br>Suitable for vegans and vegetarians",
+        "priceRrp": "7.50",
+        "priceCurrent": null,
+        "pricePerUnit": "2.00",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,
+
+        "productGrossWeight": "375g",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [],        
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Cereals (51%)(wheat flour, oatmeal oats, maize flour), sugar, wheat protein, maltodextrin, molasses, oat fibre, vegetable gum (acacia gum), salt, barley malt extract, minerals (calcium carbonate, iron, zinc oxide), raising agent (potassium bicarbonate), natural flavours, natural colours (paprika, turmeric), vitamins (niacin, vitamin B6, riboflavin, folate).",           
+          "dietary": "Contains: <strong>Gluten</strong>. <em>May contain</em>: Tree Nuts, Peanuts, Wheat",
+          "servings": {
+            "serving_size": "30g",
+            "servings_per_package": 12
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1640.0kJ",
+              "serving": "492.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "5.7g",
+              "serving": "1.7g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "1.3g",
+              "serving": "0.4g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.3g",
+              "serving": "0.1g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "87.3g",
+              "serving": "26.2g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "32.3g",
+              "serving": "9.7g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "330.0mg",
+              "serving": "99.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "1.7g",
+              "serving": "0.5g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store in normal, dry conditions."
+        },
+        "images": [
+          "701705.avif",
+          "701705_2.jpg",
+          "701705_7.webp",
+          "701705_8.jpg",
+          "701705_10.webp"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": null,
+        "productCountRatings": 0
+      },

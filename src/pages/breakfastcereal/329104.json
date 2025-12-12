@@ -1,0 +1,95 @@
+      {
+        "id": "uncle-tobys-fruity-bites-wildberry-flavour-breakfast-cereal",
+        "productName": "Fruity Bites Wildberry Flavour Breakfast Cereal",
+        "productSlug": "uncle-tobys-fruity-bites-wildberry-flavour-breakfast-cereal",
+        "productSku": "329104",
+        "productBrand": "Uncle Tobys",
+        "descriptionShort": "",
+        "descriptionLong": "UNCLE TOBYS FRUITY BITES are delicious puffs of wholegrain wheat and UNCLE TOBYS Oats filled with a fruity Wildberry centre helping to re-energise and fuel active bodies and minds.",
+        "priceRrp": "6.50",
+        "priceCurrent": null,
+        "pricePerUnit": "1.30",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,
+
+        "productGrossWeight": "500g",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [],          
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Whole Grain Cereals (52%) Wheat (40%), Oats (12%), Fruit Paste Concentrated Apple Puree, Berry Puree (2.5%) (Strawberry, Raspberry, Blueberry), Concen trated Blackcurrant Juice, Sugar, Glucose Syrup, H umectant (Glycerol), Acidity Regulator (Malic Acid ), Gelling Agent (Sodium Alginate), Firming Agent (Calcium Lactate), Flavour, Wheat Flour, Sugar, Mineral Salt (Calcium Carbonate), Salt. Vitami ns and Minerals Minerals (Iron), Vitamins (C, Ni acin, B1, Riboflavin) May Contain Other G luten Containing Ingredients, Milk, Soy, Tree Nuts & Lupin.", 
+          "dietary": "Contains: <strong>Gluten, Wheat</strong>. <em>May contain:</em> Milk, Tree Nuts, Soy",
+          "servings": {
+            "serving_size": "30g",
+            "servings_per_package": "16"
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1500.0kJ",
+              "serving": "450.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "7.6g",
+              "serving": "2.3g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "2.1g",
+              "serving": "0.6g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.4g",
+              "serving": "0.1g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "72.1g",
+              "serving": "21.6g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "24.4g",
+              "serving": "7.3g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "43.0mg",
+              "serving": "13.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "7.2g",
+              "serving": "2.2g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": ""
+        },
+        "images": [
+          "329104.avif",
+          "329104_1.webp",
+          "329104_2.webp",
+          "329104_3.webp",
+          "329104_4.webp"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": "4.1",
+        "productCountRatings": "81"
+      }

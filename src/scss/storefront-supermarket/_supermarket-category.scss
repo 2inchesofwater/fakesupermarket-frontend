@@ -2,13 +2,23 @@
 
 #products-grid {
 	display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-sm);
   content-visibility: auto;
 
   @media (min-width: $screen-sm) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+  }
+  @media (min-width: $screen-md) {
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-xl);
+  }
+  @media (min-width: $screen-lg) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+    
+  @media (min-width: $screen-xl) {
+    grid-template-columns: repeat(6, 1fr);
   }
     
 
