@@ -1,0 +1,97 @@
+      {
+        "id": "kellogg-s-sultana-bran-high-fibre-breakfast-cereal-bulk-pack",
+        "productName": "Sultana Bran High Fibre Breakfast Cereal Bulk Pack",
+        "productSlug": "kellogg-s-sultana-bran-high-fibre-breakfast-cereal-bulk-pack",
+        "productSku": "86462",
+        "productBrand": "Kellogg's",
+        "descriptionShort": "",
+        "descriptionLong": "Delicious high fibre breakfast cereal with malty flakes of whole wheat and bran plus juicy sultanas.<br><br>Kellogg's Sultana Bran cereal has long been a family favourite. With its crisp malty flakes and juicy sultanas, Kellogg's® Sultana Bran has the goodness of wheat bran and fruit in every serve.<br><br>Did you know?<br>Sultana Bran contains more fibre than 2 slices of wholemeal toast#<br><br>#A 45g serve of Sultana Bran Original contains at least 25% more fibre than the average fibre content of plain wholemeal bread available in major supermarkets per 2 slices (March 2020). Sultana Bran Original also contains at least 25% more fibre than wholemeal bread on a per 100g basis.<br><br>Kellogg's Sultana Bran is a great way to start the day off right.<br><br>High in fibre and high in whole grain<br><br>Low in fat<br><br>Good Source of Iron<br><br>Good Source of 4 vitamins including folate<br><br>Source of magnesium and zinc<br><br>4.5 health stars<br><br>Suitable for vegans and vegetarians<br><br>1.25kg Bulk pack - only at Woolworths",
+        "priceRrp": "12.00",
+        "priceCurrent": null,
+        "pricePerUnit": "0.96",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,
+
+        "productGrossWeight": "1.2kg",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [
+          "701732"
+        ],          
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Whole wheat, sultanas (26%), wheat bran (26%), sugar, barley malt extract, salt, minerals (iron, zin c oxide), vitamins (niacin, vitamin B6, riboflavin , folate). (Natural source of magnesium)", 
+          "dietary": "Contains: <strong>Gluten, Wheat</strong>. <em>May contain:</em> Tree Nuts, Peanuts",
+          "servings": {
+            "serving_size": "45g",
+            "servings_per_package": "27"
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1440.0kJ",
+              "serving": "648.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "9.5g",
+              "serving": "4.3g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "2.8g",
+              "serving": "1.3g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.6g",
+              "serving": "0.3g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "61.4g",
+              "serving": "27.6g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "26.9g",
+              "serving": "12.1g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "265.0mg",
+              "serving": "119.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "16.3g",
+              "serving": "7.3g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store in normal, dry conditions."
+        },
+        "images": [
+          "86462.avif",
+          "86462_1.webp",
+          "86462_2.avif",
+          "86462_3.webp",
+          "86462_4.webp"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": null,
+        "productCountRatings": 0
+      },

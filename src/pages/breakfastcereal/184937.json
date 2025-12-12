@@ -1,0 +1,94 @@
+      {
+        "id": "arnold-s-farm-granola-pink-lady-apple-cinnamon",
+        "productName": "Granola Pink Lady Apple & Cinnamon",
+        "productSlug": "arnold-s-farm-granola-pink-lady-apple-cinnamon",
+        "productSku": "184937",
+        "productBrand": "Arnold's Farm",
+        "descriptionShort": "",
+        "descriptionLong": "Arnold's Farm Granola Pink Lady Apple &amp; Cinnamon is a source of fibre, has no artificial colours or flavours and very high in whole grain. Proudly Australian made. <br><br>Golden Oat Granola<br><br>Our granola is made with Aussie oats, crunchy pepitas and diced apples, baked in a delicious cinnamon syrup.&nbsp;<br><br>- Source of fibre<br>- Very high in whole grain<br>- Real fruit<br>- Made with Aussie Oats<br>- Suitable for vegetarians &amp; vegans<br>- No artificial colours or flavours<br>- One 45g serve of Arnold's Farm Pink Lady Apple &amp; Cinnamon Granola contributes 55% of the 48g whole grain Daily Target Intake.&nbsp;<br><br>At Arnold's Farm, we believe that good food should be enjoyed every day. That's why we're proud that our mueslis have been loved by Aussie families since 1983!<br><br>Our dedicated team use wholesome, locally grown oats and grains, the way nature intended, to create a range of mueslis, granolas and clusters that are simply delicious.",
+        "priceRrp": "5.85",
+        "priceCurrent": null,
+        "pricePerUnit": "0.84",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,
+
+        "productGrossWeight": "700g",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [],        
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Whole Grain Oats (59%), Glucose, Golden Syrup (Sugar, Water), Raw Sugar, Rice Puffs (Rice Flour, Sugar, Salt, Golden Syrup), Sunflower Oil, Dried Apple (Preservative (223)), Pepitas (2%), Pink Lady Apple (2%), Cinnamon (0.5%), Natural Flavour, Ginger Power, Antioxidant (Vitamine E).", 
+          "dietary": "Contains: <strong>Gluten</strong>. <em>May contain:</em> Milk, Peanuts, Sesame, Sulphites, Soy, Lupin, Pine Nut, Almond, Cashew, Hazelnut, Macadamia, Pecan, Brazil Nut, Pistachio, Walnut, Wheat. <em>Health and product warnings:</em> Great care has been taken to remove all shells and stones from all of our natural ingredients, however some may remain.",
+          "servings": {
+            "serving_size": "45g",
+            "servings_per_package": 15
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1740.0kJ",
+              "serving": "783.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "8.2g",
+              "serving": "3.7g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "11.9g",
+              "serving": "5.4g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "1.7g",
+              "serving": "0.8g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "64.5g",
+              "serving": "29.0g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "18.8g",
+              "serving": "8.5g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "35.0mg",
+              "serving": "16.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "7.5g",
+              "serving": "3.4g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store unopened in a cool, dry place at less than 25C. Once opened, store in an airlight container away from direct sunlight."
+        },
+        "images": [
+          "184937.avif",
+          "184937_2.avif",
+          "184937_3.avif",
+          "184937_4.avif"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": "4.5",
+        "productCountRatings": "1356"
+      },

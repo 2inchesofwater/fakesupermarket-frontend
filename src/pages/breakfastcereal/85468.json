@@ -1,0 +1,95 @@
+      {
+        "id": "dorset-berry-granola",
+        "productName": "Berry Granola",
+        "productSlug": "dorset-berry-granola",
+        "productSku": "85468",
+        "productBrand": "Dorset",
+        "descriptionShort": "",
+        "descriptionLong": "Dorset Cereals Berry Granola is baked oats with raspberries &amp; blackcurrants. Gently baked to make it loose &amp; crumbly.      <br><br>Bring adventure to your day<br><br>Life begins at breakfast and there's no better way to start the day than with Dorset Cereals. This deliciously wild mix of baked oats, raspberries and blackcurrants will delight your tastebuds. A wholesome bowl of Dorset Berry Granola each morning and you'll be chasing adventure right from the get-go. Trust us when we say, there's no better way to have breakfast! <br><br>Good to know<br>- Source of fibre.<br>- No added salt.<br>- No artificial colours.<br>- No artificial flavours.<br>- No artificial preservatives.",
+        "priceRrp": "7.00",
+        "priceCurrent": null,
+        "pricePerUnit": "1.56",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,
+
+        "productGrossWeight": "450g",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [],          
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Whole grain oat flakes (62%), golden syrup, vegetable oil, pumpkin seeds, freeze dried raspberry pieces (1.5%), raspberry pure (1.5%), freeze dried blackcurrants (1%), blackberry pure (0.5%), flavour.", 
+          "dietary": "Contains: <strong>Gluten</strong>. <em>May contain:</em> Tree Nuts, Wheat. <em>Health and product warnings:</em> We try to use only the best, minimally processed ingredients and this means sometimes a tray piece of nut shell or fruit stone may sneak past our checks. These could be quite hard if you bite them, so please take care.",
+          "servings": {
+            "serving_size": "45g",
+            "servings_per_package": "10"
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1950.0kJ",
+              "serving": "876.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "10.3g",
+              "serving": "4.6g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "17.6g",
+              "serving": "7.9g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "2.1g",
+              "serving": "1.0g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "63.3g",
+              "serving": "28.5g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "17.2g",
+              "serving": "7.7g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "10.0mg",
+              "serving": "5.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "5.7g",
+              "serving": "2.6g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store in a cool, dry place."
+        },
+        "images": [
+          "85468.webp",
+          "85468_1.webp",
+          "85468_2.webp",
+          "85468_3.webp",
+          "85468_5.webp"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": null,
+        "productCountRatings": 0
+      }

@@ -1,0 +1,1289 @@
+{
+  "fakesupermarket": {
+    "welcomeMessage": "What's in store today?",
+    "actionLabel": "I can do that"
+  },
+
+  "storefrontName": "Store Supermarkets",
+  "storefrontNameHTML": "<span id='primary'>Store</span><span id='secondary'>Supermarkets</span>",
+  "storefrontType": "supermarket",
+  "categoryTitle": "Breakfast cereals", 
+  "slug": "breakfastcereal",
+  "currencySymbol": "$",
+  
+  "breadcrumbs": [ 
+    "Home", 
+    "All categories", 
+    "Pantry",
+    "Breakfast & spreads",
+    "Breakfast cereals" 
+  ],
+  
+  "bannerAd": {
+    "url": "ela-1389-cust-offer-update-1920x200.png",
+    "href": "/",
+    "alt": "",
+    "width": "1920"
+  },
+  
+  "productCardImageSize": {
+    "width": "200",
+    "height": "200"
+  },
+  "productCardShowBrands": true,
+  "productCardShowShortDescription": false,
+  "productCardShowLongDescription": false,
+  "productCardShowUnitPrice": true,
+  "productCardShowGrossWeight": true,  
+  "productCardShowRatings": true,
+  "productCardAddLabel": "Add to cart",
+  "productCardAddIconFilename": null,
+  "productCardSaveLabel": "Save to list",
+  "productCardSaveIconFilename": null,
+  "productCardShowOverlayOnLeft": false,
+  "productCardShowOverlayAtTop": true,
+  "categoryPaginationTotalPages": 7,
+  "categoryPaginationProductsperPage": null,
+  "productDetailsShowProductSku": false,
+  "productDetailsShowUnitPrice": true,
+  "productDetailsShowDescription": true,
+  "productDetailsShowReviews": true,
+  "productDetailsLabelReviews": "Reviews",  
+  "productDetailsShowRelated": true,
+  "productDetailsLabelRelated": "Customers also bought",
+  "productDetailsShowRecommendations": true,
+  "productDetailsLabelRecommendations": "You might also like these",
+  "checkoutLabelCollectionService": "Collect from store",
+  "checkoutLabelCollectionAddressHTML": "<strong>Fakersby North</strong><br>Fake Shopping Centre<br>222 Automation Drive, Fakersby",
+  "checkoutImageCollectionLocation": "map-20250814-1.png",
+  "checkoutLabelDeliveryService": "Delivery",
+  "checkoutLabelDeliveryAddressHTML": "<strong>222 Holmans Road</strong><br>Fakersby VIC 3210",
+  "checkoutImageDeliveryLocation": "map-20250814-2.png",
+  "salesTaxPercentage": "0.1",
+  "salesTaxComponentLabel": "Total includes GST: ",
+
+  "study": {
+    "studyID": 1234567,
+    "studyTimestamps": {
+      "added": "1744606200",
+      "updated": "1744606200",
+      "launch": "1751256250",
+      "cease": "1752465867",
+      "paused": null
+    },    
+    "client": {
+      "studyClientID": "7654321",
+      "title": "Coco Pop Chex",
+      "keyObjectives": [
+        {
+          "description": "Gauge customer sentiment towards...",
+          "tag": "sentiment"
+        },
+        {
+          "description": "Evaluate durability of...",
+          "tag": "durability"
+        },
+        {
+          "description": "Compare customer preferences between...",
+          "tag": "preference"
+        }      
+      ],
+      "projectContext": "Nota calceamentorum vel online venditoris dilatationem suam nativus Conversarum collaborationum ampliare considerat et velit intelligere appellationis fori consiliorum audacium, consiliorum graphicorum agitatorum. ",
+      "quota": {
+        "requested": 300,
+        "completed": null,
+        "cancelled": null,
+        "timeout": null,
+        "rejectedByClient": null
+      }
+    },
+    "task": {
+      "instructionTitle": "Checkout with next week’s groceries",
+      "instructionDetail": [
+        "You'll see products from the <strong>Breakfast cereals</strong> section of a fake supermarket.",
+        "Think about what <strong>you</strong> expect to buy in next week's groceries.",
+        "Go through the checkout with the products which you would buy for your household."
+      ]
+    },
+    "interview": [
+      {
+        "questionSlug": "value",
+        "questionSelectPurchasedItem": true,
+        "questionInitialRating": 5,
+        "questionLabel": "Rate its value for money?",
+        "questionLikertAdjectives": [
+          "Unimpressed",
+          "A bit disappointed",
+          "Okay",
+          "Pleased",
+          "Really impressed"
+        ],
+        "questionMultipleAdjectives": [
+          "Generous size",
+          "High quality",
+          "Trustworthy brand",
+          "Affordable",
+          "Great price",
+          "Loads of flavour"
+        ],
+        "questionIncludeExtendedResponse": null
+      },
+      {
+        "questionSlug": "previous",
+        "questionSelectPurchasedItem": true,
+        "questionInitialRating": 5,
+        "questionLabel": "Would you buy it again?",
+        "questionLikertAdjectives": [
+          "No way",
+          "Unlikely",
+          "We'll see",
+          "Probably",
+          "All the time"
+        ],
+        "questionMultipleAdjectives": [
+          "It's a favourite",
+          "High quality",
+          "Trustworthy brand",
+          "Affordable",
+          "Great price",
+          "Loads of flavour"
+        ],
+        "questionIncludeExtendedResponse": null
+      }
+    ]
+  },
+
+  "productsAll": [
+      {
+        "id": "kellogg-s-sultana-bran-high-fibre-breakfast-cereal-bulk-pack",
+        "productName": "Sultana Bran High Fibre Breakfast Cereal Bulk Pack",
+        "productSlug": "kellogg-s-sultana-bran-high-fibre-breakfast-cereal-bulk-pack",
+        "productSku": "86462",
+        "productBrand": "Kellogg's",
+        "descriptionShort": "",
+        "descriptionLong": "Delicious high fibre breakfast cereal with malty flakes of whole wheat and bran plus juicy sultanas.<br><br>Kellogg's Sultana Bran cereal has long been a family favourite. With its crisp malty flakes and juicy sultanas, Kellogg's® Sultana Bran has the goodness of wheat bran and fruit in every serve.<br><br>Did you know?<br>Sultana Bran contains more fibre than 2 slices of wholemeal toast#<br><br>#A 45g serve of Sultana Bran Original contains at least 25% more fibre than the average fibre content of plain wholemeal bread available in major supermarkets per 2 slices (March 2020). Sultana Bran Original also contains at least 25% more fibre than wholemeal bread on a per 100g basis.<br><br>Kellogg's Sultana Bran is a great way to start the day off right.<br><br>High in fibre and high in whole grain<br><br>Low in fat<br><br>Good Source of Iron<br><br>Good Source of 4 vitamins including folate<br><br>Source of magnesium and zinc<br><br>4.5 health stars<br><br>Suitable for vegans and vegetarians<br><br>1.25kg Bulk pack - only at Woolworths",
+        "priceRrp": "12.00",
+        "priceCurrent": null,
+        "pricePerUnit": "0.96",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,
+
+        "productGrossWeight": "1.2kg",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [
+          "701732"
+        ],          
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Whole wheat, sultanas (26%), wheat bran (26%), sugar, barley malt extract, salt, minerals (iron, zin c oxide), vitamins (niacin, vitamin B6, riboflavin , folate). (Natural source of magnesium)", 
+          "dietary": "Contains: <strong>Gluten, Wheat</strong>. <em>May contain:</em> Tree Nuts, Peanuts",
+          "servings": {
+            "serving_size": "45g",
+            "servings_per_package": "27"
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1440.0kJ",
+              "serving": "648.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "9.5g",
+              "serving": "4.3g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "2.8g",
+              "serving": "1.3g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.6g",
+              "serving": "0.3g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "61.4g",
+              "serving": "27.6g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "26.9g",
+              "serving": "12.1g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "265.0mg",
+              "serving": "119.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "16.3g",
+              "serving": "7.3g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store in normal, dry conditions."
+        },
+        "images": [
+          "86462.avif",
+          "86462_1.webp",
+          "86462_2.avif",
+          "86462_3.webp",
+          "86462_4.webp"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": null,
+        "productCountRatings": 0
+      },
+      {
+        "id": "arnold-s-farm-granola-pink-lady-apple-cinnamon",
+        "productName": "Granola Pink Lady Apple & Cinnamon",
+        "productSlug": "arnold-s-farm-granola-pink-lady-apple-cinnamon",
+        "productSku": "184937",
+        "productBrand": "Arnold's Farm",
+        "descriptionShort": "",
+        "descriptionLong": "Arnold's Farm Granola Pink Lady Apple &amp; Cinnamon is a source of fibre, has no artificial colours or flavours and very high in whole grain. Proudly Australian made. <br><br>Golden Oat Granola<br><br>Our granola is made with Aussie oats, crunchy pepitas and diced apples, baked in a delicious cinnamon syrup.&nbsp;<br><br>- Source of fibre<br>- Very high in whole grain<br>- Real fruit<br>- Made with Aussie Oats<br>- Suitable for vegetarians &amp; vegans<br>- No artificial colours or flavours<br>- One 45g serve of Arnold's Farm Pink Lady Apple &amp; Cinnamon Granola contributes 55% of the 48g whole grain Daily Target Intake.&nbsp;<br><br>At Arnold's Farm, we believe that good food should be enjoyed every day. That's why we're proud that our mueslis have been loved by Aussie families since 1983!<br><br>Our dedicated team use wholesome, locally grown oats and grains, the way nature intended, to create a range of mueslis, granolas and clusters that are simply delicious.",
+        "priceRrp": "5.85",
+        "priceCurrent": null,
+        "pricePerUnit": "0.84",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,
+
+        "productGrossWeight": "700g",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [],        
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Whole Grain Oats (59%), Glucose, Golden Syrup (Sugar, Water), Raw Sugar, Rice Puffs (Rice Flour, Sugar, Salt, Golden Syrup), Sunflower Oil, Dried Apple (Preservative (223)), Pepitas (2%), Pink Lady Apple (2%), Cinnamon (0.5%), Natural Flavour, Ginger Power, Antioxidant (Vitamine E).", 
+          "dietary": "Contains: <strong>Gluten</strong>. <em>May contain:</em> Milk, Peanuts, Sesame, Sulphites, Soy, Lupin, Pine Nut, Almond, Cashew, Hazelnut, Macadamia, Pecan, Brazil Nut, Pistachio, Walnut, Wheat. <em>Health and product warnings:</em> Great care has been taken to remove all shells and stones from all of our natural ingredients, however some may remain.",
+          "servings": {
+            "serving_size": "45g",
+            "servings_per_package": 15
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1740.0kJ",
+              "serving": "783.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "8.2g",
+              "serving": "3.7g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "11.9g",
+              "serving": "5.4g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "1.7g",
+              "serving": "0.8g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "64.5g",
+              "serving": "29.0g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "18.8g",
+              "serving": "8.5g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "35.0mg",
+              "serving": "16.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "7.5g",
+              "serving": "3.4g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store unopened in a cool, dry place at less than 25C. Once opened, store in an airlight container away from direct sunlight."
+        },
+        "images": [
+          "184937.avif",
+          "184937_2.avif",
+          "184937_3.avif",
+          "184937_4.avif"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": "4.5",
+        "productCountRatings": "1356"
+      },
+
+      {
+        "id": "weet-bix-breakfast-cereal",
+        "productName": "Weet-Bix Breakfast Cereal",
+        "productSlug": "weet-bix-breakfast-cereal",
+        "productSku": "200695",
+        "productBrand": "Sanitarium",
+        "descriptionShort": "",
+        "descriptionLong": "You’ll find them in households all over the country each and every day. They’ve been loved by generations of Aussies and Weet-Bix™ is still Australia’s No.1 breakfast cereal. Sanitarium Weet-Bix™ contains 97% whole grain, low sugar and saturated fat, high fibre, and is a good source of iron and B-vitamins. Aussie owned & made. ",
+        "priceRrp": "7.00",
+        "priceCurrent": null,
+        "pricePerUnit": "0.58",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,
+
+        "productGrossWeight": "1.2kg",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [],        
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Wholegrain Wheat (97%), Raw Sugar, Salt, Barley Malt Extract, Vitamins (Niacin, Thiamin, Riboflavin, Folate), Mineral (Iron).",          
+          "dietary": "Contains: <strong>Gluten, Wheat</strong>. <em>May contain</em>: Lupin",
+          "servings": {
+            "serving_size": "33.0g",
+            "servings_per_package": 36
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1480.0kJ",
+              "serving": "488.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "12.4g",
+              "serving": "4.1g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "1.3g",
+              "serving": "0.4g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.3g",
+              "serving": "0.1g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "65.9g",
+              "serving": "21.7g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "3.0g",
+              "serving": "1.0g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "270.0mg",
+              "serving": "89.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "12.9g",
+              "serving": "4.3g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store in a cool, dry place."
+        },
+        "images": [
+          "200695.jpg",
+          "200695_1.jpg",
+          "200695_2.jpg",
+          "200695_3.jpg",
+          "200695_4.jpg",
+          "200695_7.webp"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": 5,
+        "productCountRatings": 1
+      },
+
+      {
+        "id": "kellogg-s-sultana-bran-oat-cluster-breakfast-cereal",
+        "productName": "Sultana Bran Oat Cluster Breakfast Cereal",
+        "productSlug": "kellogg-s-sultana-bran-oat-cluster-breakfast-cereal",
+        "productSku": "202490",
+        "productBrand": "Kellogg's",
+        "descriptionShort": "",
+        "descriptionLong": "Delicious high fibre breakfast cereal with malty flakes of whole wheat and wheat bran with juicy sultanas, and crunchy oat, wheat and rice clusters.<br><br>Delicious high fibre breakfast cereal with malty flakes of whole wheat and wheat bran with juicy sultanas, and crunchy oat, wheat and rice clusters.<br><br>Kellogg's Sultana Bran breakfast cereal with Oat Clusters cereal is a tasty combination of malty flakes of whole wheat and wheat bran, juicy sultanas, and crunchy oat, wheat and rice clusters. With a 4 health star rating and a good source of fibre, a source of 4 vitamins, iron and zinc, Sultana Bran is a delicious way to start your day, or have as an afternoon snack.<br><br>High in fibre and goodness of whole grains<br><br>Source of 4 vitamins- B2, Niacin, B6 &amp; Folate<br><br>Source of Iron<br><br>No artificial colours or flavours",
+        "priceRrp": "8.00",
+        "priceCurrent": "6.40",
+        "pricePerUnit": "1.33",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": "20% off",
+
+        "productGrossWeight": "480g",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [
+          "701732",
+          "86462"
+        ],        
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Whole grains 42% (wheat, rolled oats 6%), wheat bran (22%), sultanas (16%), sugar, rice syrup, invert syrup, rice, barley malt extract, salt, vegetable oil, corn starch, minerals (iron, zinc oxide), vitamins (niacin, vitamin B6, riboflavin, folate).", 
+          "dietary": "Contains: <strong>Gluten, Wheat</strong>. <em>May contain:</em> Tree Nuts, Peanuts, Sesame, Soy",
+          "servings": {
+            "serving_size": "45g",
+            "servings_per_package": 10
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1510.0kJ",
+              "serving": "680.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "9.0g",
+              "serving": "4.0g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "3.2g",
+              "serving": "1.4g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.7g",
+              "serving": "0.3g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "66.0g",
+              "serving": "29.7g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "28.1g",
+              "serving": "12.6g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "230.0mg",
+              "serving": "104.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "14.3g",
+              "serving": "6.4g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store in normal, dry conditions."
+        },
+        "images": [
+          "202490.jpg",
+          "202490_2.webp",
+          "202490_7.avif",
+          "202490_8.avif",
+          "202490_10.jpg"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": null,
+        "productCountRatings": 0
+      },      
+
+      {
+        "id": "uncle-tobys-fruity-bites-wildberry-flavour-breakfast-cereal",
+        "productName": "Fruity Bites Wildberry Flavour Breakfast Cereal",
+        "productSlug": "uncle-tobys-fruity-bites-wildberry-flavour-breakfast-cereal",
+        "productSku": "329104",
+        "productBrand": "Uncle Tobys",
+        "descriptionShort": "",
+        "descriptionLong": "UNCLE TOBYS FRUITY BITES are delicious puffs of wholegrain wheat and UNCLE TOBYS Oats filled with a fruity Wildberry centre helping to re-energise and fuel active bodies and minds.",
+        "priceRrp": "6.50",
+        "priceCurrent": null,
+        "pricePerUnit": "1.30",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,
+
+        "productGrossWeight": "500g",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [],          
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Whole Grain Cereals (52%) Wheat (40%), Oats (12%), Fruit Paste Concentrated Apple Puree, Berry Puree (2.5%) (Strawberry, Raspberry, Blueberry), Concen trated Blackcurrant Juice, Sugar, Glucose Syrup, H umectant (Glycerol), Acidity Regulator (Malic Acid ), Gelling Agent (Sodium Alginate), Firming Agent (Calcium Lactate), Flavour, Wheat Flour, Sugar, Mineral Salt (Calcium Carbonate), Salt. Vitami ns and Minerals Minerals (Iron), Vitamins (C, Ni acin, B1, Riboflavin) May Contain Other G luten Containing Ingredients, Milk, Soy, Tree Nuts & Lupin.", 
+          "dietary": "Contains: <strong>Gluten, Wheat</strong>. <em>May contain:</em> Milk, Tree Nuts, Soy",
+          "servings": {
+            "serving_size": "30g",
+            "servings_per_package": "16"
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1500.0kJ",
+              "serving": "450.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "7.6g",
+              "serving": "2.3g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "2.1g",
+              "serving": "0.6g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.4g",
+              "serving": "0.1g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "72.1g",
+              "serving": "21.6g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "24.4g",
+              "serving": "7.3g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "43.0mg",
+              "serving": "13.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "7.2g",
+              "serving": "2.2g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": ""
+        },
+        "images": [
+          "329104.avif",
+          "329104_1.webp",
+          "329104_2.webp",
+          "329104_3.webp",
+          "329104_4.webp"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": "4.1",
+        "productCountRatings": "81"
+      },
+
+      {
+        "id": "kellogg-s-sustain-original-breakfast-cereal",
+        "productName": "Sustain Original Breakfast Cereal",
+        "productSlug": "kellogg-s-sustain-original-breakfast-cereal",
+        "productSku": "243805",
+        "productBrand": "Kellogg's",
+        "descriptionShort": "",
+        "descriptionLong": "Kellogg's Sustain breakfast cereal is a combination of grain flakes, sultanas, apple and almonds. With 56% whole grains.<br><br>Kellogg's Sustain Original breakfast cereal with 56% whole grains is an energising combination of wheat, corn, rice and oat flakes, mixed with fruit and nuts including sultanas, currants and apple pieces with crunchy sliced almonds. It's a nutritious and delicious source of energy to start your day.<br><br>So whether it's at breakfast to help get you started in the morning or as a nutritious snack before training, Sustain provides you with energy (contains 630kJ per serve) to support you as part of a healthy varied diet.<br><br>Get active... and enjoy Sustain.<br><br>High in whole grain<br><br>Source of fibre<br><br>Good source of B vitamins and iron<br><br>No artificial colours or flavours<br><br>Suitable for vegans",
+        "priceRrp": "15.00",
+        "priceCurrent": null,
+        "pricePerUnit": "1.41",
+        "productPerUnit": "100g",
+        "badgeLabel": "Everyday low price",
+        "badgeClassName": "special",        
+        "featuredLabel": null,
+
+        "productGrossWeight": "460g",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [
+          "701732"
+        ],         
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Whole grains (56%)(wheat, brown rice, rolled oats), corn, fruit (12%)(sultanas, apple preservative (223 sulphites), currants), sugar, almonds (2%), invert syrup, barley malt extract, salt, minerals (iron, zinc oxide), vitamins (niacin, vitamin B6, riboflavin, folate).", 
+          "dietary": "Contains: <strong>Sulphites, Gluten, Almond, Wheat</strong>. <em>May contain:</em> Tree Nuts, Peanuts",
+          "servings": {
+            "serving_size": "40g",
+            "servings_per_package": "11"
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1570.0kJ",
+              "serving": "630.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "7.9g",
+              "serving": "3.2g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "3.6g",
+              "serving": "1.4g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "1.0g",
+              "serving": "0.4g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "73.3g",
+              "serving": "29.3g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "21.4g",
+              "serving": "8.6g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "80.0mg",
+              "serving": "32.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "6.6g",
+              "serving": "2.6g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store in normal, dry conditions."
+        },
+        "images": [
+          "243805.webp",
+          "243805_2.webp",
+          "243805_7.avif",
+          "243805_8.jpg",
+          "243805_10.jpg"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": null,
+        "productCountRatings": 0
+      },
+
+      {
+        "id": "dorset-berry-granola",
+        "productName": "Berry Granola",
+        "productSlug": "dorset-berry-granola",
+        "productSku": "85468",
+        "productBrand": "Dorset",
+        "descriptionShort": "",
+        "descriptionLong": "Dorset Cereals Berry Granola is baked oats with raspberries &amp; blackcurrants. Gently baked to make it loose &amp; crumbly.      <br><br>Bring adventure to your day<br><br>Life begins at breakfast and there's no better way to start the day than with Dorset Cereals. This deliciously wild mix of baked oats, raspberries and blackcurrants will delight your tastebuds. A wholesome bowl of Dorset Berry Granola each morning and you'll be chasing adventure right from the get-go. Trust us when we say, there's no better way to have breakfast! <br><br>Good to know<br>- Source of fibre.<br>- No added salt.<br>- No artificial colours.<br>- No artificial flavours.<br>- No artificial preservatives.",
+        "priceRrp": "7.00",
+        "priceCurrent": null,
+        "pricePerUnit": "1.56",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,
+
+        "productGrossWeight": "450g",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [],          
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Whole grain oat flakes (62%), golden syrup, vegetable oil, pumpkin seeds, freeze dried raspberry pieces (1.5%), raspberry pure (1.5%), freeze dried blackcurrants (1%), blackberry pure (0.5%), flavour.", 
+          "dietary": "Contains: <strong>Gluten</strong>. <em>May contain:</em> Tree Nuts, Wheat. <em>Health and product warnings:</em> We try to use only the best, minimally processed ingredients and this means sometimes a tray piece of nut shell or fruit stone may sneak past our checks. These could be quite hard if you bite them, so please take care.",
+          "servings": {
+            "serving_size": "45g",
+            "servings_per_package": "10"
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1950.0kJ",
+              "serving": "876.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "10.3g",
+              "serving": "4.6g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "17.6g",
+              "serving": "7.9g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "2.1g",
+              "serving": "1.0g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "63.3g",
+              "serving": "28.5g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "17.2g",
+              "serving": "7.7g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "10.0mg",
+              "serving": "5.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "5.7g",
+              "serving": "2.6g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store in a cool, dry place."
+        },
+        "images": [
+          "85468.webp",
+          "85468_1.webp",
+          "85468_2.webp",
+          "85468_3.webp",
+          "85468_5.webp"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": null,
+        "productCountRatings": 0
+      },
+      
+      {
+        "id": "kellogg-s-coco-pops-chocolatey-breakfast-cereal",
+        "productName": "Coco Pops Chocolatey Breakfast Cereal",
+        "productSlug": "kellogg-s-coco-pops-chocolatey-breakfast-cereal",
+        "productSku": "701705",
+        "productBrand": "Kellogg's",
+        "descriptionShort": "",
+        "descriptionLong": "Delicious breakfast cereal with grains of puffed rice and real cocoa.<br><br>Kellogg's Coco Pops is the tasty chocolatey breakfast cereal treat that families have loved for generations. Coco Pops and milk are just like a chocolate milkshake, only crunchy! As a good source of vitamins and minerals, why not surprise the kids with an afternoon treat of Coco Pops?<br><br>Chocolatey taste<br><br>Chocolatey breakfast cereal<br><br>No artificial colours or flavours<br><br>No preservatives<br><br>Suitable for vegans and vegetarians",
+        "priceRrp": "7.50",
+        "priceCurrent": null,
+        "pricePerUnit": "2.00",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,
+
+        "productGrossWeight": "375g",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [],        
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Cereals (51%)(wheat flour, oatmeal oats, maize flour), sugar, wheat protein, maltodextrin, molasses, oat fibre, vegetable gum (acacia gum), salt, barley malt extract, minerals (calcium carbonate, iron, zinc oxide), raising agent (potassium bicarbonate), natural flavours, natural colours (paprika, turmeric), vitamins (niacin, vitamin B6, riboflavin, folate).",           
+          "dietary": "Contains: <strong>Gluten</strong>. <em>May contain</em>: Tree Nuts, Peanuts, Wheat",
+          "servings": {
+            "serving_size": "30g",
+            "servings_per_package": 12
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1640.0kJ",
+              "serving": "492.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "5.7g",
+              "serving": "1.7g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "1.3g",
+              "serving": "0.4g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.3g",
+              "serving": "0.1g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "87.3g",
+              "serving": "26.2g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "32.3g",
+              "serving": "9.7g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "330.0mg",
+              "serving": "99.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "1.7g",
+              "serving": "0.5g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store in normal, dry conditions."
+        },
+        "images": [
+          "701705.avif",
+          "701705_2.jpg",
+          "701705_7.webp",
+          "701705_8.jpg",
+          "701705_10.webp"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": null,
+        "productCountRatings": 0
+      },      
+
+      {
+        "id": "kellogg-s-nutri-grain-protein-breakfast-cereal",
+        "productName": "Nutri Grain Protein Breakfast Cereal",
+        "productSlug": "kellogg-s-nutri-grain-protein-breakfast-cereal",
+        "productSku": "701706",
+        "productBrand": "Kellogg's",
+        "descriptionShort": "",
+        "descriptionLong": "Kellogg's Nutri-Grain Original Breakfast Cereal made with wheat, oats and corn is a source of protein and fibre, a great way to start the day.<br><br>With protein, fibre, multigrain, B vitamins and iron, Nutri-Grain breakfast cereal has fuel for active bodies*.<br> <br> It has the iconic malty taste and crunch families love, and is also 4 health stars.<br> &nbsp;<br> *Contains 650kJ of energy per serve, plus a good source of B vitamins and iron.<br> <br> Multigrain: Corn, oats and wheat.<br><br>Source of Protein<br><br>Source of Fibre<br><br>Good Source of Iron<br><br>4 Health Star Rating<br><br>Suitable for vegans",
+        "priceRrp": "7.00",
+        "priceCurrent": null,
+        "pricePerUnit": "2.41",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,
+
+        "productGrossWeight": "290g",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [],        
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Cereals (51%)(wheat flour, oatmeal oats, maize flour), sugar, wheat protein, maltodextrin, molasses, oat fibre, vegetable gum (acacia gum), salt, barley malt extract, minerals (calcium carbonate, iron, zinc oxide), raising agent (potassium bicarbonate), natural flavours, natural colours (paprika, turmeric), vitamins (niacin, vitamin B6, riboflavin, folate).",          
+          "dietary": "Contains: <strong>Gluten, Wheat</strong>. <em>May contain</em>: Tree Nuts, Peanuts",
+          "servings": {
+            "serving_size": "40g",
+            "servings_per_package": 7
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1630.0kJ",
+              "serving": "652.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "21.8g",
+              "serving": "8.7g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "3.0g",
+              "serving": "1.2g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.5g",
+              "serving": "0.2g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "65.2g",
+              "serving": "26.1g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "24.0g",
+              "serving": "9.6g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "350.0mg",
+              "serving": "140.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "5.3g",
+              "serving": "2.1g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store in normal, dry conditions."
+        },
+        "images": [
+          "701706.jpg",
+          "701706_2.webp",
+          "701706_7.avif",
+          "701706_8.avif",
+          "701706_10.jpg"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": null,
+        "productCountRatings": 0
+      },
+
+      {
+        "id": "kellogg-s-coco-pops-chex-breakfast-cereal",
+        "productName": "Coco Pops Chex Breakfast Cereal",
+        "productSlug": "kellogg-s-coco-pops-chex-breakfast-cereal",
+        "productSku": "701726",
+        "productBrand": "Kellogg's",
+        "descriptionShort": "",
+        "descriptionLong": "Delicious breakfast cereal of crispy multigrain pillows with cocoa.<br><br>Kellogg's Coco Pops Chex breakfast cereal with real cocoa has a delicious chocolatey taste, in a light and crunchy criss-crossed pillow that's fun to eat. <br><br>The delicious chocolatey taste and crunchy texture makes these great to snack on, or enjoy in a bowl of milk – just like a chocolate milkshake… only crunchy! <br><br>Crunch your way through breakfast or afternoon snack time with Coco Pops Chex!<br><br>Chocolatey taste<br><br>Chocolatey breakfast cereal<br><br>No artificial colours<br><br>No preservatives<br><br>No artificial flavours<br><br>Suitable for vegans and vegetarians",
+        "priceRrp": "10.00",
+        "priceCurrent": "5.40",
+        "pricePerUnit": "1.08",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": "40% off",
+
+        "productGrossWeight": "500g",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [
+          "701717"
+        ],        
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Cereals (62%)(maize flour, wheat flour, rice flour, barley flour, oat flour), sugar, cocoa (4.5%), salt, raising agent (sodium bicarbonate), wheat bran, vitamins (niacin, thiamin, riboflavin, folate).", 
+          "dietary": "Contains: <strong>Gluten, Wheat</strong>. <em>May contain:</em> Tree Nuts",
+          "servings": {
+            "serving_size": "30g",
+            "servings_per_package": 16
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1600.0kJ",
+              "serving": "480.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "6.0g",
+              "serving": "1.8g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "1.5g",
+              "serving": "0.4g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.5g",
+              "serving": "0.2g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "83.3g",
+              "serving": "25.0g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "33.2g",
+              "serving": "10.0g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "500.0mg",
+              "serving": "150.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "3.6g",
+              "serving": "1.1g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store in normal, dry conditions."
+        },
+        "images": [
+          "701726.webp",
+          "701726_2.jpg",
+          "701726_8.jpg",
+          "701726_10.webp"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": null,
+        "productCountRatings": 0
+      },
+
+      {
+        "id": "kellogg-s-sultana-bran-high-fibre-breakfast-cereal",
+        "productName": "Sultana Bran High Fibre Breakfast Cereal",
+        "productSlug": "kellogg-s-sultana-bran-high-fibre-breakfast-cereal",
+        "productSku": "701732",
+        "productBrand": "Kellogg's",
+        "descriptionShort": "",
+        "descriptionLong": "Delicious high fibre breakfast cereal with malty flakes of whole wheat and bran plus juicy sultanas.<br><br>Kellogg's Sultana Bran cereal has long been a family favourite. With its crisp malty flakes and juicy sultanas, Kellogg's Sultana Bran has the goodness of wheat bran and fruit in every serve.&nbsp;&nbsp;<br><br>Kellogg's Sultana Bran is a great way to start the day off right.<br><br>High in fibre and high in whole grain<br><br>Low in fat<br><br>Good Source of Iron<br><br>Good Source of 4 vitamins including folate<br><br>Source of magnesium and zinc<br><br>Suitable for vegans and vegetarians",
+        "priceRrp": "7.50",
+        "priceCurrent": null,
+        "pricePerUnit": "1.79",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,
+
+        "productGrossWeight": "420g",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [
+          "86462",
+          "202490",
+          "243805"
+        ],        
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Whole wheat, sultanas (26%), wheat bran (26%), sugar, barley malt extract, salt, minerals (iron, zin c oxide), vitamins (niacin, vitamin B6, riboflavin , folate). (Natural source of magnesium)", 
+          "dietary": "Contains: <strong>Gluten, Wheat</strong>. <em>May contain:</em> Tree Nuts, Peanuts",
+          "servings": {
+            "serving_size": "45g",
+            "servings_per_package": 9
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1440.0kJ",
+              "serving": "648.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "9.5g",
+              "serving": "4.3g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "2.8g",
+              "serving": "1.3g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.6g",
+              "serving": "0.3g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "61.4g",
+              "serving": "27.6g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "26.9g",
+              "serving": "12.1g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "265.0mg",
+              "serving": "119.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "16.3g",
+              "serving": "7.3g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store in normal, dry conditions."
+        },
+        "images": [
+          "701732.jpg",
+          "701732_2.avif",
+          "701732_7.avif",
+          "701732_8.jpg",
+          "701732_10.webp"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": null,
+        "productCountRatings": 0
+      }
+    ],
+
+  "slotsCollection": [
+    {
+      "icon": "",
+      "heading": "Morning",
+      "times": [
+        { "label": "8am to 10am", "cost": "Free", "value": "slot1" },
+        { "label": "10am to 12pm", "cost": "Free", "value": "slot2" }
+      ]
+    },
+    {
+      "icon": "",
+      "heading": "Afternoon",
+      "times": [
+        { "label": "12pm to 2pm", "cost": "Free", "value": "slot3" },
+        { "label": "2pm to 4pm", "cost": "Free", "value": "slot4" }
+      ]
+    },
+    {
+      "icon": "",
+      "heading": "Evening",
+      "times": [
+        { "label": "4pm to 6pm", "cost": "Free", "value": "slot5" },
+        { "label": "6pm to 8pm", "cost": "Free", "value": "slot6" }
+      ]
+    }
+  ],
+  "slotsDelivery": [
+    {
+      "icon": "",
+      "heading": "Morning",
+      "times": [
+        { "label": "7:30am to 12pm", "cost": "6.00", "value": "slot1" },
+        { "label": "7:30am to 8:30am", "cost": "11.00", "value": "slot2" },
+        { "label": "8:30am to 9:30am", "cost": "11.00", "value": "slot3" },
+        { "label": "9:30am to 10:30am", "cost": "11.00", "value": "slot4" },
+        { "label": "10:30am to 11:30am", "cost": "11.00", "value": "slot5" },
+        { "label": "11:30am to 12:30pm", "cost": "11.00", "value": "slot6" }
+      ]
+    },
+    {
+      "icon": "",
+      "heading": "Afternoon",
+      "times": [
+        { "label": "12pm to 5pm", "cost": "3.00", "value": "slot7" },
+        { "label": "12:30pm to 1:30pm", "cost": "11.00", "value": "slot8" },
+        { "label": "1:30pm to 2:30pm", "cost": "9.00", "value": "slot9" },
+        { "label": "2:30pm to 3:30pm", "cost": "3.00", "value": "slot10" },
+        { "label": "3:30pm to 4:30pm", "cost": "9.00", "value": "slot11" },
+        { "label": "4:30pm to 5:30pm", "cost": "11.00", "value": "slot12" }
+      ]
+    },
+    {
+      "icon": "",
+      "heading": "Evening",
+      "times": [
+        { "label": "5pm to 10pm", "cost": "6.00", "value": "slot13" },
+        { "label": "5:30pm to 6:30pm", "cost": "11.00", "value": "slot14" },
+        { "label": "6:30pm to 7:30pm", "cost": "11.00", "value": "slot15" },
+        { "label": "7:30pm to 8:30pm", "cost": "11.00", "value": "slot16" },
+        { "label": "8:30pm to 9:30pm", "cost": "9.00", "value": "slot17" },
+        { "label": "9pm to 10pm", "cost": "9.00", "value": "slot18" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+      {
+        "id": "kellogg-s-nutri-grain-protein-breakfast-cereal",
+        "productName": "Nutri Grain Protein Breakfast Cereal",
+        "productSlug": "kellogg-s-nutri-grain-protein-breakfast-cereal",
+        "productSku": "701706",
+        "productBrand": "Kellogg's",
+        "descriptionShort": "",
+        "descriptionLong": "Kellogg's Nutri-Grain Original Breakfast Cereal made with wheat, oats and corn is a source of protein and fibre, a great way to start the day.<br><br>With protein, fibre, multigrain, B vitamins and iron, Nutri-Grain breakfast cereal has fuel for active bodies*.<br> <br> It has the iconic malty taste and crunch families love, and is also 4 health stars.<br> &nbsp;<br> *Contains 650kJ of energy per serve, plus a good source of B vitamins and iron.<br> <br> Multigrain: Corn, oats and wheat.<br><br>Source of Protein<br><br>Source of Fibre<br><br>Good Source of Iron<br><br>4 Health Star Rating<br><br>Suitable for vegans",
+        "priceRrp": "7.00",
+        "priceCurrent": null,
+        "pricePerUnit": "2.41",
+        "productPerUnit": "100g",
+        "badgeLabel": null,
+        "badgeClassName": null,        
+        "featuredLabel": null,
+
+        "productGrossWeight": "290g",
+        "productMeasurements": {},
+        "categories": [
+          "breakfast-cereal",
+          "breakfast-spreads",
+          "pantry"
+        ],
+        "related_products": [],        
+        "attributes": {
+          "origin": "Australia",
+          "organic": false,
+          "packaging": "",
+          "ingredients": "Cereals (51%)(wheat flour, oatmeal oats, maize flour), sugar, wheat protein, maltodextrin, molasses, oat fibre, vegetable gum (acacia gum), salt, barley malt extract, minerals (calcium carbonate, iron, zinc oxide), raising agent (potassium bicarbonate), natural flavours, natural colours (paprika, turmeric), vitamins (niacin, vitamin B6, riboflavin, folate).",          
+          "dietary": "Contains: <strong>Gluten, Wheat</strong>. <em>May contain</em>: Tree Nuts, Peanuts",
+          "servings": {
+            "serving_size": "40g",
+            "servings_per_package": 7
+          },       
+          "nutrition": {
+            "energy": {
+              "100g": "1630.0kJ",
+              "serving": "652.0kJ",
+              "pdi": null
+            },
+            "protein": {
+              "100g": "21.8g",
+              "serving": "8.7g",
+              "pdi": null
+            },
+            "fat_total": {
+              "100g": "3.0g",
+              "serving": "1.2g",
+              "pdi": null
+            },
+            "fat_saturated": {
+              "100g": "0.5g",
+              "serving": "0.2g",
+              "pdi": null
+            },            
+            "carbohydrates_total": {
+              "100g": "65.2g",
+              "serving": "26.1g",
+              "pdi": null
+            },
+            "carbohydrates_sugar": {
+              "100g": "24.0g",
+              "serving": "9.6g",
+              "pdi": null
+            },
+            "sodium": {
+              "100g": "350.0mg",
+              "serving": "140.0mg",
+              "pdi": null
+            },
+            "potassium": {
+              "100g": "-",
+              "serving": "-",
+              "pdi": null
+            },
+            "fibre": {
+              "100g": "5.3g",
+              "serving": "2.1g",
+              "pdi": null
+            }
+        },
+          "storage_instructions": "Store in normal, dry conditions."
+        },
+        "images": [
+          "701706.jpg",
+          "701706_2.webp",
+          "701706_7.avif",
+          "701706_8.avif",
+          "701706_10.jpg"
+        ],
+        "imagesVisualDescription": null,      
+
+        "productAverageRating": null,
+        "productCountRatings": 0
+      },
