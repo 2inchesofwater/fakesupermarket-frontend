@@ -20,6 +20,8 @@
   },
   "devDependencies": {
     "@types/gulp-sass": "^5.0.4",
+    "axios": "^1.12.2",
+    "cheerio": "^1.1.2",
     "cssnano": "^7.0.6",
     "gulp": "^5.0.0",
     "gulp-esbuild": "^0.14.0",
