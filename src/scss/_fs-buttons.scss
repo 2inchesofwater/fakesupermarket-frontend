@@ -1,20 +1,34 @@
 .fs-btn {
-  border: 0;
-  border-radius: 5vh;
-  padding: 1vh 2vh;
-  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-2xs);
+
+  border: var(--thickness-md) solid transparent;
+  border-radius: var(--radius-md);
+
   font-family: var(--font-sans);
-  font-weight: 300;
-  color: var(--fs-color-brand-primary);
-  cursor: pointer;
-  transition: var(--fs-transition-md);
+  font-size: var(--size-md);
+  font-weight: var(--weight-regular);
+  text-align: center;
   text-decoration: none;
+  transition: var(--transition-sm);
+
+  padding-block: var(--spacing-xs); 
+  padding-inline: var(--spacing-md);
 
   &:hover {
-    transition: var(--fs-transition-md);
+    cursor: pointer;
+    text-decoration: none;
+  }
+  &:focus {
+    outline: var(--thickness-lg) dashed var(--color-focus-ring);
+    outline-offset: -1px;
   }
 
-  &.fs-btn-primary {
+  &.btn-primary {
     color: var(--fs-color-text-primary);
     background: var(--fs-color-action-primary);
     border: 2px solid var(--fs-color-text-primary);
@@ -30,7 +44,7 @@
       }
     } 
   }
-  &.fs-btn-secondary {
+  &.btn-secondary {
     color: var(--fs-color-text-secondary);
     background: radial-gradient(farthest-corner at 200% 0%, var(--fs-palette-dark), var(--fs-palette-dark));
     border: 1px solid var(--fs-palette-middle);
@@ -47,7 +61,7 @@
     }     
   }
 
-  &.fs-btn-next {
+  &.btn-tertiary {
     color: var(--fs-color-trueWhite);
     background: var(--fs-palette-middle-alt);
     border: unset;
@@ -55,17 +69,6 @@
     &:hover,
     &:active {
       background: var(--fs-palette-darkest);
-    }
-  }
-
-  &.fs-btn-submit {
-    color: var(--fs-color-trueWhite);
-    background: var(--fs-palette-darkest);
-    border: unset;
-    padding: var(--fs-spacing-sm) var(--fs-spacing-md);
-    &:hover,
-    &:active {
-      background: var(--fs-palette-middle-alt);
     }
   }
 
@@ -97,4 +100,9 @@
   &.btn-group-end {
     justify-content: end;
   }
+}
+
+#storybook-root > div > .fs-btn {
+  justify-self: start;
+  align-self: start;
 }

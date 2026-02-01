@@ -1,17 +1,15 @@
 @use 'fs-variables';
+@mixin fs-unavailable {
+  filter: blur(1px);
+  opacity: 0.8;
+  pointer-events: none;
+  user-select: none;
+}
 
 .fs_unavailable, 
-[disabled] {
-	filter: blur(1px);
-	opacity: 0.8;
-  
+[disabled]:not(.btn) {
+  @include fs-unavailable;  
   position: relative;
-  //overflow: hidden;
-
-  > * {
-    pointer-events: none;
-    user-select: none;
-  }
 
   &.blur-pulse {
     filter: blur(3px); 

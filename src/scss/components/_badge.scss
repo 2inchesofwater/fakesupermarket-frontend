@@ -1,63 +1,82 @@
 @use "variables" as *;
 
 .badge {
-	display: inline-block;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: var(--spacing-2xs);
+	align-content: center;
 
 	font-size: var(--size-sm);
 	line-height: 1;
 	font-weight: var(--weight-bold);
-	color: var(--color-text-primary); 
+	color: var(--color-text-primary);
+	text-transform: uppercase; 
 
-	padding: var(--spacing-2xs) var(--spacing-xs);
+	padding-block: var(--spacing-2xs);
+	padding-inline: var(--spacing-xs);
+	border: 2px solid transparent;
 	border-radius: var(--radius-sm);
+
+	svg > * {
+		fill: var(--color-text-primary);
+		stroke: var(--color-text-primary); 
+	}
 
 	&.badge-positive {
 		background: var(--color-background-default);
 		color: var(--color-brand-secondary);
-		border: 2px solid var(--color-brand-secondary);
-		text-transform: uppercase;
+		border-color: var(--color-brand-secondary);
+		svg > * {
+			fill: var(--color-brand-secondary);
+			stroke: var(--color-brand-secondary); 
+		}		
 	}	
 	&.badge-excitement {
 		background: var(--color-brand-secondary);
 		color: var(--color-white);
-		border: 2px solid var(--color-brand-secondary);
-		text-transform: uppercase;
+		border-color: var(--color-brand-secondary);
+		svg > * {
+			fill: var(--color-white);
+			stroke: var(--color-white);  
+		}		
 	}
 	&.badge-information {
 		background: var(--color-background-default);
 		color: var(--color-text-primary); 
-		border: 2px solid var(--color-background-default);
-		text-transform: uppercase;
+		border-color: var(--color-background-default);
 		svg > * {
 			fill: var(--color-text-primary);
 			stroke: var(--color-text-primary); 
 		}
 	}
+	&.badge-naked {
+		background: transparent;
+		color: var(--color-text-tertiary);
+		border-width: 0;
+		border-color: transparent;		
+		padding-inline: var(--spacing-xs);
+		svg > * {
+			fill: var(--color-text-tertiary);
+			stroke: var(--color-text-tertiary); 
+		}				
+	}
+
 	&.badge-icon {
-		display: flex;
-		flex-direction: row;
-		gap: var(--spacing-2xs);
+		padding-inline-start: calc(var(--spacing-xs) - var(--spacing-3xs));
 		svg {
 			width: 1em;
 			height: 1em;
 		}
 	}
-	&.badge-naked {
-		background: transparent;
-		color: var(--color-text-tertiary);
-		font-size: var(--size-xs);
-		font-weight: var(--weight-regular);
-		border: 0;
-		text-transform: uppercase;
-		padding-left: unset;		
-	}
+
 	&.badge-tally {
 		background: var(--color-brand-secondary);
 		color: var(--color-white);
 		border: var(--thickness-md) solid var(--color-white);
 		aspect-ratio: 1 / 1;
-		border-radius: var(--spacing-md);
-		box-shadow: var(--boxShadow-sm);
+		border-radius: 50%;
+		box-shadow: var(--boxShadow-md);
 		&[hidden] {
 			display: none;
 		}

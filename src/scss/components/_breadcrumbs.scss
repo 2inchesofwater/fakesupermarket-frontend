@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use '../fs-styles';
 
 nav.breadcrumbs {
     ol {
@@ -11,12 +12,16 @@ nav.breadcrumbs {
     li {
         line-height: unset;
         font-size: var(--size-sm);
-        font-weight: var(--weight-regular);
+        font-weight: var(--weight-light);
         color: var(--color-text-tertiary);
         text-wrap-mode: nowrap; 
+        > .fs-unavailable {
+            @include fs-styles.fs-unavailable;
+        }
     }
     .active {
         color: var(--color-text-primary);
+        font-weight: var(--weight-regular);
     }
     a {
         color: var(--color-brand-primary);
