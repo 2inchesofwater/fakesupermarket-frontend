@@ -24,71 +24,105 @@
     text-decoration: none;
   }
   &:focus {
-    outline: var(--thickness-lg) dashed var(--color-focus-ring);
+    outline: var(--thickness-lg) dashed var(--fs-color-focus-ring);
     outline-offset: -1px;
   }
 
   &.btn-primary {
-    color: var(--fs-color-text-primary);
-    background: var(--fs-color-action-primary);
-    border: 2px solid var(--fs-color-text-primary);
-    svg > path {
-      stroke: var(--fs-color-text-primary);
+    background: var(--fs-color-action-primary-default);
+    border-width: var(--thickness-md);
+    box-shadow: inset 0 0 0 var(--thickness-sm) var(--fs-color-white);
+    color: var(--fs-color-action-primary-font);
+    
+    &:hover {
+      background: var(--fs-color-action-primary-hover);
     }
-
-    &:hover,
+    &:focus {
+      border-color: var(--fs-color-white);
+    }
     &:active {
-      background: var(--fs-palette-middle-alt) !important;
-      svg > path {
-        //stroke: var(--fs-color-action-brand);
-      }
-    } 
+      background: var(--fs-color-action-primary-active);
+    }
+    > svg > * {
+      fill: var(--fs-color-action-primary-font);
+      stroke: var(--fs-color-action-primary-font);
+    }
   }
-  &.btn-secondary {
-    color: var(--fs-color-text-secondary);
-    background: radial-gradient(farthest-corner at 200% 0%, var(--fs-palette-dark), var(--fs-palette-dark));
-    border: 1px solid var(--fs-palette-middle);
-    svg > path {
-      stroke: var(--fs-color-text-secondary);
-    }
 
-    &:hover,
+  &.btn-secondary {
+    background: var(--fs-color-action-secondary-default);
+    border-color: transparent;
+    color: var(--fs-color-action-secondary-font);
+    &:hover {
+      background: var(--fs-color-action-secondary-hover);
+      color: var(--fs-color-text-primary);
+    }
     &:active {
-      background: radial-gradient(farthest-corner at 200% 0%, var(--fs-palette-middle), var(--fs-palette-dark));
-      svg > path {
-        //stroke: var(--fs-color-action-brand);
-      }
-    }     
+      background: var(--fs-color-action-secondary-active);
+    }
+    > svg > * {
+      fill: var(--fs-color-action-secondary-font);
+      stroke: var(--fs-color-action-secondary-font);
+    } 
   }
 
   &.btn-tertiary {
-    color: var(--fs-color-trueWhite);
-    background: var(--fs-palette-middle-alt);
-    border: unset;
-    padding: var(--fs-spacing-sm) var(--fs-spacing-md);
-    &:hover,
-    &:active {
-      background: var(--fs-palette-darkest);
+    background: var(--fs-color-action-tertiary-default);
+    border-width: var(--thickness-sm);
+    border-color: var(--fs-color-action-tertiary-hover);
+    color: var(--fs-color-action-tertiary-font);
+    &:hover {
+      background: var(--fs-color-action-tertiary-hover);
+      color: var(--fs-color-text-primary);
     }
+    &:focus {
+      border-color: var(--fs-color-white);
+    }
+    &:active {
+      background: var(--fs-color-action-tertiary-active);
+    }
+    > svg > * {
+      fill: var(--fs-color-action-tertiary-font);
+      stroke: var(--fs-color-action-tertiary-font);
+    }    
   }
 
-  &.fs-btn-icon {
-    display: flex;
-    flex-direction: row;
-    gap: var(--fs-spacing-xs);
-    align-items: center;
-    padding-inline-start: 1vh;
+  &:disabled {
+    background: var(--fs-color-action-disabled-default);
+    border-color: transparent;
+    color: var(--fs-color-action-disabled-font);
+    pointer-events: none;
+    > svg > * {
+      fill: var(--fs-color-action-disabled-font);
+      stroke: var(--fs-color-action-disabled-font);
+    }   
   }
-  
-  .icon {
-    aspect-ratio: 1 / 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    svg {
+  &.btn-sm {
+    font-size: var(--size-sm);
+    padding-block: var(--spacing-xs); 
+    padding-inline: var(--spacing-sm);    
+  }
+  &.btn-lg {
+    border-radius: var(--radius-lg);
+    font-size: var(--size-lg);
+    padding-block: var(--spacing-sm); 
+    padding-inline: var(--spacing-lg);    
+  }
+
+
+  &.btn-icon {
+    .icon {
       aspect-ratio: 1 / 1;
     }
-  } 
+    > svg {
+      width: 1.15em;
+      aspect-ratio: 1 / 1;
+    }
+
+    &.btn-iconOnly {
+      padding-inline: var(--spacing-sm);
+    }
+  }
 }
 
 .btn-group {

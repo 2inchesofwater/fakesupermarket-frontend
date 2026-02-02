@@ -172,7 +172,7 @@
 		.accordion-details-panel {
 			display: flex;
 			flex-direction: column;
-			gap: var(--spacing-sm);
+			gap: var(--spacing-2xs);
 		}
 
 		dl {
@@ -182,6 +182,9 @@
 
 			dt {
 				color: var(--color-text-tertiary);
+			}
+			dd {
+				max-width: 45rem;
 			}
 		}
 

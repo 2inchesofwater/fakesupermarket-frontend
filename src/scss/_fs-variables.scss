@@ -5,42 +5,117 @@ $screen-lg: 1200px;
 $screen-xl: 1600px;
 
 :root {
-	--fs-palette-lightest: hsla(337, 10%, 95%, 1); 
-	--fs-palette-light: hsla(337, 10%, 83%, 1); 
-	--fs-palette-middle: hsla(286, 2%, 53%, 1); 
-	--fs-palette-dark: hsla(270, 4%, 33%, 1); 	
-	--fs-palette-darkest: hsla(0, 96%, 2%, 1);
-    --fs-palette-light-alt: hsla(0, 36%, 92%, 1);
-    --fs-palette-middle-alt: hsla(0, 71%, 40%, 1);
-    --fs-palette-dark-alt: hsla(0, 100%, 25%, 1);
+  /* Design system palette spectrum */
+  --fs-color-core-900: #280B0E;
+  --fs-color-core-800: #701C33;
+  --fs-color-core-700: #A72347;
+  --fs-color-core-600: #D92958;
+  --fs-color-core-500: #E96286;
+  --fs-color-core-400: #EC93A8;
+  --fs-color-core-300: #F5BCC7;
+  --fs-color-core-200: #FAD1D1;
+  --fs-color-core-100: #FCE8E8;
+  --fs-color-core-050: #FEF6F6;
 
-	--fs-palette-Flounce: hsla(180, 30%, 42%, 1);
+  --fs-color-bright-tan-light: #E6D2C1;
+  --fs-color-bright-tan-middle: #D8B99E;
+  --fs-color-bright-tan-dark: #C5966D;
+  --fs-color-bright-pink-light: #EC93CD;
+  --fs-color-bright-pink-middle: #E467B8;
+  --fs-color-bright-pink-dark: #D742A3;
+  --fs-color-bright-orange-light: #F9A186;
+  --fs-color-bright-orange-middle: #F67B55;
+  --fs-color-bright-orange-dark: #EB6E47;
+  --fs-color-bright-yellow-light: #FFE580;
+  --fs-color-bright-yellow-middle: #FFD52E;
+  --fs-color-bright-yellow-dark: #ECC013;
+  --fs-color-bright-green-light: #9CE68E;
+  --fs-color-bright-green-middle: #59D543;
+  --fs-color-bright-green-dark: #40BC2A;
+  --fs-color-bright-sky-light: #80DEFF;
+  --fs-color-bright-sky-middle: #42CEFF;
+  --fs-color-bright-sky-dark: #00BDFF;
+  --fs-color-bright-cloud-light: #546F78;
+  --fs-color-bright-cloud-middle: #496169;
+  --fs-color-bright-cloud-dark: #3E5259;
 
-	--fs-color-black: var(--fs-palette-darkest);
-	--fs-color-white: var(--fs-palette-lightest);
-	--fs-color-trueWhite: #fff;
+  --fs-color-gray-900: #1C1718;
+  --fs-color-gray-800: #433D3E;
+  --fs-color-gray-700: #635A5C;
+  --fs-color-gray-600: #817478;
+  --fs-color-gray-500: #9E9497;
+  --fs-color-gray-400: #B6AFB1;
+  --fs-color-gray-300: #CECACB;
+  --fs-color-gray-200: #E4E2E3;
+  --fs-color-gray-100: #F0EFF0;
+  --fs-color-gray-050: #F8F7F7;
 
-  --fs-color-brand-primary: var(--fs-palette-dark);
-  --fs-color-brand-secondary: var(--fs-palette-middle);
 
-  --fs-color-text-primary: var(--fs-palette-lightest);
-  --fs-color-text-secondary: var(--fs-palette-light);
-  --fs-color-text-tertiary: var(--fs-palette-middle);
+  --fs-color-black: #000000;
+  --fs-color-white: #ffffff;
+  --fs-color-trueWhite: #fff;
 
-  --fs-color-action-primary: var(--fs-palette-dark-alt);
-  --fs-color-action-secondary: var(--fs-palette-dark);
-  --fs-color-action-hover: var(--fs-palette-dark-alt);
-  --fs-color-action-pressed: var(--fs-palette-lightest);
-  --fs-color-action-brand: var(--fs-palette-middle-alt);
-  --fs-color-action-focus: #F2C12E; 
+  --fs-color-brand-primary: var(--fs-color-core-600);
+  --fs-color-brand-secondary: var(--fs-color-bright-cloud-middle);
+
+  --fs-color-text-primary: var(--fs-color-gray-900);
+  --fs-color-text-secondary: var(--fs-color-gray-800);
+  --fs-color-text-tertiary: var(--fs-color-gray-600);
+
+  
+  --fs-color-background-subtle: var(--fs-color-gray-050);
+  --fs-color-background-default: var(--fs-color-white);
+  --fs-color-background-emphasized: var(--fs-color-core-200);
+
+  --fs-color-background-page: var(--fs-color-white);
+  --fs-color-background-header: var(--fs-color-white);
+  --fs-color-background-footer: var(--fs-color-background-subtle);
+
+  --fs-color-border-light: var(--fs-color-gray-100);
+  --fs-color-border-default: var(--fs-color-gray-200);
+  --fs-color-border-strong: var(--fs-color-gray-500);
+
+  --fs-color-panel-light: var(--fs-color-gray-050);
+  --fs-color-panel-default: var(--fs-color-gray-100);
+  --fs-color-panel-strong: var(--fs-color-grays-200);
+
+  --fs-color-text-inverse: var(--fs-color-gray-100);
+  --fs-color-heading-inverse: var(--fs-color-core-500);  
+  --fs-color-panel-inverse: var(--fs-color-bright-cloud-dark);
+
+
+
+  --fs-color-action-primary-default: var(--fs-color-core-600);
+  --fs-color-action-primary-font: var(--fs-color-white);
+  --fs-color-action-primary-hover: var(--fs-color-bright-orange-middle);
+  --fs-color-action-primary-active: var(--fs-color-core-700);
+
+  --fs-color-action-secondary-default: var(--fs-color-core-300);
+  --fs-color-action-secondary-font: var(--fs-color-text-secondary);
+  --fs-color-action-secondary-hover: var(--fs-color-core-400);
+  --fs-color-action-secondary-active: var(--fs-color-core-500);
+
+  --fs-color-action-tertiary-default: transparent;
+  --fs-color-action-tertiary-font: var(--fs-color-text-secondary);
+  --fs-color-action-tertiary-hover: var(--fs-color-core-300);
+  --fs-color-action-tertiary-active: var(--fs-color-core-400);
+
+  --fs-color-action-disabled-default: var(--fs-color-gray-200);
+  --fs-color-action-disabled-font: var(--fs-color-text-tertiary);
+
+  --fs-color-action-hover: var(--fs-color-core-600);
+  --fs-color-action-pressed: var(--fs-color-gray-700);
+  --fs-color-action-brand: var(--fs-color-bright-cloud-middle);  
+  
+  --fs-color-focus-ring: var(--fs-color-bright-yellow-middle);
+
 
   --fs-color-background-page: hsla(11, 10%, 93%, 1);
-  --fs-color-background-page2: var(--fs-palette-middle);
 
   --fs-color-modalScreen-gradient2: hsla(241, 13%, 85%, .55); 
   --fs-color-modalScreen-gradient1: hsla(241, 13%, 80%, .50); 
 
-  --fs-color-unavailable-pulse: var(--fs-palette-middle-alt);
+  --fs-color-unavailable-pulse: var(--fs-color-bright-pink-middle);
 
   --fs-size-xs: 0.75rem;
   --fs-size-sm: 0.875rem;
@@ -57,7 +132,9 @@ $screen-xl: 1600px;
   --fs-spacing-md: 16px;
   --fs-spacing-lg: 24px;
   --fs-spacing-xl: 32px;
-  
+    
+  --fs-radius-none: 0;
+  --fs-radius-xs: 2px;
   --fs-radius-sm: 4px;
 
   --fs-transition-md: all 0.3s ease;

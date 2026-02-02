@@ -131,9 +131,10 @@
 }
 
 .fs-dialogue-inner {
-  background: radial-gradient(farthest-corner at 200% 0%, var(--fs-palette-dark), var(--fs-palette-darkest));
-  color: var(--fs-palette-lightest);
-  border-radius: 4px;
+  background: var(--fs-color-panel-inverse);
+  //background: radial-gradient(farthest-corner at 200% 0%, var(--fs-palette-dark), var(--fs-palette-darkest));
+  color: var(--fs-color-text-inverse);
+  border-radius: var(--fs-radius-none);
   overflow: hidden;  
 }
 
