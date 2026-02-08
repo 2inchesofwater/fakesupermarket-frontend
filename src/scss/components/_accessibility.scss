@@ -11,6 +11,12 @@
   border: 0;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0ms !important;
+    transition-duration: 0ms !important;
+  }
+}
 
 a.skiplink {
   &:not(:focus):not(:active) {

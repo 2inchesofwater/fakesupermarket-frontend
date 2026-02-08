@@ -30,3 +30,13 @@
 		padding: var(--spacing-xl);
 	}	
 }
+
+#story--components-emptycart--default--primary-inner {
+	border: 1px dashed wheat;
+	padding-inline: 2vw;
+	width: fit-content;
+	#cart-summary-products-empty .wrapper {
+		justify-content: start;
+
+	}
+}

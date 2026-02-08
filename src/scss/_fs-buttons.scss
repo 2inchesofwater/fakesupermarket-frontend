@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: var(--spacing-2xs);
+  gap: var(--fs-spacing-xs);
 
   border: var(--thickness-md) solid transparent;
   border-radius: var(--radius-md);
@@ -13,6 +13,7 @@
   font-size: var(--size-md);
   font-weight: var(--weight-regular);
   text-align: center;
+  text-wrap-mode: nowrap;
   text-decoration: none;
   transition: var(--transition-sm);
 
@@ -26,7 +27,7 @@
   &:focus {
     outline: var(--thickness-lg) dashed var(--fs-color-focus-ring);
     outline-offset: -1px;
-  }
+  } 
 
   &.btn-primary {
     background: var(--fs-color-action-primary-default);
@@ -43,9 +44,10 @@
     &:active {
       background: var(--fs-color-action-primary-active);
     }
-    > svg > * {
+    > svg > *,
+    .icon svg > * {
       fill: var(--fs-color-action-primary-font);
-      stroke: var(--fs-color-action-primary-font);
+      // stroke: var(--fs-color-action-primary-font);
     }
   }
 
@@ -60,9 +62,10 @@
     &:active {
       background: var(--fs-color-action-secondary-active);
     }
-    > svg > * {
+    > svg > *,
+    .icon svg > * {
       fill: var(--fs-color-action-secondary-font);
-      stroke: var(--fs-color-action-secondary-font);
+      // stroke: var(--fs-color-action-secondary-font);
     } 
   }
 
@@ -81,9 +84,17 @@
     &:active {
       background: var(--fs-color-action-tertiary-active);
     }
-    > svg > * {
+    &.btn-inverse {
+      color: var(--fs-color-action-tertiary-hover);
+      &:hover {
+        color: var(--fs-color-core-200);
+        background: var(--fs-color-bright-cloud-light);
+      }
+    }
+    > svg > *,
+    .icon svg > * {
       fill: var(--fs-color-action-tertiary-font);
-      stroke: var(--fs-color-action-tertiary-font);
+      // stroke: var(--fs-color-action-tertiary-font);
     }    
   }
 
@@ -92,9 +103,10 @@
     border-color: transparent;
     color: var(--fs-color-action-disabled-font);
     pointer-events: none;
-    > svg > * {
+    > svg > *,
+    .icon svg > * {
       fill: var(--fs-color-action-disabled-font);
-      stroke: var(--fs-color-action-disabled-font);
+      // stroke: var(--fs-color-action-disabled-font);
     }   
   }
   &.btn-sm {
@@ -112,20 +124,24 @@
 
   &.btn-icon {
     .icon {
-      aspect-ratio: 1 / 1;
+      // line-height: 1em;
+      position: relative;
+      top: .1em;
     }
-    > svg {
+    > svg,
+    .icon > svg {
       width: 1.15em;
+      height: unset;
       aspect-ratio: 1 / 1;
+      overflow: visible;
     }
-
     &.btn-iconOnly {
       padding-inline: var(--spacing-sm);
     }
   }
 }
 
-.btn-group {
+.fs-btn-group {
   display: flex;
   flex-direction: row;
   gap: var(--fs-spacing-sm);
@@ -140,3 +156,4 @@
   justify-self: start;
   align-self: start;
 }
+

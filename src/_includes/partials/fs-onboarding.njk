@@ -1,49 +1,56 @@
 <div id="fs-onboarding" role="dialog" aria-modal="true" aria-labelledby="onboarding-title" class="fs-pre_hidden">
 
-  <section id="onboarding-wrapper" class="fs-dialogue fs-dialogue-lg" role="region" aria-labelledby="onboarding-title">
-    <header>
-      <h1 id="fakesupermarket-logo" aria-label="Fake Supermarket" class="fakesupermarket-logo"><span id="fakesupermarket-logo-background">{% include "partials/logo/fakesupermarket-roundel.njk" %}</span></h1>
-    </header>
+  <section id="onboarding-wrapper" role="region" aria-labelledby="onboarding-title">
+    <div class="fs-dialogue fs-dialogue-lg">
+      <div class="fs-dialogue-outer">
+        <header>
+          <h1 id="fakesupermarket-logo" aria-label="Fake Supermarket" class="fakesupermarket-logo">{% include "partials/logo/fakesupermarket-roundel.njk" %}</h1>
+        </header>
 
-    <region id="onboarding-wrapper-outer" class="fs-dialogue-inner">
-      <div id="onboarding-researchPrompt" class="fs-dialogue-content">
-          <p id="onboarding-welcome">{{ storefront.fakesupermarket.welcomeMessage }}</p> 
-          <h2 class="fs-dialogue-title">{{ storefront.study.task.instructionTitle | safe }}</h2>
-          {% if storefront.study.task.instructionDetail %}
-            <ul class="fs-dialogue-text">
-              {% for item in storefront.study.task.instructionDetail %}
-                <li>{{ item | safe }}</li>
-              {% endfor %}
-            </ul>
-          {% endif %} 
+        <div id="onboarding-wrapper-outer" class="fs-dialogue-inner">
+          <div id="onboarding-researchPrompt" class="fs-dialogue-content">
+              <p id="onboarding-welcome">{{ storefront.fakesupermarket.welcomeMessage }}</p> 
+              <h2 class="fs-dialogue-title">{{ storefront.study.task.instructionTitle | safe }}</h2>
+              {% if storefront.study.task.instructionDetail %}
+                <ul class="fs-dialogue-text">
+                  {% for item in storefront.study.task.instructionDetail %}
+                    <li>{{ item | safe }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %} 
+          </div>
+          <div class="onboarding-actions">
+              <button id="onboarding-action-affirm" class="fs-btn btn-primary btn-icon">
+                <span class="icon">{% include "partials/icons/check-circle.njk" %}</span>
+                <span class="label">I can do that</span>
+              </button>
+          </div>
+          <div id="onboarding-help">
+            <h2>Learn more...</h2>
+            <div class="fs-btn-group">
+              <a href="#" class="fs-btn btn-tertiary btn-sm btn-inverse" target="_blank">Show a walkthrough</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div id="onboarding-actions">
-          <button id="onboarding-action-affirm" class="fs-btn fs-btn-primary fs-btn-icon">
-            <span class="icon">{% include "partials/icons/check-circle.njk" %}</span>
-            <span class="label">I can do that</span>
-          </button>
-      </div>
-      <div id="onboarding-help">
-        <ul class="fs-tiles fs-tiles-tertiary">
-          <li class="fs-tile"><a href="#" target="_blank">Explainer: What am I meant to do?</a></li>
-          <li class="fs-tile"><a href="#" target="_blank">What's a fake supermarket?</a></li>
-        </ul>
-      </div>
-    </region>
+    </div>
+  </section>
 
-    <region id="onboarding-animationControls">
+
+  <section id="onboarding-animationControls">
+    <div class="">
       <div id="onboarding-animationControls-play">
-        <button class="fs-btn fs-btn-secondary fs-btn-icon" aria-labelledBy="onboarding-animationLabel-play">
+        <button class="fs-btn btn-secondary btn-icon btn-sm" aria-labelledBy="onboarding-animationLabel-play">
           <span class="icon">{% include "partials/icons/play.njk" %}</span>
           <span class="label" id="onboarding-animationLabel-play" aria-label="Allow animation: The background will gently scroll.">Allow animation</span>
         </button>
       </div>
       <div hidden id="onboarding-animationControls-pause">
-        <button  class="fs-btn fs-btn-secondary fs-btn-icon" aria-labelledBy="onboarding-animationLabel-pause">
+        <button  class="fs-btn btn-secondary btn-icon btn-sm" aria-labelledBy="onboarding-animationLabel-pause">
           <span class="icon">{% include "partials/icons/pause.njk" %}</span>
           <span class="label" id="onboarding-animationLabel-pause">Pause animation</span>
         </button>   
       </div>   
-    </region>
+    </div>
   </section>
 </div>

@@ -8,29 +8,57 @@
   left: 0;
   right: 0;
 
-  > section {
-    display: grid;
-    height: 100vh; 
-    grid-template-rows: 1fr auto 1fr; 
-    max-width: #{$screen-sm};
-    margin-inline: var(--fs-spacing-md);
-    @media (min-width: $screen-sm) {
-      margin-block: 0;
-      margin-inline: auto;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  height: 100vh; 
+   
+  max-width: #{$screen-sm};
+  margin-inline: 5vw;
+  @media (min-width: $screen-sm) {
+    // margin-block: 0;
+    margin-inline: auto;
+  }
+  @media (min-width: $screen-md) {
+    // margin-block: 0;
+    margin-inline: auto; 
+  }
+
+  .fs-dialogue-outer {
+    @media (max-width: #{$screen-sm}) {
+      grid-template-columns: 1fr;
+      grid-template-rows: var(--fs-logo-size-md) auto;
     }
+    .fakesupermarket-logo {
+      width: auto;
+      height: calc( var(--fs-logo-size-md) * 2);
+      aspect-ratio: 1 / 1;
+      bottom: 100% ;
+      img {
+        max-height: unset;
+      }
+      @media (min-width: #{$screen-sm}) {
+        width: 250%;
+        height: unset;
+        bottom: unset;
+        right: calc( var(--fs-logo-size-md) * 1.5);
+      }
+    }    
   }
 
   header {
-    align-self: end;    
-    justify-self: start;
-    position: relative;
-    margin-top: 5vh;
+    @media (min-width: #{$screen-sm}) {
+      align-self: start;    
+      justify-self: end;
+      position: relative;
+      margin-top: 5vh;
+    }
 
     #fakesupermarket-logo {
-      @include fs-logo.fs-logo-position;             
+      // @include fs-logo.fs-logo-position;             
     }
     svg {
-      @include fs-logo.fs-logo-rotation;
+      // @include fs-logo.fs-logo-rotation;
     }
   }
 
@@ -38,7 +66,10 @@
     align-self: stretch;
     justify-self: stretch;
     position: relative;
-    padding-block-start: 7.5vh;
+    padding-block-start: var(--spacing-md);
+    @media  (min-width: #{$screen-sm}) {
+      padding-block-start: 7.5vh;
+    }
   }
 
   #onboarding-actions {
@@ -60,7 +91,7 @@
 
 #fs-onboarding {
   #onboarding-welcome {
-    color: var(--fs-color-text-tertiary);
+    color: var(--fs-color-heading-inverse);
     font-weight: 300;
     margin-bottom: var(--fs-spacing-sm);
     border-bottom: 1px solid;
@@ -81,7 +112,14 @@
       }
     }
   }
-  #onboarding-actions {
-    //margin-bottom: 2.5vh;
+  #onboarding-help {
+    margin-block-start: 5vh;
+    border-block-start: 1px solid var(--fs-color-heading-inverse);
+    padding-block: var(--spacing-md);
+    h2 {
+      font-size: var(--size-md);
+      font-weight: 300;
+      margin-bottom: var(--spacing-xs);
+    }
   }
 }

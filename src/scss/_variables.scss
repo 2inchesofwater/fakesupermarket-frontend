@@ -4,12 +4,12 @@ $size-sm: 14px;
 $size-base: 16px;
 $size-lg: 18px;
 
-$screen-2xs: 300px;
-$screen-xs: 400px;
+$screen-xs: 300px;
 $screen-sm: 500px;
-$screen-md: 750px;
-$screen-lg: 1200px;
+$screen-md: 700px;
+$screen-lg: 1000px;
 $screen-xl: 1600px;
+
 
 :root {
   // --palette-beer: hsla(33, 89%, 51%, 1);
@@ -89,7 +89,11 @@ $screen-xl: 1600px;
 
   --color-background-page: var(--color-white);
   --color-background-header: var(--color-white);
-  --color-background-footer: var(--color-background-subtle);
+
+  --color-background-footer-heading: var(--color-core-200);
+  --color-background-footer-nav: var(--color-gray-100);
+  --color-background-footer-acknowledgements: var(--color-gray-050);
+  --color-background-footer-tail: var(--color-black);
 
   --color-border-light: var(--color-gray-100);
   --color-border-default: var(--color-gray-200);
@@ -143,13 +147,12 @@ $screen-xl: 1600px;
 
   --spacing-none: 0;
   --spacing-3xs: 2px;
-  --spacing-2xs: 4px;
-  --spacing-xs: 8px;  
+  --spacing-2xs: 3px;
+  --spacing-xs: 6px;
   --spacing-sm: 12px;
   --spacing-md: 16px;
-  --spacing-lg: 20px;
-  --spacing-xl: 24px;
-  --spacing-2xl: 32px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
   --spacing-3xl: 48px;
   --spacing-4xl: 64px;
 

@@ -6,7 +6,7 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	gap: var(--spacing-2xs);
+	gap: var(--spacing-xs);
 
 	border: var(--thickness-md) solid transparent;
 	border-radius: var(--radius-md);
@@ -46,9 +46,10 @@
 		&:active {
 			background: var(--color-action-primary-active);
 		}
-		> svg > * {
+		> svg > *,
+    	.icon svg > * {
 			fill: var(--color-action-primary-font);
-			stroke: var(--color-action-primary-font);
+			// stroke: var(--color-action-primary-font);
 		}		
 	}
 
@@ -63,9 +64,10 @@
 		&:active {
 			background: var(--color-action-secondary-active);
 		}
-		> svg > * {
+		> svg > *,
+    	.icon svg > * {
 			fill: var(--color-action-secondary-font);
-			stroke: var(--color-action-secondary-font);
+			// stroke: var(--color-action-secondary-font);
 		}		
 	}
 
@@ -84,9 +86,10 @@
 		&:active {
 			background: var(--color-action-tertiary-active);
 		}
-		> svg > * {
+		> svg > *,
+    	.icon svg > * {
 			fill: var(--color-action-tertiary-font);
-			stroke: var(--color-action-tertiary-font);
+			// stroke: var(--color-action-tertiary-font);
 		}	
 	}
 
@@ -95,9 +98,10 @@
 		border-color: transparent;
 		color: var(--color-action-disabled-font);
 		pointer-events: none;
-		> svg > * {
+		> svg > *,
+    	.icon svg > * {
 			fill: var(--color-action-disabled-font);
-			stroke: var(--color-action-disabled-font);
+			// stroke: var(--color-action-disabled-font);
 		}		
 	}
 	&.btn-sm {
@@ -115,13 +119,17 @@
 
 	&.btn-icon {
 		.icon {
-			aspect-ratio: 1 / 1;
+		  // line-height: 1em;
+	      position: relative;
+	      top: .15em;
 		}
-		> svg {
+		> svg,
+		.icon > svg {
 			width: 1.15em;
+			height: unset;
 			aspect-ratio: 1 / 1;
+			overflow: visible;
 		}
-
 		&.btn-iconOnly {
 			padding-inline: var(--spacing-sm);
 		}

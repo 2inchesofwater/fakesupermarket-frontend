@@ -1,149 +1,98 @@
 @use "fs-variables" as *;
 
 .fs-dialogue {
+  container: fs-dialogue / inline-size;
   .fs-dialogue-outer {
-    display: flex;
-    container: fs-dialogue / inline-size;
-  }
-  &:not(.fs-dialogue-inline) {
-    .fs-dialogue-outer {
-      flex-direction: column;
-    }
-  }
-  &.fs-dialogue-inline {
-    .fs-dialogue-outer {
-      flex-direction: row;
-    }
-  }
-}
+    display: grid;
 
-.fs-dialogue-inline {
-  width: 100%;
-  max-width: 35rem;
-  position: relative;
-  margin-inline: auto;
+    background: var(--fs-color-panel-inverse);
+    color: var(--fs-color-text-inverse);
+    border-radius: var(--fs-radius-none);
 
-  .fs-dialogue-outer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    @container fs-dialogue (width > #{$screen-sm}) {
-      flex-direction: row;
-    }
-  }
-}
+    padding-block: var(--spacing-md);
+    padding-inline: var(--spacing-md);
 
-
-.fs-dialogue-xs {
-  .fakesupermarket-logo {
-    width: var(--size-4xl);
-    height: var(--size-4xl);
-    position: absolute;
-    top: -1.5vh;
-    left: 1vh;
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-    @container fs-dialogue (width > #{$screen-sm}) {
-      top: -1.5vh;
-      left: 1vh;
-    }
-  }
-
-  &:not(.fs-dialogue-inline) .fs-dialogue-inner {
-    padding: var(--fs-spacing-md);
-  } 
-  &.fs-dialogue-inline .fs-dialogue-inner {
-    padding: var(--fs-spacing-md) var(--fs-spacing-lg) var(--fs-spacing-md) var(--size-5xl);
-  }   
-}
-
-.fs-dialogue-sm {
-  .fakesupermarket-logo {
-    width: var(--size-5xl);
-    height: var(--size-5xl);
-    top: -2vh;
-    left: 2vh;
-    position: absolute;
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-    @container fs-dialogue (width > #{$screen-sm}) {
-      top: -2vh;
-      left: 2vh;
-    }
-  }
-  &:not(.fs-dialogue-inline) .fs-dialogue-inner {
-    padding: var(--size-5xl) var(--fs-spacing-lg) var(--fs-spacing-xl) var(--fs-spacing-lg);
-  } 
-  &.fs-dialogue-inline .fs-dialogue-inner {
-    padding: var(--fs-spacing-lg);
-  } 
-}
-
-.fs-dialogue-md {
-  .fakesupermarket-logo {
-    width: var(--size-5xl);
-    height: var(--size-5xl);
-    top: -2vh;
-    left: 2vh;
-    position: absolute;
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-    @container fs-dialogue (width > #{$screen-sm}) {
-      top: -2vh;
-      left: 2vh;
-    }
-  }
-  &:not(.fs-dialogue-inline) .fs-dialogue-inner {
-    padding: var(--size-4xl) var(--fs-spacing-sm) var(--fs-spacing-xl) var(--fs-spacing-sm);
-  } 
-  &.fs-dialogue-inline .fs-dialogue-inner {
-    padding: var(--fs-spacing-lg);
-  } 
-}
-
-.fs-dialogue {
-  .fs-dialogue-inner {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: var(--fs-spacing-md);
-      padding: 3.75vh;
-    @media (min-width: $screen-sm) {
-      padding: 7.5vh;
-    }
-  }
-  &.fs-dialogue-inline {
     .fs-dialogue-inner {
-      flex-direction: column;
-    }
-    @container fs-dialogue (width > #{$screen-sm}) {
-      .fs-dialogue-inner {
-        flex-direction: row;
+      display: grid;
+      grid-template-rows: auto auto;
+      grid-gap: var(--spacing-sm);
+
+      .fs-dialogue-actions {
+        justify-self: start;
       }
     }
+
+    @container fs-dialogue (max-width: #{$screen-xs}) {
+      grid-template-columns: var(--size-2xl) auto ;
+      grid-gap: var(--spacing-sm);
+      // border: 1px dashed orange;
+
+      padding-block: var(--spacing-sm);
+      padding-inline: var(--spacing-sm);
+      padding-inline-end: var(--spacing-md); 
+    }
+
+    @container fs-dialogue (min-width: #{$screen-xs}) {
+      grid-template-columns: var(--size-3xl) auto var(--spacing-md);
+      grid-gap: var(--spacing-sm);
+      // border: 1px dashed yellow;
+
+      .fs-dialogue-inner {
+        grid-gap: var(--fs-spacing-sm);
+      }              
+    }
+
+    @container fs-dialogue (min-width: #{$screen-sm}) {
+      // from 400px wide
+      grid-template-columns: var(--size-3xl) auto var(--spacing-md);
+      grid-gap: var(--spacing-md);
+      // border: 1px dashed blue;
+        .fs-dialogue-inner {
+          align-items: center;
+          grid-gap: var(--fs-spacing-md);
+        }
+        .fs-dialogue-content {
+          flex: 1;
+        }
+        .fs-dialogue-actions {
+          flex: 0;
+        }      
+    }    
+    @container fs-dialogue (min-width: #{$screen-md}) {
+      // from 600px wide
+      grid-template-columns: var(--size-3xl) auto var(--size-3xl);
+      // border: 1px dashed green;
+      .fs-dialogue-inner {
+        align-items: center;
+      }
+      .fs-dialogue-content {
+        padding-inline-end: var(--size-3xl);
+      }
+      .fs-dialogue-actions {
+      }      
+    }    
+    @container fs-dialogue (min-width: #{$screen-lg}) {
+      // from 900px wide
+      grid-template-columns: 1fr 2fr;
+      //border: 1px dashed red;
+      .fs-dialogue-inner {
+        grid-template-rows: unset;
+        grid-template-columns: 1fr 1fr;
+      }
+      .fakesupermarket-logo {
+        justify-content: end;
+      }      
+    }    
   }
 }
 
-.fs-dialogue-inner {
-  background: var(--fs-color-panel-inverse);
-  //background: radial-gradient(farthest-corner at 200% 0%, var(--fs-palette-dark), var(--fs-palette-darkest));
-  color: var(--fs-color-text-inverse);
-  border-radius: var(--fs-radius-none);
-  overflow: hidden;  
-}
 
 .fs-dialogue {
   .fs-dialogue-title {
     margin-block-start: 0;
     margin-block-end: var(--fs-spacing-xs);
     font-size: var(--fs-size-lg);
-    font-weight: 300;
+    font-weight: 400;
   }
   &.fs-dialogue-lg .fs-dialogue-title {
     font-size: var(--fs-size-xl);
@@ -151,19 +100,18 @@
   &.fs-dialogue-inline {
     .fs-dialogue-title { 
       margin-block-start: 0;
-      margin-block-end: var(--fs-spacing-xs);
+      margin-block-end: var(--fs-spacing-2xs);
     }
   }  
 }
 
 .fs-dialogue {
   .fs-dialogue-text {
-    font-size: var(--fs-size-md);
-    max-width: 35rem;
-    color: var(--fs-palette-light);
-  }
-  &.fs-dialogue-xs .fs-dialogue-text {
     font-size: var(--fs-size-sm);
+    color: var(--fs-color-text-inverse);
+    @container fs-dialogue (min-width: #{$screen-xs}) {
+      // font-size: var(--fs-size-md);
+    }
   }
 
   ul {
@@ -173,20 +121,10 @@
       }
     }
   }
-
-  .fs-dialogue-actions {
-    justify-items: end;
-
-    .fs-btn {
-      display: block;
-      width: auto;
-    }
-  }
 }
 
 
-#fs-unavailableOptions {
-  &.fs-dialogue-inline {
-    max-width: none;
-  }
+/* ASSORTED EXCEPTIONS */
+footer .fs-dialogue .fs-dialogue-outer {
+  padding-block-start: var(--spacing-lg);
 }

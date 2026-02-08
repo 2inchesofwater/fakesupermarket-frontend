@@ -1,8 +1,10 @@
+
 $screen-xs: 300px;
 $screen-sm: 500px;
-$screen-md: 800px;
-$screen-lg: 1200px;
+$screen-md: 700px;
+$screen-lg: 1000px;
 $screen-xl: 1600px;
+
 
 :root {
   /* Design system palette spectrum */
@@ -35,9 +37,9 @@ $screen-xl: 1600px;
   --fs-color-bright-sky-light: #80DEFF;
   --fs-color-bright-sky-middle: #42CEFF;
   --fs-color-bright-sky-dark: #00BDFF;
-  --fs-color-bright-cloud-light: #546F78;
-  --fs-color-bright-cloud-middle: #496169;
-  --fs-color-bright-cloud-dark: #3E5259;
+  --fs-color-bright-cloud-light: #496169;
+  --fs-color-bright-cloud-middle: #3E5259;
+  --fs-color-bright-cloud-dark: #34454B; 
 
   --fs-color-gray-900: #1C1718;
   --fs-color-gray-800: #433D3E;
@@ -80,7 +82,7 @@ $screen-xl: 1600px;
   --fs-color-panel-strong: var(--fs-color-grays-200);
 
   --fs-color-text-inverse: var(--fs-color-gray-100);
-  --fs-color-heading-inverse: var(--fs-color-core-500);  
+  --fs-color-heading-inverse: var(--fs-color-core-400);  
   --fs-color-panel-inverse: var(--fs-color-bright-cloud-dark);
 
 
@@ -117,12 +119,19 @@ $screen-xl: 1600px;
 
   --fs-color-unavailable-pulse: var(--fs-color-bright-pink-middle);
 
+  --fs-logo-size-sm: 3rem;
+  --fs-logo-size-md: 4rem;
+  --fs-logo-size-lg: 5rem;
+
   --fs-size-xs: 0.75rem;
   --fs-size-sm: 0.875rem;
   --fs-size-md: 1rem;
   --fs-size-lg: 1.25rem;  
-  --fs-size-xl: 1.5rem;     
-  --fs-size-2xl: 2.37rem;
+  --fs-size-xl: 1.6rem;     
+  --fs-size-2xl: 2.2rem;    
+  --fs-size-3xl: 3.15rem;
+  --fs-size-4xl: 4.2rem;
+  --fs-size-5xl: 5.6rem;
   
   --fs-spacing-inset: 1.5vh;
 
@@ -132,7 +141,9 @@ $screen-xl: 1600px;
   --fs-spacing-md: 16px;
   --fs-spacing-lg: 24px;
   --fs-spacing-xl: 32px;
-    
+  --fs-spacing-3xl: 48px;
+  --fs-spacing-4xl: 64px;
+
   --fs-radius-none: 0;
   --fs-radius-xs: 2px;
   --fs-radius-sm: 4px;

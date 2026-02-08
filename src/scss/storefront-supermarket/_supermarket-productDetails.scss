@@ -70,7 +70,7 @@
 			margin-block-end: var(--spacing-xs);
 			display: flex;
 			flex-direction: column;
-			@container essentials (width > #{$screen-2xs}) {
+			@container essentials (width > #{$screen-xs}) {
 				flex-direction: row;
 				margin-block-start: var(--spacing-xs);
 				margin-block-end: var(--spacing-xs);
@@ -80,7 +80,7 @@
 				flex-direction: row;
 				align-items: center;
 				//margin-block-end: var(--spacing-2xs);
-				@container essentials (width > #{$screen-2xs}) {
+				@container essentials (width > #{$screen-xs}) {
 					flex: 1;
 					justify-content: start;
 					align-items: center;
@@ -99,7 +99,7 @@
 				flex-direction: row;
 				gap: var(--spacing-xs);
 				color: var(--color-text-tertiary);
-				@container essentials (width > #{$screen-2xs}) {
+				@container essentials (width > #{$screen-xs}) {
 					flex: 1;
 					justify-content: end;
 					align-items: center;
@@ -110,7 +110,7 @@
 			display: flex;
 			flex-direction: column;
 			gap: var(--spacing-xs);
-			@container essentials (width > #{$screen-2xs}) {
+			@container essentials (width > #{$screen-xs}) {
 				flex-direction: row;
 			}
 			button {
