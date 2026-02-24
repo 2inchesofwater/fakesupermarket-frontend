@@ -1,0 +1,19 @@
+.fs-inputGroup {}
+
+.fs-input {
+	font-size: var(--fs-size-md);
+	border: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+	border-radius: var(--fs-radius-xs);
+
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    outline: var(--thickness-lg) solid var(--fs-color-focus-ring);
+    outline-offset: 0;
+  } 
+}
+
+.fs-inputGroup-help {
+	font-size: var(--fs-size-xs);
+}

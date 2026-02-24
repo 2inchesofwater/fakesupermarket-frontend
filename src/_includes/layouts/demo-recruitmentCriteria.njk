@@ -1,0 +1,98 @@
+
+{% extends "layouts/base.njk" %}   
+ 
+{% block content %}
+  <main id="main" class="main-content demo-page">
+    <h1>{{ title }}</h1>
+
+    <h2>Example: Recruitment criteria group</h2>
+    <div class="fs-allRecruitGroups">
+      {% set group = groups[0] %}
+        {% include "partials/fs-recruitGroup.njk" %}
+    </div>
+
+    <article class="demo-notes">
+<h2>Context</h2>
+
+<p>This UI exists because UX recruitment is more than “grab 300 random people”. It’s <strong>designing a target mix</strong> of participants for a study, then recruiting towards that mix. <span class="highlight">If recruitment is off, the data will be off</span>. This can mean that a project might look “successful” but actually produce misleading conclusions.</p>
+
+<p>As a baseline, many clients want a participant mix that broadly reflects the wider Australian population (or whichever country). But in practice, clients often need to skew one or more recruitment criteria to match the reality of their product, market, and research goals.</p>
+
+<p>For instance, a mascara manufacturer might heavily skew the gender mix towards women. A two-minute noodle brand might dial down the proportion of high-income participants. Berts Soft Drinks is exclusive to WA, so they might strongly favour participants who already live in Western Australia – or exclude them.</p>
+
+<p>So we need a way for a client (or researcher) to set the target distribution for their project. That’s what this recruitment criteria panel is doing: It presents a set of demographic segments (gender, income, location, etc) and lets a client assign <strong>percentages</strong> across them. The inputs <strong>auto-rebalance</strong> to a total of 100% so the allocation always stays valid, and the chart provides quick visual feedback about the shape of the sample.</p>
+
+<p class="tertiary">In a future iteration, we can support client-defined criteria. For example, an energy drink brand might want to recruit against employment status or industry.</p><p class="tertiary">So, in the code, you might notice stubs for <em>“Edit label”</em>, <em>“Delete”</em>, and <em>“Add another”</em>. They'll stay non-functional until we’ve designed how custom criteria are captured from shopper-users.</p>
+
+<h2>Notes</h2>
+<p>These recruitment criteria components are specifically for the back-end client-facing app.</p>
+<p>Data for the demo components comes via YAML. We'll maintain a template/starting-point set of labels and values; I imagine all of this data would be duplicated into a client's assets for a specific research project. </p>
+<p>There are two iterations: <strong>Groups</strong>, and then <strong>Items</strong> within each group. <br/>A "group" essentially represents a census-like question, and the "items" (AKA the characteristics) are essentially the available answers for that question.</p>
+<p><strong>Groups</strong></p>
+<p>The chart and swatches belong to the group component. The chart gets re-calculated when a percentage value changes.</p>
+<p>In a future iteration, we'll also insert a "Add another" button to each group.</p>
+<p>Groups are rendered into <code>details</code> elements, so they can be collapsed by a client-user.</p>
+<p><strong>Items</strong></p>
+<p>The labels, input field, kebab menu button, and fly-out panel belong to the item component. (This is currently imprecisely called "recruitmentSegment" - sorry!)</p>
+<p>When a client-user changes a percentage value, the other percentage values automatically re-balance so the whole group adds up to 100%. It recalculates on blur/focusout. </p>
+<p>When the percentages re-balance, the UI also re-calculates how many people from the total sample size that will be.</p> 
+<p>There's also a routine to sort out any rounding errors. There's no such thing as a half-person... </p>
+<p>Inside the kebab menu, there's a Lock button for the percentage button. The re-balancing algorithms will skip any locked values. </p>
+
+<h2>To-do</h2>
+<p>Consistent widths for item grid</p>
+<p>Consistent widths for groups</p>
+<p>Responsive layout for items</p>
+<p>Responsive layout for groups</p>
+<p>Highlight states for items on hover</p>
+
+    </article>
+
+
+    <h2>Recruitment criteria groups</h2>
+    <div class="fs-allRecruitGroups">
+      {% for group in groups %}
+        {% include "partials/fs-recruitGroup.njk" %}
+      {% endfor %}
+    </div>
+
+
+
+    <h2>Component: Recruitment segment</h2>
+    <div class="demo-recruitSegment-wrapper">
+      {% set group = groups[0] %}
+      {% set item = group.items[0] %}
+        {% include "partials/fs-recruitSegment.njk" %}
+    </div>
+
+
+
+    {# <div id="fs-recruitGroup-template">
+      {% set baseGroup = groups[0] %}
+
+      {% set blankItem = {
+        defaultCharacteristicLabel: "",
+        defaultCharacteristicSlug: "",
+        defaultCharacteristicExplanation: "",
+        defaultCharacteristicValue: "0"
+      } %}
+
+      {% set group = {
+        groupTitle: "",
+        groupSlug: "",
+        groupDescription: "",
+        isTemplate: true,
+        items: [ blankItem ]
+      } %}
+      {% include "partials/fs-recruitGroup.njk" %}
+    </div> #}
+
+  </main>
+
+<script src="/js/pages/demo-recruitmentCriteria.js" defer></script>
+<script src="/js/pages/demo-recruitmentCharts.js" defer></script>
+<script src="/js/pages/demo-recruitmentRows.js" defer></script>
+
+{% endblock %}
+
+

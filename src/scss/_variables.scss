@@ -81,7 +81,7 @@ $screen-xl: 1600px;
 
   --color-text-primary: var(--color-gray-900);
   --color-text-secondary: var(--color-gray-800);
-  --color-text-tertiary: var(--color-gray-600);
+  --color-text-tertiary: var(--color-gray-700);
   
   --color-background-subtle: var(--color-gray-050);
   --color-background-default: var(--color-white);
@@ -135,6 +135,9 @@ $screen-xl: 1600px;
 
   --font-display: "Abalos";
   --font-sans: Outfit, Helvetica, Calibri, sans-serif;
+
+  --btn-size-sm: 1rem;
+  --btn-size-md: 1.15rem;
 
   --height-section-sm: 45vh;
   --height-section-md: 66vh;

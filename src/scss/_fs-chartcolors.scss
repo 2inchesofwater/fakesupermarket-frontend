@@ -1,0 +1,37 @@
+.fs-chartColors {
+	&[data-item-index] .fs-chartColor-item {
+		opacity: 0.25;
+		cursor: pointer;
+	}
+	&[data-item-index].is-pairedActive .fs-chartColor-item {
+		opacity: 0.5;
+	}
+
+	&[data-item-index="1"] .fs-chartColor-item {
+		background-color: var(--fs-color-bright-pink-middle);
+	}
+	&[data-item-index="2"] .fs-chartColor-item {
+		background-color: var(--fs-color-bright-orange-middle);
+	}
+	&[data-item-index="3"] .fs-chartColor-item {
+		background-color: var(--fs-color-bright-yellow-middle);
+	}
+	&[data-item-index="4"] .fs-chartColor-item {
+		background-color: var(--fs-color-bright-tan-middle);
+	}
+	&[data-item-index="5"] .fs-chartColor-item {
+		background-color: var(--fs-color-bright-green-middle);
+	}
+	&[data-item-index="6"] .fs-chartColor-item {
+		background-color: var(--fs-color-bright-sky-middle);
+	}
+	&[data-item-index="7"] .fs-chartColor-item {
+		background-color: var(--fs-color-bright-cloud-middle);
+	}
+	&[data-item-index="8"] .fs-chartColor-item {
+		background-color: var(--fs-color-core-500);
+	}
+	&[data-item-index="9"] .fs-chartColor-item {
+		background-color: var(--fs-color-core-200);
+	}	
+}

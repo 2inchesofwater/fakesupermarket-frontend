@@ -1,0 +1,41 @@
+<div class="fs-recruitSegment" id="recruitSegment_{{ group.groupSlug }}_criteria">
+
+    <div class="fs-recruitSegment-title-wrapper">
+      <h3 id="recruitSegment_{{ group.groupSlug }}_{{ item.defaultCharacteristicSlug }}" class="fs-recruitSegment-title">{{ item.defaultCharacteristicLabel }}</h3>
+      <p id="recruitSegment_{{ group.groupSlug }}_{{ item.defaultCharacteristicSlug }}_explanation" class="fs-recruitSegment-explanation">{{ item.defaultCharacteristicExplanation }}</p>
+    </div>     
+    
+    <div class="fs-recruitSegment-percentage-wrapper">
+      <div class="fs-inputGroup">
+        <input id="recruitSegment_{{ group.groupSlug }}_{{ item.defaultCharacteristicSlug }}_percentage" type="number" inputmode="numeric" step="1" min="0" max="100" class="fs-input fs-recruitSegment-percentage" value="{{item.defaultCharacteristicValue}}">
+        <span class="label">%</span>
+      </div>
+      <p class="fs-inputGroup-help"><span class="fs-inputGroup-help-value">x</span> people</p> 
+    </div>
+
+    <div class="fs-recruitSegment-expand-wrapper">
+      <button type='button' id="recruitSegment_{{ group.groupSlug }}_{{ item.defaultCharacteristicSlug }}_expand" class="fs-btn btn-tertiary btn-icon btn-sm" aria-label="See more options" aria-expanded="false" aria-controls="recruitSegment_{{ group.groupSlug }}_{{ item.defaultCharacteristicSlug }}">
+        <span class="icon">
+          {% include "partials/icons/more-horizontal.njk" %}
+        </span>
+      </button>
+    </div>
+
+    <div class="fs-recruitSegment-edit-wrapper">
+      {# <button hidden type='button' id="recruitSegment_{{ group.groupSlug }}_{{ item.defaultCharacteristicSlug }}_edit" class="fs-btn btn-sm btn-link" aria-label="Change the title and explanation">
+        <span class="label">Edit label</span>
+      </button>  #}
+    </div>
+
+    <div class="fs-recruitSegment-lock-wrapper">
+      <button type='button' id="recruitSegment_{{ group.groupSlug }}_{{ item.defaultCharacteristicSlug }}_lock" class="fs-btn btn-link btn-sm btn-tertiary" aria-pressed="false" aria-label="Lock values">
+        <span class="label">Lock</span>
+      </button>
+    </div>   
+
+    <div class="fs-recruitSegment-delete-wrapper">
+      {# <button type='button' id="recruitSegment_{{ group.groupSlug }}_{{ item.defaultCharacteristicSlug }}_delete" class="fs-btn btn-link btn-sm btn-tertiary" aria-label="Delete this">
+        <span class="label">Delete</span>
+      </button> #}
+    </div>
+</div> 

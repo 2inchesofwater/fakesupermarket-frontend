@@ -2,11 +2,15 @@
 @use 'fs-variables';
 @use 'fs-styles';
 @use 'fs-buttons';
+@use 'fs-chartcolors';
 @use 'fs-dialogue';
+@use 'fs-input';
 @use 'fs-likertRatings';
 @use 'fs-logo';
 @use 'fs-multiSelect';
 @use 'fs-progress';
+@use 'fs-recruitGroup';
+@use 'fs-recruitSegment';
 @use 'fs-tiles';
 
 @forward 'fs-onboarding';
@@ -56,3 +60,5 @@
 @forward 'storefront-supermarket/cartSummary-item';
 
 
+// Temporary stylesheets
+@forward 'demo-pages';

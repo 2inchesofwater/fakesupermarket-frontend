@@ -25,9 +25,22 @@
     text-decoration: none;
   }
   &:focus {
-    outline: var(--thickness-lg) dashed var(--fs-color-focus-ring);
+    outline: var(--thickness-lg) solid var(--fs-color-focus-ring);
     outline-offset: -1px;
   } 
+
+  &.btn-sm {
+    font-size: var(--size-sm);
+    padding-block: var(--spacing-xs); 
+    padding-inline: var(--spacing-sm);    
+  }
+  &.btn-lg {
+    border-radius: var(--radius-lg);
+    font-size: var(--size-lg);
+    padding-block: var(--spacing-sm); 
+    padding-inline: var(--spacing-lg);    
+  }
+
 
   &.btn-primary {
     background: var(--fs-color-action-primary-default);
@@ -94,8 +107,25 @@
     > svg > *,
     .icon svg > * {
       fill: var(--fs-color-action-tertiary-font);
-      // stroke: var(--fs-color-action-tertiary-font);
     }    
+  }
+
+  &.btn-link {
+    background: transparent;
+    color: var(--fs-color-brand-primary);
+    font-weight: unset;
+    text-decoration: underline;
+    border: 0;
+    padding-block: unset;
+    padding-inline: unset;
+    &:hover {
+      background: var(--fs-color-core-100);
+      color: var(--fs-color-core-700);
+    }
+    > svg > *,
+    .icon svg > * {
+      fill: var(--fs-color-brand-primary);
+    }  
   }
 
   &:disabled {
@@ -109,17 +139,6 @@
       // stroke: var(--fs-color-action-disabled-font);
     }   
   }
-  &.btn-sm {
-    font-size: var(--size-sm);
-    padding-block: var(--spacing-xs); 
-    padding-inline: var(--spacing-sm);    
-  }
-  &.btn-lg {
-    border-radius: var(--radius-lg);
-    font-size: var(--size-lg);
-    padding-block: var(--spacing-sm); 
-    padding-inline: var(--spacing-lg);    
-  }
 
 
   &.btn-icon {
@@ -130,7 +149,7 @@
     }
     > svg,
     .icon > svg {
-      width: 1.15em;
+      width: var(--fs-btn-size-md);
       height: unset;
       aspect-ratio: 1 / 1;
       overflow: visible;

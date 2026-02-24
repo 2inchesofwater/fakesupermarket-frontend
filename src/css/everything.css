@@ -48,7 +48,7 @@
   --fs-color-brand-secondary: var(--fs-color-bright-cloud-middle);
   --fs-color-text-primary: var(--fs-color-gray-900);
   --fs-color-text-secondary: var(--fs-color-gray-800);
-  --fs-color-text-tertiary: var(--fs-color-gray-600);
+  --fs-color-text-tertiary: var(--fs-color-gray-700);
   --fs-color-background-subtle: var(--fs-color-gray-050);
   --fs-color-background-default: var(--fs-color-white);
   --fs-color-background-emphasized: var(--fs-color-core-200);
@@ -86,9 +86,17 @@
   --fs-color-modalScreen-gradient2: hsla(241, 13%, 85%, .55);
   --fs-color-modalScreen-gradient1: hsla(241, 13%, 80%, .50);
   --fs-color-unavailable-pulse: var(--fs-color-bright-pink-middle);
+  --fs-font-sans: Outfit, Helvetica, Calibri, sans-serif;
   --fs-logo-size-sm: 3rem;
   --fs-logo-size-md: 4rem;
   --fs-logo-size-lg: 5rem;
+  --fs-btn-size-sm: 1rem;
+  --fs-btn-size-md: 1.15rem;
+  --fs-radius-none: 0;
+  --fs-radius-xs: 2px;
+  --fs-radius-sm: 4px;
+  --fs-radius-md: 8px;
+  --fs-radius-lg: 12px;
   --fs-size-xs: 0.75rem;
   --fs-size-sm: 0.875rem;
   --fs-size-md: 1rem;
@@ -107,10 +115,19 @@
   --fs-spacing-xl: 32px;
   --fs-spacing-3xl: 48px;
   --fs-spacing-4xl: 64px;
-  --fs-radius-none: 0;
-  --fs-radius-xs: 2px;
-  --fs-radius-sm: 4px;
+  --fs-thickness-none: 0;
+  --fs-thickness-sm: 1px;
+  --fs-thickness-md: 2px;
+  --fs-thickness-lg: 4px;
+  --fs-thickness-xl: 8px;
+  --fs-boxShadow-xs: 0 var(--spacing-3xs) var(--blur-md) var(--color-shadow-light);
+  --fs-boxShadow-sm: 0 var(--spacing-3xs) var(--blur-lg) var(--color-shadow-light);
+  --fs-boxShadow-md: 0 var(--spacing-2xs) var(--blur-xl) var(--color-shadow-medium);
   --fs-transition-md: all 0.3s ease;
+  --fs-weight-light: 200;
+  --fs-weight-regular: 300;
+  --fs-weight-bold: 500;
+  --fs-weight-heavy: 600;
 }
 
 body {

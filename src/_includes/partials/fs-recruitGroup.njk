@@ -1,0 +1,45 @@
+<details name="fs-recruitGroup-{{ group.groupSlug }}" class="fs-recruitGroup" open 
+  {% if not group.isTemplate %}
+    data-use-population="{{ group.groupUsePopulation }}" 
+    {% if not group.groupUsePopulation %} 
+      data-use-anotherGroup="{{ group.groupUseAnotherGroup }}" 
+      data-use-anotherSegment="{{ group.groupUseAnotherCharacteristic }}" 
+    {% endif %} 
+  {%  endif %} >
+  <summary>
+    <div class="fs-recruitGroup-summary-wrapper">
+    <div class="fs-recruitGroup-summary">
+      <h3>{{ group.groupTitle }}</h3>
+      {% if group.groupDescription %}
+        <p>{{ group.groupDescription }}</p>
+      {%  endif %}
+    </div>
+    </div>
+  </summary>
+
+  <div class="fs-recruitGroup-panel">
+    <div class="fs-recruitGroup-wrapper">
+
+      <div class="fs-recruitGroup-items">
+        {% for item in group.items %}
+          <div class="fs-recruitGroup-item fs-chartColors" data-item-id="{{ item.defaultCharacteristicSlug }}" data-item-index="{{ loop.index }}">
+            <div class="fs-recruitGroup-item-swatch fs-chartColor-item"></div>
+            {% include "partials/fs-recruitSegment.njk" %}
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="fs-recruitGroup-chart">
+        {% for item in group.items %}
+          <div class="fs-recruitGroup-chart-item fs-chartColors" data-item-id="{{ item.defaultCharacteristicSlug }}" data-item-index="{{ loop.index }}">
+            <div class="fs-recruitGroup-chart-swatch fs-chartColor-item"></div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="fs-btnGroup">
+      {# <button class="fs-btn btn-tertiary btn-sm">Add another</button> #}
+    </div>
+  </div>
+</details>

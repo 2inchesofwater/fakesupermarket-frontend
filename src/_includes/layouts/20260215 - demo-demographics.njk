@@ -1,0 +1,57 @@
+{% set storefront = breakfastcereal %}
+
+{% extends "layouts/base.njk" %}   
+ 
+{% block content %}
+  <main id="main" class="main-content">
+    <h1>{{ title }}</h1> 
+    <h2>UI demographics-defintion</h2>
+    <div class="fs-definition" id="definition_groupTitle_label">
+
+        <div class="fs-definition-title-wrapper">
+          <h3 id="definition_groupTitle_label" class="fs-definition-title">Definition Label</h3>
+          <button type='button' id="definition_groupTitle_label_editLabel" class="fs-btn btn-icon btn-sm btn-tertiary" aria-pressed="false" aria-label="Change the label">
+            <span class="icon" aria-hidden>
+              {% include "partials/icons/edit.njk" %}
+            </span>
+          </button>
+        </div>
+
+        <div class="fs-definition-explanation-wrapper">
+          <p id="definition_groupTitle_label_explanation" class="fs-definition-explanation">More details </p>
+          <button type='button' id="definition_groupTitle_label_editExplanation" class="fs-btn btn-icon btn-sm btn-tertiary" aria-pressed="false" aria-label="Change the explanation">
+            <span class="icon" aria-hidden>
+              {% include "partials/icons/edit.njk" %}
+            </span>
+          </button> 
+        </div>       
+        
+        <div class="fs-definition-percentage-wrapper">
+          <input id="definition_groupTitle_label_percentage" type="number" inputmode="numeric" step="1" min="0" max="100" class="fs-definition-percentage fs-input" value="47"><span class="label">%</span>
+        </div>
+
+        <div id="definition_groupTitle_label_swatch" class="fs-chartcolors" aria-hidden>
+          <span class="item item-1"></span>
+        </div>      
+
+        <div class="fs-definition-lock-wrapper">
+          <button type='button' id="definition_groupTitle_label_lock" class="fs-btn btn-icon btn-sm btn-tertiary" aria-pressed="false" aria-label="Lock values">
+            <span class="icon" aria-hidden>
+              {% include "partials/icons/lock.njk" %}
+            </span>
+          </button>
+        </div>
+
+        <button type='button' id="definition_groupTitle_label_lock" class="fs-btn btn-icon btn-sm btn-tertiary" aria-label="Delete this">
+          <span class="icon" aria-hidden>
+            {% include "partials/icons/trash.njk" %}
+          </span>
+        </button>
+
+      </div>
+      
+
+      
+    </div> 
+  </main>
+{% endblock %}

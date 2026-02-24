@@ -1,0 +1,113 @@
+.fs-definition {
+  border: 1px solid var(--fs-color-border-light);
+  border-radius: var(--fs-radius-none);
+  padding: var(--fs-spacing-xs) var(--fs-spacing-sm);
+}
+.fs-definition .fs-definition-percentage {
+  border: 1px solid var(--fs-color-border-light);
+  font-family: var(--fs-font-sans);
+  font-size: var(--fs-size-lg);
+  font-weight: var(--fs-weight-bold);
+  padding: 0 var(--fs-spacing-2xs);
+  text-align: end;
+}
+.fs-definition .fs-definition-percentage + .label {
+  font-weight: var(--fs-weight-bold);
+}
+.fs-definition .fs-definition-title {
+  font-size: var(--fs-size-md);
+  font-weight: var(--fs-weight-bold);
+  line-height: var(--fs-btn-size-md);
+  margin: 0;
+}
+.fs-definition .fs-definition-explanation {
+  font-size: var(--fs-size-xs);
+  font-weight: var(--fs-weight-light);
+  margin: 0;
+}
+.fs-definition .fs-chartcolors {
+  display: flex;
+}
+.fs-definition .fs-chartcolors > .item {
+  display: block;
+  width: 100%;
+  min-width: var(--fs-btn-size-md);
+  min-height: var(--fs-btn-size-md);
+}
+.fs-definition .fs-btn.btn-icon {
+  padding: var(--fs-spacing-2xs);
+  border-color: var(--fs-color-border-default);
+}
+.fs-definition .fs-btn.btn-icon .icon {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: var(--fs-btn-size-md);
+  height: var(--fs-btn-size-md);
+}
+.fs-definition .fs-btn.btn-icon .icon svg {
+  width: var(--fs-btn-size-sm);
+  height: var(--fs-btn-size-sm);
+}
+.fs-definition .fs-btn.btn-icon .icon svg > * {
+  fill: var(--fs-color-gray-600);
+}
+.fs-definition .fs-btn.btn-icon:hover svg > * {
+  fill: var(--fs-color-action-tertiary-font);
+}
+
+.fs-definition {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto;
+  grid-template-areas: "percentage title swatch" "lock       			delete";
+  grid-gap: var(--fs-spacing-xs) var(--fs-spacing-sm);
+  max-width: 500px;
+}
+.fs-definition .fs-definition-percentage-wrapper {
+  grid-area: percentage;
+  justify-self: start;
+  align-self: start;
+  display: flex;
+  flex-direction: row;
+  gap: var(--fs-spacing-2xs);
+  align-items: center;
+}
+.fs-definition .fs-definition-title-wrapper,
+.fs-definition .fs-definition-explanation-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: var(--fs-spacing-sm);
+}
+.fs-definition .fs-definition-title-wrapper .fs-definition-title,
+.fs-definition .fs-definition-explanation-wrapper .fs-definition-title {
+  flex-grow: 1;
+}
+.fs-definition .fs-definition-title-wrapper .fs-definition-explanation,
+.fs-definition .fs-definition-explanation-wrapper .fs-definition-explanation {
+  flex-grow: 1;
+}
+.fs-definition .fs-definition-title-wrapper .fs-btn,
+.fs-definition .fs-definition-explanation-wrapper .fs-btn {
+  display: none;
+}
+.fs-definition .fs-definition-title-wrapper {
+  grid-area: title;
+  align-items: center;
+  min-width: 0;
+}
+.fs-definition .fs-definition-explanation-wrapper {
+  grid-area: explanation;
+  align-self: start;
+  min-width: 0;
+}
+.fs-definition .fs-definition-lock-wrapper {
+  grid-area: lock;
+  justify-content: center;
+}
+.fs-definition .fs-chartcolors {
+  grid-area: swatch;
+  justify-self: stretch;
+  align-self: stretch;
+}
