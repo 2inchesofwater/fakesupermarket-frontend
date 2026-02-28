@@ -1,3 +1,4 @@
+
 .fs-recruitGroup {
 	border: var(--fs-thickness-sm) solid var(--fs-color-border-default);
 
@@ -8,6 +9,7 @@
 
 		.fs-recruitGroup-summary-wrapper {
 			display: inline-block;
+			max-width: 75%;
 		}
 		.fs-recruitGroup-summary {
 			display: flex;
@@ -33,30 +35,64 @@
 	.fs-recruitGroup-panel {
 		padding: var(--fs-spacing-sm);
 		padding-block-end: var(--fs-spacing-sm);
+		background: var(--fs-color-background-subtle);
 
 		.fs-recruitGroup-wrapper {
 			display: flex;
 			flex-direction: row;
-			gap: var(--fs-spacing-md);
+			@container recruitGroup (min-width: 500px) {
+				gap: var(--fs-spacing-md);
+			}
+		}
+
+		.fs-recruitGroup-items {
+			container-type: inline-size;
+		  container-name: recruitGroup;
+		  width: 100%;
+		  box-sizing: border-box;
 		}
 
 		.fs-recruitGroup-item {
 			display: flex;
-			.fs-recruitGroup-item-swatch {
-				flex-grow: 0;
-				width: var(--fs-size-xl);
-				height: var(--fs-size-xl);
-				margin-block-start: var(--fs-spacing-2xs);
+			padding-inline-start: var(--fs-spacing-2xs);
+			border-radius: var(--fs-radius-sm);
+			cursor: pointer;
+
+			&:hover {
+				background: var(--fs-color-white);
+				z-index: 10;
+				box-shadow: var(--fs-boxShadow-sm);
 			}
-			.fs-recruitSegment {
-				flex-grow: 1;
+
+			@container recruitGroup (max-width: 500px) {	
+				border-block-end: var(--fs-thickness-sm) dotted var(--fs-color-border-light);
+				margin-block-end: var(--fs-spacing-xs);
+				padding-block-end: var(--fs-spacing-xs);
 			}
+
+
+				.fs-recruitGroup-item-swatch {
+					flex-grow: 0;
+					flex-shrink: 0;
+					width: var(--fs-size-xl);
+					height: var(--fs-size-xl);
+					margin-block-start: var(--fs-spacing-2xs);
+					border-radius: var(--fs-radius-sm);
+				}
+				.fs-recruitSegment {
+					flex-grow: 1;
+				}
+			}
+
+		.fs-recruitGroup-chart {
+			border-radius: var(--fs-radius-sm);
+			overflow: hidden;
 		}
 		.fs-recruitGroup-chart-swatch {
-			display: block;
-			width: var(--fs-size-2xl);
-			height: 100%;
-			transition: height 160ms ease;
+				display: block;
+				width: var(--fs-size-2xl);
+				height: 100%;
+				transition: height 160ms ease;
 		}
 
 		.fs-btnGroup {

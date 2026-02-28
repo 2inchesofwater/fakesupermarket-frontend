@@ -1,0 +1,46 @@
+<div class="fs-recruitPopulation">
+  <div class="fs-recruitPopulation-title">
+    <h3 id="fs-populationSize-heading">Population size</h3>
+    {# <p>Help text</p> #}
+  </div>
+
+  <div class="fs-recruitSize-input-wrapper">
+    {# Note to devs: It might make sense to componentise the range slider #}
+    <output id="fs-populationValue" for="fs-populationSize" class="fs-recruitSize-output"><span id="fs-populationSize-value">{{ defaultPopulationSize }}</span> people will be rewarded for their input into the dataset for your research.</output>
+
+    <input
+      id="fs-populationSize"
+      name="populationSize"
+      type="range"
+      min="100"
+      max="1000"
+      step="50"
+      list="fs-recruitSize-input-markers"
+      value="{{ defaultPopulationSize }}"
+      aria-labelledby="fs-populationSize-heading"
+      aria-describedby="fs-populationValue"
+    />
+
+    <datalist id="fs-recruitSize-input-markers" class="fs-recruitSize-input-markers">
+      <option value="100" label="100"></option>
+      <option value="250"></option>
+      <option value="500"></option>
+      <option value="750"></option>
+      <option value="1000" label="1000"></option>
+    </datalist>
+    <script>
+      const el = document.getElementById('fs-populationSize');
+
+      function syncFill(){
+        const min = Number(el.min);
+        const max = Number(el.max);
+        const val = Number(el.value);
+        const p = ((val - min) / (max - min)) * 100;
+        el.style.setProperty('--p', `${p}%`);
+      }
+
+      el.addEventListener('input', syncFill);
+      syncFill();
+    </script>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 400 16"
+>
+  <defs>
+    <rect id="fs-pip" x="0" y="0" width="1" height="16" />
+  </defs>
+
+  <g class="pip pip--major">
+    <!-- full height (16px): ends + middle -->
+    <use href="#fs-pip" x="0"   y="0" />
+    <use href="#fs-pip" x="200" y="0" />
+    <use href="#fs-pip" x="399" y="0" />
+  </g>
+
+  <g class="pip pip--mid">
+    <!-- 75% height (12px), aligned to top: quarters -->
+    <use href="#fs-pip" x="100" y="0" transform="scale(1,0.75)" />
+    <use href="#fs-pip" x="300" y="0" transform="scale(1,0.75)" />
+  </g>
+
+  <g class="pip pip--minor">
+    <!-- 25% height (4px), aligned to top: eighths -->
+    <!-- 1/8, 3/8, 5/8, 7/8 => 50, 150, 250, 350 -->
+    <use href="#fs-pip" x="50"  y="0" transform="scale(1,0.25)" />
+    <use href="#fs-pip" x="150" y="0" transform="scale(1,0.25)" />
+    <use href="#fs-pip" x="250" y="0" transform="scale(1,0.25)" />
+    <use href="#fs-pip" x="350" y="0" transform="scale(1,0.25)" />
+  </g>
+</svg>

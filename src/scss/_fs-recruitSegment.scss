@@ -1,13 +1,11 @@
+:root {
+  --fs-percentage-width: 6rem;
+}
+
 .fs-recruitSegment {
 	background: transparent;
 	border-radius: var(--fs-radius-none);
 	padding: var(--fs-spacing-2xs) var(--fs-spacing-sm);
-
-	transition: var(--fs-transition-md);
-
-	&:hover {
-		background: var(--fs-color-white);
-	}
 
 	.fs-recruitSegment-percentage {
 		font-family: var(--fs-font-sans);
@@ -21,10 +19,11 @@
 			font-weight: var(--fs-weight-bold);
 		}
 	}
-	.fs-recruitSegment-percentage-wrapper .fs-inputGroup-help {
-		color: var(--fs-color-text-tertiary);
+	.fs-recruitSegment-percentage-wrapper .fs-inputGroup {
+		width: var(--fs-percentage-width);
+	}
+	.fs-recruitSegment-percentage-wrapper .fs-inputGroup-quota {
 		text-align: start;
-		line-height: var(--fs-size-xs);
 	}
 
 	.fs-recruitSegment-title {
@@ -32,7 +31,9 @@
 		font-weight: var(--fs-weight-bold);
 		line-height: var(--fs-btn-size-md);
 		margin: 0;
-		padding-block-start: calc( var(--fs-spacing-2xs) + var(--fs-thickness-sm)*2) ;
+		@container recruitGroup (min-width: 500px) {
+			padding-block-start: calc( var(--fs-spacing-2xs) + var(--fs-thickness-sm)*2) ;
+		}
 	}
 
 	.fs-recruitSegment-explanation {
@@ -51,31 +52,12 @@
 
 	.fs-recruitSegment-lock-wrapper {
 		position: relative;
-		width: 100%;
-		text-align: center;
+		width: var(--fs-percentage-width);
+		text-align: start;
+		padding-inline-start: var(--fs-spacing-sm);
 		.fs-btn.btn-link {
 			z-index: 3;
 			//margin-inline-start: unset;
-		}
-
-		&::before {
-			content: "";
-			position: absolute;
-			display: block;
-			width: 100%;
-			height: 50%;
-			top: calc( var(--fs-size-xs) * -0.01);
-			left: 0;
-			border-inline: var(--fs-thickness-sm) solid var(--fs-color-border-default);
-			border-block-end: var(--fs-thickness-sm) solid var(--fs-color-border-default);
-		}
-		&::after {
-			content: "";
-			position: absolute;
-			display: block;
-			width: 3rem;
-			height: 100%;	
-			background-color: white;		
 		}
 	}
 
@@ -125,32 +107,60 @@
 
 /* GRID and FLEX LAYOUTS */
 
-
 .fs-recruitSegment {
 	display: grid;
-	grid-template-columns: 4fr 3fr 1fr;
-  grid-template-rows: auto auto ;
+
+	grid-template-columns: 4fr 1fr;
+  grid-template-rows: auto auto;	  
   grid-template-areas:
-    "title  percentage expand";
-  grid-gap: 0 var(--fs-spacing-md);
-	max-width: 500px;
+    "title expand"
+    "percentage .";
+  grid-gap: var(--fs-spacing-2xs) 0;
 
 	&.open {
 	  grid-template-rows: auto auto auto;
 	  grid-template-areas:
-	    "title  percentage expand"
-    	".   		lock       . ";		
+	    "title  expand"
+    	"percentage ."
+    	"lock       . ";		
+	}
+
+
+	@container recruitGroup (min-width: 500px) {
+		grid-template-columns: 4fr 3fr 1fr;
+	  grid-template-rows: auto auto ;	  
+	  grid-template-areas:
+	    "title  percentage expand";
+	  grid-gap: 0 var(--fs-spacing-md);
+
+		&.open {
+		  grid-template-rows: auto auto auto;
+		  grid-template-areas:
+		    "title  percentage expand"
+	    	".   		lock       . ";		
+		}
 	}
 
 
   .fs-recruitSegment-percentage-wrapper {
     grid-area: percentage;
-    justify-content: center;
+    justify-content: start;
 
     display: flex;
     flex-direction: row;
-    gap: var(--fs-spacing-xs);
+    gap: var(--fs-spacing-sm);
     align-items: center;
+
+    .fs-inputGroup {
+    	display: flex;
+    	flex-direction: row;
+    	gap: var(--fs-spacing-2xs);
+    	align-items: center;
+
+    	.fs-input {
+    		flex-grow: 1;
+    	}
+    }
   }
 
   .fs-recruitSegment-title-wrapper {
@@ -160,7 +170,7 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     gap: 0;
   }  
 
@@ -190,10 +200,10 @@
 	  .fs-recruitSegment-lock-wrapper  {
 	  	display: flex;
 	  	flex-direction: row;
-	  	justify-content: center;
+	  	justify-content: start;
 
 	  	grid-area: lock;
-	  	justify-self: center;
+	  	justify-self: start;
 
 	  }
 

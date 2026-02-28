@@ -5,6 +5,9 @@
   <main id="main" class="main-content demo-page">
     <h1>{{ title }}</h1>
 
+    <h2>Example: Population size control</h2>
+    {% include "partials/fs-recruitPopulation.njk" %}
+
     <h2>Example: Recruitment criteria group</h2>
     <div class="fs-allRecruitGroups">
       {% set group = groups[0] %}
@@ -27,7 +30,7 @@
 <h2>Notes</h2>
 <p>These recruitment criteria components are specifically for the back-end client-facing app.</p>
 <p>Data for the demo components comes via YAML. We'll maintain a template/starting-point set of labels and values; I imagine all of this data would be duplicated into a client's assets for a specific research project. </p>
-<p>There are two iterations: <strong>Groups</strong>, and then <strong>Items</strong> within each group. <br/>A "group" essentially represents a census-like question, and the "items" (AKA the characteristics) are essentially the available answers for that question.</p>
+<p>There are two nested loops in Nunjucks: <strong>Groups</strong>, and then <strong>Items</strong> within each group. <br/>A "group" essentially represents a census-like question, and the "items" (AKA the characteristics) are essentially the available answers for that question.</p>
 <p><strong>Groups</strong></p>
 <p>The chart and swatches belong to the group component. The chart gets re-calculated when a percentage value changes.</p>
 <p>In a future iteration, we'll also insert a "Add another" button to each group.</p>
@@ -38,13 +41,26 @@
 <p>When the percentages re-balance, the UI also re-calculates how many people from the total sample size that will be.</p> 
 <p>There's also a routine to sort out any rounding errors. There's no such thing as a half-person... </p>
 <p>Inside the kebab menu, there's a Lock button for the percentage button. The re-balancing algorithms will skip any locked values. </p>
+<p><strong>Flags</strong></p>
+<p>It's sometimes helpful to <em>not</em> use the whole Population amount, especially if there's a parent-child relationship between two sets of recruitment criteria. For example – (See demonstration, below) One criteria asks about the structure of a household, and the first answer is "family". The next criteria asks about the nature of that family. For that first criteria, we'd use 100% of the population (300 people). But if only 75% of candidates live in a family household, then the population for the second criteria would be 225 people (which is 75% of 300 people).</p>
+<p>With all that in mind... we need a way to bind the second criteria to a percentage value inside a previous criteria. And we'll need a way to recalculate the segment size for that second criteria, should a client-user change the bound percentage. That is, if a client wanted to decrease the proportion of "family" households to 50%, then the segment size for the next criteria would become 150 people. </p>
+<p>- groupUsePopulation: <code>true</code> (default) – Use the main population value. <code>false</code> - Use the quota from another characteristic in another group.</p>
+<p>- groupUseAnotherGroup: <code>[groupSlug]</code> - Point to the ID slug of another Group.</p>
+<p>- groupUseAnotherCharacteristic: <code>[defaultCharacteristicSlug]</code> - Point to the ID slug of a characteristic within a group.</p>
+<p>There's also a flag for 'isTemplate' floating around. It was added in anticipation of doing dynamic row addition and stuff like that; but that feature has been deferred.</p> 
+<p><strong>Gotcha</strong></p>
+<p>There are <em>two</em> instances of the "Gender" Group on this page. They both render using the same ID attributes; this causes the second one to automatically go into its collapsed state.</p>
+
 
 <h2>To-do</h2>
-<p>Consistent widths for item grid</p>
-<p>Consistent widths for groups</p>
-<p>Responsive layout for items</p>
-<p>Responsive layout for groups</p>
-<p>Highlight states for items on hover</p>
+<p><strike>Consistent widths for item grid</strike></p>
+<p><strike>Consistent widths for groups</strike></p>
+<p><strike>Responsive layout for items</strike></p>
+<p><strike>Responsive layout for groups</strike></p>
+<p><strike>Highlight states for items on hover</strike></p>
+<p><strike>Population size controls</strike></p>
+<p><strike>Hook up the 'usePopulation' flags from YAML</strike></p>
+<p>Add patterns to chart colours for accessibility</p>
 
     </article>
 
@@ -58,12 +74,12 @@
 
 
 
-    <h2>Component: Recruitment segment</h2>
+{#     <h2>Component: Recruitment segment</h2>
     <div class="demo-recruitSegment-wrapper">
       {% set group = groups[0] %}
       {% set item = group.items[0] %}
         {% include "partials/fs-recruitSegment.njk" %}
-    </div>
+    </div> #}
 
 
 

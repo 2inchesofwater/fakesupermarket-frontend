@@ -51,6 +51,8 @@ $screen-xl: 1600px;
   --fs-color-gray-200: #E4E2E3;
   --fs-color-gray-100: #F0EFF0;
   --fs-color-gray-050: #F8F7F7;
+  --fs-color-gray-025: #FCFBFB;
+  --fs-color-gray-010: #FEFDFD;
 
 
   --fs-color-black: #000000;
@@ -65,7 +67,7 @@ $screen-xl: 1600px;
   --fs-color-text-tertiary: var(--fs-color-gray-700);
 
   
-  --fs-color-background-subtle: var(--fs-color-gray-050);
+  --fs-color-background-subtle: var(--fs-color-gray-010);
   --fs-color-background-default: var(--fs-color-white);
   --fs-color-background-emphasized: var(--fs-color-core-200);
 

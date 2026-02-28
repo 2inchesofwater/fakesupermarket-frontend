@@ -2,7 +2,8 @@
   // =========================
   // Constants
   // =========================
-  const TOTAL_PARTICIPANTS = 300;
+  const POPULATION_INPUT_ID = 'fs-populationSize';
+  const POPULATION_VALUE_ID = 'fs-populationSize-value';
 
   const GROUP_SEL = '.fs-recruitGroup';
   const SEGMENT_SEL = '.fs-recruitSegment';
@@ -10,8 +11,228 @@
   const BTN_EXPAND_SEL = 'button[id$="_expand"][aria-controls]';
   const BTN_LOCK_SEL = 'button[id$="_lock"]';
 
+
+  // =========================
+  // Derived population bindings
+  // =========================
+  const GROUP_NAME_PREFIX = 'fs-recruitGroup-';
+
+  const ATTR_USE_POP = 'data-use-population';
+  const ATTR_USE_GROUP = 'data-use-anothergroup';
+  const ATTR_USE_SEGMENT = 'data-use-anothersegment';
+
+  const GROUP_ITEM_SEL = '.fs-recruitGroup-item';
+  const GROUP_ITEM_ID_ATTR = 'data-item-id';
+
+  const DERIVED_P_CLASS = 'fs-recruitGroup-derivedPopulation';
+
+  function getGroupSlug(groupEl) {
+    const name = groupEl?.getAttribute('name') || '';
+    return name.startsWith(GROUP_NAME_PREFIX) ? name.slice(GROUP_NAME_PREFIX.length) : '';
+  }
+
+  function findGroupBySlug(slug) {
+    if (!slug) return null;
+    return document.querySelector(
+      `${GROUP_SEL}[name="${CSS.escape(GROUP_NAME_PREFIX + slug)}"]`
+    );
+  }
+
+  function findSegmentInputByItemId(groupEl, itemId) {
+    const item = groupEl?.querySelector(
+      `${GROUP_ITEM_SEL}[${GROUP_ITEM_ID_ATTR}="${CSS.escape(itemId)}"]`
+    );
+    return item?.querySelector('input.fs-recruitSegment-percentage') || null;
+  }
+
+  function getGroupTitle(groupEl) {
+    const h = groupEl?.querySelector(':scope > summary h3');
+    return h ? h.textContent.trim() : getGroupSlug(groupEl);
+  }
+
+  function getSegmentTitleByItemId(groupEl, itemId) {
+    const item = groupEl?.querySelector(
+      `${GROUP_ITEM_SEL}[${GROUP_ITEM_ID_ATTR}="${CSS.escape(itemId)}"]`
+    );
+    if (!item) return itemId;
+    const t = item.querySelector('.fs-recruitSegment-title');
+    return t ? t.textContent.trim() : itemId;
+  }
+
+  function ensureDerivedPopulationElement(groupEl) {
+    const summary = groupEl?.querySelector(':scope > summary .fs-recruitGroup-summary');
+    if (!summary) return null;
+
+    let p = summary.querySelector(`:scope > p.${DERIVED_P_CLASS}`);
+    if (!p) {
+      p = document.createElement('p');
+      p.className = DERIVED_P_CLASS;
+      summary.appendChild(p);
+    }
+    return p;
+  }
+
+  function removeDerivedPopulationElement(groupEl) {
+    const summary = groupEl?.querySelector(':scope > summary');
+    const p = summary?.querySelector(`:scope > p.${DERIVED_P_CLASS}`);
+    if (p) p.remove();
+  }
+
+  function getGroupTotalParticipants(groupEl, cache = new Map(), stack = new Set()) {
+    const slug = getGroupSlug(groupEl);
+    if (slug && cache.has(slug)) return cache.get(slug);
+    if (!groupEl) return 0;
+
+    if (slug && stack.has(slug)) return 0; // circular guard
+
+    const usePopAttr = groupEl.getAttribute(ATTR_USE_POP);
+    const usePopulation = (usePopAttr == null) ? true : (usePopAttr === 'true');
+
+    let total = 0;
+
+    if (usePopulation) {
+      total = totalParticipants;
+    } else {
+      const srcGroupSlug = groupEl.getAttribute(ATTR_USE_GROUP) || '';
+      const srcSegmentId = groupEl.getAttribute(ATTR_USE_SEGMENT) || '';
+
+      const srcGroup = findGroupBySlug(srcGroupSlug);
+      if (!srcGroup) {
+        total = 0;
+      } else {
+        if (slug) stack.add(slug);
+
+        const srcTotal = getGroupTotalParticipants(srcGroup, cache, stack);
+        const srcInput = findSegmentInputByItemId(srcGroup, srcSegmentId);
+        const pct = srcInput ? getPercentInt(srcInput) : 0;
+
+        total = (pct / 100) * srcTotal;
+
+        if (slug) stack.delete(slug);
+      }
+    }
+
+    // Derived totals should behave like a count of people (integer)
+    total = clampInt(Math.round(total), 0, Number.MAX_SAFE_INTEGER);
+
+    if (slug) cache.set(slug, total);
+    return total;
+  }
+
+  function updateDerivedPopulationUI(groupEl, cache) {
+    const usePopAttr = groupEl.getAttribute(ATTR_USE_POP);
+    const usePopulation = (usePopAttr == null) ? true : (usePopAttr === 'true');
+
+    if (usePopulation) {
+      removeDerivedPopulationElement(groupEl);
+      return;
+    }
+
+    const srcGroupSlug = groupEl.getAttribute(ATTR_USE_GROUP) || '';
+    const srcSegmentId = groupEl.getAttribute(ATTR_USE_SEGMENT) || '';
+    const srcGroup = findGroupBySlug(srcGroupSlug);
+
+    const derivedTotal = getGroupTotalParticipants(groupEl, cache);
+
+    const p = ensureDerivedPopulationElement(groupEl);
+    if (!p) return;
+
+    if (!srcGroup) {
+      p.textContent = `Derived population: ${derivedTotal} people`;
+      return;
+    }
+
+    const srcTitle = getGroupTitle(srcGroup);
+    const segTitle = getSegmentTitleByItemId(srcGroup, srcSegmentId);
+    const srcInput = findSegmentInputByItemId(srcGroup, srcSegmentId);
+    const pct = srcInput ? getPercentInt(srcInput) : 0;
+
+    p.textContent = `Derived population: ${derivedTotal} people (from ${srcTitle} → ${segTitle} at ${pct}%)`;
+  }
+
+  // Dependency graph: source group slug -> dependent group slugs
+  let dependentsByGroup = new Map();
+
+  function rebuildDependencyGraph() {
+    const next = new Map();
+
+    document.querySelectorAll(GROUP_SEL).forEach((group) => {
+      const usePopAttr = group.getAttribute(ATTR_USE_POP);
+      const usePopulation = (usePopAttr == null) ? true : (usePopAttr === 'true');
+      if (usePopulation) return;
+
+      const dependentSlug = getGroupSlug(group);
+      const srcGroupSlug = group.getAttribute(ATTR_USE_GROUP) || '';
+      if (!dependentSlug || !srcGroupSlug) return;
+
+      if (!next.has(srcGroupSlug)) next.set(srcGroupSlug, new Set());
+      next.get(srcGroupSlug).add(dependentSlug);
+    });
+
+    dependentsByGroup = next;
+  }
+
+  function collectDownstreamGroupSlugs(rootSlug) {
+    const out = new Set();
+    const queue = [];
+
+    if (rootSlug) {
+      out.add(rootSlug);
+      queue.push(rootSlug);
+    }
+
+    while (queue.length) {
+      const slug = queue.shift();
+      const deps = dependentsByGroup.get(slug);
+      if (!deps) continue;
+
+      deps.forEach((depSlug) => {
+        if (!out.has(depSlug)) {
+          out.add(depSlug);
+          queue.push(depSlug);
+        }
+      });
+    }
+
+    return Array.from(out);
+  }
+
+  function refreshAllocationsFromGroupSlug(rootSlug) {
+    rebuildDependencyGraph();
+
+    const slugs = collectDownstreamGroupSlugs(rootSlug);
+    const cache = new Map();
+
+    slugs.forEach((slug) => {
+      const group = findGroupBySlug(slug);
+      if (!group) return;
+
+      updateDerivedPopulationUI(group, cache);
+
+      const segments = getSegmentsInGroup(group);
+      const groupTotal = getGroupTotalParticipants(group, cache);
+      allocatePeopleExactly(segments, groupTotal);
+    });
+  }
+
+  function refreshAllAllocations() {
+    rebuildDependencyGraph();
+
+    const cache = new Map();
+    document.querySelectorAll(GROUP_SEL).forEach((group) => {
+      updateDerivedPopulationUI(group, cache);
+
+      const segments = getSegmentsInGroup(group);
+      const groupTotal = getGroupTotalParticipants(group, cache);
+      allocatePeopleExactly(segments, groupTotal);
+    });
+  }
+
   const INPUT_PERCENT_SEL = 'input.fs-recruitSegment-percentage';
-  const COUNT_VALUE_SEL = '.fs-inputGroup-help-value';
+  const COUNT_VALUE_SEL = '.fs-inputGroup-quota-value';
+
+  let totalParticipants = 0;
+  let _rafRefreshScheduled = false;
 
   // =========================
   // Helpers
@@ -50,20 +271,38 @@
     return segment.querySelector(COUNT_VALUE_SEL);
   }
 
+  function getPopulationInput() {
+    return document.getElementById(POPULATION_INPUT_ID);
+  }  
+
+  function setPopulationUI(value) {
+    const span = document.getElementById(POPULATION_VALUE_ID);
+    if (span) span.textContent = String(value);
+  }
+
+  function readPopulationFromUI() {
+    const input = getPopulationInput();
+    if (!input) return 0;
+
+    return input.valueAsNumber || Number(input.value) || 0;
+  }
+
   // =========================
   // People allocation (exact total)
   // =========================
-  function allocatePeopleExactly(segments) {
+  function allocatePeopleExactly(segments, groupTotal) {
     // Largest remainder method:
     // - compute raw = percent/100 * TOTAL
     // - take floor for each
     // - distribute remaining +1 to the biggest fractional parts
+    const total = clampInt(groupTotal, 0, Number.MAX_SAFE_INTEGER);
+
     const rows = segments
       .map((segment, index) => {
         const input = getInput(segment);
         const percent = input ? getPercentInt(input) : 0;
 
-        const raw = (percent / 100) * TOTAL_PARTICIPANTS;
+        const raw = (percent / 100) * total;
         const base = Math.floor(raw);
         const frac = raw - base;
 
@@ -71,7 +310,7 @@
       });
 
     const baseSum = rows.reduce((sum, r) => sum + r.base, 0);
-    let remainder = TOTAL_PARTICIPANTS - baseSum;
+    let remainder = total - baseSum;
 
     const candidates = rows.filter(r => r.percent > 0);
     candidates
@@ -134,7 +373,7 @@
     if (otherUnlocked.length === 0) {
       changedValue = clampInt(maxChanged, 0, 100);
       setPercentInt(changedInput, changedValue);
-      allocatePeopleExactly(segments);
+      refreshAllocationsFromGroupSlug(getGroupSlug(group));
       return;
     }
 
@@ -192,8 +431,8 @@
       setPercentInt(row.input, newValue);
     });
 
-    // Finally: allocate people exactly across *all* segments in the group
-    allocatePeopleExactly(segments);
+    // Finally: allocate people across all groups (derived populations may depend on this group)
+    refreshAllocationsFromGroupSlug(getGroupSlug(group));
   }
 
   // =========================
@@ -280,8 +519,7 @@
       // (e.g. initial content), a quick rebalance pass keeps you honest.
       const group = getGroupFromSegment(segment);
       if (group) {
-        const segments = getSegmentsInGroup(group);
-        allocatePeopleExactly(segments);
+        refreshAllocationsFromGroupSlug(getGroupSlug(group));
       }
     }
   }
@@ -297,14 +535,65 @@
     rebalanceGroup(input);
   }
 
+  
+// Live update derived populations as the user types.
+// Note: We do NOT rebalance percentages here (that remains on focusout),
+// but we do refresh people/derived totals so dependants respond immediately.
+function onDocumentInput(e) {
+  const input = e.target;
+  if (!(input instanceof HTMLInputElement)) return;
+  if (input.id === POPULATION_INPUT_ID) return; // handled separately
+  if (!input.matches(INPUT_PERCENT_SEL)) return;
+  if (input.disabled) return;
+
+  const group = input.closest(GROUP_SEL);
+  const rootSlug = group ? getGroupSlug(group) : '';
+
+  // If we can’t resolve a slug, fall back to the safe option.
+  if (!rootSlug) {
+    if (_rafRefreshScheduled) return;
+    _rafRefreshScheduled = true;
+    requestAnimationFrame(() => {
+      _rafRefreshScheduled = false;
+      refreshAllAllocations();
+    });
+    return;
+  }
+
+  if (_rafRefreshScheduled) return;
+  _rafRefreshScheduled = true;
+  requestAnimationFrame(() => {
+    _rafRefreshScheduled = false;
+    refreshAllocationsFromGroupSlug(rootSlug);
+  });
+}
+
+
+  function onPopulationInput() {
+    totalParticipants = readPopulationFromUI();
+    setPopulationUI(totalParticipants);
+
+    // Recalculate allocations across every group (derived populations included)
+    refreshAllAllocations();
+  }
+
   function init() {
     document.addEventListener('click', onDocumentClick);
     document.addEventListener('focusout', onDocumentFocusOut);
+    document.addEventListener('input', onDocumentInput);
 
-    // Initial: normalise people counts exactly per group, and sync lock UI
+
+    totalParticipants = readPopulationFromUI();
+    if (totalParticipants) setPopulationUI(totalParticipants);
+
+    const popInput = getPopulationInput();
+    if (popInput) popInput.addEventListener('input', onPopulationInput);
+    
+    // Initial: normalise people counts (including derived populations), and sync lock UI
+    refreshAllAllocations();
+
     document.querySelectorAll(GROUP_SEL).forEach((group) => {
       const segments = getSegmentsInGroup(group);
-      allocatePeopleExactly(segments);
       segments.forEach(syncLockUI);
     });
   }
