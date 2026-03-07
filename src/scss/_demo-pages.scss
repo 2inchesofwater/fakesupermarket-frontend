@@ -20,7 +20,7 @@
 			line-height: var(--fs-size-xl);
 
 			> strong	{
-				font-weight: var(--fs-weight-bold);
+				font-weight: var(--fs-weight-bold); 
 			}
 		}
 		p + p {
@@ -37,7 +37,7 @@
 			color: var(--fs-color-text-tertiary);
 		}	
 		.future {
-			color: var(--fs-color-text-secondary);
+			color: var(--fs-color-text-secondary); 
 			background-color: var(--fs-color-core-100);
 		}
 	}
@@ -51,3 +51,23 @@
 		border: var(--fs-thickness-sm) dashed var(--fs-color-border-light);
 	}
 }
+
+.demo-page #fs-recruitmentQuestions-dataCollection .fs-stepper-rail {
+	max-width: 600px;
+	display: flex;
+	flex-direction: column;
+	gap: var(--fs-spacing-xl);
+}
+
+.demo-page #fs-demo-stepper-dataCollection .fs-stepper {
+	max-width: 600px;
+
+	.fs-stepper-image-wrapper {
+		margin-block-start: 1rem;
+		max-width: 100%;
+
+		img {
+			max-width: 25%;
+		}		
+	}
+} 

@@ -55,6 +55,11 @@
 		}
 	}
 
+	.fs-interview-question {
+		padding-block: var(--spacing-md);
+		padding-inline: var(--spacing-md);
+	}
+
 	.fs-interview-product {
 		display: block;
 		background: var(--fs-color-trueWhite);
@@ -78,23 +83,7 @@
 
 }
 
-	.fs-carousel {
-		position: relative;
-	  overflow: hidden; // hides overflow slides
-	  width: 100%;
 
-		.fs-carousel-track {
-			display: flex;
-			flex-direction: row;
-			will-change: transform;
-			transition: transform 0.15s ease-in-out;
-		}
-
-		.fs-carousel-slide {
-			flex: 0 0 100%;
-			box-sizing: content-box;
-		}	  
-	}
 
 	#fs-interview-product {
 		box-shadow: 0 1px 15px rgba(0,0,0,0.15);

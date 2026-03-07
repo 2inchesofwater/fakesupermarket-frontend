@@ -1,0 +1,17 @@
+.fs-carousel {
+	position: relative;
+  overflow: hidden; // hides overflow slides
+  width: 100%;
+
+	.fs-carousel-track {
+		display: flex;
+		flex-direction: row;
+		will-change: transform;
+		transition: transform 0.15s ease-in-out;
+	}
+
+	.fs-carousel-slide {
+		flex: 0 0 100%;
+		box-sizing: content-box;
+	}	  
+}

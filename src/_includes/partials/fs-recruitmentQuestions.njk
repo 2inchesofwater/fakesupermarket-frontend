@@ -1,0 +1,25 @@
+<div id="fs-recruitmentQuestions" role="" aria-modal="" aria-label="">
+  <section id="fs-recruitmentQuestions-wrapper" class="" role="region" aria-labelledby="">
+		<region id="fs-recruitmentQuestions-wrapper-outer" class="">
+        <form id="fs-recruitmentQuestions-dataCollection">
+
+{# The Stepper component expects to receive an object called 'panes' #}
+{% set panes = [] %}
+
+{% for group in groups | selectattr("groupUseForInterview") %}
+  {% set panes = panes.concat([{
+    title: group.groupTitle,
+    slug: group.groupSlug,
+    description: group.groupDescription,
+    example: group.groupDescriptionExample,
+    sourcePanePartial: group.groupInterviewPartial,
+    items: group.items
+  }]) %}
+{% endfor %}
+
+{% include "partials/fs-stepper.njk" %}
+
+        </form>
+    </region>
+	</section>	
+</div>

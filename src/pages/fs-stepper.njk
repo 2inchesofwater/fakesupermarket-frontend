@@ -1,17 +1,71 @@
 ---
-layout: demo-recruitmentCriteria.njk
-title: "Recruitment Brief components"
-permalink: "pages/demo/recruitment.html"
+layout: demo-stepper.njk
+title: "Demo - Stepper"
+permalink: "pages/demo/stepper.html"
+slug: "testing"
 
-defaultPopulationSize: 400
-groups:
+demoStepper:
+    stepperUseProgressBar: true
+    stepperUseTableContents: false
+    stepperUseIntroPane: true
+    stepperIntroPane:
+      kicker: "Before you begin"
+      title: "Let’s get you set up"
+      paragraphs:
+        - "This stepper will guide you through the process."
+        - "You can review everything before confirming."
+      image:
+        src: "/images/comics/429 - clean.jpg"
+        alt: "Example image"
+    stepperUseOutroPane: true
+    stepperOutroPane:
+      kicker: "Before you finish up"
+      title: "Let’s get this done"
+      paragraphs:
+        - "Hic gradus te per processum ducet."
+        - "Omnia ante confirmationem recognoscere potes."
+      image:
+        src: "/images/comics/433 - clean.jpg"
+        alt: "Example image"    
+    stepperConfirmLabel: "Confirm"
+    stepperIncludeCancelButton: false
+
+groups:        
+  - groupTitle: "Preferred name"
+    groupSlug: "preferredname"
+    groupDescription: "Your everyday name - how you'd introduce yourself."
+    groupDescriptionExample: "For example, Monet"
+    groupUseAsCriteria: false
+    groupUseForInterview: true
+    groupInterviewInputType: "text"
+    groupInterviewPartial: "pane-text.njk"
+
+  - groupTitle: "Name"
+    groupSlug: "fullname"
+    groupDescription: "Your full name, as it would appear on official documents like a bank account or passport."
+    groupDescriptionExample: "For example, Monet Jackson"
+    groupUseAsCriteria: false
+    groupUseForInterview: true
+    groupInterviewInputType: "text"
+    groupInterviewPartial: "pane-text.njk"
+
+  - groupTitle: "Date of birth"
+    groupDescription: "When were you born?"
+    groupDescriptionExample: "For example, 27 3 1997"
+    groupSlug: "age"
+    groupUseAsCriteria: true
+    groupUseForInterview: true
+    groupInterviewInputType: "dob"
+    groupInterviewPartial: "pane-dateofbirth.njk"
+
   - groupTitle: "Gender"
     groupSlug: "gender"
     groupDescription: "How do you self-identify?"
     groupUseAsCriteria: true
     groupUseForInterview: true
-    groupInterviewInputType: "range"    
+    groupInterviewInputType: "radio"
     groupUsePopulation: true
+    groupInterviewPartial: "pane-radio.njk"
     items:
       - defaultCharacteristicLabel: "Female"
         defaultCharacteristicSlug: "female"
@@ -30,8 +84,9 @@ groups:
     groupSlug: "location"
     groupUseAsCriteria: true
     groupUseForInterview: true
-    groupInterviewInputType: "range"    
+    groupInterviewInputType: "radio"
     groupUsePopulation: true
+    groupInterviewPartial: "pane-radio.njk"
     items:
       - defaultCharacteristicLabel: "New South Wales"
         defaultCharacteristicSlug: "nsw"
@@ -63,8 +118,9 @@ groups:
     groupDescription: "We're interested in the composition of your household – mostly whether you're shopping for yourself or for a family."
     groupUseAsCriteria: true
     groupUseForInterview: true
-    groupInterviewInputType: "range"    
+    groupInterviewInputType: "radio"
     groupUsePopulation: true
+    groupInterviewPartial: "pane-radio.njk"
     items:
       - defaultCharacteristicLabel: "Family household"
         defaultCharacteristicSlug: "family"
@@ -88,7 +144,8 @@ groups:
     groupDescription: "If you live as part of a family unit, what is the structure of your family?"
     groupUseAsCriteria: true
     groupUseForInterview: true
-    groupInterviewInputType: "range"    
+    groupInterviewInputType: "radio"
+    groupInterviewPartial: "pane-radio.njk"
     groupUsePopulation: false
     groupUseAnotherGroup: household
     groupUseAnotherCharacteristic: family
@@ -113,8 +170,9 @@ groups:
     groupDescription: "How much does your household earn in an average week?"
     groupUseAsCriteria: true
     groupUseForInterview: true
-    groupInterviewInputType: "range"    
+    groupInterviewInputType: "radio"
     groupUsePopulation: true
+    groupInterviewPartial: "pane-radio.njk"
     items:
       - defaultCharacteristicLabel: "Low income"
         defaultCharacteristicSlug: "low"

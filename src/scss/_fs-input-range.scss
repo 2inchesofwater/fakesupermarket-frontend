@@ -1,0 +1,67 @@
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--fs-color-neutral-200);
+  height: var(--fs-input-range-trackHeight);
+  border-radius: var(--fs-radius-sm);
+}
+input[type="range"]::-moz-range-track {
+  background: #053a5f;
+  height: var(--fs-input-range-trackHeight);
+  border-radius: var(--fs-radius-sm);
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: -0.75rem; /* Centers thumb on the track */
+  background-color: var(--fs-color-white);
+  border: var(--fs-thickness-lg) solid var(--fs-color-core-600);
+  box-shadow: var(--fs-boxShadow-sm);
+  border-radius: 50%;
+  height: var(--fs-input-range-thumbHeight);
+  width: var(--fs-input-range-thumbWidth);    
+}
+input[type="range"]:focus::-webkit-slider-thumb {
+  border: var(--fs-thickness-lg) solid var(--fs-color-core-600);
+  outline: var(--fs-thickness-lg) solid var(--fs-color-focus-ring);
+  outline-offset: 0;
+}
+input[type="range"]::-moz-range-thumb {
+  border: none; /*Removes extra border that FF applies*/
+  border-radius: var(--fs-radius-sm);
+  background-color: var(--fs-color-white);
+  border: var(--fs-thickness-lg) solid var(--fs-color-core-600);
+  box-shadow: var(--fs-boxShadow-sm);  
+  height: var(--fs-input-range-thumbHeight);
+  width: var(--fs-input-range-thumbWidth); 
+}
+input[type="range"]:focus::-moz-range-thumb {
+  border: var(--fs-thickness-lg) solid var(--fs-color-core-600);
+  outline: var(--fs-thickness-lg) solid var(--fs-color-focus-ring);
+  outline-offset: 0;     
+}
+
+input[type="range"] {
+  --p: 0%; /* filled percent, 0–100% */
+}
+
+/* WebKit/Blink track */
+input[type="range"]::-webkit-slider-runnable-track{
+  height: var(--fs-input-range-trackHeight);
+  border-radius: var(--fs-radius-sm);
+
+  background-image:
+    linear-gradient( var(--fs-color-core-500), var(--fs-color-core-600) ),
+    linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.15));
+  background-repeat: no-repeat;
+  background-size: var(--p) 100%, 100% 100%;
+  background-position: left center, left center;
+}

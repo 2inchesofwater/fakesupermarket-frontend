@@ -1,0 +1,68 @@
+
+{% extends "layouts/base.njk" %}   
+ 
+{% block content %}
+  <main id="main" class="main-content demo-page">
+    <h1>{{ title }}</h1>
+
+    <article class="demo-notes">
+      <h2>Context</h2>
+      <p>On this page, we're focusing on the stepper/wizard component itself.</p> 
+    </article>
+
+    <h2>Example: stepper</h2>
+<div id="fs-demo-stepper" role="" aria-modal="" aria-label="" class="demo-stepper">
+  <section id="fs-demo-stepper-wrapper" class="" role="region" aria-labelledby="">
+        <form id="fs-demo-stepper-dataCollection">
+
+{# The Stepper component expects to receive an object called 'panes' #}
+{% set panes = [] %}
+{% set stepper = demoStepper %}
+
+{% for group in groups | selectattr("groupUseForInterview") %}
+  {% set panes = panes.concat([{
+    title: group.groupTitle,
+    slug: group.groupSlug,
+    description: group.groupDescription,
+    example: group.groupDescriptionExample,
+    sourcePanePartial: group.groupInterviewPartial,
+    items: group.items
+  }]) %}
+{% endfor %}
+
+{% include "partials/fs-stepper.njk" %}
+
+        </form>
+  </section>  
+</div>
+
+
+    <article class="demo-notes">
+      <h2>Notes</h2>
+      <p>The demo components on this page iterate through a sample YAML document. It's similar but not the same as the one created for Demo - Recruitment Criteria. </p>
+      <p><strong>Flags</strong></p> 
+      <p>- <code>stepperUseProgressBar</code> Set this to `true` if there's a fixed, known number of panes within a stepper.  </p>
+      <p>- <code>stepperUseTableContents</code> Set this to `true` if you want a hidden/accessibility table-of-contents for the stepper. </p>
+      <p>- <code>stepperUseIntroPane</code> Set this to `true` if you want an intro pane. </p>
+      <p>- <code>stepperUseOutroPane</code> Set this to `true` if you want an outro pane. </p>
+      <p>- <code>stepperConfirmLabel</code> The text label for the stepper's submit button.  </p>
+      <p><strong>Gotcha</strong></p>
+      <p>...</p>
+
+
+      <h2>To-do</h2>
+      <p>- Build an intro pane object in YAML; include it in fs-stepper.njk</p>
+      <p>- Build an outro pane object in YAML; include it in fs-stepper.njk</p>
+      <p>- Build a table of contents in fs-stepper.njk</p>
+    </article>
+
+    <div class="fs-svg-hidden" aria-hidden style="position:absolute;width:0;height:0;overflow:hidden">
+      {% include "partials/icons/check-interactive.njk" %}
+    </div>
+
+    <script src="/js/utils/stepper.js" defer></script>
+  </main>
+
+{% endblock %}
+
+<!-- scripts -->

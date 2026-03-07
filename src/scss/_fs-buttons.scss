@@ -117,7 +117,10 @@
     text-decoration: underline;
     border: 0;
     padding-block: unset;
-    padding-inline: unset;
+    // padding-inline: unset;
+    &:disabled {
+      background: none;
+    }
     &:hover {
       background: var(--fs-color-core-100);
       color: var(--fs-color-core-700);
@@ -164,7 +167,7 @@
   display: flex;
   flex-direction: row;
   gap: var(--fs-spacing-sm);
-  align-content: center; 
+  align-content: start; 
 
   &.btn-group-end {
     justify-content: end;

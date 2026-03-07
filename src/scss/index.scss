@@ -1,17 +1,24 @@
 @use 'variables';       		// CSS and Sass variables
 @use 'fs-variables';
+
 @use 'fs-styles';
 @use 'fs-buttons';
+@use 'fs-carousel';
 @use 'fs-chartcolors';
 @use 'fs-dialogue';
 @use 'fs-input';
+@use 'fs-input-radio';
+@use 'fs-input-range';
 @use 'fs-likertRatings';
 @use 'fs-logo';
 @use 'fs-multiSelect';
+@use 'fs-panes';
 @use 'fs-progress';
 @use 'fs-recruitGroup';
 @use 'fs-recruitPopulation';
+@use 'fs-recruitQuestions';
 @use 'fs-recruitSegment';
+@use 'fs-stepper';
 @use 'fs-tiles';
 
 @forward 'fs-onboarding';

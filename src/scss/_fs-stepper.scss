@@ -1,0 +1,63 @@
+.fs-stepper {
+	position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--fs-spacing-xs);
+
+  .fs-stepper-wrapper {
+	  border: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+	  background: var(--fs-color-background-subtle); 
+		overflow: hidden; // hides overflow slides
+	}
+
+	.fs-stepper-rail {
+		display: flex;
+		flex-direction: row;
+		will-change: transform;
+		transition: transform 0.5s ease-in-out;
+	}
+
+	.fs-stepper-pane {
+		// Use fs-panes.scss for any stepper-pane styles
+	}	
+
+	.fs-stepper-controls {
+	  display: flex;
+	  flex-direction: column;
+	  gap: var(--fs-spacing-sm);
+
+	  .fs-stepper-progress {
+	  	position: relative;
+
+	  	progress {
+	  		-webkit-appearance: none;
+	  		width: 100%;
+	  		height: var(--fs-spacing-xs);
+	  		border-radius: var(--fs-radius-md);
+	  		background-color: var(--fs-color-border-default);
+	  		overflow: hidden;
+	  		position: absolute;
+	  	}
+	  	::-webkit-progress-bar {
+			  background-color: var(--fs-color-border-default);
+			}
+		
+			::-webkit-progress-value {
+			  background-color: var(--fs-color-brand-primary);
+			  height: var(--fs-spacing-xs);
+			}			
+			::-moz-progress-bar {
+			  background-color: var(--fs-color-brand-primary);
+			}		  }
+	}  
+}
+
+.fs-stepper-controls-buttons {
+	display: flex;
+	flex-direction: row;
+
+	.fs-btn-group {
+		flex-grow: 1;
+	}
+}

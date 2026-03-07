@@ -1,0 +1,54 @@
+
+{% extends "layouts/base.njk" %}   
+ 
+{% block content %}
+  <main id="main" class="main-content demo-page">
+    <h1>{{ title }}</h1>
+
+    <article class="demo-notes">
+      <h2>Context</h2>
+      <p>On this page, we're focusing on the different <strong>formats</strong> of questions that we might ask users.</p> 
+      <p>When general public-users join our platform, during sign-up, they'll need to answer some standard interview questions – name, age, location, income, etc. </p>
+      <p>Answers are paired to the recruitment criteria that client companies use to shape their research project. See <a href="recruitment.html">Demo - Recruitment Criteria</a>.</p>
+      <p>In the future, it would be nice to allow users to voluntarily answer <em>additional</em> demographic questions, to increase their chances of receiving higher incentives. I suspect that while these additional questions would re-use the components for Recruitment Questions, they'd appear on a separate page or in a separate system. </p>
+    </article>
+
+    <h2>Example: Recruitment questions</h2>
+    <div class="demo-recruitmentQuestions">
+      {% include "partials/fs-recruitmentQuestions.njk" %}
+    </div>
+
+    <article class="demo-notes">
+      <h2>Notes</h2>
+      <p>We've got three question formats on display here:<br>
+        - <strong>pane-text.njk</strong><br>
+        - <strong>pane-radio.njk</strong><br>
+        - <strong>pane-dob.njk</strong><br>
+      They would normally sit inside of a Stepper component.</p>
+      <p>&nbsp;</p>
+      <p>The demo components on this page iterate through a sample YAML document. It's similar but not the same as the one created for Demo - Recruitment Criteria. </p>
+      <p><strong>Flags</strong></p> 
+      <p>- <code>groupUseForInterview</code> Highly relevant to these components; this must be <code>true</code> for the group to be presented to a public user. </p>
+      <p>- <code>groupUseAsCriteria</code> Not relevant to these components.</p>
+      <p>- <code>groupInterviewInputType</code> This might actually end up being redundant, because of `groupInterviewPartial`.</p>
+      <p>- <code>groupInterviewPartial</code> Filename for a Nunjucks partial. These files pull all user-facing content from YAML. </p> 
+      <p><strong>Gotcha</strong></p>
+      <p>- The radio 'check' buttons come via SVG. A template version of each icon needs to be embedded directly into the page (you'll find them hidden in the DOM, below. Once embedded, we can use the SVG 'use' property to duplicate them while maintaining CSS stylability.</p>
+
+
+      <h2>To-do</h2>
+      <p>- Consolidate / document the flags I've been inventing in the YAML files</p>
+      <p>- Add in a 'groupUseAsCriteria' condition into Demo - Recruitment Criteria</p>
+    </article>
+
+    <div class="fs-svg-hidden" aria-hidden style="position:absolute;width:0;height:0;overflow:hidden">
+      {% include "partials/icons/check-interactive.njk" %}
+    </div>
+
+
+  </main>
+
+
+{% endblock %}
+
+<!-- scripts -->

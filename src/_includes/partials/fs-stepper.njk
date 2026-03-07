@@ -1,0 +1,78 @@
+<div class="fs-stepper">
+  <div class="fs-stepper-wrapper">
+    <div class="fs-stepper-rail">
+      
+      {% if stepper.stepperUseIntroPane %}
+        <div id="fs-{{ slug }}-intro" class="fs-stepper-pane">
+          {% if stepper.stepperIntroPane.kicker %}
+            <p class="kicker">{{ stepper.stepperIntroPane.kicker }}</p>
+          {% endif %}
+          <h1>{{ stepper.stepperIntroPane.title }}</h1>
+          {% if stepper.stepperIntroPane.paragraphs %}  
+            <div class="fs-stepper-paragraphs-wrapper">
+              {% for paragraph in stepper.stepperIntroPane.paragraphs %}
+                <p>{{ paragraph }}</p>
+              {% endfor %}   
+            </div>         
+          {% endif %}
+          {% if stepper.stepperIntroPane.image %}
+            <div class="fs-stepper-image-wrapper">
+              <img src="{{ stepper.stepperIntroPane.image.src }}" alt="{{ stepper.stepperIntroPane.image.alt }}" />
+            </div>
+          {% endif %}
+        </div> 
+      {% endif %}
+
+      {% for pane in panes %}
+        <div id="fs-stepper-pane-{{ pane.slug }}" {% if loop.index > 1 %}inert{% endif %} data-item-index="{{ loop.index }}" class="fs-stepper-pane">
+          {% if pane.sourcePanePartial %}
+            {% include "partials/" + pane.sourcePanePartial %}
+          {%  endif %}
+        </div>   
+      {% endfor %} 
+
+      {% if stepper.stepperUseOutroPane %}
+        <div id="fs-{{ slug }}-outro" class="fs-stepper-pane">
+          {% if stepper.stepperOutroPane.kicker %}
+            <p class="kicker">{{ stepper.stepperOutroPane.kicker }}</p>
+          {% endif %}
+          <h1>{{ stepper.stepperOutroPane.title }}</h1>
+          {% if stepper.stepperOutroPane.paragraphs %}  
+            <div class="fs-stepper-paragraphs-wrapper">
+              {% for paragraph in stepper.stepperOutroPane.paragraphs %}
+                <p>{{ paragraph }}</p>
+              {% endfor %}   
+            </div>         
+          {% endif %}
+          {% if stepper.stepperOutroPane.image %}
+            <div class="fs-stepper-image-wrapper">
+              <img src="{{ stepper.stepperOutroPane.image.src }}" alt="{{ stepper.stepperOutroPane.image.alt }}" />
+            </div>
+          {% endif %}
+        </div> 
+      {% endif %}
+
+    </div>
+  </div>
+
+  <div class="fs-stepper-controls">
+    {% if stepper.stepperUseProgressBar %}
+      <div class="fs-stepper-progress">
+        <progress class="fs-stepper-progressBar" value="{{ currentStep | default(1) }}" max="{{ panes | length }}" aria-valuenow="{{ currentStep | default(1) }}" aria-valuemax="{{ panes | length }}" aria-label="Progress"></progress>
+      </div>  
+    {% endif %}
+
+    <div class="fs-stepper-controls-buttons">
+      <div class="fs-btn-group">
+        <button hidden id="fs-stepper-submit" type="button" class="fs-btn btn-primary btn-lg">
+          {{ stepper.stepperConfirmLabel }}
+        </button>
+        <button id="fs-stepper-next" type="button" class="fs-btn btn-primary btn-lg">Next</button>
+        <button id="fs-stepper-previous" type="button" class="fs-btn btn-link btn-lg">Previous</button>
+      </div>
+      {% if stepper.stepperIncludeCancelButton %}
+        <button id="fs-stepper-cancel" type="button" class="fs-btn btn-link btn-lg">Cancel</button>
+      {% endif %}
+  </div>
+</div>
+

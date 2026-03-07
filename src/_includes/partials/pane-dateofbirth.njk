@@ -1,0 +1,55 @@
+<div class="fs-inputGroup fs-stepper-pane-dob">
+  <fieldset class="fs-fieldset" role="group" aria-describedby="{{ pane.slug }}-hint">
+    <div class="fs-label-wrapper">
+      <legend class="fs-fieldset__legend">
+        <h1 class="fs-fieldset__heading">
+          {{ pane.title }}
+        </h1>
+      </legend>
+
+      {% if pane.description %}
+        <label class="fs-label" for="{{ pane.slug }}">
+          {{ pane.description }}
+        </label>
+      {% endif %}
+
+      {% if pane.example %}
+        <div class="fs-inputGroup-help">
+          {{ pane.example }}
+        </div>
+      {% endif %}
+
+    </div>
+
+    <p hidden id="pane-{{ pane.slug }}-error" class="fs-error-message">
+      <span >Error:</span> Enter a {{ pane.title }}
+    </p>
+
+    <div class="fs-input-date" id="{{ pane.slug }}">
+      <div class="fs-input-date__item">
+        <div class="fs-form-group">
+          <label class="fs-label fs-input-date__label" for="dob-day">
+            Day
+          </label>
+          <input class="fs-input fs-input-date__input fs-input--width-2" id="pane-input-dob-day" name="dob-day" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="fs-input-date__item">
+        <div class="fs-form-group">
+          <label class="fs-label fs-input-date__label" for="dob-month">
+            Month
+          </label>
+          <input class="fs-input fs-input-date__input fs-input--width-2" id="pane-input-dob-month" name="dob-month" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="fs-input-date__item">
+        <div class="fs-form-group">
+          <label class="fs-label fs-input-date__label" for="dob-year">
+            Year
+          </label>
+          <input class="fs-input fs-input-date__input" id="dob-year" name="pane-input-dob-year" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>

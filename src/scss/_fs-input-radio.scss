@@ -1,0 +1,105 @@
+.fs-input-radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fs-spacing-2xs);
+
+  .fs-input-radio {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    padding-inline: var(--spacing-sm);
+    padding-block: var(--spacing-xs);
+    border-radius: var(--fs-radius-md);
+
+    &:hover {
+      background: var(--fs-color-white);
+      box-shadow: var(--fs-boxShadow-sm);
+    }
+
+    &:focus-within {
+      outline: var(--thickness-lg) solid var(--fs-color-focus-ring);
+      outline-offset: 0;
+    }
+
+    .fs-input-radio-modern {
+      flex-grow: 1;
+      margin-block-end: 0;
+
+
+      display: flex;
+      flex-direction: row;
+      gap: var(--fs-spacing-xs);
+      align-items: center; 
+      cursor: pointer;
+
+      .fs-input-radio-iconGroup {
+        width: var(--fs-size-lg);
+        height: var(--fs-size-lg); 
+      }  
+          
+      &.size-xl {
+        gap: var(--fs-spacing-sm);
+        .fs-input-radio-iconGroup {
+          width: var(--fs-size-xl);
+          height: var(--fs-size-xl);
+        }        
+      }
+      &.size-2xl {
+        gap: var(--fs-spacing-md);
+        .fs-input-radio-iconGroup {
+          width: var(--fs-size-2xl);
+          height: var(--fs-size-2xl); 
+        }        
+      }           
+    }
+
+    .fs-radio-input-button {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      position: absolute;
+    }
+
+    .fs-input-radio-iconGroup {
+      svg {
+        overflow: visible;
+      }
+    }
+
+    .fs-radio-input-button + .fs-input-radio-modern {
+      .svg-empty {
+        display: unset;
+        color: var(--fs-color-text-primary); 
+      } 
+      .svg-filled {
+        display: none;
+        color: var(--fs-color-brand-primary); 
+      }           
+    }
+    .fs-radio-input-button:checked + .fs-input-radio-modern {
+      border: red;
+      .svg-empty {
+        display: none; 
+      } 
+      .svg-filled {
+        display: unset;
+      }
+    }
+  }
+
+  .fs-input-radio-iconGroup {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+  }
+
+}
+
+
+.fs-svg-hidden {
+  #check-filled #check-filled-circle {
+    border: 1px solid red;
+    fill: var(--fs-color-text-primary);
+  }
+}

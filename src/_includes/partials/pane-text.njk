@@ -1,0 +1,24 @@
+<div class="fs-inputGroup fs-stepper-pane-text">
+  <div class="fs-label-wrapper">
+    <h1>
+      {{ pane.title }}
+    </h1>
+
+    {% if pane.description %}
+      <label class="fs-label" for="{{ pane.slug }}">
+        {{ pane.description }}
+      </label>
+    {% endif %}
+
+    {% if pane.example %}
+      <div class="fs-inputGroup-help">
+        {{ pane.example }}
+      </div>
+    {% endif %}
+  </div>
+  <p hidden id="pane-{{ pane.slug }}-error" class="fs-error-message">
+    <span >Error:</span> Enter a {{ pane.title }}
+  </p>
+  
+  <input class="fs-input" id="pane-input-{{ pane.slug }}" name="pane-input-{{ pane.slug }}" type="text">
+</div>
