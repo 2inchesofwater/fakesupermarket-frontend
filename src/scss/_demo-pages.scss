@@ -61,6 +61,11 @@
 
 .demo-page #fs-demo-stepper-dataCollection .fs-stepper {
 	max-width: 600px;
+	min-height: 50vh;
+	border: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+	background: var(--fs-color-background-subtle); 
+	padding-block: var(--spacing-md);
+    padding-inline: var(--spacing-md);
 
 	.fs-stepper-image-wrapper {
 		margin-block-start: 1rem;

@@ -1,0 +1,46 @@
+<details name="fs-completionGroup-{{ group.groupSlug }}" class="fs-completionGroup"  open>
+  <summary>
+    <div class="fs-completionGroup-summary-wrapper">
+    <div class="fs-completionGroup-summary">
+      <h3>{{ group.groupTitle }}</h3>
+      {% if group.groupDescription %}
+        <p class="fs-completionGroup-summary-hint">{{ group.groupDescription }}</p>
+      {%  endif %}
+    </div>
+    </div>
+  </summary>
+
+  <div class="fs-completionGroup-panel">
+    <div class="fs-completionGroup-wrapper">
+
+      <div class="fs-completionGroup-items">
+        {% for item in group.items %} 
+
+          {% set availableCount = 0 %}
+          {% for attributeItem in attribute.items %}
+            {% if attributeItem.slug == item.slug %}
+              {% set availableCount = attributeItem.populationCount %}
+            {% endif %}
+          {% endfor %}
+
+          <div class="fs-completionGroup-item fs-chartColors" data-item-id="{{ item.slug }}" data-item-index="{{ loop.index }}" data-item-target-count="{{ item.targetCount }}"  data-item-completed-count="{{ item.completedCount }}" data-item-available-count="{{ availableCount }}">
+            <div class="fs-completionGroup-item-swatch fs-chartColor-item"></div>
+            {% include "partials/fs-completionSegment.njk" %}
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="fs-completionGroup-chart-wrapper">
+        <div class="fs-completionGroup-chart">
+          {% for item in group.items %}
+            {% include "partials/fs-completionsChart.njk" %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {# <div class="fs-btnGroup">
+      <button class="fs-btn btn-tertiary btn-sm">Add another</button>
+    </div> #}
+  </div>
+</details>

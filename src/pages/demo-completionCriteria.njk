@@ -1,0 +1,349 @@
+---
+layout: demo-completions.njk
+title: "Completion tally components"
+permalink: "pages/demo/completions.html"
+
+projectRequestedSampleSize: 400
+projectCompletedSampleSize: 267
+demoAverageCompletionsPerDay: 100 
+projectDueDate: "1"
+
+groups:
+  - groupTitle: "Gender"
+    groupSlug: "gender"
+    groupDescription: "How do you self-identify?"
+    groupUseAsCriteria: true
+    groupUseForInterview: true
+    groupInterviewInputType: "range"    
+    groupUsePopulation: true
+    items:
+      - label: "Female"
+        slug: "female"
+        targetPercent: "50"
+        targetCount: "200"
+        completedCount: "175"
+        completedPercent: "86"
+      - label: "Male"
+        slug: "male"
+        targetPercent: "49"
+        targetCount: "196"
+        completedCount: "89"
+        completedPercent: "45"
+      - label: "Non-binary"
+        slug: "enby"
+        explanation: "Non-binary folks"
+        targetPercent: "1"
+        targetCount: "4"
+        completedCount: "3"
+        completedPercent: "75"
+      - label: "Not stated"
+        slug: "unknown"
+        targetPercent: "0"
+        targetCount: "0"
+        completedCount: "0"
+        completedPercent: "0"
+
+  - groupTitle: "Geographic location"
+    groupSlug: "location"
+    groupUseAsCriteria: true
+    groupUseForInterview: true
+    groupInterviewInputType: "range"    
+    groupUsePopulation: true
+    items:
+      - label: "New South Wales"
+        slug: "nsw"
+        targetPercent: "32"
+        targetCount: "128"
+        completedCount: "79"
+        completedPercent: "62"
+      - label: "Victoria"
+        slug: "vic"
+        targetPercent: "26"
+        targetCount: "104"
+        completedCount: "73"
+        completedPercent: "70"
+      - label: "Queensland"
+        slug: "qld"
+        targetPercent: "20"
+        targetCount: "80"
+        completedCount: "60"
+        completedPercent: "75"
+      - label: "Western Australia"
+        slug: "wa"
+        targetPercent: "10"
+        targetCount: "40"
+        completedCount: "25"
+        completedPercent: "63"
+      - label: "South Australia"
+        slug: "sa"
+        targetPercent: "7"
+        targetCount: "28"
+        completedCount: "17"
+        completedPercent: "61"
+      - label: "Tasmania"
+        slug: "tas"
+        targetPercent: "2"
+        targetCount: "8"
+        completedCount: "5"
+        completedPercent: "63"
+      - label: "Australian Capital Territory"
+        slug: "act"
+        targetPercent: "2"
+        targetCount: "8"
+        completedCount: "5"
+        completedPercent: "63"
+      - label: "Northern Territory"
+        slug: "nt"
+        targetPercent: "1"
+        targetCount: "4"
+        completedCount: "3"
+        completedPercent: "75"
+
+  - groupTitle: "Household structure"
+    groupSlug: "household"
+    groupDescription: "We're interested in the composition of your household – mostly whether you're shopping for yourself or for a family."
+    groupUseAsCriteria: true
+    groupUseForInterview: true
+    groupInterviewInputType: "range"    
+    groupUsePopulation: true
+    items:
+      - label: "Family household"
+        slug: "family"
+        explanation: "Households with a family, containing a mix of adults and children or other dependents."
+        targetPercent: "72"
+        targetCount: "288"
+        completedCount: "201"
+        completedPercent: "70"
+      - label: "Lone (single) person households"
+        slug: "single"
+        explanation: "Households where one person lives alone."
+        targetPercent: "24"
+        targetCount: "96"
+        completedCount: "56"
+        completedPercent: "58"
+      - label: "Group households"
+        slug: "flatmates"
+        explanation: "Households with two or more unrelated persons (eg, flatmates)."
+        targetPercent: "4"
+        targetCount: "16"
+        completedCount: "10"
+        completedPercent: "63"
+      - label: "Something different"
+        slug: "different"
+        explanation: "Households with a different mix of residents than the options above."
+        targetPercent: "0"
+        targetCount: "0"
+        completedCount: "0"
+        completedPercent: "0"
+
+  - groupTitle: "Family"
+    groupSlug: "family"
+    groupDescription: "If you live as part of a family unit, what is the structure of your family?"
+    groupUseAsCriteria: true
+    groupUseForInterview: true
+    groupInterviewInputType: "range"    
+    groupUsePopulation: false
+    groupUseAnotherGroup: household
+    groupUseAnotherCharacteristic: family
+    items:
+      - label: "Couple family with children"
+        slug: "parentsPlusKids"
+        explanation: "Includes all couples with dependent or non-dependent children."
+        targetPercent: "53"
+        targetCount: "153"
+        completedCount: "118"
+        completedPercent: "77"
+      - label: "Couple family without children"
+        slug: "coupleOnly"
+        targetPercent: "35"
+        targetCount: "101"
+        completedCount: "60"
+        completedPercent: "59"
+      - label: "One-parent family"
+        slug: "oneParent"
+        targetPercent: "12"
+        targetCount: "35"
+        completedCount: "23"
+        completedPercent: "66"
+      - label: "Other family"
+        slug: "different"
+        explanation: "Families with a different mix of adults and children than the options above."
+        targetPercent: "0"
+        targetCount: "0"
+        completedCount: "0"
+        completedPercent: "0"
+        
+  - groupTitle: "Total household weekly income"
+    groupSlug: "income"
+    groupDescription: "How much does your household earn in an average week?"
+    groupUseAsCriteria: true
+    groupUseForInterview: true
+    groupInterviewInputType: "range"    
+    groupUsePopulation: true
+    items:
+      - label: "Low income"
+        slug: "low"
+        explanation: "1–$999 per week."
+        targetPercent: "22"
+        targetCount: "88"
+        completedCount: "49"
+        completedPercent: "56"
+      - label: "Lower-middle"
+        slug: "lowmid"
+        explanation: "$1,000–$1,999 per week."
+        targetPercent: "38"
+        targetCount: "152"
+        completedCount: "111"
+        completedPercent: "73"
+      - label: "Upper-middle"
+        slug: "uppermid"
+        explanation: "$2,000–$2,999 per week."
+        targetPercent: "23"
+        targetCount: "92"
+        completedCount: "67"
+        completedPercent: "73"
+      - label: "High income"
+        slug: "high"
+        explanation: "$3,000+ per week."
+        targetPercent: "12"
+        targetCount: "48"
+        completedCount: "29"
+        completedPercent: "60"
+      - label: "Not stated"
+        slug: "unknown"
+        targetPercent: "5"
+        targetCount: "20"
+        completedCount: "11"
+        completedPercent: "55"
+
+allPopulationSize: 3272
+
+attributes:
+  - title: "Gender"
+    slug: "gender"
+    populationSize: 3272
+    items:
+      - label: "Female"
+        slug: "female"
+        populationCount: 1701
+        populationPercent: "52"
+      - label: "Male"
+        slug: "male"
+        populationCount: 1505
+        populationPercent: "46"
+      - label: "Non-binary"
+        slug: "enby"
+        populationCount: 66
+        populationPercent: "2"
+      - label: "Not stated"
+        slug: "unknown"
+        populationCount: 0
+        populationPercent: "0"
+
+  - title: "Geographic location"
+    slug: "location"
+    populationSize: 3272
+    items:
+      - label: "New South Wales"
+        slug: "nsw"
+        populationCount: 1014
+        populationPercent: "31"
+      - label: "Victoria"
+        slug: "vic"
+        populationCount: 883
+        populationPercent: "27"
+      - label: "Queensland"
+        slug: "qld"
+        populationCount: 687
+        populationPercent: "21"
+      - label: "Western Australia"
+        slug: "wa"
+        populationCount: 294
+        populationPercent: "9"
+      - label: "South Australia"
+        slug: "sa"
+        populationCount: 196
+        populationPercent: "6"
+      - label: "Tasmania"
+        slug: "tas"
+        populationCount: 65
+        populationPercent: "2"
+      - label: "Australian Capital Territory"
+        slug: "act"
+        populationCount: 98
+        populationPercent: "3"
+      - label: "Northern Territory"
+        slug: "nt"
+        populationCount: 35
+        populationPercent: "1"
+
+  - title: "Household structure"
+    slug: "household"
+    populationSize: 3272
+    items:
+      - label: "Family household"
+        slug: "family"
+        populationCount: 2258
+        populationPercent: "69"
+      - label: "Lone (single) person households"
+        slug: "single"
+        populationCount: 818
+        populationPercent: "25"
+      - label: "Group households"
+        slug: "flatmates"
+        populationCount: 164
+        populationPercent: "5"
+      - label: "Something different"
+        slug: "different"
+        populationCount: 32
+        populationPercent: "1"
+
+  - title: "Family"
+    slug: "family"
+    populationSourceAttribute: "household"
+    populationSourceItem: "family"
+    populationSize: 2258
+    items:
+      - label: "Couple family with children"
+        slug: "parentsPlusKids"
+        populationCount: 1160
+        populationPercent: "51"
+      - label: "Couple family without children"
+        slug: "coupleOnly"
+        populationCount: 760
+        populationPercent: "34"
+      - label: "One-parent family"
+        slug: "oneParent"
+        populationCount: 293
+        populationPercent: "13"
+      - label: "Other family"
+        slug: "different"
+        populationCount: 45
+        populationPercent: "2"
+
+  - title: "Total household weekly income"
+    slug: "income"
+    populationSize: 3272
+    items:
+      - label: "Low income"
+        slug: "low"
+        populationCount: 654
+        populationPercent: "20"
+      - label: "Lower-middle"
+        slug: "lowmid"
+        populationCount: 1309
+        populationPercent: "40"
+      - label: "Upper-middle"
+        slug: "uppermid"
+        populationCount: 687
+        populationPercent: "21"
+      - label: "High income"
+        slug: "high"
+        populationCount: 458
+        populationPercent: "14"
+      - label: "Not stated"
+        slug: "unknown"
+        populationCount: 164
+        populationPercent: "5"
+
+---

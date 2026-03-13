@@ -82,9 +82,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (isActive) {
         pane.removeAttribute('inert');
+        //pane.hidden = false;
         pane.setAttribute('aria-hidden', 'false');
       } else {
         pane.setAttribute('inert', '');
+        //pane.hidden = true;
         pane.setAttribute('aria-hidden', 'true');
       }
     });

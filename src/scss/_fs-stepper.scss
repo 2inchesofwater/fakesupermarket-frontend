@@ -6,8 +6,6 @@
   gap: var(--fs-spacing-xs);
 
   .fs-stepper-wrapper {
-	  border: var(--fs-thickness-sm) solid var(--fs-color-border-default);
-	  background: var(--fs-color-background-subtle); 
 		overflow: hidden; // hides overflow slides
 	}
 
@@ -39,17 +37,19 @@
 	  		overflow: hidden;
 	  		position: absolute;
 	  	}
+	  	
 	  	::-webkit-progress-bar {
 			  background-color: var(--fs-color-border-default);
 			}
-		
+	
 			::-webkit-progress-value {
 			  background-color: var(--fs-color-brand-primary);
 			  height: var(--fs-spacing-xs);
 			}			
 			::-moz-progress-bar {
 			  background-color: var(--fs-color-brand-primary);
-			}		  }
+			}
+		}		  
 	}  
 }
 

@@ -1,0 +1,174 @@
+.fs-completionGroup-chart-wrapper {
+	border-block-end: var(--fs-thickness-sm) solid var(--fs-color-border-strong);
+  border-inline-start: var(--fs-thickness-sm) solid var(--fs-color-border-strong);
+  margin-inline-start: 2rem;
+  flex-grow: .5;
+  @container completionGroup (min-width: 600px) {
+  	min-width: 35vw;
+  }
+}
+
+.fs-completionGroup-chart {
+	display: flex;
+	flex-direction: row;
+	gap: var(--fs-spacing-xs);
+	align-items: end;
+	height: 6rem;
+	padding-inline: var(--fs-spacing-md);
+	@container completionGroup (min-width: 600px) {
+		height: 100%;
+	}
+
+
+	.fs-completionGroup-chart-item {
+		flex-grow: 1;
+		height: 100%;
+		min-height: 6rem;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+
+		@container completionGroup (min-width: 600px) {
+			height: 100%;
+			min-height: 10rem;
+		}
+	}
+	.fs-completionGroup-chart-item-height {
+		height: 100%;
+		min-height: var(--fs-spacing-sm);
+		border-block-start: var(--fs-thickness-sm) solid var(--fs-color-border-strong);
+	  border-inline: var(--fs-thickness-sm) solid var(--fs-color-border-strong);
+		position: relative; 
+	}
+
+
+	progress {
+		-webkit-appearance: none;
+		background-color: var(--fs-color-border-default);
+		//border-top: var(--fs-thickness-lg) solid var(--fs-color-brand-primary);
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		cursor: pointer;
+
+		writing-mode: vertical-lr;
+		direction: rtl;
+	}	
+	::-webkit-progress-bar {
+	  background-color: var(--fs-color-border-default);
+	}	
+
+	[data-status="excluded"] {
+		opacity: 0 !important;
+	}
+	[data-item-index] {
+		progress {
+			opacity: 0.5;
+		}
+		&.isPaired-active progress {
+			opacity: 1;
+		}
+	}
+
+
+	[data-item-index="1"] {
+		progress::-moz-progress-bar {
+			background-color: var(--fs-color-chart-1);
+		}
+		progress::-webkit-progress-value {
+			background-color: var(--fs-color-chart-1);
+		}		
+	}
+
+	[data-item-index="2"] {
+		progress::-moz-progress-bar {
+			background-color: var(--fs-color-chart-2);
+		}
+		progress::-webkit-progress-value {
+			background-color: var(--fs-color-chart-2);
+		}		
+	}
+	[data-item-index="3"] {
+		progress::-moz-progress-bar {
+			background-color: var(--fs-color-chart-3);
+		}
+		progress::-webkit-progress-value {
+			background-color: var(--fs-color-chart-3);
+		}		
+	}
+	[data-item-index="4"] {
+		progress::-moz-progress-bar {
+			background-color: var(--fs-color-chart-4);
+		}
+		progress::-webkit-progress-value {
+			background-color: var(--fs-color-chart-4);
+		}		
+	}
+	[data-item-index="5"] {
+		progress::-moz-progress-bar {
+			background-color: var(--fs-color-chart-5);
+		}
+		progress::-webkit-progress-value {
+			background-color: var(--fs-color-chart-5);
+		}		
+	}
+	[data-item-index="6"] {
+		progress::-moz-progress-bar {
+			background-color: var(--fs-color-chart-6);
+		}
+		progress::-webkit-progress-value {
+			background-color: var(--fs-color-chart-6);
+		}		
+	}
+	[data-item-index="7"] {
+		progress::-moz-progress-bar {
+			background-color: var(--fs-color-chart-7);
+		}
+		progress::-webkit-progress-value {
+			background-color: var(--fs-color-chart-7);
+		}		
+	}
+	[data-item-index="8"] {
+		progress::-moz-progress-bar {
+			background-color: var(--fs-color-chart-8);
+		}
+		progress::-webkit-progress-value {
+			background-color: var(--fs-color-chart-8);
+		}		
+	}
+	[data-item-index="9"] {
+		progress::-moz-progress-bar {
+			background-color: var(--fs-color-chart-9);
+		}
+		progress::-webkit-progress-value {
+			background-color: var(--fs-color-chart-9);
+		}		
+	}
+	[data-item-index="10"] {
+		progress::-moz-progress-bar {
+			background-color: var(--fs-color-chart-10);
+		}
+		progress::-webkit-progress-value {
+			background-color: var(--fs-color-chart-10);
+		}		
+	}
+	[data-item-index="11"] {
+		progress::-moz-progress-bar {
+			background-color: var(--fs-color-chart-11);
+		}
+		progress::-webkit-progress-value {
+			background-color: var(--fs-color-chart-11);
+		}		
+	}		
+	[data-item-index="12"] {
+		progress::-moz-progress-bar {
+			background-color: var(--fs-color-chart-12);
+		}
+		progress::-webkit-progress-value {
+			background-color: var(--fs-color-chart-12);
+		}		
+	}		
+}

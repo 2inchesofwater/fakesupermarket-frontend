@@ -1,0 +1,40 @@
+<div class="fs-completionSegment" id="completionSegment_{{ group.groupSlug }}_criteria">
+
+    <div class="fs-completionSegment-title-wrapper">
+      <h3 id="completionSegment_{{ group.groupSlug }}_{{ item.defaultCharacteristicSlug }}" class="fs-completionSegment-title">{{ item.label }}</h3>
+      {% if item.explanation %}
+        <p id="completionSegment_{{ group.groupSlug }}_{{ item.defaultCharacteristicSlug }}_explanation" class="fs-completionSegment-explanation">{{ item.explanation }}</p>
+      {%  endif %}
+    </div>     
+    
+    <div class="fs-completionSegment-percentage-wrapper">
+      <div class="fs-dataGroup">
+        <span class="fs-completionSegment-percentage-data">{{ item.completedPercent }}</span><span class="label">% of {{ item.targetCount }} people</span>
+      </div>
+      <p class="fs-inputGroup-quota fs-inputGroup-help">
+        <span class="fs-inputGroup-quota-value">_</span> remaining
+      </p> 
+    </div>
+
+    <div class="fs-completionSegment-status-wrapper">
+      {# Status will be dynamically updated by JS #}
+      <span class="fs-badge"></span>
+    </div>
+
+    <div class="fs-completionSegment-expand-wrapper">
+      <button type='button' id="completionSegment_{{ group.groupSlug }}_{{ item.slug }}_expand" class="fs-btn btn-tertiary btn-icon btn-sm" aria-label="See more options" aria-expanded="false" aria-controls="completionSegment_{{ group.groupSlug }}_{{ item.slug }}">
+        <span class="icon">
+          {% include "partials/icons/more-horizontal.njk" %}
+        </span>
+      </button>
+    </div>
+
+    <div class="fs-completionSegment-actions-wrapper">
+      <button type='button' id="completionSegment_{{ group.groupSlug }}_{{ item.defaultCharacteristicSlug }}_boost" class="fs-btn btn-sm btn-secondary" aria-label="Increase the incentive paid to participants">
+        <span class="label">Boost incentives</span>
+      </button>
+      <button type='button' id="completionSegment_{{ group.groupSlug }}_{{ item.defaultCharacteristicSlug }}_loosen" class="fs-btn btn-sm btn-link" aria-label="Soften the recruitment criteria for this characteristic">
+        <span class="label">Loosen target criteria</span>
+      </button>      
+    </div>
+</div> 

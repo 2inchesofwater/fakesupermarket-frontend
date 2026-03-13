@@ -5,15 +5,6 @@ permalink: "pages/demo/questions.html"
 slug: "interview"
 
 groups:        
-  - groupTitle: "Preferred name"
-    groupSlug: "preferredname"
-    groupDescription: "Your everyday name - how you'd introduce yourself."
-    groupDescriptionExample: "For example, Monet"
-    groupUseAsCriteria: false
-    groupUseForInterview: true
-    groupInterviewInputType: "text"
-    groupInterviewPartial: "pane-text.njk"
-
   - groupTitle: "Name"
     groupSlug: "fullname"
     groupDescription: "Your full name, as it would appear on official documents like a bank account or passport."
@@ -31,28 +22,6 @@ groups:
     groupUseForInterview: true
     groupInterviewInputType: "dob"
     groupInterviewPartial: "pane-dateofbirth.njk"
-
-  - groupTitle: "Gender"
-    groupSlug: "gender"
-    groupDescription: "How do you self-identify?"
-    groupUseAsCriteria: true
-    groupUseForInterview: true
-    groupInterviewInputType: "radio"
-    groupUsePopulation: true
-    groupInterviewPartial: "pane-radio.njk"
-    items:
-      - defaultCharacteristicLabel: "Female"
-        defaultCharacteristicSlug: "female"
-        defaultCharacteristicValue: "50"
-      - defaultCharacteristicLabel: "Male"
-        defaultCharacteristicSlug: "male"
-        defaultCharacteristicValue: "49"
-      - defaultCharacteristicLabel: "Non-binary"
-        defaultCharacteristicSlug: "enby"
-        defaultCharacteristicValue: "1"
-      - defaultCharacteristicLabel: "Not stated"
-        defaultCharacteristicSlug: "unknown"
-        defaultCharacteristicValue: "0"
 
   - groupTitle: "Geographic location"
     groupSlug: "location"
@@ -86,87 +55,5 @@ groups:
       - defaultCharacteristicLabel: "Northern Territory"
         defaultCharacteristicSlug: "nt"
         defaultCharacteristicValue: "1"
-
-  - groupTitle: "Household structure"
-    groupSlug: "household"
-    groupDescription: "We're interested in the composition of your household – mostly whether you're shopping for yourself or for a family."
-    groupUseAsCriteria: true
-    groupUseForInterview: true
-    groupInterviewInputType: "radio"
-    groupUsePopulation: true
-    groupInterviewPartial: "pane-radio.njk"
-    items:
-      - defaultCharacteristicLabel: "Family household"
-        defaultCharacteristicSlug: "family"
-        defaultCharacteristicExplanation: "Households with a family, containing a mix of adults and children or other dependents."
-        defaultCharacteristicValue: "72"
-      - defaultCharacteristicLabel: "Lone (single) person households"
-        defaultCharacteristicSlug: "single"
-        defaultCharacteristicExplanation: "Households where one person lives alone."
-        defaultCharacteristicValue: "24"
-      - defaultCharacteristicLabel: "Group households"
-        defaultCharacteristicSlug: "flatmates"
-        defaultCharacteristicExplanation: "Households with two or more unrelated persons (eg, flatmates)."
-        defaultCharacteristicValue: "4"
-      - defaultCharacteristicLabel: "Something different"
-        defaultCharacteristicSlug: "different"
-        defaultCharacteristicExplanation: "Households with a different mix of residents than the options above."
-        defaultCharacteristicValue: "0"
-
-  - groupTitle: "Family "
-    groupSlug: "family"
-    groupDescription: "If you live as part of a family unit, what is the structure of your family?"
-    groupUseAsCriteria: true
-    groupUseForInterview: true
-    groupInterviewInputType: "radio"
-    groupInterviewPartial: "pane-radio.njk"
-    groupUsePopulation: false
-    groupUseAnotherGroup: household
-    groupUseAnotherCharacteristic: family
-    items:
-      - defaultCharacteristicLabel: "Couple family with children"
-        defaultCharacteristicSlug: "parentsPlusKids"
-        defaultCharacteristicExplanation: "Includes all couples with dependent or non-dependent children."
-        defaultCharacteristicValue: "53"
-      - defaultCharacteristicLabel: "Couple family without children"
-        defaultCharacteristicSlug: "coupleOnly"
-        defaultCharacteristicValue: "35"
-      - defaultCharacteristicLabel: "One-parent family"
-        defaultCharacteristicSlug: "oneParent"
-        defaultCharacteristicValue: "12"
-      - defaultCharacteristicLabel: "Other family"
-        defaultCharacteristicSlug: "different"
-        defaultCharacteristicExplanation: "Families with a different mix of adults and children than the options above."
-        defaultCharacteristicValue: "0"
-
-  - groupTitle: "Total household weekly income"
-    groupSlug: "income"
-    groupDescription: "How much does your household earn in an average week?"
-    groupUseAsCriteria: true
-    groupUseForInterview: true
-    groupInterviewInputType: "radio"
-    groupUsePopulation: true
-    groupInterviewPartial: "pane-radio.njk"
-    items:
-      - defaultCharacteristicLabel: "Low income"
-        defaultCharacteristicSlug: "low"
-        defaultCharacteristicExplanation: "1–$999 per week."
-        defaultCharacteristicValue: "22"
-      - defaultCharacteristicLabel: "Lower-middle"
-        defaultCharacteristicSlug: "lowmid"
-        defaultCharacteristicExplanation: "$1,000–$1,999 per week."
-        defaultCharacteristicValue: "38"
-      - defaultCharacteristicLabel: "Upper-middle"
-        defaultCharacteristicSlug: "uppermid"
-        defaultCharacteristicExplanation: "$2,000–$2,999 per week."
-        defaultCharacteristicValue: "23"
-      - defaultCharacteristicLabel: "High income"
-        defaultCharacteristicSlug: "high"
-        defaultCharacteristicExplanation: "$3,000+ per week."
-        defaultCharacteristicValue: "12"
-      - defaultCharacteristicLabel: "Not stated"
-        defaultCharacteristicSlug: "unknown"
-        defaultCharacteristicValue: "5"
-
 
 ---

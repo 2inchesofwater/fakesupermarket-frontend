@@ -1,0 +1,39 @@
+@use "variables" as *;
+
+.fs-badge {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: var(--spacing-2xs);
+	align-content: center;
+
+	font-size: var(--size-xs);
+	line-height: 1;
+	font-weight: var(--weight-bold);
+	color: var(--color-text-primary);
+	text-transform: uppercase; 
+
+	padding-block: var(--spacing-2xs);
+	padding-inline: var(--spacing-xs);
+	border: 2px solid transparent;
+	border-radius: var(--radius-sm);
+}
+
+[data-status="completed"] .fs-badge {
+	background-color: var(--fs-color-bright-green-dark);
+	color: var(--fs-color-white);
+}
+[data-status="on-track"] .fs-badge {
+	color: var(--fs-color-bright-green-dark);
+}
+[data-status="at-risk"] .fs-badge {
+	color: var(--fs-color-bright-orange-dark);
+}
+[data-status="critical"] .fs-badge {
+	background-color: var(--fs-color-bright-orange-dark);
+	color: var(--fs-color-white);
+}
+[data-status="excluded"] .fs-badge {
+	background-color: var(--fs-color-gray-100);
+	color: var(--fs-color-text-tertiary);
+}

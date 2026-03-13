@@ -1,0 +1,21 @@
+.fs-stepper {
+  .fs-stepper-pane {
+    flex: 0 0 100%;
+    width: 100%;
+    box-sizing: border-box;
+
+    padding-block: var(--spacing-xl);
+    padding-inline: var(--spacing-md);
+
+    transition: max-height 500ms ease; 
+
+    &[inert] {
+      @media (max-height: 1000px) {
+        max-height: 0;
+      }
+    } 
+    &:not[inert] {
+      max-height: 100vh;
+    } 
+  }
+}

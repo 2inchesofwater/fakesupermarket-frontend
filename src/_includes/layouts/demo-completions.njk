@@ -1,0 +1,49 @@
+
+{% extends "layouts/base.njk" %}   
+ 
+{% block content %}
+  <main id="main" class="main-content demo-page">
+    <h1>{{ title }}</h1>
+
+    <h2>Examples<br><span style="font-size: 13px">(Context and notes follow)</span></h2>
+
+    <div class="fs-allCompletionGroups" data-demo-days-remaining="{{ projectDueDate }}" data-demo-average-completions-per-day="{{ demoAverageCompletionsPerDay }}">
+      {% for attribute in attributes %}
+        {% set group = groups[loop.index0] %}
+        {% include "partials/fs-completionsGroup.njk" %}
+      {% endfor %}          
+    </div>
+
+
+    <article class="demo-notes">
+      <h2>Context</h2>
+      <p>Once a client company has used the Recruitment Criteria components, and set their research project live... then they'll want to monitor the progress of their research.</p>
+      <p>A key metric is <em>completions</em>. For example, maybe 267 people out of a requested 400 have already finished the task. But when you look a little deeper at all of the various recruitment criteria... maybe some criteria are a little tricky and they'll need a boost.</p>
+      <p>Let's say there's three days left for a research project, and males are being slow to complete the client's task. A client might agree to boost the incentives for males.</p>
+      <p>The components shown here imagine a way for clients to self-serve these incentive boosts.</p>
+
+      <h2>Notes</h2>
+      <p>...</p>
+      <p><strong>Flags</strong></p>
+      <p>...</p> 
+      <p><strong>Gotcha</strong></p>
+      <p>...</p>
+
+
+      <h2>To-do</h2>
+      <p>Mock-up the overall summary, showing the total nr of completions and the days remaining.</p>
+      <p>Mock-up a docket to tally up the price increases of any/all <em>boost incentive</em> actions that a client-user might request. </p>
+      <p>And if a client-user chooses to use the <em>loosen criteria</em> button for an at-risk characteristic... then that'll need some confirmation UI, too. </p>
+
+      <p>&nbsp;</p>
+    </article>
+  </main>
+
+<script src="/js/pages/demo-completionStatus.js" defer></script>
+<script src="/js/pages/demo-completionExpand.js" defer></script>
+<script src="/js/pages/demo-completionPairing.js" defer></script>
+<script src="/js/pages/demo-completionCharts.js" defer></script>
+
+{% endblock %}
+
+
