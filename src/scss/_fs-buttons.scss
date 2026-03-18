@@ -145,8 +145,14 @@
 
 
   &.btn-icon {
+    padding: var(--fs-spacing-2xs); 
     .icon {
-      // line-height: 1em;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      width: var(--fs-btn-size-md);
+      height: var(--fs-btn-size-md);
+
       position: relative;
       top: .1em;
     }

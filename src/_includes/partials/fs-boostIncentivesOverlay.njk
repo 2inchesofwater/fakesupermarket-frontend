@@ -1,0 +1,78 @@
+<aside id="fs-incentiveboost" aria-labelledby="fs-incentiveboost-title" aria-describedby="fs-incentiveboost-description" >
+  <div class="fs-incentiveboost-panel" role="dialog" aria-modal="true">
+    <div class="fs-incentiveboost-header">
+      <div class="fs-incentiveboost-header-content">
+        <h2 class="fs-incentiveboost-title" id="fs-incentiveboost-title">
+          Boost incentives
+        </h2>
+        <p class="fs-incentiveboost-description" id="fs-incentiveboost-description">
+          Increase the incentives paid to participants from selected demographic groups. It only applies for people who haven't yet completed this research task.
+        </p>
+        <button type="button" class="fs-btn btn-secondary btn-sm" >
+          Add all boosts
+        </button>
+      </div>
+
+      <button type="button" class="fs-btn btn-tertiary btn-icon btn-sm" aria-label="Hide the Boost Incentives panel">
+        <span class="icon">
+          {% include "partials/icons/chevrons-right.njk" %}
+        </span>
+      </button>
+    </div>
+
+    <div class="fs-incentiveboost-body">
+      <div class="fs-incentiveboost-items" >
+        {% include "partials/fs-boostIncentivesItem.njk" %}
+      </div>
+
+      <div class="fs-incentiveboost-emptystate" hidden>
+        <p class="fs-incentiveboost-emptystate-title">No boost incentives selected</p>
+        <p class="fs-incentiveboost-intro-copy">
+          Bigger incentives can help improve recruitment for segments which are lagging.
+        </p>
+        <p class="fs-incentiveboost-emptystate-action">
+          <a>Add a boost to all lagging segments now.</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="fs-incentiveboost-totals">
+      <h3 class="fs-incentiveboost-totals-title">
+        Totals
+      </h3>
+
+      <div class="fs-incentiveboost-totals-list">
+        <dl class="fs-incentiveboost-totals-row">
+          <dt class="fs-incentiveboost-totals-label">Additional incentive</dt>
+          <dd class="fs-incentiveboost-totals-value">$267.50</dd>
+        </dl>
+
+        <dl class="fs-incentiveboost-totals-row">
+          <dt class="fs-incentiveboost-totals-label">GST</dt>
+          <dd class="fs-incentiveboost-totals-value">$26.75</dd>
+        </dl>
+
+        <dl class="fs-incentiveboost-totals-row">
+          <dt class="fs-incentiveboost-totals-label">Service fee</dt>
+          <dd class="fs-incentiveboost-totals-value">$?.00</dd>
+        </dl>
+
+        <dl class="fs-incentiveboost-totals-row fs-incentiveboost-totals-row-total">
+          <dt class="fs-incentiveboost-totals-label">Total additional cost</dt>
+          <dd class="fs-incentiveboost-totals-value">$294.25</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="fs-incentiveboost-actions">
+      <div class="fs-btn-group">
+        <button type="button" class="fs-btn btn-primary" >
+          Confirm increased spend
+        </button>
+        {# <button type="button" class="fs-btn btn-tertiary btn-sm" >
+          Cancel
+        </button>  #}  
+      </div>   
+    </div>
+  </div>
+</aside>

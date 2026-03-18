@@ -7,12 +7,23 @@
 
     <h2>Examples<br><span style="font-size: 13px">(Context and notes follow)</span></h2>
 
+    {%  include "partials/fs-allCompletionsSummary.njk" %}
+
     <div class="fs-allCompletionGroups" data-demo-days-remaining="{{ projectDueDate }}" data-demo-average-completions-per-day="{{ demoAverageCompletionsPerDay }}">
       {% for attribute in attributes %}
         {% set group = groups[loop.index0] %}
         {% include "partials/fs-completionsGroup.njk" %}
       {% endfor %}          
     </div>
+
+    <hr/>
+
+    <h2>Boost Incentive overlay</h2>
+    <div class="demo-wrapper-boostIncentivesOverlay">
+      {% include "partials/fs-boostIncentivesOverlay.njk" %}
+    </div>
+
+    <hr/>
 
 
     <article class="demo-notes">
@@ -23,18 +34,29 @@
       <p>The components shown here imagine a way for clients to self-serve these incentive boosts.</p>
 
       <h2>Notes</h2>
-      <p>...</p>
+      <p>- The Boost Incentives overlay is essentially a shopping list of increased incentives which will be paid to any remaining people who match the lagging criteria. </p>
+      <p>- We'll prompt the client to spend more on recruitment segments which are lagging. There's a back-end formula, which looks at the number of people remaining in a segment; the time available before the project's due date; the average number of people completing tasks per day; and the total number of people in our database who match the recruitment segment in the first place. <br/>There's a mocked-up version of the formula in the JS; it's pretty rough.</p>
+      <p>- There's a status for 'At risk', and one for 'Critical'. In boths cases, we'll prompt the client to spend more on incentives for that segment.</p>
+      <p>- A client can boost the incentives for 'On track' segments, too. Imma not getting in the way of a client giving us money. </p>
+      <p class="future">- Future enhancement: If a client boosts a segment, somebody internal to Fake Supermarket would get an email so they can get a headstart on any bespoke recruitment efforts</p>
+      <p class="future">- Future enhancement: As a result of the actual Recruitment Brief page, we should already have a strong idea if a client is going to run into issues with the number of people in our database.</p>
+      <p>- For now, let's assume that any time a client boosts the incentive for a segment, it's a flat amount (for example, $2.50) increase per boost per segment. 
+      <p class="future">- Future enhancement: Clients will be able to select a boost amount from a list of options.</p>
+      <p>- You'd have to imagine that a client might do a boost when a segment hits 'At risk' <em>and</em> a further boost if it hits 'Critical'. This implies that boosts could happen several times during a project's lifespan. It also implies that we'll need to track incentive boosts on a per-segment basis. </p>
+      <p>- If a research participant matches more than one boosted-incentivised segment, then it's probably fair and valuable to pay that participant the multiple boosts. So, using the examples in the demo UI above... if a participant was Gender &gt; Male <em>and</em> Household Structure &gt; Family Household, then they'd receive 2x $2.50 boosts.</p>
+      <p>The Boost Incentive feature does mean we'll need a business process to charge a client-company for additional costs.</p>
       <p><strong>Flags</strong></p>
       <p>...</p> 
       <p><strong>Gotcha</strong></p>
-      <p>...</p>
+      <p>- If we introduce loosened recruitment criteria for 'At risk' and 'Critical' segments, our charts will need to allow for greater than 100% completion. This may also have edge-case consequences for the 'At risk' formula for sibling segments within that group...</p>
 
 
       <h2>To-do</h2>
-      <p>Mock-up the overall summary, showing the total nr of completions and the days remaining.</p>
-      <p>Mock-up a docket to tally up the price increases of any/all <em>boost incentive</em> actions that a client-user might request. </p>
+      <p><strike>Add a local-maximum label to each chart. Possibly more labels.</strike></p>
+      <p><strike>Mock-up the overall summary, showing the total nr of completions and the days remaining.</strike> <strike>Style the Boost Incentives inset-panel.</strike></p>
+      <p><strike>Mock-up a docket to tally up the price increases of any/all <em>boost incentive</em> actions that a client-user might request.</strike> <strike>Still needs its empty-state styled. </strike></p>
       <p>And if a client-user chooses to use the <em>loosen criteria</em> button for an at-risk characteristic... then that'll need some confirmation UI, too. </p>
-
+      <p>How would we advise a client that a particular recruitment segment is known to be scarce?</p>
       <p>&nbsp;</p>
     </article>
   </main>

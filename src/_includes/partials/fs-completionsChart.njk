@@ -1,5 +1,9 @@
 <div class="fs-completionGroup-chart-item fs-chartColors" data-item-id="{{ item.slug }}" data-item-index="{{ loop.index }}" data-status="" >
 	<div class="fs-completionGroup-chart-item-height">
-		<progress value="{{ item.completedCount }}" aria-label="{{ item.label }}" max="{{ item.targetCount }}" class="fs-completionGroup-chart-progress fs-chartColor-item"></progress>
+		<progress value="{{ item.completedCount }}" aria-label="{{ item.label }}" max="{{ item.targetCount }}" class="fs-completionGroup-chart-progress fs-chartColor-item">
+			<div class="progress-bar">
+	        <span style="">Progress: 80%</span>
+	    </div>			
+		</progress>
 	</div>
 </div>

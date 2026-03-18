@@ -3,10 +3,21 @@
   border-inline-start: var(--fs-thickness-sm) solid var(--fs-color-border-strong);
   margin-inline-start: 2rem;
   flex-grow: .5;
+  position: relative;
   @container completionGroup (min-width: 600px) {
   	min-width: 35vw;
   }
 }
+
+	.fs-completionGroup-chart-localmax {
+		position: absolute;
+		left: -2rem;
+		width: 2rem; 
+		padding-inline-end: var(--fs-spacing-xs);
+		font-size: var(--fs-size-xs);
+		color: var(--fs-color-border-strong);
+		text-align: end;
+	}
 
 .fs-completionGroup-chart {
 	display: flex;
@@ -18,7 +29,6 @@
 	@container completionGroup (min-width: 600px) {
 		height: 100%;
 	}
-
 
 	.fs-completionGroup-chart-item {
 		flex-grow: 1;
@@ -44,9 +54,14 @@
 
 
 	progress {
-		-webkit-appearance: none;
+  /* Reset the default appearance */
+	  -webkit-appearance: none;
+	  -moz-appearance: none;
+	  appearance: none;
+	  
+	  border: none;		
 		background-color: var(--fs-color-border-default);
-		//border-top: var(--fs-thickness-lg) solid var(--fs-color-brand-primary);
+
 		overflow: hidden;
 		width: 100%;
 		height: 100%;

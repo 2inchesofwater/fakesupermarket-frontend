@@ -53,7 +53,7 @@
   --fs-color-text-tertiary: var(--fs-color-gray-700);
   --fs-color-background-subtle: var(--fs-color-gray-010);
   --fs-color-background-default: var(--fs-color-white);
-  --fs-color-background-emphasized: var(--fs-color-core-200);
+  --fs-color-background-emphasized: var(--fs-color-core-100);
   --fs-color-background-page: var(--fs-color-white);
   --fs-color-background-header: var(--fs-color-white);
   --fs-color-background-footer: var(--fs-color-background-subtle);

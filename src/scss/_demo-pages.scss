@@ -37,8 +37,9 @@
 			color: var(--fs-color-text-tertiary);
 		}	
 		.future {
-			color: var(--fs-color-text-secondary); 
-			background-color: var(--fs-color-core-100);
+			color: var(--fs-color-text-tertiary); 
+			font-style: italic;
+			//background-color: var(--fs-color-core-100);
 		}
 	}
 }
@@ -76,3 +77,19 @@
 		}		
 	}
 } 
+
+.demo-page .demo-wrapper-boostIncentivesOverlay {
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
+	overflow: hidden;
+
+	background-color: var(--fs-color-modalScreen-gradient2);
+	padding-block: 10vh;
+
+
+	#fs-incentiveboost {
+		width: 390px;
+		height: 844px;
+	}
+}

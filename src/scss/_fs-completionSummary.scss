@@ -1,0 +1,40 @@
+.fs-allCompletionsSummary {
+	background: var(--fs-color-core-100);
+	border: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+	//border-radius: var(--fs-radius-lg);
+  padding-block: var(--fs-spacing-md);
+  padding-inline: var(--fs-spacing-md);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--fs-spacing-xs);
+
+	.fs-allCompletionsSummary-title {
+		h3 {
+			font-weight: var(--fs-weight-regular);
+	    margin-block-end: var(--fs-spacing-xs);			
+		}
+	}
+
+	.fs-allCompletionsSummary-wrapper {
+		display: flex;
+		flex-direction: row;
+		gap: var(--fs-spacing-sm);
+	}
+	.fs-allCompletionsSummary-tally {
+		.fs-allCompletionsSummary-actual {
+			font-weight: var(--fs-weight-regular);
+		}
+		.fs-allCompletionsSummary-goal {
+			font-size: var(--fs-size-sm);
+		}
+	}
+	.fs-allCompletionsSummary-dueDate {}
+	.fs-allCompletionsSummary-boosts {
+		display: flex;
+		flex-direction: row;
+		align-items: start;
+		gap: var(--fs-spacing-md);
+		max-width: 25rem;
+	}
+}

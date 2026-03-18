@@ -3,12 +3,15 @@
 
 @use 'fs-styles';
 @use 'fs-badge';
+@use 'fs-boostIncentivesItem';
+@use 'fs-boostIncentivesOverlay';
 @use 'fs-buttons';
 @use 'fs-carousel';
 @use 'fs-chartcolors';
 @use 'fs-completionGroup';
 @use 'fs-completionChart';
 @use 'fs-completionSegment';
+@use 'fs-completionSummary';
 @use 'fs-dialogue';
 @use 'fs-input';
 @use 'fs-input-radio';
@@ -17,6 +20,7 @@
 @use 'fs-logo';
 @use 'fs-multiSelect';
 @use 'fs-stepper-panes';
+@use 'fs-panel';
 @use 'fs-progress';
 @use 'fs-recruitGroup';
 @use 'fs-recruitPopulation';
