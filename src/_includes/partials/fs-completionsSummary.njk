@@ -1,0 +1,21 @@
+    <div class="fs-completionsSummary" >
+      <div class="fs-completionsSummary-title">
+        <h3 id="fs-completionsSummary-heading">Project completion</h3>
+      </div>
+      <div class="fs-completionsSummary-wrapper">
+        <div class="fs-completionsSummary-tally fs-insetPanel">
+          <p class="fs-completionsSummary-actual">{{ projectCompletedSampleSize }} completions</p>
+          <p class="fs-completionsSummary-goal">out of {{ projectRequestedSampleSize }}</p>
+        </div>
+        <div class="fs-completionsSummary-dueDate fs-insetPanel">
+          {{ projectDueDate }} days to go
+        </div>
+        <div class="fs-completionsSummary-remediation fs-insetPanel">
+          <p id="fs-completionsSummary-advice">2 recruitment criteria might need attention.</p>
+          <div class="wrapper">
+            <button id="fs-completionsSummary-openOverlay" class="fs-btn btn-secondary">Boost incentives</button>
+            <button id="fs-completionsSummary-openOverlay" class="fs-btn btn-sm btn-link">Loosen criteria</button>
+          </div>
+        </div>
+      </div>
+    </div>

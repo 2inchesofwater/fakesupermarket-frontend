@@ -78,7 +78,8 @@
 	}
 } 
 
-.demo-page .demo-wrapper-boostIncentivesOverlay {
+.demo-page .demo-wrapper-boostIncentivesOverlay,
+.demo-page .demo-wrapper-loosenCriteriaOverlay {
 	display: flex;
 	flex-direction: row;
 	justify-content: end;
@@ -86,10 +87,10 @@
 
 	background-color: var(--fs-color-modalScreen-gradient2);
 	padding-block: 10vh;
+}
 
-
-	#fs-incentiveboost {
-		width: 390px;
-		height: 844px;
-	}
+.demo-page .demo-wrapper-boostIncentivesOverlay #fs-incentiveboost,
+.demo-page .demo-wrapper-loosenCriteriaOverlay #fs-loosencriteria  {
+	width: 390px;
+	height: 844px;
 }

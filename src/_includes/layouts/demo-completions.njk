@@ -5,9 +5,25 @@
   <main id="main" class="main-content demo-page">
     <h1>{{ title }}</h1>
 
-    <h2>Examples<br><span style="font-size: 13px">(Context and notes follow)</span></h2>
+    <article class="demo-notes">
+      <h2>Context</h2>
+      <p>Once a client company has used the Recruitment Criteria components, and set their research project live... then they'll want to monitor the progress of their research.</p>
+      <p>A key metric is <em>completions</em>. For example, maybe 267 people out of a requested 400 have already finished the task. But when you look a little deeper at all of the various recruitment criteria... maybe some criteria are a little tricky and they'll need a boost.</p>
+      <p>Let's say there's three days left for a research project, and males are being slow to complete the client's task. A client might agree to boost the incentives for males.</p>
+      <p>The components shown here imagine a way for clients to self-serve these incentive boosts.</p>
+    </article>
 
-    {%  include "partials/fs-allCompletionsSummary.njk" %}
+    <h2>Examples<br>
+      <span style="font-size: 13px">(Context and notes follow)</span>
+    </h2>
+
+    {%  include "partials/fs-completionsSummary.njk" %}
+    <article class="demo-notes">
+      <h2>Notes on the Summary block</h2>
+      <p>- The two buttons would open their respective overlays, which are shown further down the page. I'm not doing full overlays on a demo page, thank you very much. <em>[face with tongue poking out emoji]</em></p>
+    </article>
+
+    <hr/>
 
     <div class="fs-allCompletionGroups" data-demo-days-remaining="{{ projectDueDate }}" data-demo-average-completions-per-day="{{ demoAverageCompletionsPerDay }}">
       {% for attribute in attributes %}
@@ -16,38 +32,60 @@
       {% endfor %}          
     </div>
 
+    <article class="demo-notes">
+      <h2>Notes on the Per-criteria Completion panel and charts</h2>
+      <p>- The panels are directly correlated to the Recruitment Brief questions for a research project.</p>
+      <p>- We'll prompt the client to <strike>spend more</strike> do something about recruitment segments which are lagging. There's a back-end formula, which looks at: The number of people remaining in a segment; The time available before the project's due date; The average number of people completing tasks per day; The total number of people in our database who match the recruitment segment in the first place. <br/>There's a mocked-up version of the formula in the JS; it's pretty rough.</p>     
+      <p>- The kebab menu-button opens up options to Boost or Loosen options specifically for that criteria.</p>
+      <p>- Excluded criteria occupy space in the panel and the chart, so there's a sense of accountability... that we haven't forgotten anything, ya know?</p>
+      <p>- The charts are dynamically sized so that the biggest recruitment group is the tallest column in the chart. Fun fact: the columns are made from HTML 'progress' elements, arranged vertically. They're actually completely semantic!</p>
+      <p>- There is a known edge-case, where it will be possible for a recruitment group to get more than 100% of its quota. Haven't quite figured out what will need to happen in that instance. I think it'll be a condition in the JS, such that if we reach more than 100%, then the maxvalue property mirrors the actual number of completions.</p>
+    </article>
+    
     <hr/>
 
     <h2>Boost Incentive overlay</h2>
     <div class="demo-wrapper-boostIncentivesOverlay">
-      {% include "partials/fs-boostIncentivesOverlay.njk" %}
+      {% include "partials/fs-completionsBoostIncentivesOverlay.njk" %}
     </div>
 
-    <hr/>
-
-
     <article class="demo-notes">
-      <h2>Context</h2>
-      <p>Once a client company has used the Recruitment Criteria components, and set their research project live... then they'll want to monitor the progress of their research.</p>
-      <p>A key metric is <em>completions</em>. For example, maybe 267 people out of a requested 400 have already finished the task. But when you look a little deeper at all of the various recruitment criteria... maybe some criteria are a little tricky and they'll need a boost.</p>
-      <p>Let's say there's three days left for a research project, and males are being slow to complete the client's task. A client might agree to boost the incentives for males.</p>
-      <p>The components shown here imagine a way for clients to self-serve these incentive boosts.</p>
-
-      <h2>Notes</h2>
+      <h2>Notes on the Boost Incentives overlay</h2>
       <p>- The Boost Incentives overlay is essentially a shopping list of increased incentives which will be paid to any remaining people who match the lagging criteria. </p>
-      <p>- We'll prompt the client to spend more on recruitment segments which are lagging. There's a back-end formula, which looks at the number of people remaining in a segment; the time available before the project's due date; the average number of people completing tasks per day; and the total number of people in our database who match the recruitment segment in the first place. <br/>There's a mocked-up version of the formula in the JS; it's pretty rough.</p>
-      <p>- There's a status for 'At risk', and one for 'Critical'. In boths cases, we'll prompt the client to spend more on incentives for that segment.</p>
       <p>- A client can boost the incentives for 'On track' segments, too. Imma not getting in the way of a client giving us money. </p>
-      <p class="future">- Future enhancement: If a client boosts a segment, somebody internal to Fake Supermarket would get an email so they can get a headstart on any bespoke recruitment efforts</p>
+      <p class="future">- Future enhancement: If a client boosts a segment, somebody internal to Fake Supermarket would get an email so they can get a headstart on any bespoke recruitment efforts<./p>
       <p class="future">- Future enhancement: As a result of the actual Recruitment Brief page, we should already have a strong idea if a client is going to run into issues with the number of people in our database.</p>
-      <p>- For now, let's assume that any time a client boosts the incentive for a segment, it's a flat amount (for example, $2.50) increase per boost per segment. 
+      <p>- For now, let's assume that any time a client boosts the incentive for a segment, it's a flat amount (for example, $2.50) increase per boost per segment. </p>
       <p class="future">- Future enhancement: Clients will be able to select a boost amount from a list of options.</p>
       <p>- You'd have to imagine that a client might do a boost when a segment hits 'At risk' <em>and</em> a further boost if it hits 'Critical'. This implies that boosts could happen several times during a project's lifespan. It also implies that we'll need to track incentive boosts on a per-segment basis. </p>
       <p>- If a research participant matches more than one boosted-incentivised segment, then it's probably fair and valuable to pay that participant the multiple boosts. So, using the examples in the demo UI above... if a participant was Gender &gt; Male <em>and</em> Household Structure &gt; Family Household, then they'd receive 2x $2.50 boosts.</p>
-      <p>The Boost Incentive feature does mean we'll need a business process to charge a client-company for additional costs.</p>
-      <p><strong>Flags</strong></p>
+      <p>- The primary button would throw a modal confirmation thingy.</p>
+      <p><strong>The Boost Incentive feature does mean we'll need a business process to charge a client-company for additional costs.</strong></p>
+      <p>&nbsp;</p>
+      </article>
+    <hr/>
+
+    <h2>Loosen Criteria overlay</h2>
+    <div class="demo-wrapper-loosenCriteriaOverlay">
+      {% include "partials/fs-completionsLoosenCriteriaOverlay.njk" %}
+    </div>
+
+    <article class="demo-notes">
+      <h2>Notes on the Loosen Criteria overlay</h2>
+      <p>- Halving the remaining recruitment criteria percentage feels okay. If a client's project is running behind schedule, I don't expect they can afford to be picky about the remaining percentage.</p>
+      <p>- The 'Loosen criteria' button for the Gender - Male item is wired up as part of the demo. </p>
+      <p>- The 'Loosen criteria' button <em>should</em> allow a client to take the recruitment criteria down to 0 people. I forgot to put that clause into the JS. </p>
+      <p>- The primary button would throw a modal confirmation thingy.</p>
+    </article>
+  
+  <hr/>
+
+
+
+<article class="demo-notes">
+      <h2>Flags</h2>
       <p>...</p> 
-      <p><strong>Gotcha</strong></p>
+      <h2>Gotcha</h2>
       <p>- If we introduce loosened recruitment criteria for 'At risk' and 'Critical' segments, our charts will need to allow for greater than 100% completion. This may also have edge-case consequences for the 'At risk' formula for sibling segments within that group...</p>
 
 
@@ -55,7 +93,7 @@
       <p><strike>Add a local-maximum label to each chart. Possibly more labels.</strike></p>
       <p><strike>Mock-up the overall summary, showing the total nr of completions and the days remaining.</strike> <strike>Style the Boost Incentives inset-panel.</strike></p>
       <p><strike>Mock-up a docket to tally up the price increases of any/all <em>boost incentive</em> actions that a client-user might request.</strike> <strike>Still needs its empty-state styled. </strike></p>
-      <p>And if a client-user chooses to use the <em>loosen criteria</em> button for an at-risk characteristic... then that'll need some confirmation UI, too. </p>
+      <p><strike>And if a client-user chooses to use the <em>loosen criteria</em> button for an at-risk characteristic... then that'll need some confirmation UI, too. </strike></p>
       <p>How would we advise a client that a particular recruitment segment is known to be scarce?</p>
       <p>&nbsp;</p>
     </article>
@@ -65,6 +103,7 @@
 <script src="/js/pages/demo-completionExpand.js" defer></script>
 <script src="/js/pages/demo-completionPairing.js" defer></script>
 <script src="/js/pages/demo-completionCharts.js" defer></script>
+<script src="/js/pages/demo-loosenCriteria.js" defer></script>
 
 {% endblock %}
 

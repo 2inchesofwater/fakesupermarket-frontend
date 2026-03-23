@@ -5,10 +5,10 @@
         <h2 class="fs-incentiveboost-title" id="fs-incentiveboost-title">
           Boost incentives
         </h2>
-        <p class="fs-incentiveboost-description" id="fs-incentiveboost-description">
+        <p class="fs-incentiveboost-description fs-advice" id="fs-incentiveboost-description">
           Increase the incentives paid to participants from selected demographic groups. It only applies for people who haven't yet completed this research task.
         </p>
-        <button type="button" class="fs-btn btn-secondary btn-sm" >
+        <button type="button" class="fs-btn btn-tertiary btn-sm" >
           Add all boosts
         </button>
       </div>
@@ -22,12 +22,12 @@
 
     <div class="fs-incentiveboost-body">
       <div class="fs-incentiveboost-items" >
-        {% include "partials/fs-boostIncentivesItem.njk" %}
+        {% include "partials/fs-completionsBoostIncentivesItem.njk" %}
       </div>
 
       <div class="fs-incentiveboost-emptystate" hidden>
         <p class="fs-incentiveboost-emptystate-title">No boost incentives selected</p>
-        <p class="fs-incentiveboost-intro-copy">
+        <p class="fs-incentiveboost-intro-copy fs-advice">
           Bigger incentives can help improve recruitment for segments which are lagging.
         </p>
         <p class="fs-incentiveboost-emptystate-action">
@@ -65,9 +65,15 @@
     </div>
 
     <div class="fs-incentiveboost-actions">
+      <div class="fs-loosencriteria-actions-caution fs-advice">
+        <span class="icon">
+          {% include "partials/icons/alert.njk" %}
+        </span>
+        <p>Proceed with caution: This change can't be undone.</p>
+      </div>    
       <div class="fs-btn-group">
         <button type="button" class="fs-btn btn-primary" >
-          Confirm increased spend
+          Apply increased incentives
         </button>
         {# <button type="button" class="fs-btn btn-tertiary btn-sm" >
           Cancel

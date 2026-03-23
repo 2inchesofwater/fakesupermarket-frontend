@@ -2,9 +2,10 @@
 @use 'fs-variables';			// CSS and Sass variables for FS pages and branding
 
 @use 'fs-styles';
+@use 'fs-advice';
 @use 'fs-badge';
-@use 'fs-boostIncentivesItem';
-@use 'fs-boostIncentivesOverlay';
+@use 'fs-completionsBoostIncentivesItem';
+@use 'fs-completionsBoostIncentivesOverlay';
 @use 'fs-buttons';
 @use 'fs-carousel';
 @use 'fs-chartcolors';
@@ -12,6 +13,8 @@
 @use 'fs-completionChart';
 @use 'fs-completionSegment';
 @use 'fs-completionSummary';
+@use 'fs-completionsLoosenCriteriaItem';
+@use 'fs-completionsLoosenCriteriaOverlay';
 @use 'fs-dialogue';
 @use 'fs-input';
 @use 'fs-input-radio';
@@ -27,7 +30,7 @@
 @use 'fs-recruitQuestions';
 @use 'fs-recruitSegment';
 @use 'fs-stepper';
-@use 'fs-tiles';
+@use 'fs-tiles'; 
 
 @forward 'fs-onboarding';
 @forward 'fs-interview';

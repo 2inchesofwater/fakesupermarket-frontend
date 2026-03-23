@@ -1,0 +1,53 @@
+<div class="fs-loosencriteria-item">
+  <div class="fs-loosencriteria-item-content">
+    <div class="fs-loosencriteria-item-path">
+      <span class="fs-loosencriteria-item-group">Gender</span>  <span class="fs-loosencriteria-item-segment">Male</span>
+    </div>
+
+    <dl class="fs-loosencriteria-item-remaining" data-example-state="initial">
+      <dt>Unfilled quota</dt><dd class="percentage">55%</dd><dd class="real">(107 people)</dd>
+    </dl>
+
+    <template id="loosencriteria-row-template">
+      <div class="fs-loosencriteria-row">
+        <div class="fs-loosencriteria-row-icon" aria-hidden="true">
+          <p>&nbsp;</p>
+          <span class="icon">
+            {% include "partials/icons/chevron-down.njk" %}
+          </span>
+          <p>&nbsp;</p>
+        </div>
+
+        <dl class="fs-loosencriteria-row-data">
+          <dt class="label"></dt>
+          <dd class="percentage"></dd>
+          <dd class="real"></dd>
+        </dl>
+      </div>
+    </template>
+
+
+    <div class="fs-loosencriteria-item-action">
+      <div class="fs-btn-group">
+        <button type="button" class="fs-btn btn-secondary btn-sm" aria-label="Loosen this criteria">
+          <span class="label">
+            Loosen this criteria 
+          </span>
+        </button>
+        <button type="button" class="fs-btn btn-link btn-sm" aria-label="Undo the last loosen criteria change">
+          <span class="label">
+            Undo last change 
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="fs-loosencriteria-item-dismiss">
+    <button type="button" class="fs-btn btn-tertiary btn-icon btn-sm" aria-label="Remove this item">
+      <span class="icon">
+        {% include "partials/icons/x.njk" %} 
+      </span>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<aside id="fs-loosencriteria" aria-labelledby="fs-loosencriteria-title" aria-describedby="fs-loosencriteria-description" >
+  <div class="fs-loosencriteria-panel" role="dialog" aria-modal="true">
+    <div class="fs-loosencriteria-header">
+      <div class="fs-loosencriteria-header-content">
+        <h2 class="fs-loosencriteria-title" id="fs-loosencriteria-title">
+          Loosen target criteria
+        </h2>
+        <p class="fs-loosencriteria-description fs-advice" id="fs-loosencriteria-description">
+          Make it easier to fill the quota for a recruitment criteria. Halve the unfilled quota, and allow anyone to make up the difference within that demographic group.
+        </p>
+        <button type="button" class="fs-btn btn-tertiary btn-sm" >
+          Add all lagging criteria
+        </button>
+      </div>
+
+      <button type="button" class="fs-btn btn-tertiary btn-icon btn-sm" aria-label="Hide the Loosen Criteria panel">
+        <span class="icon">
+          {% include "partials/icons/chevrons-right.njk" %}
+        </span>
+      </button>
+    </div>
+
+    <div class="fs-loosencriteria-body">
+      <div class="fs-loosencriteria-items" >
+        {% include "partials/fs-completionsLoosenCriteriaItem.njk" %}
+      </div>
+
+      <div class="fs-loosencriteria-emptystate" hidden>
+        <p class="fs-loosencriteria-emptystate-title">No recruitment criteria selected</p>
+        <p class="fs-loosencriteria-intro-copy fs-advice">
+          Reduce the quota for a recruitment criteria which is lagging, so the study is more likely to complete on time.
+        </p>
+        <p class="fs-loosencriteria-emptystate-action">
+          <a>Loosen the criteria for [the first At Risk criteria].</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="fs-loosencriteria-actions">
+      <div class="fs-loosencriteria-actions-caution fs-advice">
+        <span class="icon">
+          {% include "partials/icons/alert.njk" %}
+        </span>
+        <p>Proceed with caution: This change can't be undone.</p>
+      </div>
+      <div class="fs-btn-group">
+        <button type="button" class="fs-btn btn-primary" >
+          Apply changes
+        </button>
+        {# <button type="button" class="fs-btn btn-tertiary btn-sm" >
+          Cancel
+        </button>  #}  
+      </div> 
+    </div>
+  </div>
+</aside>
