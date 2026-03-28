@@ -1,5 +1,24 @@
 @use "fs-variables" as *;
 
+@font-face {
+    font-family: 'MD Nichrome Test';
+    src: url('../fonts/MDNichrome-Light.woff2') format('woff2'),
+        url('../fonts/MDNichrome-Light.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MD Nichrome Test';
+    src: url('../fonts/MDNichrome-Regular.woff2') format('woff2'),
+        url('../fonts/MDNichrome-Regular.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 %hover {
   color: var(--hover); 
   text-decoration: underline;

@@ -1,0 +1,62 @@
+#fs-client-header {
+	.fs-client-masthead {
+		margin-block-end: unset;
+		padding-block: var(--fs-spacing-md);
+		padding-inline: var(--fs-spacing-lg);
+		background: var(--fs-color-brand-primary);
+		color: var(--fs-color-white);
+		filter: blur(2px);
+
+		h1 {
+			margin-block-end: unset;
+		}
+	}
+}
+
+#fs-client-strap {
+	background: var(--fs-color-core-200);
+	padding-block: var(--fs-spacing-sm);
+	padding-inline: var(--fs-spacing-lg);	
+
+	display: flex;
+	flex-direction: row;
+
+	justify-content: end;
+}
+
+#fs-client-priority {
+	background: transparent;
+	border: var(--fs-thickness-lg) solid var(--fs-color-border-default);	
+
+	.fs-client-priority-header {
+		background: var(--fs-color-panel-light);
+		padding-block: var(--fs-spacing-sm);
+		padding-inline: var(--fs-spacing-md);
+		border-block-end: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+	}
+	.fs-client-priority-title {
+		margin-block-start: unset;
+		color: var(--fs-color-text-primary);
+		font-family: var(--fs-font-display);
+		font-size: var(--fs-size-2xl);
+		font-weight: var(--fs-weight-regular);		
+	}
+
+	#fs-client-priority-cards	{
+		display: flex;
+		flex-direction: column;
+		gap: var(--fs-spacing-xs);
+
+		background: var(--fs-color-background-subtle);
+		padding: 2vw;
+		@media screen and (width >= 400px) {
+			flex-direction: row;
+			gap: var(--fs-spacing-sm);
+			overflow-x: scroll;
+		}
+
+		> .fs-card {
+			width: 100%;
+		}
+	}
+}

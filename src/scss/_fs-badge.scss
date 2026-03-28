@@ -19,12 +19,20 @@
 	border-radius: var(--radius-sm);
 }
 
-[data-status="completed"] .fs-badge {
+[data-status="completed"] .fs-badge,
+[data-project-status="active"] .fs-badge  {
 	background-color: var(--fs-color-bright-green-dark);
 	color: var(--fs-color-white);
 }
-[data-status="on-track"] .fs-badge {
+[data-status="on-track"] .fs-badge,
+[data-project-status="pending"] .fs-badge  {
 	color: var(--fs-color-bright-green-dark);
+}
+[data-project-status="draft"] .fs-badge  {
+	color: var(--fs-color-bright-sky-dark);
+}
+[data-project-status="completed"] .fs-badge  {
+	color: var(--fs-color-bright-cloud-dark);
 }
 [data-status="at-risk"] .fs-badge {
 	color: var(--fs-color-bright-orange-dark);

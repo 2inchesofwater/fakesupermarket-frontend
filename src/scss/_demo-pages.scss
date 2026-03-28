@@ -1,10 +1,18 @@
 .demo-page {
+	background: var(--fs-color-background-page);
+
 	h2 {
 		margin-block-start: 2rem;
 		margin-block-end: 0;
 
 	}
 
+	.demo-block {
+		padding: 5vw;
+		margin-block-end: 1vh;
+		background: var(--fs-color-modalScreen-gradient1);
+	}
+	
 	.demo-notes {
 		max-width: 40rem;
 		margin-inline: auto;

@@ -145,16 +145,19 @@
 
 
   &.btn-icon {
-    padding: var(--fs-spacing-2xs); 
+    
     .icon {
       display: flex;
-      align-content: center;
+      align-items: center;
       justify-content: center;
       width: var(--fs-btn-size-md);
       height: var(--fs-btn-size-md);
 
-      position: relative;
-      top: .1em;
+      // position: relative;
+      // top: .1em;
+    }
+    .label {
+      line-height: var(--fs-btn-size-md);
     }
     > svg,
     .icon > svg {
@@ -164,6 +167,7 @@
       overflow: visible;
     }
     &.btn-iconOnly {
+      padding-block: var(--fs-spacing-2xs); 
       padding-inline: var(--spacing-sm);
     }
   }

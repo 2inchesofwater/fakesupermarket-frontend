@@ -1,0 +1,155 @@
+
+{% extends "layouts/base.njk" %}   
+ 
+{% block content %}
+  <main id="main" class="main-content demo-page">
+    <h1>{{ title }}</h1>
+
+    <article class="demo-notes">
+      <h2>Context</h2>
+      <p>As part of Phase 3 (from memory), clients will be able to self-serve the completion of their research projects. This is the client-facing dashboard.</p>
+      <p>Many clients will have 1-2 projects in total; larger clients might have several projects running or waiting to run at any time...</p>
+    </article>
+
+    <h2>Header Strap</h2>
+    
+<header id="fs-client-header">
+  <div class="fs-client-masthead">
+    <h1>Sitewider header for a client</h1>
+  </div>
+  <menu id="fs-client-strap">
+    <div class="fs-client-newProject-wrapper">
+      <button id="fs-client-newProject" class="fs-btn btn-primary btn-icon">
+        <span class="icon">
+          {% include "partials/icons/add.njk" %}
+        </span>
+        <span class="label">New research project</span>
+      </button>
+    </div>
+  </menu>
+</header>
+
+
+    <article class="demo-notes">
+      <h2>Notes on the Header Strap</h2>
+      <p>- Nothing to note about the Header strap.</p>
+      <p>- (The sitewide header is a placeholder, hence it's blurred.) </p>
+    </article>
+
+    <hr/>
+
+{% set projectStatusCounts = {
+  active: 0,
+  pending: 0,
+  paused: 0,
+  completed: 0
+} %}
+
+{% set activeProjects = projects | selectattr("statusKey", "equalto", "active") | list %}
+{% set pendingProjects = projects | selectattr("statusKey", "equalto", "pending") | list %}
+{% set draftProjects = projects | selectattr("statusKey", "equalto", "draft") | list %}
+{% set pastProjects = projects | selectattr("statusKey", "equalto", "past") | list %}
+
+    <h2>Research projects</h2>
+    <details id="fs-client-projects-active"{% if activeProjects.length > 0 %} open{% endif %}>
+      <summary class="fs-client-prjects-header">
+        <h2 id="fs-client-projects-title" class="active">Running</h2>
+      </summary>
+      <div id="fs-client-projects-panel">
+        {% for study in projects | sort(false, false, "nextKeyDate") %}
+          {% if study.statusKey == "active" %}
+            {% include "partials/fs-study-card.njk" %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </details>
+
+    <details id="fs-client-projects-upcoming"{% if pendingProjects.length > 0 %} open{% endif %}>
+      <summary class="fs-client-prjects-header">
+        <h2 id="fs-client-projects-title" class="pending">Upcoming</h2>
+      </summary>
+      <div id="fs-client-projects-panel">
+        {% for study in projects | sort(false, false, "nextKeyDate") %}
+          {% if study.statusKey == "pending" %}
+            {% include "partials/fs-study-card.njk" %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </details>
+
+    <details id="fs-client-projects-draft"{% if draftProjects.length > 0 %} open{% endif %}>
+      <summary class="fs-client-prjects-header">
+        <h2 id="fs-client-projects-title" class="draft">Draft</h2>
+      </summary>
+      <div id="fs-client-projects-panel">
+        {% for study in projects | sort(false, false, "nextKeyDate") %}
+          {% if study.statusKey == "draft" %}
+            {% include "partials/fs-study-card.njk" %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </details>
+
+    <hr>
+
+    <details id="fs-client-projects-past"{% if pastProjects.length > 0 %} open{% endif %}>
+      <summary class="fs-client-prjects-header">
+        <h2 id="fs-client-projects-title" class="past">Completed</h2>
+      </summary>
+      <div id="fs-client-projects-panel">
+        {% for study in projects | sort(false, false, "nextKeyDate") %}
+          {% if study.statusKey == "past" %}
+            {% include "partials/fs-study-card.njk" %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </details>    
+
+
+
+    <article class="demo-notes">
+      <h2>Notes on the Happening Now block</h2>
+      <p>- A very short list (2-3 items) of priority-scored items. These items could come from any of the Factors might include: Most-recently updated/progressed projects; Whether the most recent change happened in the past week; Significance of the change (Something currently running is highly important... a Draft project is comparatively less important). </p>
+    </article>
+    <hr/>
+
+
+    <h2>Lifecycle block</h2>
+    {# {%  include "" %} #}
+    <article class="demo-notes">
+      <h2>Notes on the Lifecycle block</h2>
+      <p>- All of a client's research projects are organised by lifecycle/workflow. </p>
+    </article>
+    <hr/>
+
+
+    <h2>Products Management block</h2>
+    {# {%  include "" %} #}
+    <article class="demo-notes">
+      <h2>Notes on the Product Management block</h2>
+      <p>- In a way, this area is likely to be conceptually fragile for clients.</p>
+      <p>- For a research project to run, a client is going to need to add/manage <em>dozens</em> of products to appear in their fake supermarket. They'll have their own concept-products; their own real (existing) products; competitors' real products; possibly some straight-up fake products.</p>
+      <p>- They'll obviously have to upload their concept-products; we can't invent that for them. There's a reasonable chance we'll have scraped their real (existing) products from external sites previously - but they'll want to tweak that content. There's a high probability that we'll have scraped their competitor products - and maybe the client will want to add more. </p>
+      <p>- If we can make a library of products available to a client, that'll save them a bunch of time... making our service more efficient and valuable for the client's research manager. That is, <em>the person controlling the budget</em>.</p>
+      <p>- There's a concept of a "product set", too. If you're working for Mars, then you might want to have a set of chocolate snacks ready to go every time you're testing the latest weird-ass Snickers bar. Mars also produces MasterFoods spices and Whiskas pet food – so there might be saved "product sets" there, too.</p>
+      <p>- The point is, this all feels like something that'll be tricky for clients to glom onto, ya know?</p>
+    </article>
+    <hr/>
+
+
+{#     <div class="fs-allCompletionGroups" data-demo-days-remaining="{{ projectDueDate }}" data-demo-average-completions-per-day="{{ demoAverageCompletionsPerDay }}">
+      {% for attribute in attributes %}
+        {% set group = groups[loop.index0] %}
+        {% include "partials/fs-completionsGroup.njk" %}
+      {% endfor %}          
+    </div> #}
+
+
+  </main>
+
+{# <script src="/js/pages/demo-completionStatus.js" defer></script> #}
+
+
+{% endblock %}
+
+

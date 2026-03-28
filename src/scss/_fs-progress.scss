@@ -1,3 +1,24 @@
+progress {
+	-webkit-appearance: none;
+	display: block;
+	width: 100%;
+	height: var(--fs-spacing-md);
+	border-radius: 0;
+	appearance: none;
+
+    background-color: var(--fs-color-panel-strong);
+    border: var(--fs-thickness-sm) solid var(--fs-color-border-strong);
+    cursor: pointer;
+
+    &::-webkit-progress-value {
+    	background-color: var(--fs-color-chart-1);
+    }
+	&::-webkit-progress-bar {
+		background: var(--fs-color-border-default);
+	}    		
+}
+
+
 .fs-interview-progress {
 	background: var(--fs-palette-light);
 	margin-block-start: var(--fs-spacing-sm);
@@ -9,13 +30,5 @@
 	}
 	::-webkit-progress-value {
 		background: var(--fs-palette-middle);	
-	}
-	
-	progress {
-		display: block;
-		width: 100%;
-		height: 100%;
-		border-radius: 0;
-		background: var(--fs-palette-middle);		
 	}
 }

@@ -62,6 +62,10 @@ $screen-xl: 1600px;
   --fs-color-brand-primary: var(--fs-color-core-600);
   --fs-color-brand-secondary: var(--fs-color-bright-cloud-middle);
 
+  --fs-color-success: var(--fs-color-bright-green-middle);
+  --fs-color-caution: var(--fs-color-bright-orange-middle);
+  --fs-color-danger: var(--fs-color-bright-pink-middle);
+
   --fs-color-text-primary: var(--fs-color-gray-900);
   --fs-color-text-secondary: var(--fs-color-gray-800);
   --fs-color-text-tertiary: var(--fs-color-gray-700);
@@ -74,6 +78,10 @@ $screen-xl: 1600px;
   --fs-color-background-page: var(--fs-color-white);
   --fs-color-background-header: var(--fs-color-white);
   --fs-color-background-footer: var(--fs-color-background-subtle);
+
+  --fs-color-panel-light: var(--fs-color-gray-050);
+  --fs-color-panel-default: var(--fs-color-gray-100);
+  --fs-color-panel-strong: var(--fs-color-gray-200);
 
   --fs-color-border-light: var(--fs-color-gray-100);
   --fs-color-border-default: var(--fs-color-gray-200);
@@ -91,10 +99,6 @@ $screen-xl: 1600px;
   --fs-color-chart-10: #FBE16D;
   --fs-color-chart-11: #F3BD59;
   --fs-color-chart-12: #FF7878;
-
-  --fs-color-panel-light: var(--fs-color-gray-050);
-  --fs-color-panel-default: var(--fs-color-gray-100);
-  --fs-color-panel-strong: var(--fs-color-gray-200);
 
   --fs-color-text-inverse: var(--fs-color-gray-100);
   --fs-color-heading-inverse: var(--fs-color-core-400);  
@@ -124,8 +128,7 @@ $screen-xl: 1600px;
   
   --fs-color-focus-ring: var(--fs-color-bright-yellow-middle);
 
-
-  --fs-color-background-page: hsla(11, 10%, 93%, 1);
+  //--fs-color-background-page: hsla(11, 10%, 93%, 1);
 
   --fs-color-modalScreen-gradient2: hsla(241, 13%, 85%, .55); 
   --fs-color-modalScreen-gradient1: hsla(241, 13%, 80%, .50); 
@@ -133,7 +136,7 @@ $screen-xl: 1600px;
   --fs-color-unavailable-pulse: var(--fs-color-bright-pink-middle);
 
   --fs-font-sans: Outfit, Helvetica, Calibri, sans-serif;
-
+  --fs-font-display: "MD Nichrome Test";
 
   --fs-logo-size-sm: 3rem;
   --fs-logo-size-md: 4rem;
@@ -143,6 +146,11 @@ $screen-xl: 1600px;
   --fs-btn-size-md: 1.15rem;
 
   
+  --fs-thumbnail-xs: 40px;
+  --fs-thumbnail-sm: 75px;
+  --fs-thumbnail-md: 100px;
+  --fs-thumbnail-lg: 150px;
+
   --fs-radius-none: 0;
   --fs-radius-xs: 2px;
   --fs-radius-sm: 4px;
