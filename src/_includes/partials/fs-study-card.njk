@@ -7,65 +7,77 @@
 	      alt="{{ study.products[0].productTitle }}"
 	    >
   	</div>
+  {% else %}
+  	<div class="fs-study-media empty"></div>
   {% endif %}
 
-  <div class="fs-study-content">
-    <header class="fs-study-header">
-      <h2 class="fs-study-title">{{ study.projectTitle }}</h2>
-        <!-- <p class="fs-study-manager"><span class="sr-only">Research manager: </span>Priya Nair</p> -->
-      <div class="fs-study-status">
-        <span class="fs-badge {{ study.statusKey }}">
-        	{# <span class="icon"></span> #}
-        	<span class="label">{{ study.statusLabel }}</span>
-        </span>
-      </div>
-    </header>
-
-    <div class="fs-study-meta">
-      {% if study.nextKeyDate %}
-	      <dl class="fs-study-dates">
-          {% if study.statusKey == "active" %}
-          	<dt>Ends</dt>
-          	<dd>{{ study.nextKeyDate }} days</dd>
-          {% elseif study.statusKey == "pending" %}
-          	<dt>Launches</dt>
-          	<dd>{{ study.nextKeyDate }} days</dd>
-          {% elseif study.statusKey == "completed" %}
-          	<dt>Ended</dt>
-          	<dd>{{ study.nextKeyDate }} days ago</dd>
-          {% endif %}
-        </dl>
-      {% endif %}
-
-      <dl class="fs-study-progress" aria-labelledby="study-progress-title">
-        {% if study.statusKey == "active" %}
-	        <dt>Progress</dt>
-					<dd>
-						<div class="fs-study-progress-bar">
-							<progress id="fs-study-{{ study.projectID }}" max="{{ study.projectRequestedSampleSize }}" value="{{ study.projectCompletedSampleSize }}"></progress>
-						</div>
-						<div class="fs-study-progress-text">{{ study.projectCompletedSampleSize }} / {{ study.projectRequestedSampleSize }} completions</div>
-					</dd>
-				{% elseif study.statusKey == "pending" %}
-					<dt>Sample size</dt>
-					<dd>
-						<div class="fs-study-progress-text">{{ study.projectRequestedSampleSize }} people</div>
-					</dd>		
-				{% elseif study.statusKey == "completed" %}
-					<dt>Sample</dt>
-					<dd>
-						<div class="fs-study-progress-text">{{ study.projectCompletedSampleSize }} / {{ study.projectRequestedSampleSize }} completions</div>
-					</dd>					
-				{% endif %}		
-      </dl>
-      </section>
+  <header class="fs-study-header">
+    <h2 class="fs-study-title">{{ study.projectTitle }}</h2>
+      <!-- <p class="fs-study-manager"><span class="sr-only">Research manager: </span>Priya Nair</p> -->
+    <div class="fs-study-status">
+      <span class="fs-badge {{ study.statusKey }}">
+      	{# <span class="icon"></span> #}
+      	<span class="label">{{ study.statusLabel }}</span>
+      </span>
     </div>
+  </header>
 
-    {% if study.projectCompletionMessage and study.projectCompletionKey %}
-	    <div class="fs-study-update fs-update {{ study.projectCompletionKey }}">
-	      <p>{{ study.projectCompletionMessage }}</p>
-	    </div>
-	  {% endif %}
+  <div class="fs-study-meta">
+    {% if study.nextKeyDate %}
+      <dl class="fs-study-dates">
+        {% if study.statusKey == "active" %}
+        	<dt>Ends</dt>
+        	<dd>{{ study.nextKeyDate }} days</dd>
+        {% elseif study.statusKey == "pending" %}
+        	<dt>Launches</dt>
+        	<dd>{{ study.nextKeyDate }} days</dd>
+        {% elseif study.statusKey == "past" %}
+        	<dt>Ended</dt>
+        	<dd>{{ study.nextKeyDate }} days ago</dd>
+        {% endif %}
+      </dl>
+    {% endif %}
 
+    <dl class="fs-study-progress" aria-labelledby="study-progress-title">
+      {% if study.statusKey == "active" %}
+        <dt>Progress</dt>
+				<dd>
+					<div class="fs-study-progress-bar">
+						<progress id="fs-study-{{ study.projectID }}" max="{{ study.projectRequestedSampleSize }}" value="{{ study.projectCompletedSampleSize }}"></progress>
+					</div>
+					<div class="fs-study-progress-text">{{ study.projectCompletedSampleSize }} / {{ study.projectRequestedSampleSize }} completions</div>
+				</dd>
+			{% elseif study.statusKey == "pending" %}
+				<dt>Sample size</dt>
+				<dd>
+					<div class="fs-study-progress-text">{{ study.projectRequestedSampleSize }} people</div>
+				</dd>		
+			{% elseif study.statusKey == "past" %}
+				<dt>Sample</dt>
+				<dd>
+					<div class="fs-study-progress-text">{{ study.projectCompletedSampleSize }} / {{ study.projectRequestedSampleSize }} completions</div>
+				</dd>					
+			{% endif %}		
+    </dl>
+    </section>
+  </div>
+
+  {% if study.projectCompletionMessage and study.projectCompletionKey %}
+    <div class="fs-study-update fs-update {{ study.projectCompletionKey }}">
+      <span class="icon">
+  			{% include "partials/icons/alert.njk" %}
+  		</span>
+      <span class="label">
+      	<p>{{ study.projectCompletionMessage }}</p>
+      </span>
+    </div>
+  {% endif %}
+
+  <div class="fs-card-button">
+  	<button class="fs-btn btn-tertiary btn-icon btn-sm btn-iconOnly">
+  		<span class="icon">
+  			{% include "partials/icons/chevrons-right.njk" %}
+  		</span>
+  	</button>
   </div>
 </article>

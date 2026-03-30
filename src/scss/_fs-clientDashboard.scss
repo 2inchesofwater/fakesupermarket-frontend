@@ -24,39 +24,23 @@
 	justify-content: end;
 }
 
-#fs-client-priority {
-	background: transparent;
-	border: var(--fs-thickness-lg) solid var(--fs-color-border-default);	
 
-	.fs-client-priority-header {
-		background: var(--fs-color-panel-light);
-		padding-block: var(--fs-spacing-sm);
-		padding-inline: var(--fs-spacing-md);
-		border-block-end: var(--fs-thickness-sm) solid var(--fs-color-border-default);
-	}
-	.fs-client-priority-title {
-		margin-block-start: unset;
-		color: var(--fs-color-text-primary);
-		font-family: var(--fs-font-display);
-		font-size: var(--fs-size-2xl);
-		font-weight: var(--fs-weight-regular);		
-	}
+#fs-client-projects {
+	container-type: inline-size;
+	container-name: projects-list;
 
-	#fs-client-priority-cards	{
+	display: flex;
+	flex-direction: column;
+	gap: var(--fs-spacing-xs);
+
+	.fs-details .fs-details-panel {
+		padding: var(--fs-spacing-md);
 		display: flex;
 		flex-direction: column;
-		gap: var(--fs-spacing-xs);
+		gap: var(--fs-spacing-sm);
+	}
 
-		background: var(--fs-color-background-subtle);
-		padding: 2vw;
-		@media screen and (width >= 400px) {
-			flex-direction: row;
-			gap: var(--fs-spacing-sm);
-			overflow-x: scroll;
-		}
-
-		> .fs-card {
-			width: 100%;
-		}
+	.fs-study.fs-card .fs-study-status {
+		display: none;
 	}
 }

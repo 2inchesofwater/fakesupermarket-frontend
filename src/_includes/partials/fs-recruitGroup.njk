@@ -1,4 +1,4 @@
-<details name="fs-recruitGroup-{{ group.groupSlug }}" class="fs-recruitGroup"  open 
+<details name="fs-recruitGroup-{{ group.groupSlug }}" class="fs-details fs-recruitGroup"  open 
   {% if not group.isTemplate %}
     data-use-population="{{ group.groupUsePopulation }}" 
     {% if not group.groupUsePopulation %} 
@@ -6,9 +6,9 @@
       data-use-anotherSegment="{{ group.groupUseAnotherCharacteristic }}" 
     {% endif %} 
   {%  endif %} >
-  <summary>
-    <div class="fs-recruitGroup-summary-wrapper">
-    <div class="fs-recruitGroup-summary">
+  <summary class="fs-summary">
+    <div class="fs-summary-wrapper">
+    <div class="fs-summary-content">
       <h3>{{ group.groupTitle }}</h3>
       {% if group.groupDescription %}
         <p>{{ group.groupDescription }}</p>
@@ -17,8 +17,8 @@
     </div>
   </summary>
 
-  <div class="fs-recruitGroup-panel">
-    <div class="fs-recruitGroup-wrapper">
+  <div class="fs-details-panel">
+    <div class="fs-details-panel-content">
 
       <div class="fs-recruitGroup-items">
         {% for item in group.items %}

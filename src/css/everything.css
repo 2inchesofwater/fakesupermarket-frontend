@@ -54,7 +54,7 @@
   --fs-color-text-primary: var(--fs-color-gray-900);
   --fs-color-text-secondary: var(--fs-color-gray-800);
   --fs-color-text-tertiary: var(--fs-color-gray-700);
-  --fs-color-background-subtle: var(--fs-color-gray-010);
+  --fs-color-background-subtle: var(--fs-color-gray-050);
   --fs-color-background-default: var(--fs-color-white);
   --fs-color-background-emphasized: var(--fs-color-core-100);
   --fs-color-background-page: var(--fs-color-white);
@@ -102,6 +102,9 @@
   --fs-color-modalScreen-gradient2: hsla(241, 13%, 85%, .55);
   --fs-color-modalScreen-gradient1: hsla(241, 13%, 80%, .50);
   --fs-color-unavailable-pulse: var(--fs-color-bright-pink-middle);
+  --fs-icon-size-sm: 18px;
+  --fs-icon-size-md: 24px;
+  --fs-icon-size-lg: 32px;
   --fs-font-sans: Outfit, Helvetica, Calibri, sans-serif;
   --fs-font-display: "MD Nichrome Test";
   --fs-logo-size-sm: 3rem;

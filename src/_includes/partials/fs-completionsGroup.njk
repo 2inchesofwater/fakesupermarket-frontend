@@ -1,18 +1,17 @@
-<details name="fs-completionGroup-{{ group.groupSlug }}" class="fs-completionGroup"  open>
+<details name="fs-completionGroup-{{ group.groupSlug }}" class="fs-details fs-completionGroup"  open>
   <summary>
-    <div class="fs-completionGroup-summary-wrapper">
-    <div class="fs-completionGroup-summary">
-      <h3>{{ group.groupTitle }}</h3>
-      {% if group.groupDescription %}
-        <p class="fs-completionGroup-summary-hint">{{ group.groupDescription }}</p>
-      {%  endif %}
-    </div>
+    <div class="fs-summary-wrapper">
+      <div class="fs-summary-content">
+        <h3>{{ group.groupTitle }}</h3>
+        {% if group.groupDescription %}
+          <p class="fs-completionGroup-summary-hint">{{ group.groupDescription }}</p>
+        {%  endif %}
+      </div>
     </div>
   </summary>
 
-  <div class="fs-completionGroup-panel">
-    <div class="fs-completionGroup-wrapper">
-
+  <div class=" fs-details-panel ">
+    <div class="fs-details-panel-content">
       <div class="fs-completionGroup-items">
         {% for item in group.items %} 
 

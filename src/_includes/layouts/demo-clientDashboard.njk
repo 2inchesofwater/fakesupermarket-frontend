@@ -38,87 +38,67 @@
 
     <hr/>
 
-{% set projectStatusCounts = {
-  active: 0,
-  pending: 0,
-  paused: 0,
-  completed: 0
-} %}
-
 {% set activeProjects = projects | selectattr("statusKey", "equalto", "active") | list %}
 {% set pendingProjects = projects | selectattr("statusKey", "equalto", "pending") | list %}
 {% set draftProjects = projects | selectattr("statusKey", "equalto", "draft") | list %}
 {% set pastProjects = projects | selectattr("statusKey", "equalto", "past") | list %}
 
-    <h2>Research projects</h2>
-    <details id="fs-client-projects-active"{% if activeProjects.length > 0 %} open{% endif %}>
-      <summary class="fs-client-prjects-header">
-        <h2 id="fs-client-projects-title" class="active">Running</h2>
-      </summary>
-      <div id="fs-client-projects-panel">
-        {% for study in projects | sort(false, false, "nextKeyDate") %}
-          {% if study.statusKey == "active" %}
-            {% include "partials/fs-study-card.njk" %}
-          {% endif %}
-        {% endfor %}
-      </div>
-    </details>
+{% set projectStatusCounts = {
+  active: activeProjects.length,
+  pending: pendingProjects.length,
+  draft: draftProjects.length,
+  past: pastProjects.length
+} %}
 
-    <details id="fs-client-projects-upcoming"{% if pendingProjects.length > 0 %} open{% endif %}>
-      <summary class="fs-client-prjects-header">
-        <h2 id="fs-client-projects-title" class="pending">Upcoming</h2>
-      </summary>
-      <div id="fs-client-projects-panel">
-        {% for study in projects | sort(false, false, "nextKeyDate") %}
-          {% if study.statusKey == "pending" %}
-            {% include "partials/fs-study-card.njk" %}
-          {% endif %}
-        {% endfor %}
-      </div>
-    </details>
+{% set projectSections = [
+  { statusKey: "active", statusLabel: "Running" },
+  { statusKey: "pending", statusLabel: "Pending" },
+  { statusKey: "draft", statusLabel: "Draft" },
+  { statusKey: "past", statusLabel: "Past" }
+] %}
 
-    <details id="fs-client-projects-draft"{% if draftProjects.length > 0 %} open{% endif %}>
-      <summary class="fs-client-prjects-header">
-        <h2 id="fs-client-projects-title" class="draft">Draft</h2>
-      </summary>
-      <div id="fs-client-projects-panel">
-        {% for study in projects | sort(false, false, "nextKeyDate") %}
-          {% if study.statusKey == "draft" %}
-            {% include "partials/fs-study-card.njk" %}
-          {% endif %}
-        {% endfor %}
-      </div>
-    </details>
+  <div id="fs-client-projects">
+    <div id="fs-client-projects-header">
+      <h2>Studies</h2>
+    </div>
+    {% for section in projectSections %}
+      <details id="fs-client-projects-{{ section.statusKey }}" class="fs-details" {% if projectStatusCounts[section.statusKey] > 0 %}open{% endif %} >
+        <summary class="fs-summary fs-client-projects-header">
+          <div class="fs-summary-wrapper">
+            <div class="fs-summary-content">
+              <h3 id="fs-client-projects-title-{{ section.statusKey }}" class="{{ section.statusKey }}">
+                {{ section.statusLabel }}
+              </h3>
+            </div>
+          </div>
+        </summary>
 
-    <hr>
-
-    <details id="fs-client-projects-past"{% if pastProjects.length > 0 %} open{% endif %}>
-      <summary class="fs-client-prjects-header">
-        <h2 id="fs-client-projects-title" class="past">Completed</h2>
-      </summary>
-      <div id="fs-client-projects-panel">
-        {% for study in projects | sort(false, false, "nextKeyDate") %}
-          {% if study.statusKey == "past" %}
-            {% include "partials/fs-study-card.njk" %}
-          {% endif %}
-        {% endfor %}
-      </div>
-    </details>    
+        <div id="fs-client-projects-panel-{{ section.statusKey }}" class="fs-details-panel">
+          {% for study in projects | sort(false, false, "nextKeyDate") %}
+            {% if study.statusKey == section.statusKey %}
+              {% include "partials/fs-study-card.njk" %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </details>
+    {% endfor %}
+  </div>
 
 
 
     <article class="demo-notes">
-      <h2>Notes on the Happening Now block</h2>
-      <p>- A very short list (2-3 items) of priority-scored items. These items could come from any of the Factors might include: Most-recently updated/progressed projects; Whether the most recent change happened in the past week; Significance of the change (Something currently running is highly important... a Draft project is comparatively less important). </p>
-    </article>
-    <hr/>
+      <h2>Notes on the Research Projects block</h2>
+      <p>- A workflow-status ordered list of a client's projects.</p>
+      <p>- We've seen the "2 recruitment criteria need attention" block previously; it directly replicates the action panel on the Completions page.</p>
+      <p>- If there's nothing in a workflow-status, such as "Running", then that section is closed by default.</p>
+      <p>- The image associated with each product is the Hero product – the focus of a client's research.</p>
+      <p>- Some Draft projects have a blank image – that's intentional. Because it's a Draft, it's reasonable to assume a client might not have uploaded their hero product yet.</p>
+      <p>- The dates in the Past section should probably be presented as actual dates (not relative 'days ago').</p>
 
-
-    <h2>Lifecycle block</h2>
-    {# {%  include "" %} #}
-    <article class="demo-notes">
-      <h2>Notes on the Lifecycle block</h2>
-      <p>- All of a client's research projects are organised by lifecycle/workflow. </p>
+      <h2>To-do</h2>
+      <p>- Add colour-coding and/or icons into the Summary (heading) for each Details block.</p>
+      <p>- Add a "Nothing to see here" state when there's no research projects inside a given workflow-status.</p>
+      <p>- Add a "How to get started" message when a client has zero projects.</p>
     </article>
     <hr/>
 
@@ -131,10 +111,9 @@
       <p>- For a research project to run, a client is going to need to add/manage <em>dozens</em> of products to appear in their fake supermarket. They'll have their own concept-products; their own real (existing) products; competitors' real products; possibly some straight-up fake products.</p>
       <p>- They'll obviously have to upload their concept-products; we can't invent that for them. There's a reasonable chance we'll have scraped their real (existing) products from external sites previously - but they'll want to tweak that content. There's a high probability that we'll have scraped their competitor products - and maybe the client will want to add more. </p>
       <p>- If we can make a library of products available to a client, that'll save them a bunch of time... making our service more efficient and valuable for the client's research manager. That is, <em>the person controlling the budget</em>.</p>
-      <p>- There's a concept of a "product set", too. If you're working for Mars, then you might want to have a set of chocolate snacks ready to go every time you're testing the latest weird-ass Snickers bar. Mars also produces MasterFoods spices and Whiskas pet food – so there might be saved "product sets" there, too.</p>
+      <p>- There's a concept of a "product set", too. If you're working for Mars (ie, the company that makes Mars Bars), then you might want to have a set of chocolate snacks ready to go every time you're testing the latest weird-ass Snickers bar. Mars also produces MasterFoods spices and Whiskas pet food – so there might be saved "product sets" there, too.</p>
       <p>- The point is, this all feels like something that'll be tricky for clients to glom onto, ya know?</p>
     </article>
-    <hr/>
 
 
 {#     <div class="fs-allCompletionGroups" data-demo-days-remaining="{{ projectDueDate }}" data-demo-average-completions-per-day="{{ demoAverageCompletionsPerDay }}">

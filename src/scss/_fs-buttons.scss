@@ -145,7 +145,6 @@
 
 
   &.btn-icon {
-    
     .icon {
       display: flex;
       align-items: center;
@@ -168,7 +167,7 @@
     }
     &.btn-iconOnly {
       padding-block: var(--fs-spacing-2xs); 
-      padding-inline: var(--spacing-sm);
+      padding-inline: var(--fs-spacing-2xs); 
     }
   }
 }
