@@ -24,6 +24,7 @@
       {% endif %}
 
       {% for pane in panes %}
+        {% set inputSize = "xl" %}
         <div id="fs-stepper-pane-{{ pane.slug }}" {% if loop.index > 1 %}inert{% endif %} data-item-index="{{ loop.index }}" class="fs-stepper-pane">
           {% if pane.sourcePanePartial %}
             {% include "partials/" + pane.sourcePanePartial %}

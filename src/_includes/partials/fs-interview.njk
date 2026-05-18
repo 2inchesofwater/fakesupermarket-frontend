@@ -1,109 +1,112 @@
 <div id="fs-interview" role="dialog" aria-modal="true" aria-label="A short interview about your (fake) purchases">
-
   <section id="interview-wrapper" class="fs-dialogue fs-dialogue-md" role="region" aria-labelledby="interview-title">
-    <header>
-      <h1 id="fakesupermarket-logo" aria-label="Fake Supermarket" class="fakesupermarket-logo"><span id="fakesupermarket-logo-background">{% include "partials/logo/fakesupermarket-roundel.njk" %}</span></h1>
-    </header>
+  <div class="fs-dialogue-outer">
+      <header>
+        <h1 id="fakesupermarket-logo" aria-label="Fake Supermarket" class="fakesupermarket-logo">
+          {% include "partials/logo/fakesupermarket-logo.njk" %}
+        </h1>
+      </header>
 
-		<region id="interview-wrapper-outer" class="fs-dialogue-inner">
-      <div id="interview-wrapper-inner" class="fs-dialogue">
-        {% include 'partials/icons/stars-interactive.njk' %}
-        <form id="fs-interview-dataCollection">
-          <div class="fs-carousel">
-            <div class="fs-carousel-track">
-              <div id="fs-interview-intro" class="fs-carousel-slide">
-                <h1 class="sr-only">Post-purchase interview</h1>
-                <h2 class="fs-dialogue-title fs-interview-welcome">Next up: A few questions</h2>
-                <p>You just (fake) bought some products for your household. We'd like to understand why those products are the best match for you and your situation.</p>
-                <input type="hidden" name="fs-interview-studyID" value="{{ storefront.study.studyID }}" >
-                <input type="hidden" name="fs-interview-participantID" value="001">
-                <input type="hidden" name="fs-interview-sessionDateTime" value="">
-              </div>
-              {% for question in storefront.study.interview %}
-                <div id="{{ question.questionSlug }}" class="fs-carousel-slide fs-interview-question">
-                  <h2 class="fs-dialogue-title fs-interview-welcome">You bought this:</h2>
-                  <ul class="fs-interview-product" >
-                  </ul>
+  		<region id="interview-wrapper-outer" class="">
+        <div id="interview-wrapper-inner" class="">
+          {% include 'partials/icons/stars-interactive.njk' %}
+          <form id="fs-interview-dataCollection">
+            <div class="fs-carousel">
+              <div class="fs-carousel-track">
+                <div id="fs-interview-intro" class="fs-carousel-slide">
+                  <h1 class="sr-only">Post-purchase interview</h1>
+                  <h2 class="fs-interview-title fs-interview-welcome">Before you go...</h2>
+                  <p>You just selected some products. We'd love you to tell us why you chose those products for your household.</p><p>After these few questions, we'll mark your participation as complete.</p>
+                  <input type="hidden" name="fs-interview-studyID" value="{{ storefront.study.studyID }}" >
+                  <input type="hidden" name="fs-interview-participantID" value="001">
+                  <input type="hidden" name="fs-interview-sessionDateTime" value="">
+                </div>
+                {% for question in storefront.study.interview %}
+                  <div id="{{ question.questionSlug }}" class="fs-carousel-slide fs-interview-question">
+                    <h2 class="fs-interview-title fs-interview-welcome">You bought this:</h2>
+                    <ul class="fs-interview-product" >
+                    </ul>
 
-                  <div class="">
-                    <div class="fs-interview-likertRatings" data-initial-rating="{{ question.questionInitialRating | default(5) }}">
-                      <label>{{ question.questionLabel }}</label>
-                      <div class="fs-interview-likertRatings-starGroup">
-                      {%- for i in range(1, 6) %}
-                        <button
-                          type="button"
-                          class="star"
-                          data-value="{{ i }}"
-                          aria-label="{{ i }} star"
-                          aria-pressed="true">
-                          <!-- Outline star SVG -->
-                          <svg class="star star-outline"><use href="#star-outline"></use></svg>
+                    <div class="">
+                      <div class="fs-interview-likertRatings" data-initial-rating="{{ question.questionInitialRating | default(5) }}">
+                        <label>{{ question.questionLabel }}</label>
+                        <div class="fs-interview-likertRatings-starGroup">
+                        {%- for i in range(1, 6) %}
+                          <button
+                            type="button"
+                            class="star"
+                            data-value="{{ i }}"
+                            aria-label="{{ i }} star"
+                            aria-pressed="true">
+                            <!-- Outline star SVG -->
+                            <svg class="star star-outline"><use href="#star-outline"></use></svg>
 
-                          <!-- Filled star SVG -->
-                          <svg class="star star-filled"><use href="#star-filled"></use></svg>
-                        </button>
-                      {%- endfor %}
-                        <select name="{{ rating_field_name | default('rating') }}" class="sr-only">
-                          {# <option value="0" {% if question.questionInitialRating == 0 %}selected{% endif %}>No rating</option> #}
-                          {%- for i in range(1, 6) %}
-                            <option value="{{ i }}" {% if question.questionInitialRating == i %}selected{% endif %}>{{ i }} star{% if i > 1 %}s{% endif %}</option>
-                          {%- endfor %}
-                        </select>    
+                            <!-- Filled star SVG -->
+                            <svg class="star star-filled"><use href="#star-filled"></use></svg>
+                          </button>
+                        {%- endfor %}
+                          <select name="{{ rating_field_name | default('rating') }}" class="sr-only">
+                            {# <option value="0" {% if question.questionInitialRating == 0 %}selected{% endif %}>No rating</option> #}
+                            {%- for i in range(1, 6) %}
+                              <option value="{{ i }}" {% if question.questionInitialRating == i %}selected{% endif %}>{{ i }} star{% if i > 1 %}s{% endif %}</option>
+                            {%- endfor %}
+                          </select>    
+                        </div>
+                        <ul class="fs-interview-likertRatings-adjectives">
+                          {% for adjective in question.questionLikertAdjectives %}
+                            <li id="{{ question.questionSlug }}-{{ loop.index }}" hidden class="badge badge-information">{{ adjective }}</li>
+                          {% endfor %}
+                        </ul>
                       </div>
-                      <ul class="fs-interview-likertRatings-adjectives">
-                        {% for adjective in question.questionLikertAdjectives %}
-                          <li id="{{ question.questionSlug }}-{{ loop.index }}" hidden>{{ adjective }}</li>
+
+                      <hr />
+
+                      <div class="fs-interview-multipleSelect">
+                        <h2 class="fs-dialogue-title fs-interview-multipleSelect-title">What stood out for you?</h2>
+                        <div class="fs-interview-multipleSelect-reasons">
+                        {% for adjective in question.questionMultipleAdjectives %}
+                          <label class="fs-pill">
+                            <input
+                              type="checkbox"
+                              name="adjectives"
+                              value="{{ adjective | trim | replace(' ', '_') | replace(\"'\", '_') | lower }}"
+                              aria-checked="false"
+                              autocomplete="off"
+                            >
+                            <span>{{ adjective }}</span>
+                          </label>
                         {% endfor %}
-                      </ul>
-                    </div>
-
-                    <hr />
-
-                    <div class="fs-interview-multipleSelect">
-                      <h2 class="fs-dialogue-title fs-interview-multipleSelect-title">What stood out for you?</h2>
-                      <div class="fs-interview-multipleSelect-reasons">
-                      {% for adjective in question.questionMultipleAdjectives %}
-                        <label class="fs-pill">
-                          <input
-                            type="checkbox"
-                            name="adjectives"
-                            value="{{ adjective | trim | replace(' ', '_') | replace(\"'\", '_') | lower }}"
-                            aria-checked="false"
-                            autocomplete="off"
-                          >
-                          <span>{{ adjective }}</span>
-                        </label>
-                      {% endfor %}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              {% endfor %} 
-              <div id="fs-interview-complete" class="fs-carousel-slide">
-                <h1>All done!</h1>
-              </div>            
+                {% endfor %} 
+                <div id="fs-interview-complete" class="fs-carousel-slide">
+                  <h1>All done!</h1>
+                </div>            
+              </div>
             </div>
-          </div>
 
-          <div id="fs-interview-controls">
-            <div class="fs-interview-progress">
-              <progress
-                class="fs-progressBar"
-                value="{{ currentStep | default(1) }}"
-                max="{{ storefront.study.interview | length }}"
-                aria-valuenow="{{ currentStep | default(1) }}"
-                aria-valuemax="{{ storefront.study.interview | length }}"
-                aria-label="Interview progress"
-              ></progress>
-            </div>  
+            <div id="fs-interview-controls">
+              <div class="fs-interview-progress">
+                <progress
+                  class="fs-progressBar"
+                  value="{{ currentStep | default(1) }}"
+                  max="{{ storefront.study.interview | length }}"
+                  aria-valuenow="{{ currentStep | default(1) }}"
+                  aria-valuemax="{{ storefront.study.interview | length }}"
+                  aria-label="Interview progress"
+                ></progress>
+              </div>  
 
-            <div class="btn-group btn-group-end">
-              <button type="button" class="fs-btn fs-btn-secondary fs-btn-next">Next</button>
-              <button hidden type="button" class="fs-btn fs-btn-secondary fs-btn-submit">Submit</button>
+              <div class="btn-group btn-group-end">
+                <button type="button" class="fs-btn btn-primary btn-lg fs-btn-next">Next</button>
+                <button hidden type="button" class="fs-btn btn-primary btn-lg fs-btn-submit">Submit</button>
+              </div>
             </div>
-          </div>
-        </form>
-      </div>
-    </region>
+          </form>
+        </div>
+      </region>
+    </div>
 	</section>	
 </div>

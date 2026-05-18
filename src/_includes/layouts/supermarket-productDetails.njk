@@ -1,5 +1,5 @@
 {% set storefront = breakfastcereal %}
-
+{% set pagelayout = "productDetails" %}
 {% extends "layouts/base.njk" %}
 
 {% block content %}
@@ -26,7 +26,7 @@
           <div class="product-pricing-topline">
   	        {% if product.priceCurrent and product.priceCurrent < product.priceRrp %}
   	          <div class="badge badge-positive">
-  	            Save {{ storefront.currencySymbol }}{{ product.priceRrp - product.priceCurrent }}
+  	            Save {{ storefront.currencySymbol }}{{ (product.priceRrp - product.priceCurrent) }}
   	          </div>
   	        {% endif %}  
   	        
@@ -134,6 +134,15 @@
         {% if storefront.productDetailsShowDescription %}
           <details open name="productDetails-description" aria-labelledby="description-heading">
             <summary class="accordion-summary-header">
+            <span class="accordion-markerGroup" aria-hidden="true">
+              <svg class="accordion-marker-icon svg-closed" viewBox="0 0 24 24" focusable="false">
+                <use href="#marker-closed"></use>
+              </svg>
+              <svg class="accordion-marker-icon svg-open" viewBox="0 0 24 24" focusable="false">
+                <use href="#marker-open"></use>
+              </svg>
+            </span>            
+
               <h3 id="description-heading">Product details</h3>
             </summary>
 
@@ -160,6 +169,14 @@
         <!-- Note to self: A lot of these H2 + p blocks should probably get replaced by a Nunjucks mixin -->
         <details aria-labelledby="ingredients-heading">
           <summary class="accordion-summary-header">
+            <span class="accordion-markerGroup" aria-hidden="true">
+              <svg class="accordion-marker-icon svg-closed" viewBox="0 0 24 24" focusable="false">
+                <use href="#marker-closed"></use>
+              </svg>
+              <svg class="accordion-marker-icon svg-open" viewBox="0 0 24 24" focusable="false">
+                <use href="#marker-open"></use>
+              </svg>
+            </span>            
             <h3 id="ingredients-heading">Ingredients &amp; warnings</h3>
           </summary>
           <div class="accordion-details-panel">
@@ -173,6 +190,14 @@
         <!-- Nutrition Info -->
         <details aria-labelledby="nutrition-heading">
           <summary class="accordion-summary-header">
+            <span class="accordion-markerGroup" aria-hidden="true">
+              <svg class="accordion-marker-icon svg-closed" viewBox="0 0 24 24" focusable="false">
+                <use href="#marker-closed"></use>
+              </svg>
+              <svg class="accordion-marker-icon svg-open" viewBox="0 0 24 24" focusable="false">
+                <use href="#marker-open"></use>
+              </svg>
+            </span>            
             <h3 id="nutrition-heading">Nutrition information</h3>
           </summary>
           <div class="accordion-details-panel">
@@ -293,6 +318,14 @@
         {% if product.attributes.storage_instructions %}
           <details aria-labelledby="storage-heading">
             <summary class="accordion-summary-header">
+              <span class="accordion-markerGroup" aria-hidden="true">
+                <svg class="accordion-marker-icon svg-closed" viewBox="0 0 24 24" focusable="false">
+                  <use href="#marker-closed"></use>
+                </svg>
+                <svg class="accordion-marker-icon svg-open" viewBox="0 0 24 24" focusable="false">
+                  <use href="#marker-open"></use>
+                </svg>
+              </span>            
               <h3 id="storage-heading">Storage</h3>
             </summary>
             <div class="accordion-details-panel">
@@ -340,6 +373,10 @@
   {% include "partials/json-storefront.njk" %}
   {% include "partials/json-productCards.njk" %}
 
+  <div class="fs-svg-hidden" aria-hidden style="position:absolute;width:0;height:0;overflow:hidden">
+    {% include "partials/icons/marker-interactive.njk" %}
+  </div>
+  
   <script type="module" src="/js/utils/init.js"></script>
   <script type="module" src="/js/pages/onboarding.js"></script>
   <script type="module" src="/js/pages/productDetails.js"></script>

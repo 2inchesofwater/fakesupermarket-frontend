@@ -1,25 +1,30 @@
+@use "fs-variables" as *;
+
 .progress-stepper {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-3xs);
+	gap: var(--spacing-sm);
 
 	details {
-		border-top: var(--thickness-sm) solid var(--color-border-default);
-		border-bottom: var(--thickness-sm) solid var(--color-border-default);
-		padding-inline-start: var(--spacing-md);	
-		padding-inline-end: var(--spacing-md);
-		padding-top: var(--spacing-lg);
-		padding-bottom: var(--spacing-lg);
-		transition: var(--transition-sm);
+		border: var(--thickness-sm) solid var(--color-border-default);
+		& + details {
+			// border-bottom: var(--thickness-sm) solid var(--color-border-default);
+		}
 
 		summary {
+			display: inline-flex;
+	    flex-direction: row;
+	    align-content: center;
+	    flex-wrap: wrap;
+	    
+	    width: 100%;
+
+			padding-inline: var(--spacing-md);	
+			padding-block: var(--spacing-md);
 			color: var(--color-text-tertiary);
-			& > * {
-				margin-inline-start: var(--spacing-3xs);
-			}
-			&:marker {
-				color: green;
-			}
+			
+			cursor: pointer;
+
 
 			h2, h3 {
 				display: inline-block;
@@ -27,22 +32,22 @@
 				font-size: var(--size-lg);
 				font-weight: var(--weight-regular);
 			}
+			&:hover {
+				color: var(--color-action-hover) !important;
+			}
 		}
-
-		summary:hover {
-			cursor: pointer;
-			color: var(--color-action-hover);
-		}
-
 		&[open] {
+			background: var(--color-background-header);
 			& > summary {
 				color: var(--color-text-primary);
-				margin-bottom: var(--spacing-md);
 				& > * {
 					font-weight: var(--weight-bold);
 				}
 			}
+			.step-details-panel {
+				padding-block-end: var(--spacing-md);
+				padding-inline: var(--spacing-md);
+			}
 		}
 	}
-
 }

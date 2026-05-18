@@ -5,6 +5,7 @@ nav.breadcrumbs {
     ol {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
         gap: var(--spacing-2xs);
         overflow-x: clip;

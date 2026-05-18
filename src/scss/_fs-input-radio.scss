@@ -21,6 +21,42 @@
       outline-offset: 0;
     }
 
+    &.size-sm {
+      .fs-input-radio-modern {
+        gap: var(--fs-spacing-sm);
+        .fs-input-radio-iconGroup {
+          width: var(--fs-size-sm);
+          height: var(--fs-size-sm);
+        }
+      }       
+    }
+    &.size-lg {
+      .fs-input-radio-modern {
+        gap: var(--fs-spacing-md);
+        .fs-input-radio-iconGroup {
+          width: var(--fs-size-lg);
+          height: var(--fs-size-lg);
+        }    
+      }    
+    }
+    &.size-xl {
+      .fs-input-radio-modern {
+        gap: var(--fs-spacing-sm);
+        .fs-input-radio-iconGroup {
+          width: var(--fs-size-xl);
+          height: var(--fs-size-xl);
+        }   
+      }     
+    }
+    &.size-2xl {
+      .fs-input-radio-modern {
+        gap: var(--fs-spacing-md);
+        .fs-input-radio-iconGroup {
+          width: var(--fs-size-2xl);
+          height: var(--fs-size-2xl); 
+        }   
+      }     
+    }
     .fs-input-radio-modern {
       flex-grow: 1;
       margin-block-end: 0;
@@ -35,22 +71,7 @@
       .fs-input-radio-iconGroup {
         width: var(--fs-size-lg);
         height: var(--fs-size-lg); 
-      }  
-          
-      &.size-xl {
-        gap: var(--fs-spacing-sm);
-        .fs-input-radio-iconGroup {
-          width: var(--fs-size-xl);
-          height: var(--fs-size-xl);
-        }        
-      }
-      &.size-2xl {
-        gap: var(--fs-spacing-md);
-        .fs-input-radio-iconGroup {
-          width: var(--fs-size-2xl);
-          height: var(--fs-size-2xl); 
-        }        
-      }           
+      }             
     }
 
     .fs-radio-input-button {

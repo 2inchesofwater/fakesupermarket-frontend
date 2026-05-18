@@ -22,27 +22,7 @@
 
     <div class="fs-input-radioGroup" data-module="fs-radios">
       {% for item in pane.items %}
-        <div class="fs-input-radio">
-          <input class="fs-radio-input-button" id="pane-input-{{ pane.slug }}-{{ item.defaultCharacteristicSlug }}" name="{{ pane.slug }}" type="radio" value="{{ item.defaultCharacteristicSlug }}">
-
-          <label for="pane-input-{{ pane.slug }}-{{ item.defaultCharacteristicSlug }}" class="fs-input-radio-modern size-2xl">
-              <span class="fs-input-radio-iconGroup" aria-hidden="true">
-                <svg class="fs-input-radio-icon svg-empty" viewBox="0 0 24 24" focusable="false">
-                  <use href="#check-empty"></use>
-                </svg>
-                <svg class="fs-input-radio-icon svg-filled" viewBox="0 0 24 24" focusable="false">
-                  <use href="#check-filled"></use>
-                </svg>
-              </span> 
-
-              <div class="fs-input-radio-modern-label"> 
-                {{ item.defaultCharacteristicLabel }}
-                {% if item.defaultCharacteristicExplanation %}
-                  <br/><span class="fs-inputGroup-help">{{ item.defaultCharacteristicExplanation }}</span>
-                {% endif %}
-              </div>
-          </label>
-        </div>
+        {% include "partials/fs-input-radio.njk" %}
       {% endfor %}
     </div>
   </fieldset>

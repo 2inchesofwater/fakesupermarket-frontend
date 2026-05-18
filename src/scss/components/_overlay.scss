@@ -2,8 +2,8 @@
 
 .overlay {
 		position: absolute;
-		top: var(--spacing-xs);
-		left: var(--spacing-xs);
+		top: var(--spacing-sm);
+		left: var(--spacing-sm);
 
 	&.overlay-text {
 		display: inline-flex;
@@ -17,17 +17,18 @@
 		padding: var(--spacing-2xs) var(--spacing-2xs);
 		box-sizing: border-box;
 		border-radius: 5rem;
-		width: 4rem;
-		height: 4rem;
+		min-width: 0;
+		aspect-ratio: 1 / 1;
 
-		background: var(--color-background-default);
-		border: var(--thickness-lg) solid var(--color-brand-secondary);
-		outline: var(--thickness-md) solid var(--color-white);		 		
+		background: var(--color-core-100);
+		border: var(--thickness-lg) solid var(--color-brand-primary);
+		outline: var(--thickness-md) solid var(--color-white);	
+		box-shadow: var(--boxShadow-sm);	 		
 	}
 
 	&.productCardOverlay-alignRight {
 		left: unset;
-		right: var(--spacing-xs);
+		right: calc( var(--spacing-xs) * -1);
 	}
 	&.productCardOverlay-alignBottom {
 		top: unset;

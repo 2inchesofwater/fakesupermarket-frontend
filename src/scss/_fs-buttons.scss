@@ -1,51 +1,58 @@
 .fs-btn {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  gap: var(--fs-spacing-xs);
+  gap: calc(var(--fs-spacing-xs) + var(--fs-spacing-2xs));
 
-  border: var(--thickness-md) solid transparent;
-  border-radius: var(--radius-md);
+  border: var(--fs-thickness-md) solid transparent;
+  border-radius: var(--fs-radius-md);
 
-  font-family: var(--font-sans);
-  font-size: var(--size-md);
-  font-weight: var(--weight-regular);
+  font-family: var(--fs-font-sans);
+  font-size: var(--fs-size-md);
+  line-height: 1em;
+  font-weight: var(--fs-weight-regular);
   text-align: center;
   text-wrap-mode: nowrap;
   text-decoration: none;
-  transition: var(--transition-sm);
+  transition: var(--fs-transition-sm);
 
-  padding-block: var(--spacing-xs); 
-  padding-inline: var(--spacing-md);
+  padding-block: var(--fs-spacing-xs); 
+  padding-inline: var(--fs-spacing-md);
 
   &:hover {
     cursor: pointer;
     text-decoration: none;
   }
   &:focus {
-    outline: var(--thickness-lg) solid var(--fs-color-focus-ring);
+    outline: var(--fs-thickness-lg) solid var(--fs-color-focus-ring);
     outline-offset: -1px;
   } 
 
   &.btn-sm {
-    font-size: var(--size-sm);
-    padding-block: var(--spacing-xs); 
-    padding-inline: var(--spacing-sm);    
+    font-size: var(--fs-size-sm);
+    padding-block: var(--fs-spacing-xs); 
+    padding-inline: var(--fs-spacing-sm);
+    > .label {
+      font-size: var(--fs-size-sm);
+    }    
   }
   &.btn-lg {
-    border-radius: var(--radius-lg);
-    font-size: var(--size-lg);
-    padding-block: var(--spacing-sm); 
-    padding-inline: var(--spacing-lg);    
+    border-radius: var(--fs-radius-lg);
+    font-size: var(--fs-size-lg);
+    padding-block: var(--fs-spacing-sm); 
+    padding-inline: var(--fs-spacing-lg); 
+    > .label {
+      font-size: var(--fs-size-lg);
+    }        
   }
 
 
   &.btn-primary {
     background: var(--fs-color-action-primary-default);
-    border-width: var(--thickness-md);
-    box-shadow: inset 0 0 0 var(--thickness-sm) var(--fs-color-white);
+    border-width: var(--fs-thickness-md);
+    box-shadow: inset 0 0 0 var(--fs-thickness-sm) var(--fs-color-white);
     color: var(--fs-color-action-primary-font);
     
     &:hover {
@@ -84,7 +91,7 @@
 
   &.btn-tertiary {
     background: var(--fs-color-action-tertiary-default);
-    border-width: var(--thickness-sm);
+    border-width: var(--fs-thickness-sm);
     border-color: var(--fs-color-action-tertiary-hover);
     color: var(--fs-color-action-tertiary-font);
     &:hover {
@@ -114,17 +121,22 @@
     background: transparent;
     color: var(--fs-color-brand-primary);
     font-weight: unset;
-    text-decoration: underline;
-    border: 0;
+    text-decoration: unset;
+    border: var(--fs-thickness-lg) solid transparent;
     padding-block: unset;
-    // padding-inline: unset;
+    padding-inline: var(--fs-spacing-2xs);
     &:disabled {
       background: none;
     }
     &:hover {
-      background: var(--fs-color-core-100);
+      background: var(--fs-color-core-200);
       color: var(--fs-color-core-700);
+      border: var(--fs-thickness-lg) solid var(--fs-color-core-200);
     }
+    &:focus {
+      outline-color: var(--fs-color-focus-ring);
+      //outline-offset: 2px;
+    }    
     > svg > *,
     .icon svg > * {
       fill: var(--fs-color-brand-primary);
@@ -145,15 +157,16 @@
 
 
   &.btn-icon {
+    padding-inline: calc(var(--fs-spacing-md) - var(--fs-spacing-2xs));
+    &.btn-lg {
+      padding-inline: calc(var(--fs-spacing-lg) - var(--fs-spacing-xs));
+    }
     .icon {
       display: flex;
       align-items: center;
       justify-content: center;
       width: var(--fs-btn-size-md);
       height: var(--fs-btn-size-md);
-
-      // position: relative;
-      // top: .1em;
     }
     .label {
       line-height: var(--fs-btn-size-md);
@@ -166,10 +179,12 @@
       overflow: visible;
     }
     &.btn-iconOnly {
-      padding-block: var(--fs-spacing-2xs); 
-      padding-inline: var(--fs-spacing-2xs); 
+      padding-inline: var(--spacing-sm);
     }
   }
+  > .label {
+    white-space: nowrap;
+  }  
 }
 
 .fs-btn-group {
@@ -182,9 +197,3 @@
     justify-content: end;
   }
 }
-
-#storybook-root > div > .fs-btn {
-  justify-self: start;
-  align-self: start;
-}
-

@@ -3,16 +3,17 @@
 .btn {
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	justify-content: center;
 	align-items: center;
 	gap: var(--spacing-xs);
 
-	border: var(--thickness-md) solid transparent;
+	border: var(--thickness-sm) solid transparent;
 	border-radius: var(--radius-md);
 
 	font-family: var(--font-sans);
 	font-size: var(--size-md);
+	line-height: 1em;
 	font-weight: var(--weight-regular);
 	text-align: center;
 	text-decoration: none;
@@ -26,7 +27,7 @@
 		text-decoration: none;
 	}
 	&:focus {
-		outline: var(--thickness-lg) dashed var(--color-focus-ring);
+		outline: var(--thickness-lg) solid var(--color-focus-ring);
 		outline-offset: -1px;
 	}
 
@@ -44,15 +45,21 @@
 
 	&.btn-primary {
 		background: var(--color-action-primary-default);
-		border-width: var(--thickness-md);
-		box-shadow: inset 0 0 0 var(--thickness-sm) var(--color-white);
+		outline: var(--thickness-md) solid var(--color-action-primary-default);
+		border-width: var(--thickness-sm);
+		border-color: var(--color-white);
+		//box-shadow: inset 0 0 0 var(--thickness-sm) var(--color-white);
 		color: var(--color-action-primary-font);
+		font-weight: var(--weight-regular);
 		
 		&:hover {
 			background: var(--color-action-primary-hover);
+			outline-color: var(--color-action-primary-hover);
 		}
 		&:focus {
-			border-color: var(--color-white);
+			outline-width: var(--thickness-lg);
+			outline-offset: var(--thickness-none);
+			outline-color: var(--color-focus-ring);
 		}
 		&:active {
 			background: var(--color-action-primary-active);
@@ -109,10 +116,10 @@
 		background: transparent;
 		color: var(--color-brand-primary);
 		font-weight: unset;
-		text-decoration: underline;
+		text-decoration: none;
 		border: 0;
 		padding-block: unset;
-		padding-inline: unset;
+		padding-inline: var(--spacing-xs);
 		&:hover {
 		  background: var(--color-core-100);
 		  color: var(--color-core-700);
@@ -129,6 +136,7 @@
 		border-color: transparent;
 		color: var(--color-action-disabled-font);
 		pointer-events: none;
+		outline: unset;
 		> svg > *,
     	.icon svg > * {
 			fill: var(--color-action-disabled-font);
@@ -138,9 +146,8 @@
 
 	&.btn-icon {
 		.icon {
-		  // line-height: 1em;
 	      position: relative;
-	      top: .15em;
+	      // top: .15em;
 		}
 		> svg,
 		.icon > svg {
@@ -153,9 +160,8 @@
 			padding-inline: var(--spacing-sm);
 		}
 	}
-}
 
-#storybook-root > div > .btn {
-	justify-self: start;
-	align-self: start;
+	> .label {
+		white-space: nowrap;
+	}
 }

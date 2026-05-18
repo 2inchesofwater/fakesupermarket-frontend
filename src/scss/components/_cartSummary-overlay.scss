@@ -5,13 +5,13 @@
 	top: 0;
 	right: 0;
 	width: 100%;
-	max-width: 500px;
+	max-width: 420px;
 	height: 100%;
 	z-index: 1055; /* Following Bootstrap's pattern for z-layering */
 	background: var(--color-background-page);
 	color: var(--color-text-primary);
 	transform: translateX(120%);
-	transition: transform 0.25s cubic-bezier(0.4,0,0.2,1);
+	transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
 	will-change: transform;		
 	display: flex;
 	flex-direction: column;
@@ -36,6 +36,7 @@
 		padding: var(--spacing-md);
 		padding-inline-start: var(--spacing-lg);
 		padding-block-end: var(--spacing-sm);
+		background: var(--color-background-header);
 		border-block-end: var(--thickness-sm) solid var(--color-border-light);
 
 		#cart-overlay-title {
@@ -81,6 +82,7 @@
 	#cart-summary-subtotal {
 		padding: var(--spacing-sm);
 		padding-inline: var(--spacing-xl);
+		background: var(--color-background-header);
 		border-block: var(--thickness-sm) solid var(--color-border-light);
 
 		.cart-summary-row {
@@ -100,12 +102,12 @@
 		}		
 	}
 	#cart-overlay-footer {
-		padding: var(--spacing-md);
-		padding-inline-start: var(--spacing-lg);
-
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-sm);
+		background: var(--color-background-header);
+		padding: var(--spacing-md);
+		padding-inline-start: var(--spacing-lg);
 
 		.cart-primary-actions {
 			display: flex;

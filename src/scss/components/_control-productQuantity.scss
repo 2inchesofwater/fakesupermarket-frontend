@@ -24,28 +24,20 @@
 
 		transition: var(--transition-md);
 		svg {
+			width: var(--size-sm);
+			height: var(--size-sm);
 			& > path {
-				fill: var(--color-grays-600);
-				stroke: var(--color-grays-600);
+				fill: var(--color-gray-500);
 			}
 		}
 		&:hover {
-			background: var(--color-brand-primary);
+			background: var(--color-action-tertiary-hover);
 			cursor: pointer;
 			svg {
 				& > path {
-					fill: var(--color-white);
-					stroke: var(--color-white);
+					fill: var(--color-action-tertiary-font);
 				}
 			}			
-		}
-		&.control-minus {
-			// border-start-end-radius: 0;
-			// border-end-end-radius: 0;
-		}
-		&.control-plus {
-			// border-start-start-radius: 0;
-			// border-end-start-radius: 0;
 		}
 	}
 	input {
@@ -80,7 +72,8 @@
 
 		&:hover,
 		&:active {
-			background: var(--color-background-default);
+			background: var(--color-action-tertiary-hover);
+			color: var(--color-action-tertiary-font);
 		}
 	}
 }

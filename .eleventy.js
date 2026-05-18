@@ -29,6 +29,8 @@ module.exports = async function(eleventyConfig) {
     return new Date().getFullYear();
   });
 
+  eleventyConfig.addGlobalData("assetVersion", Date.now());
+
   eleventyConfig.addNunjucksFilter("range", function(start, end) {
     return Array.from({ length: end - start }, (_, i) => start + i);
   });

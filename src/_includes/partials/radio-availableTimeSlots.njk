@@ -2,7 +2,7 @@
   {% set radioIdx = 0 %}
 
   {% for section in slots %}
-    <h3>{{ section.heading }}</h3>
+    <h4 class="radio-subgroup-title">{{ section.heading }}</h4>
     <div class="radio-subgroup">
       {% for slot in section.times %}
         {% set radioIdx = radioIdx + 1 %}

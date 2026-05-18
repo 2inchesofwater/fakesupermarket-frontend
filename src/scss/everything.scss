@@ -3,73 +3,235 @@
 // @forward 'fonts';
 // @forward 'typography';
 
-body {
-	padding: 2.5vw;
-	background-color: var(--color-background-subtle);
-	color: var(--color-text-primary);
-	font-size: 14px;
-	font-weight: var(--weight-light);
+@font-face {
+    font-family: "MD Nichrome Test";
+    src: url(fonts/MDNichrome-Light.woff2) format("woff2"), url(fonts/MDNichrome-Light.woff) format("woff");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
 }
 
-#everything {
-	&.container {
-		display: flex;
-		flex-direction: row;
-		gap: 10vw;
-		min-width: 200%;
+body.storybook {
+	padding: 5vw;
+	background: var(--fs-color-background-default);
+	color: var(--fs-color-text-primary);
+	font-size: var(--fs-size-md);
+	font-weight: var(--fs-weight-light);
+	position: relative;
+}
 
-		.wrapper {
-			width: 50vw;
-			background-color: var(--color-white);
-			border: 1px solid var(--color-border-default);
-			box-shadow: var(--boxShadow-md);
-			padding: 2.5vw;
-
-			dl {
-				display: flex;
-				flex-direction: row;
-				width: 100%;
-				dt, dd {
-					width: 100%;
-				}
+.storybook-root {
+	margin-block: 10vh;
+	.storybook-root-header {
+		margin-block-end: 10vh;
+	}
+	.demo-section {
+		margin-block-end: 10vh;
+		&.demo-missing {
+			.demo {
+				margin-block-end: var(--fs-spacing-md);
+				padding: var(--fs-spacing-xl);
+				background: unset;
+				border: 2px dotted var(--fs-color-core-200);
+				border-radius: var(--fs-radius-md);				
 			}
-			.level-1 > li {
-				margin-block-end: 2.5vw;
-
-				dt {
-					max-width: 25%;
-					color: var(--color-brand-primary);
-				}
-			}
-			.level-2 > li {
-				dt {
-					max-width: 50%;
-					color: unset;
-				}
-				dd {
-					max-width: 100%;
-				}
-			}			
+		}
+	}
+	.demo {
+		margin-block-end: var(--fs-spacing-md);
+		padding: var(--fs-spacing-md);
+		background: var(--fs-color-background-active);
+		border-radius: var(--fs-radius-md);
+		overflow-x: scroll;
+		@media (min-width: 600px) {
+			padding: var(--fs-spacing-xl);
 		}
 	}
 }
 
-h1, h2 {
-	font-weight: var(--weight-bold);
+body.storybook {
+	h1 {
+		font-family: var(--fs-font-display);
+		font-weight: var(--fs-weight-heavy);
+	}
+	h1.page-title {
+		font-size: var(--fs-size-4xl);		
+	}
+	h1.section-title {
+		margin-block-start: var(--fs-spacing-xl);
+		padding-block-start: var(--fs-spacing-xl);
+		border-block-start: 4px solid var(--fs-color-text-primary);
+		font-size: var(--fs-size-3xl);
+		color: var(--fs-color-brand-primary);		
+	}
+	& > h2 {
+		font-weight: var(--fs-weight-bold);
+	}	
 }
-h3 {
-	font-weight: var(--weight-regular);
-	margin-bottom: var(--spacing-sm);
-}
-p {
-	margin-block-end: var(--spacing-md);
-	max-width: 50rem;
-	&.filename {
+body.storybook .demo-section {
+	& > header h2 {
 		font-weight: var(--weight-bold);
-		color: var(--color-brand-secondary);
-		margin-bottom: 0;
+	}
+	& > h3 {
+		font-weight: var(--weight-regular);
+		margin-bottom: var(--spacing-sm);
+		&.new {
+			display: inline-block;
+			padding: var(--fs-spacing-xs);
+			background: var(--fs-color-bright-yellow-light);
+		}
+	}
+	& > p {
+		margin-block-end: var(--spacing-sm);
+		max-width: 50rem;
+		&.filename {
+			font-weight: var(--weight-bold);
+			color: var(--color-brand-secondary);
+			margin-bottom: 0;
+		}
+	}
+	& p + h3 {
+			margin-block-start: var(--fs-spacing-xl);
+	}
+	& > ul {
+		margin-block-end: var(--fs-spacing-xl);
+		li {
+			max-width: 50rem;
+			margin-inline-start: var(--fs-spacing-xl);
+			list-style: circle;
+		}
+		li + li {
+			margin-block-start: var(--fs-spacing-sm);
+		}
+	}
+	& hr {
+		margin-bottom: 2.5vw;
+	}
+	code {
+		font-size: 0.9em;
+	}
+
+	.grid-buttons {
+		display: grid;
+		grid-template-columns: repeat(6, minmax(10rem, 1fr));
+		grid-gap: var(--fs-spacing-md);
+		justify-items: start;
+	}
+	.grid-badges {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(5rem, 1fr));
+		grid-gap: var(--fs-spacing-md);
+		justify-items: start;
+	}
+	.grid-dialogue,
+	.grid-pagination,
+	.grid-unavailable,
+	.grid-utilities {
+		display: grid;
+		grid-template-columns: 10rem minmax(10rem, 800px);
+		grid-gap: var(--fs-spacing-md);
+	}
+	.grid-dialogue {
+		grid-template-columns: 10rem minmax(250px, 800px);
+	}
+	.grid-utilities {
+		grid-template-columns: 10rem 1fr;
+	}
+	.grid-productCards {
+		display: grid;
+		grid-template-columns: repeat(5, minmax(200px, 300px));
+		grid-template-rows: var(--fs-spacing-lg) auto;
+		row-gap: var(--fs-spacing-md);
+		column-gap: var(--fs-spacing-md);
+		@media (min-width: 600px) {
+			column-gap: var(--fs-spacing-xl);
+		}
+		> span {
+			grid-row: 1;
+		}
+		> div {
+			grid-row: 2;
+		}		
+	}
+	.demo-logo {
+		.fs-logo-symbol {
+			width: var(--fs-logo-size-md);
+			height: var(--fs-logo-size-md);
+		}
+	}
+	.nullify-footer {
+		#site-footer {
+			margin-block-start: unset;
+		}
 	}
 }
-hr {
-	margin-bottom: 2.5vw;
+
+
+#everything-toc {
+  padding: var(--fs-spacing-md);
+  background: var(--fs-color-core-100);
+  border: 2px solid var(--fs-color-core-300);
+  border-radius: var(--fs-radius-md);
+  box-shadow: var(--fs-boxShadow-md);
+  @media (min-width: 600px) {
+	  position: fixed;
+	  top: 5%;
+	  right: 0.75vw;
+	  width: 100%;	
+	  max-width: 20rem;
+	  z-index: 2000;
+  }
+
+	.everything-toc-title {
+	  margin-block-start: var(--fs-spacing-xs);
+	  margin-block-end: var(--fs-spacing-md);
+	  font-weight: var(--fs-weight-bold);
+	}
+
+	details + details {
+	  margin-block-start: var(--fs-spacing-sm);
+	}
+
+	summary {
+	  cursor: pointer;
+	  font-weight: var(--fs-weight-bold);
+		&:hover {
+			color: var(--fs-color-brand-primary);
+		}	  
+	}
+
+	ul {
+	  margin-block: var(--fs-spacing-xs) var(--fs-spacing-md);
+	  padding-inline-start: 1.25rem;
+	}
+
+	ul li + li {
+	  margin-block-start: var(--fs-spacing-xs);
+	}
+	a {
+		text-decoration: unset;
+		&:hover {
+			text-decoration: unset;
+			color: var(--fs-color-brand-primary);
+		}
+	}
+}
+
+.storybook-root > div > .btn {
+	justify-self: start;
+	align-self: start;
+}
+.storybook-root > div > .fs-btn {
+  justify-self: start;
+  align-self: start;
+}
+.storybook-root #products-grid {
+  @media (max-width: 400px) {
+  	grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
+.storybook-root .fs-taskReminder {
+	width: 100%;
+	max-width: 400px;
+	margin-inline: auto;
 }

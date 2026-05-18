@@ -23,7 +23,7 @@
         <span class="icon">
           {% include "partials/icons/add.njk" %}
         </span>
-        <span class="label">New research project</span>
+        <span class="label">New study</span>
       </button>
     </div>
   </menu>
@@ -38,17 +38,46 @@
 
     <hr/>
 
-{% set activeProjects = projects | selectattr("statusKey", "equalto", "active") | list %}
-{% set pendingProjects = projects | selectattr("statusKey", "equalto", "pending") | list %}
-{% set draftProjects = projects | selectattr("statusKey", "equalto", "draft") | list %}
-{% set pastProjects = projects | selectattr("statusKey", "equalto", "past") | list %}
-
 {% set projectStatusCounts = {
-  active: activeProjects.length,
-  pending: pendingProjects.length,
-  draft: draftProjects.length,
-  past: pastProjects.length
+  active: 0,
+  pending: 0,
+  draft: 0,
+  past: 0
 } %}
+
+{# The tally block is clunky, but serviceable for a PoC. #}
+{# As it turns out, Nunjucks doesn't have a useful 'selectattr' function. #}
+{% for study in projects %}
+  {% if study.statusKey == "active" %}
+    {% set projectStatusCounts = {
+      active: projectStatusCounts.active + 1,
+      pending: projectStatusCounts.pending,
+      draft: projectStatusCounts.draft,
+      past: projectStatusCounts.past
+    } %}
+  {% elif study.statusKey == "pending" %}
+    {% set projectStatusCounts = {
+      active: projectStatusCounts.active,
+      pending: projectStatusCounts.pending + 1,
+      draft: projectStatusCounts.draft,
+      past: projectStatusCounts.past
+    } %}
+  {% elif study.statusKey == "draft" %}
+    {% set projectStatusCounts = {
+      active: projectStatusCounts.active,
+      pending: projectStatusCounts.pending,
+      draft: projectStatusCounts.draft + 1,
+      past: projectStatusCounts.past
+    } %}
+  {% elif study.statusKey == "past" %}
+    {% set projectStatusCounts = {
+      active: projectStatusCounts.active,
+      pending: projectStatusCounts.pending,
+      draft: projectStatusCounts.draft,
+      past: projectStatusCounts.past + 1
+    } %}
+  {% endif %}
+{% endfor %}
 
 {% set projectSections = [
   { statusKey: "active", statusLabel: "Running" },
@@ -61,33 +90,53 @@
     <div id="fs-client-projects-header">
       <h2>Studies</h2>
     </div>
+
     {% for section in projectSections %}
-      <details id="fs-client-projects-{{ section.statusKey }}" class="fs-details" {% if projectStatusCounts[section.statusKey] > 0 %}open{% endif %} >
+      <details id="fs-client-projects-{{ section.statusKey }}" class="fs-details {{ section.statusKey }}" {% if projectStatusCounts[section.statusKey] > 0 %}open{% endif %} >
         <summary class="fs-summary fs-client-projects-header">
           <div class="fs-summary-wrapper">
             <div class="fs-summary-content">
-              <h3 id="fs-client-projects-title-{{ section.statusKey }}" class="{{ section.statusKey }}">
-                {{ section.statusLabel }}
-              </h3>
+              {% if section.statusKey == "active" %}
+                <span class="icon">{% include "partials/icons/recording-circle.njk" %}</span>
+              {% endif %}
+              {% if section.statusKey == "pending" %}
+                <span class="icon">{% include "partials/icons/calendar.njk" %}</span>
+              {% endif %}
+              {% if section.statusKey == "draft" %}
+                <span class="icon">{% include "partials/icons/draft.njk" %}</span>
+              {% endif %}
+              {% if section.statusKey == "past" %}
+                <span class="icon">{% include "partials/icons/archive.njk" %}</span>
+              {% endif %}
+              <span class="label">
+                <h3 id="fs-client-projects-title-{{ section.statusKey }}" class="{{ section.statusKey }}">
+                  {{ section.statusLabel }}
+                </h3>
+              </span>
             </div>
           </div>
         </summary>
 
         <div id="fs-client-projects-panel-{{ section.statusKey }}" class="fs-details-panel">
-          {% for study in projects | sort(false, false, "nextKeyDate") %}
-            {% if study.statusKey == section.statusKey %}
-              {% include "partials/fs-study-card.njk" %}
-            {% endif %}
-          {% endfor %}
+          {% if projectStatusCounts[section.statusKey] > 0 %}
+            {% for study in projects | sort(false, false, "nextKeyDate") %}
+              {% if study.statusKey == section.statusKey %}
+                {% include "partials/fs-study-card.njk" %}
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            <article class="fs-empty-state">
+              <p>No research studies in this section.</p>
+            </article>
+          {% endif %}
         </div>
       </details>
     {% endfor %}
   </div>
 
 
-
     <article class="demo-notes">
-      <h2>Notes on the Research Projects block</h2>
+      <h2>Notes on the Research Studies block</h2>
       <p>- A workflow-status ordered list of a client's projects.</p>
       <p>- We've seen the "2 recruitment criteria need attention" block previously; it directly replicates the action panel on the Completions page.</p>
       <p>- If there's nothing in a workflow-status, such as "Running", then that section is closed by default.</p>
@@ -96,37 +145,46 @@
       <p>- The dates in the Past section should probably be presented as actual dates (not relative 'days ago').</p>
 
       <h2>To-do</h2>
-      <p>- Add colour-coding and/or icons into the Summary (heading) for each Details block.</p>
-      <p>- Add a "Nothing to see here" state when there's no research projects inside a given workflow-status.</p>
+      <p>- <strike>Add colour-coding and/or icons into the Summary (heading) for each Details block.</strike></p>
+      <p>- <strike>Add a "Nothing to see here" state when there's no research projects inside a given workflow-status.</strike></p>
       <p>- Add a "How to get started" message when a client has zero projects.</p>
     </article>
     <hr/>
 
 
-    <h2>Products Management block</h2>
-    {# {%  include "" %} #}
-    <article class="demo-notes">
-      <h2>Notes on the Product Management block</h2>
+    <h2>Products Library block</h2>
+    <script id="fs-productLibrary-data" type="application/json">
+      {{ productLibrary | dump | safe }}
+    </script>    
+    {%  include "partials/fs-productManagementGroup.njk" %}
+    <article class="demo-notes" style="margin-block-end: 10vh;">
+      <h2>Notes on the Products Library block</h2>
       <p>- In a way, this area is likely to be conceptually fragile for clients.</p>
-      <p>- For a research project to run, a client is going to need to add/manage <em>dozens</em> of products to appear in their fake supermarket. They'll have their own concept-products; their own real (existing) products; competitors' real products; possibly some straight-up fake products.</p>
+      <p>- For a research project to run, a client is going to need to add/manage <em>dozens</em> of products to appear in their fake supermarket. They'll have: Their own concept-products; their own real (existing) products; competitors' real products; possibly some straight-up fake products.</p>
       <p>- They'll obviously have to upload their concept-products; we can't invent that for them. There's a reasonable chance we'll have scraped their real (existing) products from external sites previously - but they'll want to tweak that content. There's a high probability that we'll have scraped their competitor products - and maybe the client will want to add more. </p>
       <p>- If we can make a library of products available to a client, that'll save them a bunch of time... making our service more efficient and valuable for the client's research manager. That is, <em>the person controlling the budget</em>.</p>
-      <p>- There's a concept of a "product set", too. If you're working for Mars (ie, the company that makes Mars Bars), then you might want to have a set of chocolate snacks ready to go every time you're testing the latest weird-ass Snickers bar. Mars also produces MasterFoods spices and Whiskas pet food – so there might be saved "product sets" there, too.</p>
+      <p>- There's a concept of a "product collection", too. If you're working for Mars (ie, the company that makes Mars Bars), then you might want to have a collection of chocolate snacks ready to go every time you're testing the latest weird-ass Snickers bar. Mars also produces MasterFoods spices and Whiskas pet food – so there might be saved "product collections" there, too.</p>
       <p>- The point is, this all feels like something that'll be tricky for clients to glom onto, ya know?</p>
+      <p>- - -</p>
+      <p>Clicking an individual product will lead off to a details page. This page will include the specifications of the product (including name, company, RRP, nutrition information, images, etc). This page will also include past usage in research studies, and it will include past research results relating to that product. </p>
+      <p>- When we talk about past usage in research studies, we'll also want to display differences per instance. For example, in one research study, let's say we ran an instance of a Mars Bar that was 50 per cent off. And let's say that in a different study, we tried different packaging artwork.</p>
+      <p>"Manage collection" will lead off to a pretty standard CRUD page.</p>
+      <p>"New product collection" will lead off to a pretty standard "Select all the things you wanna include" page.</p>
+      <p>- - -</p>
+      <p>- This PoC renders the full product collection on the client-side for demonstration purposes. I'm sure that you'll be able to do something smarter - hydration, skeleton states, etc. with production-ready code. </p>
+      <p>- As a perspective... I imagine most client-companies will have less than 100 products in their various collections, on the basis that most CPG companies kinda focus on their thang. Cadburys is all about the chocolate; Oak is all about the flavoured milks. They'll be testing their products against ~30 competitor products. That said... A conglomerate like Mars could get up to ~100 products. And then... Woolworths and Coles are our Moby Dick clients. If one of them was to come on-board, they'd literally have 30,000 products in their collections. </p>
+      <p>- The other thing to consider is that whatever technology we use to power the <em>client</em> dashboard, we'll probably also want to use for our Fake Supermarket <em>company</em> dashboard. We'll want to have visibility over <u>every</u> product we're hosting.</p>
+      <h2>To-do</h2>
+      <p>- More product images. In reality, virtually any product that gets added into a collection would be fully-fledged with <u>all</u> the details – especially images. </p>
+      <p>- A double-chevron icon on the "New product collection" link would be a nice touch.</p> 
     </article>
-
-
-{#     <div class="fs-allCompletionGroups" data-demo-days-remaining="{{ projectDueDate }}" data-demo-average-completions-per-day="{{ demoAverageCompletionsPerDay }}">
-      {% for attribute in attributes %}
-        {% set group = groups[loop.index0] %}
-        {% include "partials/fs-completionsGroup.njk" %}
-      {% endfor %}          
-    </div> #}
-
 
   </main>
 
-{# <script src="/js/pages/demo-completionStatus.js" defer></script> #}
+    <div class="fs-svg-hidden" aria-hidden style="position:absolute;width:0;height:0;overflow:hidden">
+      {% include "partials/icons/checkbox-interactive.njk" %}
+    </div>
+<script type="module" src="/js/pages/demo-productsLibrary.js"></script>    
 
 
 {% endblock %}

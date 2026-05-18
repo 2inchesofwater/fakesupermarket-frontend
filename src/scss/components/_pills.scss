@@ -2,15 +2,11 @@
 
 .pill-group {
   border: none;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  justify-content: start;
   gap: var(--spacing-xs);
-
-  overflow-x: scroll;
-  overflow-y: visible;
-  padding-top: var(--spacing-2xs);
-  padding-bottom: var(--spacing-2xs);
+  content-visibility: visible;
 }
 
 .pill {
@@ -25,16 +21,18 @@
   align-content: stretch;
   min-width: 9em;
 
-  padding: var(--spacing-sm);
+  padding: var(--spacing-xs);
+  padding-inline-start: var(--spacing-sm);
   @media (min-width: $screen-sm) {
-    padding: var(--spacing-md);
+    padding: var(--spacing-xs);
+    padding-inline-start: var(--spacing-sm);
   }
 
   label {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xs);
-    align-items: center;
+    gap: 0;
+    align-items: start;
     color: var(--color-text-secondary);
     .day {
       font-size: var(--size-md);
@@ -52,11 +50,10 @@
 
 /* Style the label when the radio is checked */
 .pill:has(input[type="radio"]:checked) {
-  background: var(--color-action-pressed);
+  background: var(--color-background-emphasized);
   border-color: var(--color-white);
-  box-shadow: 0 0 0 3px var(--color-action-brand);
+  box-shadow: 0 0 0 3px var(--color-action-primary-default);
 }
 .pill input[type="radio"]:checked + label {
-  color: var(--color-white);
-
+  color: var(--color-text-primary);
 }

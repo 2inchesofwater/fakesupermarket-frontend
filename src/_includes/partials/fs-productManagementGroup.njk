@@ -1,0 +1,175 @@
+<section id="fs-productLibrary" class="fs-productLibrary" aria-labelledby="fs-productLibrary-title">
+  <header class="fs-productLibrary-header">
+    <h2 id="fs-productLibrary-title">Product collections</h2>
+    <p class="fs-productLibrary-description">
+      Browse and filter the products which are in use across your studies.
+    </p>
+  </header>
+
+  <div class="fs-productLibrary-layout">
+    <nav id="fs-productLibrary-filters" class="fs-filters" aria-labelledby="fs-productLibrary-filters-title">
+      <h2 id="fs-filters-title" class="sr-only">Browse products</h2>
+
+      <form class="fs-filters-form" action="#" method="get">
+        <details class="fs-filterGroup" id="fs-productLibrary-collectionsGroup" open>
+          <summary>
+          	<h3 class="fs-filterGroup-heading">Collections</h3>
+          </summary>
+
+						{% set activeCollection = activeCollection or "all" %}
+
+						<ul class="fs-filter-panel fs-filterList">
+						  <li>
+						    <button
+						      type="button"
+						      class="fs-filterButton{% if activeCollection == 'all' %} is-active{% endif %}"
+						      data-filter-group="collections"
+						      data-filter-value="all"
+						      aria-pressed="{% if activeCollection == 'all' %}true{% else %}false{% endif %}">
+						      All
+						    </button>
+						  </li>  						
+						  {% for collection in ugcCollections %}
+						    <li>
+						      <button
+						        type="button"
+						        class="fs-filterButton{% if activeCollection == collection.collectionKey %} is-active{% endif %}"
+						        data-filter-group="collections"
+						        data-filter-value="{{ collection.collectionKey }}"
+						        aria-pressed="{% if activeCollection == collection.collectionKey %}true{% else %}false{% endif %}">
+						        {{ collection.collectionLabel }}
+						      </button>
+						    </li>
+						  {% endfor %}
+						  {% if ugcCollections.length %}
+						    <hr>
+						  {% endif %}
+						  <li>
+						    <button
+						      type="button"
+						      class="fs-filterButton fs-addCollectionButton"
+						      data-filter-group="collections"
+						      data-filter-value="add">
+						      New product collection
+						    </button>
+						  </li>  
+          </ul>
+        </details>
+
+        <details class="fs-productLibrary-filterGroup">
+          <summary>
+          	<h3 class="fs-filterGroup-heading">Product type</h3>
+          </summary>
+					<ul class="fs-filter-panel fs-productLibrary-filterList fs-input-checkboxGroup fs-input-small">
+			    	{% set pane = { slug: "productReality" } %}
+						{% for productRealityOption in productRealityOptions %}
+						  {% set item = {
+						    defaultCharacteristicSlug: productRealityOption.productRealityKey,
+						    defaultCharacteristicLabel: productRealityOption.productRealityLabel
+						  } %}
+						  {% set inputSize = "md" %}
+						  {% include "partials/fs-input-checkbox.njk" %}
+					  {% endfor %}
+					</ul>
+        </details>
+
+        <details class="fs-productLibrary-filterGroup">
+        	<summary>
+          	<h3 class="fs-filterGroup-heading">Portfolio</h3>
+          </summary>
+					<ul class="fs-filter-panel fs-productLibrary-filterList fs-input-checkboxGroup fs-input-small">
+					  {% set pane = { slug: "portfolioRelationship" } %}
+						{% for portfolioRelationshipOption in portfolioRelationshipOptions %}
+						  {% set item = {
+						    defaultCharacteristicSlug: portfolioRelationshipOption.portfolioRelationshipKey,
+						    defaultCharacteristicLabel: portfolioRelationshipOption.portfolioRelationshipLabel,
+						    defaultCharacteristicExplanation: portfolioRelationshipOption.portfolioRelationshipExplanation
+						  } %}
+						{% set inputSize = "md" %}
+
+						  {% include "partials/fs-input-checkbox.njk" %}
+						{% endfor %}
+					</ul>
+        </details>
+
+        <details class="fs-productLibrary-filterGroup">
+        	<summary>
+          	<h3 class="fs-filterGroup-heading">Status</h3>
+          </summary>
+					<ul class="fs-filter-panel fs-productLibrary-filterList fs-input-checkboxGroup fs-input-small">
+						{% set pane = { slug: "productStatus" } %}
+						{% for productStatusOption in productStatusOptions %}
+						  {% set item = {
+						    defaultCharacteristicSlug: productStatusOption.productStatusKey,
+						    defaultCharacteristicLabel: productStatusOption.productStatusLabel,
+						    defaultCharacteristicExplanation: productStatusOption.productStatusExplanation
+						  } %}
+						  {% set inputSize = "md" %}
+						  {% include "partials/fs-input-checkbox.njk" %}
+						{% endfor %}
+					</ul>
+        </details>
+
+        <div class="fs-productLibrary-filterActions fs-productLibrary-filterGroup">
+          <button type="reset" class="fs-btn btn-tertiary btn-sm"><span class="label">Clear filters</span></button>
+        </div>
+      </form>
+    </nav>
+
+    <div id="fs-productLibrary-results">
+      <header class="fs-productLibrary-resultsHeader">
+        <div class="fs-productLibrary-resultsSummary">
+          <h2 class="fs-productLibrary-resultsTitle">All</h2>
+          <p><span class="fs-productLibrary-resultsCount">30</span> available products</p>
+        </div>
+        <!-- we'll add in a strap for sort + search later on -->
+        <div class="fs-productLibrary-collectionManagement">
+        	<button type="button" class="fs-btn btn-secondary">Manage collection</button>
+        </div>
+      </header>
+
+		<div class="fs-productLibrary-resultsBody">
+	      <ul class="fs-productLibrary-list" aria-labelledby="fs-productLibrary-results-title">
+					<template id="fs-productCard-template">
+					  <li class="fs-productCard">
+					    <article
+					      class="fs-productCard-content"
+					      data-collections=""
+					      data-product-reality=""
+					      data-portfolio-relationship=""
+					      data-product-status=""
+					    >
+					    	<a class="fs-productCard-link" href="">
+						      <div class="fs-productCard-media">
+						          <img class="fs-productCard-image" src="" alt="">
+						      </div>
+
+						      <div class="fs-productCard-body">
+						        <header class="fs-productCard-header">
+						          <p class="fs-productCard-brand"></p>
+						          <h3 class="fs-productCard-title"></h3>
+						        </header>
+						      </div>
+						     </a>
+					    </article>
+					  </li>
+					</template>
+	      </ul>
+		    <div class="fs-productLibrary-loadingState" hidden>
+	      	<p class="fs-visually-hidden" aria-live="polite">Loading products.</p>
+		    </div>
+		    <p class="fs-productLibrary-emptyState" hidden>
+		      No products match the current filters.
+		    </p>
+		  </div>
+
+		  <footer class="fs-productLibrary-resultsFooter" hidden>
+		    <button type="button" id="fs-productLibrary-loadMore" class="fs-btn btn-secondary">
+		      Load more products
+		    </button>
+		  </footer>
+		</div>
+    </div>
+
+
+</section>

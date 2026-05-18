@@ -1,0 +1,22 @@
+{# inputSize accepts an abbreviation, such as 'sm' or '2xl' #}
+<div class="fs-input-checkbox {% if inputSize %}size-{{ inputSize }}{% endif %}">
+  <input class="fs-checkbox-input-button" id="pane-input-{{ pane.slug }}-{{ item.defaultCharacteristicSlug }}" name="{{ pane.slug }}" type="checkbox" value="{{ item.defaultCharacteristicSlug }}">
+
+  <label for="pane-input-{{ pane.slug }}-{{ item.defaultCharacteristicSlug }}" class="fs-input-checkbox-modern">
+      <span class="fs-input-checkbox-iconGroup" aria-hidden="true">
+        <svg class="fs-input-checkbox-icon svg-empty" viewBox="0 0 24 24" focusable="false">
+          <use href="#checkbox-empty"></use>
+        </svg>
+        <svg class="fs-input-checkbox-icon svg-filled" viewBox="0 0 24 24" focusable="false">
+          <use href="#checkbox-filled"></use>
+        </svg>
+      </span> 
+
+      <div class="fs-input-checkbox-modern-label"> 
+        {{ item.defaultCharacteristicLabel }}
+        {% if item.defaultCharacteristicExplanation %}
+          <br/><span class="fs-inputGroup-help">{{ item.defaultCharacteristicExplanation }}</span>
+        {% endif %}
+      </div>
+  </label>
+</div>

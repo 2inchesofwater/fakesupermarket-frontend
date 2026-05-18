@@ -1,5 +1,8 @@
 @use "fs-variables" as *;
 
+main.confirmation {
+	background: var(--color-background-page);
+}
 #confirmation {
 	display: grid;	
 	gap: var(--spacing-md);
@@ -13,23 +16,32 @@
 	}
 }
 #confirmationReceipt {
-	background: var(--color-background-subtle);
-	padding: var(--spacing-xl);
+	padding: var(--spacing-sm);
+	background: var(--color-background-default);
+	border: var(--thickness-sm) solid var(--color-border-default);
+	box-shadow: var(--boxShadow-lg);
 
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-2xs);
-
+	gap: var(--spacing-xs);
+	@media (min-width: $screen-sm) {
+		padding: var(--spacing-lg);
+	}
+	@media (min-width: $screen-sm) {
+		padding: var(--spacing-xl);
+	}
 	> div {
-		background: var(--color-white);
-		border-radius: var(--radius-sm);
+		background: var(--color-background-default);
+		border: var(--thickness-sm) solid var(--color-border-light);
+		// border-radius: var(--radius-sm);
 		padding: var(--spacing-md);
 		color: var(--color-text-secondary);
 	}
 
 	#confirmationReceipt-heading {
-		font-size: var(--size-lg);
+		font-size: var(--size-2xl);
 		text-align: center;
+		margin-block-end: var(--spacing-sm);
 	}
 
 	#confirmationReceipt-total {
@@ -159,14 +171,16 @@
 }
 
 #confirmationShipping {
-	background: var(--color-background-subtle);
+	background: var(--color-background-default);
+	border: var(--thickness-sm) solid var(--color-border-default);
+	box-shadow: var(--boxShadow-lg);
 	padding: var(--spacing-xl);
 
 	#confirmationShipping-collection,
 	#confirmationShipping-delivery {
 		// border: var(--thickness-md) solid var(--color-text-secondary);
 		h1 {
-			font-size: var(--size-lg);
+			font-size: var(--size-2xl);
 			text-align: center;
 			font-weight: var(--weight-bold);
 		}
@@ -184,11 +198,12 @@
 	#confirmationShipping-collection-instructions {
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-2xs);
+		gap: var(--spacing-xs);
 
 		> div {
-			background: var(--color-white);	
-			border-radius: var(--radius-sm);
+			background: var(--color-background-default);
+			border: var(--thickness-sm) solid var(--color-border-light);	
+			border-radius: 0;
 			padding: var(--spacing-md);
 			color: var(--color-text-secondary);
 		}

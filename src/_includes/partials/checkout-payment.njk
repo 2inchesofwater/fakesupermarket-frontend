@@ -1,5 +1,10 @@
-<details open name="paymentOptions-card" id="paymentOptions-card" class="paymentOptions-group disclosure-group">
-	<summary>Debit/credit card</summary>
+{% set logoId = "payment" %}
+{% include "partials/fs-unavailableOptions.njk" %}
+
+<details open disabled name="paymentOptions-card" id="paymentOptions-card" class="fs-unavailable paymentOptions-group disclosure-group">
+	<summary>
+		<h3>Debit/credit card</h3>
+	</summary>
 	<section class="disclosure-wrapper">
 		<form id="payment-form">
 		  <div class="form-row">
@@ -49,16 +54,20 @@
 	</section>
 </details>
 
-<details open name="paymentOptions-card" id="paymentOptions-card" class="paymentOptions-group disclosure-group">
-	<summary>PayPal</summary>
+<details disabled name="paymentOptions-card" id="paymentOptions-card" class="fs-unavailable paymentOptions-group disclosure-group">
+	<summary>
+		<h3>PayPal</h3>
+	</summary>
 	<section class="disclosure-wrapper">
 		<form>
 		</form>
 	</section>
 </details>
 
-<details open name="paymentOptions-card" id="paymentOptions-card" class="paymentOptions-group disclosure-group">
-	<summary>ApplePay / Google Wallet</summary>
+<details disabled name="paymentOptions-card" id="paymentOptions-card" class="fs-unavailable paymentOptions-group disclosure-group">
+	<summary>
+		<h3>ApplePay / Google Wallet</h3>
+	</summary>
 	<section class="disclosure-wrapper">
 		<form>
 		</form>

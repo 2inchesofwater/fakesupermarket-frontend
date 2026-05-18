@@ -23,21 +23,6 @@
   </header>
 
   <div class="fs-study-meta">
-    {% if study.nextKeyDate %}
-      <dl class="fs-study-dates">
-        {% if study.statusKey == "active" %}
-        	<dt>Ends</dt>
-        	<dd>{{ study.nextKeyDate }} days</dd>
-        {% elseif study.statusKey == "pending" %}
-        	<dt>Launches</dt>
-        	<dd>{{ study.nextKeyDate }} days</dd>
-        {% elseif study.statusKey == "past" %}
-        	<dt>Ended</dt>
-        	<dd>{{ study.nextKeyDate }} days ago</dd>
-        {% endif %}
-      </dl>
-    {% endif %}
-
     <dl class="fs-study-progress" aria-labelledby="study-progress-title">
       {% if study.statusKey == "active" %}
         <dt>Progress</dt>
@@ -59,7 +44,21 @@
 				</dd>					
 			{% endif %}		
     </dl>
-    </section>
+      
+    {% if study.nextKeyDate %}
+      <dl class="fs-study-dates">
+        {% if study.statusKey == "active" %}
+        	<dt>Ends</dt>
+        	<dd>{{ study.nextKeyDate }} days</dd>
+        {% elseif study.statusKey == "pending" %}
+        	<dt>Launches</dt>
+        	<dd>{{ study.nextKeyDate }} days</dd>
+        {% elseif study.statusKey == "past" %}
+        	<dt>Ended</dt>
+        	<dd>{{ study.nextKeyDate }} days ago</dd>
+        {% endif %}
+      </dl>
+    {% endif %}
   </div>
 
   {% if study.projectCompletionMessage and study.projectCompletionKey %}

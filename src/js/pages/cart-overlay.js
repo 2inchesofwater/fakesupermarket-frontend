@@ -44,9 +44,13 @@ export function openCartOverlay(cartInstance) {
   Object.assign(cartInstance, freshCart);
 
   window.dispatchEvent(new Event('show-backdrop'));
+
   cartOverlay.hidden = false;
   cartOverlay.classList.remove('closed');
-  cartOverlay.classList.add('open');
+
+  requestAnimationFrame(() => {
+    cartOverlay.classList.add('open');
+  });
 
   renderCartSummary(cartInstance);
   activateCheckoutBtn(cartInstance);

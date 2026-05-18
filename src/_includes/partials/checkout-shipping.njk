@@ -1,62 +1,62 @@
-	<div id="shipping-collection">
-		<div class="wrapper">
-			<div class="panel-overview ">
-				<div class="overview-icon">
-					<svg class="icon icon-collect"><use href="#icon-collect"></use></svg>
-				</div>
-				<div id="shipping-collection-information" class="overview-information">
-					<p class="overview-serviceName">{{ storefront.checkoutLabelCollectionService }}</p>
-					<p disabled class="fs-unavailable">{{ storefront.checkoutLabelCollectionAddressHTML | safe }}</p>
-				</div>
-				<a class="overview-switch">Change to: {{ storefront.checkoutLabelDeliveryService }}</a>
+{% set logoId = "shipping" %}
+{% include "partials/fs-unavailableOptions.njk" %}
+<div id="shipping-collection">
+	<div class="wrapper">
+		<div class="panel-overview ">
+			<div class="overview-icon">
+				<svg class="icon icon-collect"><use href="#icon-collect"></use></svg>
 			</div>
-			<hr>
-			{% include "partials/fs-unavailableOptions.njk" %}
-			<div disabled id="collection-date" class="fs-unavailable">
-				<h3>Which day?</h3>
-				<div id="collection-pills-dates" class="pills pill-group">
-					{% set slotsID = "collection" %}
-					{% include "partials/pills-updateUpcomingDates.njk" %}
-				</div>
+			<div id="shipping-collection-information" class="overview-information">
+				<p class="overview-serviceName">{{ storefront.checkoutLabelCollectionService }}</p>
+				<p disabled class="fs-unavailable">{{ storefront.checkoutLabelCollectionAddressHTML | safe }}</p>
 			</div>
-			<div disabled id="collection-time" class="fs-unavailable">
-				<h3>What time?</h3>
-				<div id="collection-radio-times">
-					{% set slots = storefront.slotsCollection %}		
-					{% include "partials/radio-availableTimeSlots.njk" %}
-				</div>
+			<a class="overview-switch btn btn-sm btn-tertiary">Change to: {{ storefront.checkoutLabelDeliveryService }}</a>
+		</div>
+		<div disabled id="collection-date" class="fs-unavailable">
+			<h3>Which day?</h3>
+			<div id="collection-pills-dates" class="pills pill-group">
+				{% set slotsID = "collection" %}
+				{% include "partials/pills-updateUpcomingDates.njk" %}
+			</div>
+		</div>
+		<div disabled id="collection-time" class="fs-unavailable">
+			<h3>What time?</h3>
+			<div id="collection-radio-times">
+				{% set slots = storefront.slotsCollection %}		
+				{% include "partials/radio-availableTimeSlots.njk" %}
 			</div>
 		</div>
 	</div>
-	<div id="shipping-delivery" hidden>
-		<div class="wrapper">
-			<div class="panel-overview ">
-				<div class="overview-icon">
-					<svg class="icon icon-delivery"><use href="#icon-delivery"></use></svg>
-				</div>
-				<div id="shipping-delivery-information" class="overview-information">
-					<p class="overview-serviceName">{{ storefront.checkoutLabelDeliveryService }}</p>
-					<p disabled class="fs-unavailable">{{ storefront.checkoutLabelDeliveryAddressHTML | safe }}</p>
-					<a disabled class="fs-unavailable" href="#">Other saved addresses</a>
-				</div>
-				<a class="overview-switch">Change to: {{ storefront.checkoutLabelCollectionService }}</a>
+</div>
+<div id="shipping-delivery" hidden>
+	<div class="wrapper">
+		<div class="panel-overview ">
+			<div class="overview-icon">
+				<svg class="icon icon-delivery"><use href="#icon-delivery"></use></svg>
 			</div>
-			<hr>
-			{% include "partials/fs-unavailableOptions.njk" %}
-			<div disabled id="delivery-date" class="fs-unavailable ">
-				<h3>Which day?</h3>
-				<div id="delivery-pills-dates" class="pills pill-group">
-					{% set nextFiveDates = "delivery-pills-dates" %}
-					{% set slotsID = "delivery" %}
-					{% include "partials/pills-updateUpcomingDates.njk" %}
-				</div>
+			<div id="shipping-delivery-information" class="overview-information">
+				<p class="overview-serviceName">{{ storefront.checkoutLabelDeliveryService }}</p>
+				<p disabled class="fs-unavailable">{{ storefront.checkoutLabelDeliveryAddressHTML | safe }}</p>
+				<a disabled class="fs-unavailable" href="#">Other saved addresses</a>
 			</div>
-			<div disabled id="delivery-time" class="fs-unavailable">
-				<h3>What time?</h3>
-				<div id="delivery-radio-times">
-					{% set slots = storefront.slotsDelivery %}
-					{% include "partials/radio-availableTimeSlots.njk" %}
-				</div>
+			<a class="overview-switch btn btn-link">Change to: {{ storefront.checkoutLabelCollectionService }}</a>
+		</div>
+		<hr>
+		{% set logoId = "delivery" %}
+		<div disabled id="delivery-date" class="fs-unavailable ">
+			<h3>Which day?</h3>
+			<div id="delivery-pills-dates" class="pills pill-group">
+				{% set nextFiveDates = "delivery-pills-dates" %}
+				{% set slotsID = "delivery" %}
+				{% include "partials/pills-updateUpcomingDates.njk" %}
 			</div>
-			<div id="collection-confirmBtn"></div>			
+		</div>
+		<div disabled id="delivery-time" class="fs-unavailable">
+			<h3>What time?</h3>
+			<div id="delivery-radio-times">
+				{% set slots = storefront.slotsDelivery %}
+				{% include "partials/radio-availableTimeSlots.njk" %}
+			</div>
+		</div>
 	</div>
+</div>

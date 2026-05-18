@@ -1,0 +1,177 @@
+#fs-productLibrary {
+	container-type: inline-size;
+	container-name: products-library;
+		
+	.fs-productLibrary-header {
+		border-block-end: var(--fs-thickness-md) solid var(--fs-color-brand-primary);
+		margin-block-end: var(--fs-spacing-lg);
+		padding-block-end: var(--fs-spacing-md);
+
+		#fs-productLibrary-title {
+			font-family: var(--fs-font-display);
+			font-size: var(--fs-size-2xl);
+			font-weight: var(--fs-weight-bold);
+			margin-block-start: var(--fs-spacing-md);
+			margin-block-end: var(--fs-spacing-xs);
+		}
+	}
+
+	.fs-productLibrary-layout {
+		display: grid;
+		//position: relative;
+
+		@container products-library (width < 500px) {
+			grid-template-columns: 1fr;
+			grid-template-areas: 
+				"filters"
+				"resultsAll";
+		}
+
+		@container products-library (width >= 500px) { 
+			grid-template-columns: 1fr 4fr;
+			grid-template-areas: 
+				"filters resultsAll";
+		}
+	}
+
+	#fs-productLibrary-filters {
+		grid-area: filters;	
+
+		@container products-library (width >= 500px) { 
+			position: sticky;
+			align-self: start;
+			top: 1rem;
+		}	
+	}
+
+	#fs-productLibrary-results {
+		grid-area: resultsAll;
+		margin-block-start: var(--fs-spacing-xl);
+
+		@container products-library (width >= 500px) { 
+			margin-block-start: var(--fs-spacing-xs);
+			padding-inline-start: var(--fs-spacing-xl);
+			padding-inline-end: 0;
+		}
+	}
+
+	.fs-productLibrary-resultsHeader {
+		grid-area: resultsHeader;
+
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--fs-spacing-md);
+		
+		margin-block-end: var(--fs-spacing-md);
+
+		.fs-productLibrary-resultsSummary {
+			.fs-productLibrary-resultsTitle {
+				font-size: var(--fs-size-xl);
+				font-weight: var(--fs-weight-bold);
+				color: var(--fs-color-text-primary);
+				margin-block-start: unset;				
+			}
+			p {
+				font-size: var(--fs-size-sm);
+				font-weight: var(--fs-weight-regular);
+				color: var(--fs-color-text-tertiary);
+				margin-block-start: unset;
+			}
+		}
+		.fs-productLibrary-collectionManagement {
+			flex-grow: 0;
+		}
+	}
+
+	.fs-productLibrary-resultsBody {
+		grid-area: resultsBody;
+		
+		max-height: 75vh;
+		overflow-y: scroll;
+		border: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+		padding: var(--fs-spacing-md);
+
+		@container products-library (width >= 500px) { 
+			max-height: none;
+			border: unset;
+			padding: unset;
+		}
+
+		.fs-productLibrary-list {
+			display: grid;
+			grid-gap: var(--fs-spacing-xs);
+
+			@container products-library (width < 700px) {
+				grid-template-columns: 1fr;
+			}
+			@container products-library (700px <= width <= 1000px) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			@container products-library (width > 1000px) {
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
+	}
+
+	.fs-productCard {
+
+		.fs-productCard-content {
+			height: 100%;
+		}
+
+		.fs-productCard-link {
+			text-decoration: none;
+			display: grid;
+			grid-template-columns: var(--fs-spacing-2xl) 3fr;
+			grid-gap: var(--fs-spacing-sm);
+			height: 100%;
+
+			padding-block: var(--fs-spacing-sm);
+			padding-inline: var(--fs-spacing-sm);
+			border: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+			border-radius: var(--fs-radius-md);
+			background: var(--fs-color-background-subtle);
+
+			transition: var(--fs-transition-md);
+
+			&:hover {
+				background: var(--fs-color-background-active);
+				border: var(--fs-thickness-sm) solid var(--fs-color-border-strong);
+				box-shadow: var(--fs-boxShadow-sm);
+			}
+		}
+		.fs-productCard-media {
+			width: 100%;
+			max-width: var(--fs-spacing-2xl);
+			aspect-ratio: 1 / 1;
+			border-radius: var(--fs-radius-sm);
+			background: var(--fs-color-panel-default);
+			img {
+				max-width: 100%;
+			}
+		}
+		.fs-productCard-body {}
+
+		.fs-productCard-image {
+			
+		}
+		.fs-productCard-brand {
+			font-size: var(--fs-size-xs);
+			font-weight: var(--fs-weight-light);
+			color: var(--fs-color-text-tertiary);
+		}
+		.fs-productCard-title {
+			font-size: var(--fs-size-md);
+			font-weight: var(--fs-weight-bold);
+			margin-block-end: unset;
+		}
+	}
+}
+
+
+
+
+
+

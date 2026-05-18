@@ -7,7 +7,7 @@
 	.wrapper {
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-lg);
+		gap: var(--spacing-md);
 	}
 	#shipping-collection {
 		.overview-icon {
@@ -30,7 +30,10 @@
 			}
 		}
 	}
-
+	#shipping-collection,
+	#shipping-delivery {
+		margin-block: var(--spacing-md);
+	}
 
 	.panel-overview {
 		display: grid;
@@ -49,13 +52,13 @@
 		@media (min-width: $screen-sm) {
 			gap: var(--spacing-md);
 			grid-template-columns: auto 1fr auto;
-	    grid-template-areas: "icon info link";
-	    align-items: center;
+		    grid-template-areas: "icon info link";
+		    align-items: center;
 		}
 
 		.overview-icon {
 			grid-area: icon;
-    	align-self: start;
+    		align-self: start;
 			.icon {
 				width: var(--spacing-3xl);
 				aspect-ratio: 1 / 1;
@@ -71,78 +74,88 @@
 				font-size: var(--size-lg);
 				font-weight: var(--weight-bold);
 			}
+			p:not(.overview-serviceName) {
+				font-size: var(--size-sm);
+			}
 		}
 		.overview-switch {
 			grid-area: link;
-    	align-self: start;
+    		align-self: start;
+    		justify-self: start;
+    		margin-inline-start: calc(var(--spacing-xs) * -1);
+    		@media (min-width: $screen-sm) {
+    			scroll-margin-inline-start: 0;
+    		}
 		}
 	}
 
 	#collection-date,
-	#delivery-date {
-		@container shipping (width < #{$screen-sm}) {
-			.pill-group {
-				flex-direction: column;
-				gap: var(--spacing-xs);
-				overflow-x: visible;
-				
-				label {
-					flex-direction: row;
-					.day {
-						flex: 1;
-						align-content: start;
-					}
-					.date {
-						flex: 1;
-						align-content: end;
-						text-align: end;
-					} 
-				}
-			}
-		}
-		@container shipping (width >= #{$screen-md}) {
-			.pill-group {
-				padding-inline: var(--spacing-xs);
-			}
+	#delivery-date,
+	#collection-time,
+	#delivery-time {
+		h3 {
+			margin-block-end: var(--spacing-xs);
 		}
 	}
 
-
-	#collection-time {
-		.radiogroup {
-			display: grid;
-			grid-template-columns: 1fr;
+	@container shipping (width < #{$screen-sm}) {
+		.pill-group {
+			flex-direction: column;
 			gap: var(--spacing-xs);
-			@media (min-width: $screen-sm) {
-				gap: var(--spacing-md);
-			}
-		}
-		@container shipping (width < #{$screen-sm}) {
-			.radiogroup {
-				gap: var(--spacing-xs);
-				h3 {
-					margin-bottom: 0;
+			overflow-x: visible;
+			
+			label {
+				flex-direction: row;
+				.day {
+					flex: 1;
+					align-content: start;
 				}
-				.radio-subgroup .radio {
-					flex-direction: row;
-					.slot {
-						flex: auto;
-					}
-					.cost {
-						flex: auto;
-						text-align: end;
-					}
-				}
-			}
-		}
-		@container shipping (width > $screen-md) {
-			.radiogroup {
-				grid-template-columns: 1fr 2fr;
-				align-items: start;
+				.date {
+					flex: 1;
+					align-content: end;
+					text-align: end;
+				} 
 			}
 		}
 	}
-	#collection-time {}
+	
+
+
+	.radiogroup {
+		display: grid;
+		grid-template-columns: 1fr;
+		column-gap: 0;
+		row-gap: var(--spacing-2xs);
+	}
+	.radio-subgroup {
+		display: grid;
+  	grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+	  gap: var(--spacing-xs);	
+	  padding-block-end: unset;	
+		> * {
+		  flex: 0 0 auto;
+		}
+	}
+	@container shipping (450px < width < 650px) {
+		.radiogroup {
+			// outline: 4px dashed cyan;
+		}
+	}
+	@container shipping (width > 650px) {
+		.radiogroup {
+			// outline: 4px dashed green;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			column-gap: var(--spacing-sm);
+			row-gap: var(--spacing-xs);
+		}
+		.radio-subgroup-title {
+	    grid-row: 1;
+	  }
+		.radio-subgroup {
+			grid-row: 2;
+			grid-template-columns: 1fr;
+		}	
+	}
 	fieldset {
 		border: 0;
 	}

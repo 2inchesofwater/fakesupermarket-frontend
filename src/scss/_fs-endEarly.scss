@@ -1,0 +1,26 @@
+@use "fs-variables" as *;
+
+.fs-endEarly {
+    &.fs-dialogue .fs-dialogue-outer {
+	    display: grid;
+	    grid-template-rows: auto;
+	    grid-template-columns: 1fr;
+	    grid-gap: var(--fs-spacing-sm); 
+
+	    margin-inline: auto;
+	    padding-block: var(--fs-thickness-lg);
+    	padding-inline: var(--fs-thickness-lg);
+    	max-width: 85%;
+
+    	@container fs-dialogue (inline-size > #{$screen-sm}) {
+			max-width: 600px;
+        }   	
+    }
+    &.fs-dialogue .fakesupermarket-logo {
+	    display: none;
+    }
+    &.fs-dialogue .fs-dialogue-inner {
+    	display: grid;
+    	align-self: center;
+    }
+}

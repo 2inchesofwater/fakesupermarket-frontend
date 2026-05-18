@@ -1,27 +1,31 @@
 .fs-study.fs-card {
 	display: grid;
+	grid-gap: var(--fs-spacing-md);
 	padding-block: var(--fs-spacing-sm);
 	padding-inline: var(--fs-spacing-sm);
 	background: var(--fs-color-gray-010);
 	border: var(--fs-thickness-sm) solid var(--fs-color-border-default);
 	border-radius: var(--fs-radius-sm);
-	box-shadow: var(--fs-boxShadow-sm);
+	box-shadow: unset;
 	overflow: hidden;
 	cursor: pointer;
 	transition: box-shadow 0.25s;
 
 	@container projects-list (width < 500px) {
 		grid-template-columns: 1fr 5fr 2rem;
+	  grid-gap: var(--fs-spacing-2xs) var(--fs-spacing-md);
 	  grid-template-areas:
 	  	"media header button"
-	  	". meta meta"
-	  	"update update update";
+	  	"media meta button"
+	  	". update update";
 	}
 	@container projects-list (500px <= width <= 900px) {
-		grid-template-columns: 1fr 3fr 3fr 1fr;
+		grid-template-columns: 1fr 3fr 3fr 3rem;
+		grid-gap: var(--fs-spacing-2xs) var(--fs-spacing-md);
 		grid-template-areas:
-	  	"media header meta button"
-	  	". update update";
+	  	"media header header button"
+	  	"media meta meta button"
+	  	"media update update update";
 	}
 	@container projects-list (width > 900px) {
 		grid-template-columns: 1fr 3fr 3fr 1fr;
@@ -43,6 +47,7 @@
 		img {
 			width: var(--fs-thumbnail-sm);
 			height: var(--fs-thumbnail-sm);
+			border-radius: var(--fs-radius-sm);
 			object-fit: cover;
 			object-position: left 15%;
 			overflow: hidden;
@@ -53,7 +58,7 @@
 			width: var(--fs-thumbnail-sm);
 			height: var(--fs-thumbnail-sm);			
 		}
-		@media screen and (width >= 400px) {
+		@container projects-list (width > 500px) {
 			max-width: var(--fs-thumbnail-md);
 			align-self: center;
 			img {
@@ -72,8 +77,8 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--fs-spacing-xs);
-		margin-block-end: var(--fs-spacing-xs);
-		@media screen and (width >= 400px) {
+		margin-block-end: var(--fs-spacing-sm);
+		@container projects-list (width > 500px) {
 			margin-block-end: var(--fs-spacing-sm);
 		}
 		.fs-study-title {
@@ -83,6 +88,7 @@
 			font-weight: var(--fs-weight-bold);
 			
 			margin-block: 0;
+			margin-block-start: var(--fs-spacing-2xs);
 			@container projects-list (width > 500px) {
 				text-align: start;
 				margin-block-start: var(--fs-spacing-xs);
@@ -92,7 +98,7 @@
 		.fs-study-status {
 			order: 1;
 			align-self: start;
-			@media screen and (width >= 400px) {
+			@container projects-list (width > 500px) {
 				align-self: start;
 			}
 		}
@@ -102,13 +108,13 @@
 	.fs-study-meta {
 		grid-area: meta;
 		display: flex;
-		flex-direction: row;
-		gap: var(--fs-spacing-sm);
+		flex-direction: column;
+		gap: var(--fs-spacing-xs);
 		width: 100%;		
 
 		dl {
 			display: flex;
-			flex-direction: column;
+			flex-direction: row;
 			gap: var(--fs-spacing-2xs);
 			width: 100%;
 
@@ -117,16 +123,20 @@
 		dt {
 			flex-grow: 1;
 			color: var(--fs-color-text-tertiary);
+			width: 15vw;
 		}
 		dd {
 			flex-grow: 2;
-			justify-self: end;
-			text-align: end;
+			justify-self: start;
+			text-align: start;
+			width: 25vw;
 
 			font-weight: var(--fs-weight-regular);
 		}
 
-		@container projects-list (width > 500px) {		
+		@container projects-list (width > 500px) {
+		flex-direction: row;	
+		gap: var(--fs-spacing-sm);	
 			dl {
 				flex-direction: column;
 				font-size: var(--fs-size-sm);
@@ -134,12 +144,17 @@
 			dt { 
 				text-align: start;
 				flex-grow: 0;
+				width: unset;
 			}
 			dd {
 				text-align: start;
 				justify-self: start;
 				flex-grow: 1;
+				width: unset;
 			}
+		}
+		@container projects-list (width > 900px) {
+			margin-block-start: var(--fs-spacing-2xs);
 		}
 	}
 
@@ -154,8 +169,10 @@
 		font-weight: var(--fs-weight-regular);
 		text-align: start;
 		border-radius: var(--fs-radius-sm);
-		@media screen and (width >= 400px) { 
-			margin-inline: var(--fs-spacing-xs);
+
+		margin-block-start: var(--fs-spacing-sm);
+		@container projects-list (width > 500px) {
+			margin-block-start: 0;
 		}
 
 		.icon {

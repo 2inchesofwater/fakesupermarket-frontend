@@ -1,0 +1,34 @@
+@use "fs-variables" as *;
+
+.fs-infoCheckoutNoNeed {
+    &.fs-dialogue .fs-dialogue-outer {
+	    display: grid;
+	    grid-template-rows: 1fr;
+	    grid-template-columns: var(--fs-logo-size-sm) auto;
+	    grid-gap: var(--fs-spacing-sm); 
+
+	    padding-block: var(--fs-thickness-lg);
+    	padding-inline: var(--fs-thickness-lg);
+
+    	@container fs-dialogue (inline-size > #{$screen-sm}) {
+    		grid-template-rows: 1fr;
+			grid-template-columns: var(--fs-logo-size-sm) auto;
+			padding-inline-start: var(--fs-spacing-md);
+        }   	
+    }
+    &.fs-dialogue .fakesupermarket-logo {
+	    left: 0;
+	    top: 0;
+	    width: var(--fs-logo-size-sm);    	
+		height: var(--fs-logo-size-sm);
+		margin-block-start: var(--fs-spacing-xs);
+		margin-inline-start: var(--fs-spacing-xs);
+		@container fs-dialogue (inline-size > #{$screen-sm}) {
+			margin-inline-start: unset;
+		}
+    }
+    &.fs-dialogue .fs-dialogue-inner {
+    	align-self: center;
+    	color: var(--fs-color-text-dialogue);
+    }
+}

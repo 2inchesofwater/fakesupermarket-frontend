@@ -5,20 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {# <base href="http://localhost:8080/" target="_self"> #}
-  <title>{{ storefront.storefrontName }} | Fake Supermarket</title>
-  <link rel="stylesheet" href="/css/index.css">
+  <title>{% if storefront.storefrontName %}{{ storefront.storefrontName }} | {% endif %}Fake Supermarket</title>
+  <link rel="stylesheet" href="/css/index.css?ver={{ assetVersion }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200..700&display=swap" rel="stylesheet">  
 </head>
-<body id="top" class="{{ slug }}">
-  {% include "partials/fs-onboarding.njk" %}
+<body id="top" class="{{ pagelayout }}">
+  {% if not skipOnboarding %}
+    {% include "partials/fs-onboarding.njk" %}
+  {% endif %}
   {% include "partials/skiplinks.njk" %}
   {% include "partials/modalBackdrop.njk" %}
   
   {% block content %}
   {% endblock %}
-    
+  
+  {% include "partials/logo/fakesupermarket-symbol.njk" %}  
   {% include "partials/template-svg.njk" %}
 </body>
 

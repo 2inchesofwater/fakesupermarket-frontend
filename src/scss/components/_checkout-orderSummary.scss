@@ -1,10 +1,10 @@
 #checkout #orderSummary {
 	background: var(--color-background-default);
-	border: 1px solid transparent; //var(--thickness-sm) solid var(--color-border-default);
+	border: var(--thickness-sm) solid var(--color-border-strong); //var(--thickness-sm) solid var(--color-border-default);
 
 	&.incomplete {
 		background: var(--color-background-page);
-		border: 1px solid var(--color-border-default);
+		border: var(--thickness-sm) solid var(--color-border-default);
 		transition: var(--transition-md);
 		.step-heading {
 			color: var(--color-text-tertiary);
@@ -16,17 +16,15 @@
 	}
 
 	padding: var(--spacing-xl);
-	// box-shadow: var(--boxShadow-md);
-
 
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-2xl);
+	gap: var(--spacing-lg);
 
 	.step-heading {
 		font-size: var(--size-xl);
 		font-weight: var(--weight-heavy);
-		color: var(--color-brand-primary);
+		color: var(--color-text-primary);
 		margin-top: var(--spacing-xs);
 		margin-bottom: 0;
 	}
@@ -82,11 +80,5 @@
 			padding: var(--spacing-md) var(--spacing-lg);
 			border-radius: var(--size-xl);
 		}
-	}
-
-	#paymentFlow-postScript {
-		font-size: var(--size-sm);
-		background: var(--color-white);
-		padding: var(--spacing-sm);
 	}
 }

@@ -1,5 +1,5 @@
 
-<!-- This file may be redundant – it looks like layouts/supermarket-productDetails.njk has the real version of the code -->
+<!-- This file may be redundant – it looks like js/components/productCards.njk has the real version of the code -->
 
 <div class="products-grid">
   {% for product in productsAll %}
@@ -98,11 +98,10 @@
           </button>
           
           <span disabled class="fs-unavailable">
-            <button 
+            <button disabled 
                 class="favorite-button btn btn-product btn-secondary" 
                 aria-label="Come back to {{ product.name }} later"
-                onclick="toggleFavorite(this)"
-            >
+                onclick="toggleFavorite(this)">
                 {% if productCardSaveIconFilename %}
                   {% set svgContent = ('src/images/icons/' + productCardSaveIconFilename) | fs %}
                   <span class="icon {{ className | safe }}">

@@ -18,3 +18,14 @@ document.addEventListener('cartChanged', (e) => {
   renderCartSummary(e.detail.cartInstance);
   updateOverlayUI(e.detail.cartInstance);
 });
+
+const savingBadge = document.querySelector(".product-pricing-topline .badge.badge-positive");
+
+if (savingBadge) {
+  savingBadge.textContent = savingBadge.textContent.replace(
+    /(Save\s+[^\d-]*)(-?\d+(?:\.\d+)?)/,
+    function(match, prefix, amount) {
+      return prefix + Number(amount).toFixed(2);
+    }
+  );
+}

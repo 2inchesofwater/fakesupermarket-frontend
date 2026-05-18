@@ -1,4 +1,4 @@
-details {
+details.fs-details {
 	border: var(--fs-thickness-sm) solid var(--fs-color-border-default);
 	&:open {
 		border-color: var(--fs-color-border-strong);
@@ -9,6 +9,7 @@ details {
 		cursor: pointer;
 		position: relative; 
 		background-color: var(--fs-color-background-subtle);
+		border-block-end: 0 solid var(--fs-color-border-default);
 
 		.fs-summary-wrapper {
 			display: inline-block;
@@ -17,7 +18,7 @@ details {
 		.fs-summary-content {
 			display: flex;
 			flex-direction: column;
-			// margin-inline-start: var(--fs-spacing-xs);
+			margin-inline-start: var(--fs-spacing-2xs);
 			position: relative;
 		}
 		h3 {
@@ -29,7 +30,8 @@ details {
 		}
 	}
 	&:open > summary {
-		background-color: var(--fs-color-background-emphasized);
+		background: linear-gradient(80deg, var(--fs-color-core-300), var(--fs-color-core-400) );
+		border-block-end: var(--fs-thickness-md) solid var(--fs-color-core-400);
 		h3 {
 			font-weight: var(--fs-weight-regular);
 		}

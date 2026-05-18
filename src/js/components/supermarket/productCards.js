@@ -71,7 +71,7 @@ export function renderProductCards(products, storefront, productsGrid) {
 
     // Featured label
     const featuredLabel = product.featuredLabel
-      ? `<div class="badge badge-naked">${escapeHtml(product.featuredLabel)}</div>` : "";
+      ? `<div class="badge badge-excitement">${escapeHtml(product.featuredLabel)}</div>` : "";
 
     // Ratings
     const ratings = (product.rating && storefront.productCardShowRatings) ? `

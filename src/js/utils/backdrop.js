@@ -2,20 +2,31 @@ const backdrop = document.getElementById('modalBackdrop');
 
 window.addEventListener('show-backdrop', () => {
   backdrop.hidden = false;
-  backdrop.classList.remove('hide');
-  backdrop.classList.add('show');
-});
-window.addEventListener('hide-backdrop', () => {
-  backdrop.classList.remove('show');
-  backdrop.classList.add('hide');
+  backdrop.classList.remove('show', 'hide', 'show-slow');
+
+  requestAnimationFrame(() => {
+    backdrop.classList.add('show');
+  });
 });
 
 window.addEventListener('show-backdrop-slow', () => {
   backdrop.hidden = false;
   backdrop.classList.remove('show', 'hide', 'show-slow');
-  void backdrop.offsetWidth; // Force reflow
-  backdrop.classList.add('show-slow');
+
+  requestAnimationFrame(() => {
+    backdrop.classList.add('show-slow');
+  });
 });
+
+window.addEventListener('hide-backdrop', () => {
+  backdrop.classList.remove('show', 'show-slow');
+  backdrop.classList.add('hide');
+
+  backdrop.addEventListener('transitionend', () => {
+    backdrop.hidden = true;
+  }, { once: true });
+});
+
 
 
 // Listen for transition end to actually hide

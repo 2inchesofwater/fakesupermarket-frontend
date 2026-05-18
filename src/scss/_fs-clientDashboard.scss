@@ -33,14 +33,70 @@
 	flex-direction: column;
 	gap: var(--fs-spacing-xs);
 
+	.fs-details {
+		.fs-summary .fs-summary-content {
+			flex-direction: row;
+			align-items: center;
+			background: var(--fs-color-white);
+			border-radius: 1rem;
+			padding-block: var(--fs-spacing-xs);
+			padding-inline-start: var(--fs-spacing-sm);
+			padding-inline-end: calc( var(--fs-spacing-sm) + var(--fs-spacing-2xs));
+			gap: var(--fs-spacing-xs);
+
+			.icon {
+				width: 1rem;
+				height: 1rem;
+				svg {
+					width: 1rem;
+					height: 1rem;
+					fill: var(--fs-color-gray-400);
+				}
+			}				
+		}
+		&.active:open {
+			.fs-summary .icon {
+				animation: blinker 0.75s linear infinite alternate;
+				svg {
+					fill: var(--fs-color-brand-primary);
+				}
+			}
+		}
+		&.pending:open {		
+			.icon svg {
+				fill: var(--fs-color-bright-orange-middle); 
+			}
+		}
+		&.draft:open {		
+			.icon svg {
+				fill: var(--fs-color-bright-sky-middle); 
+			}
+		}
+	}
+
 	.fs-details .fs-details-panel {
 		padding: var(--fs-spacing-md);
 		display: flex;
 		flex-direction: column;
-		gap: var(--fs-spacing-sm);
+		gap: var(--fs-spacing-xs);
+	}
+
+	.fs-empty-state {
+		padding-block: 5vh;
+		padding-inline: 2.5vw;
+		color: var(--fs-color-text-tertiary);
 	}
 
 	.fs-study.fs-card .fs-study-status {
 		display: none;
 	}
+}
+
+@keyframes blinker {
+  from {
+    opacity: 1;
+  }
+to {
+    opacity: 0.1;
+  }
 }

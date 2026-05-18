@@ -17,4 +17,6 @@
 }
 .banner-ad.fs-unavailable {
     @include fs-styles.fs-unavailable;
+    filter: blur(var(--fs-unavailable-blur-md));
+    opacity: calc( var(--fs-unavailable-opacity) / 2);
 }

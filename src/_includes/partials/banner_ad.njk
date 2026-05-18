@@ -1,13 +1,21 @@
+
 {% if storefront.bannerAd %}
-<div disabled class="banner-ad fs-unavailable">
-  <a class="banner-link">
-    <img 
-      src="/pages/{{ storefront.slug }}/{{ storefront.bannerAd.url }}" 
-      alt="{{ storefront.bannerAd.alt }}" 
-      class="banner-image"
-      {% if storefront.bannerAd.width %}width="{{ storefront.annerAd.width }}"{% endif %}
-      {% if storefront.bannerAd.height %}height="{{ storefront.bannerAd.height }}"{% endif %}
-    >
-  </a>
-</div>
+  <div disabled class="banner-ad fs-unavailable">
+    <a href="{{ storefront.bannerAd.href }}">
+      <picture>
+        {% for source in storefront.bannerAd.sources %}
+          <source
+            media="{{ source.media }}"
+            srcset="/pages/{{ storefront.slug }}/{{ source.url }}"
+          >
+        {% endfor %}
+
+        <img
+          src="/pages/{{ storefront.slug }}/{{ storefront.bannerAd.fallback.url }}"
+          alt="{{ storefront.bannerAd.alt }}"
+          width="{{ storefront.bannerAd.fallback.width }}"
+        >
+      </picture>
+    </a>
+  </div>
 {% endif %}

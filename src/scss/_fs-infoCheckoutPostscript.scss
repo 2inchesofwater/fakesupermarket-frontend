@@ -1,0 +1,27 @@
+@use "fs-variables" as *;
+
+.fs-infoCheckoutPostscript {
+    .fs-dialogue-outer {
+	    display: block; 
+	    padding-block: var(--fs-thickness-lg);
+    	padding-inline: var(--fs-thickness-lg);   	
+	    margin-inline: auto;
+	    max-width: 85%;
+    	@container fs-dialogue (inline-size > #{$screen-sm}) {
+			max-width: 600px;
+        } 	    
+    }
+    .fakesupermarket-logo {
+    	display: none;
+    }	
+}
+
+#checkout #orderSummary.incomplete {
+	.fs-dialogue-outer,
+	.fs-dialogue-inner {
+		background: unset;
+	}
+	.fs-dialogue-inner::after {
+		background: unset;
+	}
+}

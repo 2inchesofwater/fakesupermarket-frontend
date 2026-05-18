@@ -2,33 +2,33 @@ progress {
 	-webkit-appearance: none;
 	display: block;
 	width: 100%;
-	height: var(--fs-spacing-md);
+	height: var(--fs-progress-height);
 	border-radius: 0;
 	appearance: none;
 
-    background-color: var(--fs-color-panel-strong);
-    border: var(--fs-thickness-sm) solid var(--fs-color-border-strong);
+    background: var(--fs-color-panel-strong);
+    // border: var(--fs-thickness-sm) solid var(--fs-color-border-default);
     cursor: pointer;
 
     &::-webkit-progress-value {
     	background-color: var(--fs-color-chart-1);
     }
 	&::-webkit-progress-bar {
-		background: var(--fs-color-border-default);
+		background: var(--fs-color-border-light);
 	}    		
 }
 
 
 .fs-interview-progress {
-	background: var(--fs-palette-light);
+	background: var(--fs-color-action-disabled-default);
 	margin-block-start: var(--fs-spacing-sm);
 	margin-block-end: var(--fs-spacing-sm);
-	height: 2px;
+	height: var(--fs-progress-height);
 
 	::-webkit-progress-bar {
-		background: var(--fs-palette-light);
+		background: var(--fs-color-action-disabled-default);
 	}
 	::-webkit-progress-value {
-		background: var(--fs-palette-middle);	
+		background: var(--fs-color-brand-primary);	
 	}
 }

@@ -9,7 +9,7 @@
   </div>
   <div id="footer-nav" class="row">
     <div class="wrapper">
-      {% include "partials/fs-footerReminder.njk" %}
+      {% include "partials/fs-taskReminder.njk" %}
       <div disabled class="fs-unavailable footer-column">
         <h3 class="footer-heading">Customer service and support</h3>
         <ul class="footer-links nav-list">
@@ -69,7 +69,11 @@
 
   <div id="footer-tail" class="row">
     <div class="wrapper">
-      <p>&copy; {% year %} Fake Supermarket. All rights reserved. <a href="#">Privacy Policy</a></p>
+      <p>&copy; {% year %} Fake Supermarket. All rights reserved.</p>
+      <ul>
+        <li><a href="#">Privacy policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+      </ul>
     </div>
   </div>  
 </footer>

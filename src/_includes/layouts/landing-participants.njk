@@ -1,0 +1,211 @@
+{% set pagelayout = "landingpage participants" %}
+
+{% extends "layouts/base.njk" %} 
+  
+{% block content %}
+<body id="participants" class="landing">
+
+  <div class="page">
+    <header class="site-header"> 
+      <div class="container">
+        <a href="/" class="site-logo" aria-label="Fake Supermarket">
+          {% include "partials/logo/fakesupermarket-logo.njk" %}
+        </a>
+
+        {# <nav class="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="#how-it-works" class="fs-btn btn-landing">How it works</a></li>
+            <li><a href="#rewards" class="fs-btn btn-landing">Rewards</a></li>
+            <li><a href="#faq" class="fs-btn btn-landing">FAQ</a></li>
+            <li><a href="#join" class="fs-btn btn-landing">Join now</a></li>
+          </ul>
+        </nav> #}
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="hero">
+        <div class="container">
+          <div class="container-heading">
+            <p class="badge">Coming soon</p>
+
+            <h1>Real money.<br>Fake shopping.</h1>
+          </div>
+          <div class="wrapper">
+            <div class="container-panel">
+              <div class="container-content">
+                <p>Get paid real money for shopping in a fake supermarket. Your choices become a part of real-world research. </p>
+              </div>
+              {# <div class="hero-actions">
+                <a href="#how-it-works" class="fs-btn btn-landing btn-primary">See how it works</a>
+                <a href="#join" class="fs-btn btn-landing">Join the mailing list</a>
+              </div> #}
+            </div>
+          </div>
+
+          <div class="container-extra">
+            <p class="text-sm">Free to join. No purchase required. Real payments.</p><p class="text-xs">Serving suggestion only.</p>
+          </div>
+        </div>
+
+        <div class="container-media">
+          {% include "partials/landingpage/fakeproduct.njk" %}
+        </div>
+      </section>
+
+
+      <section id="benefits">
+        <div class="container">
+          <div class="container-media benefits-media">
+            <img src="landingpage/jacob-boavista-D44QSXAMtiI-unsplash.jpg" alt="woman using smartphone in train">
+            <figcaption>Photograph: Jacob Boavista (@jacobboavista) via Unsplash</figcaption>
+          </div>
+          <div class="container-panel">
+              <header class="container-heading">
+                <p class="eyebrow">Made for real households.</p>
+                <h2>Simple, quick, and surprisingly normal.</h2>
+              </header>
+
+              <div class="container-content">
+                {# <article class="landingpage-card"> #}
+                  <h3>It works a lot like the online grocery shopping you already do.</h3>
+                  <p>If you’re the person who usually decides what groceries get bought for your household, you’re exactly who we’re looking for.</p><p>Fake Supermarket is a quick, easy research task you can do wherever you are, with no trips, appointments, or awkward in-person sessions.</p><p>In just a few minutes, you’ll browse products much like you would during your usual online shop. There’s no right or wrong way to do it — honest, everyday choices are exactly what make the research valuable.</p>
+                {# </article> #}
+              </div>
+          </div>
+        </div>
+      </section>
+
+ 
+      <section id="how-it-works" class="how-it-works">
+        <div class="container">
+          <div class="wrapper">
+            <div class="container-heading">
+              <p class="eyebrow">Lorem ipsum dolmar.</p>
+              <h2>How it works.</h2>
+            </div>
+            <div class="container-panel">
+              <div class="container-content">
+                <p>You'll be shown a page of supermarket products, such as breakfast cereals. "Buy" what you'd buy for your household. </p><p>Maybe you'll stick with your usual... but maybe you'll find a better price, or maybe you'll see something new. Pick what makes sense for you.</p><p>Then take your selection through the fake checkout. You might get asked a few questions on the way out. That's it!</p> 
+              </div>
+            </div>
+          </div>
+          <div class="productDetails">
+            {% include "partials/landingpage/howitworks.njk" %} 
+          </div>
+        </div>
+      </section>
+
+      <section id="trust-strip" aria-label="Key benefits">
+        <div class="container">
+          <div class="container-heading">
+            <h2>You might like...</h2>
+          </div>
+          <div class="container-content">
+            <ul class="trust-list">
+              <li><p>It's free to join.</p></li>
+              <li><p>No purchase required.</p></li>
+              <li><p>Short online sessions.</p></li>
+              <li><p>Real payments.</p></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
+    {# <section id="rewards" class="rewards">
+        <div class="container">
+          <header class="section-header">
+            <p class="eyebrow">Rewards</p>
+            <h2>Fake shopping. Real payment.</h2>
+            <p>
+              Eligible studies offer clear rewards for your time. Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+            </p>
+          </header>
+
+          <div class="reward-panels">
+            <article class="reward-card">
+              <h3>Know what to expect</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+              </p>
+            </article>
+
+            <article class="reward-card">
+              <h3>No hidden catches</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus.
+              </p>
+            </article>
+
+            <article class="reward-card">
+              <h3>Your time has value</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="social-proof">
+        <div class="container">
+          <header class="section-header">
+            <p class="eyebrow">What participants say</p>
+            <h2>Easy to understand. Easy to complete.</h2>
+          </header>
+
+          <div class="testimonial-grid">
+            <blockquote class="testimonial">
+              <p>
+                “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.”
+              </p>
+              <footer>Participant, Brisbane</footer>
+            </blockquote>
+
+            <blockquote class="testimonial">
+              <p>
+                “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis.”
+              </p>
+              <footer>Participant, Melbourne</footer>
+            </blockquote>
+          </div>
+        </div>
+      </section> #}
+
+
+      <section id="join" class="cta-panel">
+        <div classs="container-media">
+          
+        </div>
+        <div class="container">
+          <div class="container-panel">
+            <p class="eyebrow">Ready to try it?</p>
+            <script async src="https://eomail5.com/form/7d5ad4b8-3d56-11f1-a3ce-eb31e4e09e5f.js" data-form="7d5ad4b8-3d56-11f1-a3ce-eb31e4e09e5f"></script>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p class="site-footer-brand">Fake Supermarket</p>
+
+        <nav aria-label="Footer">
+          <ul>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+  </div>
+  <div class="fs-svg-hidden" aria-hidden style="position:absolute;width:0;height:0;overflow:hidden">
+    {% include "partials/icons/marker-interactive.njk" %}
+  </div>
+</body>
+{% endblock %}

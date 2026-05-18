@@ -4,8 +4,8 @@
     "actionLabel": "I can do that"
   },
 
-  "storefrontName": "Store Supermarkets",
-  "storefrontNameHTML": "<span id='primary'>Store</span><span id='secondary'>Supermarkets</span>",
+  "storefrontName": "Fake Supermarket",
+  "storefrontNameHTML": "<span id='primary'>Fake</span><span id='secondary'>Supermarket</span>",
   "storefrontType": "supermarket",
   "categoryTitle": "Breakfast cereals", 
   "slug": "breakfastcereal",
@@ -20,10 +20,27 @@
   ],
   
   "bannerAd": {
-    "url": "ela-1389-cust-offer-update-1920x200.png",
     "href": "/",
     "alt": "",
-    "width": "1920"
+    "sources": [
+      {
+        "label": "mobile",
+        "url": "20260509-_3.jpg",
+        "width": "500",
+        "media": "(max-width: 500px)"
+      },
+      {
+        "label": "tablet",
+        "url": "20260509-_2.jpg",
+        "width": "920",
+        "media": "(max-width: 900px)"
+      }
+    ],
+    "fallback": {
+      "label": "desktop",
+      "url": "20260509-_1.jpg",
+      "width": "1920"
+    }
   },
   
   "productCardImageSize": {
@@ -98,11 +115,11 @@
       }
     },
     "task": {
-      "instructionTitle": "Checkout with next week’s groceries",
+      "instructionTitle": "Pick what's for breakfast...",
       "instructionDetail": [
-        "You'll see products from the <strong>Breakfast cereals</strong> section of a fake supermarket.",
-        "Think about what <strong>you</strong> expect to buy in next week's groceries.",
-        "Go through the checkout with the products which you would buy for your household."
+        "You'll see a range of <strong>Breakfast cereals</strong>.",
+        "Pick what <strong>you</strong> would buy for your household.",
+        "Go through the checkout. <em>Remember</em>: You don't have to pay."
       ]
     },
     "interview": [
@@ -651,7 +668,7 @@
         "pricePerUnit": "1.41",
         "productPerUnit": "100g",
         "badgeLabel": "Everyday low price",
-        "badgeClassName": "special",        
+        "badgeClassName": "badge-excitement",        
         "featuredLabel": null,
 
         "productGrossWeight": "460g",
