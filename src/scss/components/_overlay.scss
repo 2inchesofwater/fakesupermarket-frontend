@@ -17,7 +17,8 @@
 		padding: var(--spacing-2xs) var(--spacing-2xs);
 		box-sizing: border-box;
 		border-radius: 5rem;
-		min-width: 0;
+		min-inline-size: 3.5rem;
+		inline-size: max-content;
 		aspect-ratio: 1 / 1;
 
 		background: var(--color-core-100);

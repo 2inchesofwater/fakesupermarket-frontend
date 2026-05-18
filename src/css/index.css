@@ -4790,6 +4790,9 @@ nav.breadcrumbs a:hover {
 #checkout #paymentFlow-payment-options {
   margin-bottom: var(--spacing-sm);
 }
+#checkout #cart-summary-products-list {
+  min-height: 50vh;
+}
 #checkout #paymentFlow-summary-actions,
 #checkout #paymentFlow-shipping-actions,
 #checkout #paymentFlow-payment-actions {
@@ -5721,7 +5724,8 @@ body {
   padding: var(--spacing-2xs) var(--spacing-2xs);
   box-sizing: border-box;
   border-radius: 5rem;
-  min-width: 0;
+  min-inline-size: 3.5rem;
+  inline-size: max-content;
   aspect-ratio: 1/1;
   background: var(--color-core-100);
   border: var(--thickness-lg) solid var(--color-brand-primary);

@@ -66,6 +66,10 @@
     margin-bottom: var(--spacing-sm);
   }
 
+  #cart-summary-products-list {
+    min-height: 50vh;
+  }
+
   // Switch the 'checked' icons inside the 'Complete' button inside each section
   #paymentFlow-summary-actions,
   #paymentFlow-shipping-actions,
