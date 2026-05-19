@@ -6465,9 +6465,10 @@ main h1 {
 }
 .productDetails .product-essentials {
   container: essentials/inline-size;
-  top: 2rem;
+  top: 3rem;
   position: sticky;
   align-self: start;
+  z-index: 5;
   background: var(--color-white);
   border: var(--thickness-sm) solid var(--color-border-default);
   padding: var(--spacing-lg);
@@ -6595,6 +6596,7 @@ main h1 {
   display: flex;
   flex-direction: row;
   gap: var(--spacing-2xs);
+  margin-inline: var(--spacing-xs);
 }
 .productDetails .product-images .product-images-thumbnails ul {
   display: grid;
@@ -6619,7 +6621,7 @@ main h1 {
 .productDetails .product-images .product-images-thumbnails button[aria-pressed=true] {
   outline: var(--thickness-lg) solid var(--color-brand-primary);
   position: relative;
-  z-index: 10;
+  z-index: 1;
 }
 .productDetails .product-information {
   container: information/inline-size;
