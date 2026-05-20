@@ -17,18 +17,18 @@
   &.fs-dialogue-md,
   &.fs-dialogue-lg {
     .fs-dialogue-outer {
-      grid-template-columns: 1fr;
-      grid-template-rows: calc(var(--fs-logo-size-md) * .5) minmax(0, 1fr);
+      // grid-template-columns: 1fr;
+      // grid-template-rows: calc(var(--fs-logo-size-md) * .5) minmax(0, 1fr);
 
       background: var(--fs-color-background-dialogue);
       border: var(--fs-thickness-lg) solid var(--fs-color-core-600);
       outline: var(--fs-thickness-xl) solid var(--fs-color-bright-orange-middle);
       box-shadow: var(--fs-boxShadow-md);      
 
-      @media (min-width: #{$screen-md}) {
-        grid-template-columns: calc(var(--fs-logo-size-md) * 0.5) minmax(0, 1fr);
-        grid-template-rows: 1fr;
-      }      
+      // @media (min-width: #{$screen-md}) {
+      //   grid-template-columns: calc(var(--fs-logo-size-md) * 0.5) minmax(0, 1fr);
+      //   grid-template-rows: 1fr;
+      // }      
     }
     &.fs-dialogue-md {
       .fs-dialogue-outer {
