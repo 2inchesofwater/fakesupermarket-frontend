@@ -67,7 +67,8 @@
 
 	#cart-summary {
 		flex: auto;
-		overflow-y: scroll; 
+		overflow-y: scroll;
+		min-block-size: 0; 
 
 		display: flex;
 		flex-direction: column;
@@ -90,12 +91,13 @@
 
 	#cart-summary-subtotal {
 		flex: 1;
+		z-index: 1;
 
 		padding: var(--spacing-sm);
 		padding-inline: var(--spacing-xl);
 		background: var(--color-background-header);
 		border-block: var(--thickness-sm) solid var(--color-border-light);
-		box-shadow: 0 calc(var(--spacing-2xs) * -1) 1rem var(--color-gray-500);
+		box-shadow: 0 calc(var(--spacing-2xs) * -1) 1rem var(--color-gray-100);
 
 		.cart-summary-row {
 			display: flex;
@@ -115,6 +117,7 @@
 	}
 	#cart-overlay-footer {
 		flex: 1;
+		z-index: 1;
 
 		display: flex;
 		flex-direction: column;
