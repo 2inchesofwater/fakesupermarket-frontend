@@ -76,8 +76,8 @@
     .fakesupermarket-logo {
       width: var(--fs-logo-size-md);
       height: var(--fs-logo-size-md);
-      top: calc(var(--fs-logo-size-md) * -0.5);
-      left: calc(var(--fs-logo-size-md) * 0.125);
+      top: calc(var(--fs-logo-size-md) * -0.5 - var(--fs-spacing-xs));
+      // left: calc(var(--fs-logo-size-md) * 0.125);
       @media (min-width: #{$screen-md}) {
         width: var(--fs-logo-size-md);
         height: var(--fs-logo-size-md);
