@@ -1,6 +1,175 @@
-<details id="category-SortAndFilter" class="">
-	<summary>Filters</summary>
-	<div class="details-panel">
-		Sort by price
-	</div>
-</details>
+<aside disabled class="resultsFilters fs-unavailable" aria-label="Sorting and filtering options">
+  <button class="btn btn-tertiary resultsFilters-toggle" type="button" aria-expanded="false" aria-controls="results-filters-panel">Show filters</button>
+
+  <div id="results-filters-panel" class="resultsFilters-panel">
+    <details id="results-filters-sort" class="filterGroup">
+		  <summary>Sort order</summary>
+		  {# <div class="filterGroup-panel">
+			  <label>
+			    <input type="radio" name="sortOrder" value="relevance" checked>
+			    Relevance
+			  </label>
+
+			  <label>
+			    <input type="radio" name="sortOrder" value="priceLowHigh">
+			    Price: low to high
+			  </label>
+
+			  <label>
+			    <input type="radio" name="sortOrder" value="priceHighLow">
+			    Price: high to low
+			  </label>
+
+			  <label>
+			    <input type="radio" name="sortOrder" value="brandAZ">
+			    Brand: A–Z
+			  </label>
+
+			  <label>
+			    <input type="radio" name="sortOrder" value="ratingHighLow">
+			    Health Star Rating: high to low
+			  </label>
+			</div> #}
+		</details>
+
+		<div id="results-filters-specials" class="pillGroup" aria-label="Show specials only"> 
+			<label class="pill">
+			  <input type="checkbox" name="specials" value="true">
+			  Specials
+			</label>
+		</div>
+
+		<details id="results-filters-brand" class="filterGroup">
+		  <summary>Brand</summary>
+		  <!-- Obviously, we'd only render out brands which are available on the current Category page -->
+		  {# <div class="filterGroup-panel">
+			  <label>
+			    <input type="checkbox" name="brand" value="brand_x">
+			    Brand X
+			  </label>
+
+			  <label>
+			    <input type="checkbox" name="brand" value="coles">
+			    Coles
+			  </label>
+
+			  <label>
+			    <input type="checkbox" name="brand" value="kelloggs">
+			    Kellogg’s
+			  </label>
+
+			  <label>
+			    <input type="checkbox" name="brand" value="uncle-tobys">
+			    Uncle Tobys
+			  </label>
+
+			  <label>
+			    <input type="checkbox" name="brand" value="sanitarium">
+			    Sanitarium
+			  </label>
+		  </div> #}		  
+		</details>	
+
+		<details id="results-filters-allergens" class="filterGroup">
+		  <summary>Exclude allergens</summary>
+		  {# <div class="filterGroup-panel">
+			  <label>
+			    <input type="checkbox" name="excludeAllergen" value="gluten">
+			    Gluten
+			  </label>
+
+			  <label>
+			    <input type="checkbox" name="excludeAllergen" value="milk">
+			    Milk
+			  </label>
+
+			  <label>
+			    <input type="checkbox" name="excludeAllergen" value="egg">
+			    Egg
+			  </label>
+
+			  <label>
+			    <input type="checkbox" name="excludeAllergen" value="soy">
+			    Soy
+			  </label>
+
+			  <label>
+			    <input type="checkbox" name="excludeAllergen" value="peanuts">
+			    Peanuts
+			  </label>
+
+			  <label>
+			    <input type="checkbox" name="excludeAllergen" value="treeNuts">
+			    Tree nuts
+			  </label>
+			</div> #}
+		</details>
+
+		<details id="results-filters-dietary" class="filterGroup">
+		  <summary>Dietary and nutrition</summary>
+		  {# <div class="filterGroup-panel">
+			  <label>
+			    <input type="checkbox" name="dietary" value="vegetarian">
+			    Vegetarian
+			  </label>
+
+			  <label>
+			    <input type="checkbox" name="dietary" value="vegan">
+			    Vegan
+			  </label>
+
+			  <label>
+			    <input type="checkbox" name="dietary" value="glutenFree">
+			    Gluten free
+			  </label>
+
+			  <label>
+			    <input type="checkbox" name="dietary" value="noAddedSugar">
+			    No added sugar
+			  </label>
+
+			  <label>
+			    <input type="checkbox" name="dietary" value="highFibre">
+			    High fibre
+			  </label>
+
+			  <label>
+			    <input type="checkbox" name="dietary" value="sourceOfProtein">
+			    Source of protein
+			  </label>
+			</div> #}
+		</details>
+
+		<details id="results-filters-healthstars" class="filterGroup">
+		  <summary>Health Star Rating</summary>
+		  {# <div class="filterGroup-panel">
+			  <label>
+			    <input type="radio" name="healthStarRating" value="" checked>
+			    Any rating
+			  </label>
+
+			  <label>
+			    <input type="radio" name="healthStarRating" value="3">
+			    3 stars and up
+			  </label>
+
+			  <label>
+			    <input type="radio" name="healthStarRating" value="3.5">
+			    3.5 stars and up
+			  </label>
+
+			  <label>
+			    <input type="radio" name="healthStarRating" value="4">
+			    4 stars and up
+			  </label>
+
+			  <label>
+			    <input type="radio" name="healthStarRating" value="4.5">
+			    4.5 stars and up
+			  </label>
+			</div> #}
+		</details>	
+
+  	<button class="btn btn-link resultsFilters-clear" type="button">Clear all</button>
+  </div>
+</aside>

@@ -1,3 +1,116 @@
-#category-SortAndFilter {
-	text-align: end;
+@use "fs-variables" as *;
+
+.resultsFilters {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xs);
+
+	@media (min-width: #{$screen-md}) {
+		flex-direction: row;
+		gap: var(--spacing-sm);
+	}
+	&[disabled] {
+		filter: blur(var(--fs-unavailable-blur-sm));
+	}
+
+	.resultsFilters-toggle {
+		border-width: var(--thickness-md);
+		padding-inline: var(--spacing-sm);
+		@media (min-width: #{$screen-md}) {
+			display: none;
+		}
+	}
+
+	.resultsFilters-panel {	
+		display: none;
+		flex-direction: column;
+		gap: var(--spacing-xs);
+		width: 100%;
+		@media (min-width: #{$screen-md}) {
+			display: flex;
+			flex-direction: row;
+			gap: var(--spacing-sm);
+			align-items: center;
+
+			overflow-x: auto;
+			scroll-snap-type: x proximity;
+		}		
+	}
+	.resultsFilters-toggle[aria-expanded="true"] + .resultsFilters-panel {
+		display: block;
+	}
+
+	details {
+		flex: 1;
+
+		border: none;
+		position: relative;	
+		display: block;
+		width: auto;
+		// min-width: 8rem;
+		white-space: nowrap;	
+		@media (min-width: #{$screen-md}) {
+			display: unset;
+		}			
+	}
+	summary {
+		cursor: pointer;
+		display: inline-block;
+	  padding: var(--spacing-xs);
+	  padding-inline: var(--spacing-sm);
+		border-radius: var(--radius-md);
+		background: var(--color-white);
+		border: var(--thickness-md) solid var(--color-border-default);
+		transition: var(--transition-md);
+		width: 100%;
+		
+	}
+	details[open] summary {
+		border-color: var(--color-text-tertiary);
+	}
+
+
+	.filterGroup-panel {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-xs);
+
+		background: var(--color-background-active);
+		border: var(--thickness-sm) solid var(--color-border-strong);
+		border-radius: var(--radius-md);
+		padding: var(--spacing-md);
+		box-shadow: var(--boxShadow-sm);
+		@media (min-width: #{$screen-md}) {
+			position: absolute;
+			z-index: 1;
+			width: 240px;
+		}				
+	}
+
+	.pillGroup {
+		flex: 1;
+
+		display: flex;
+		width: auto;
+		// min-width: 8rem;
+		white-space: nowrap;
+		.pill {
+			display: flex;
+			gap: var(--spacing-xs);
+			min-width: unset;
+			padding-inline: var(--spacing-sm);
+		}
+	}
+	#results-filters-specials input {
+		display: none;
+	}
+
+	.btn {
+		flex: 1;
+		white-space: nowrap;
+		@media (min-width: #{$screen-md}) {
+			flex: unset;
+			// white-space: unset;
+		}
+	}
 }
