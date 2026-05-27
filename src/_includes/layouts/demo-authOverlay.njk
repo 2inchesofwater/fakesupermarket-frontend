@@ -1,8 +1,15 @@
+
+{% extends "layouts/base.njk" %}   
+ 
+{% block content %} 
+	
 <aside id="auth-overlay" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title" tabindex="-1" class="open">
 	<header id="auth-overlay-header">
 		<h2 id="auth-overlay-title" class="">Sign in or register</h2>
 		<button aria-label="Close account panel" class="btn btn-tertiary btn-icon btn-iconOnly" id="cart-overlay-btn-close" type="button">
-			<span class="icon" aria-hidden="true">x</span>
+			<span class="icon" aria-hidden="true">
+				{% include "partials/icons/x.njk" %}
+			</span>
 		</button>
 	</header>
 
@@ -15,3 +22,6 @@
 		</div>
 	</section>
 </aside>
+
+
+{% endblock %}
