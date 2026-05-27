@@ -8,8 +8,6 @@
 	    grid-gap: var(--fs-spacing-sm); 
 
 	    margin-inline: auto;
-	    padding-block: var(--fs-thickness-lg);
-    	padding-inline: var(--fs-thickness-lg);
     	max-width: 85%;
 
     	@container fs-dialogue (inline-size > #{$screen-sm}) {
@@ -22,5 +20,10 @@
     &.fs-dialogue .fs-dialogue-inner {
     	display: grid;
     	align-self: center;
+    	background: unset;
+       	@container fs-dialogue (inline-size > #{$screen-md}) {
+			grid-template-columns: 1fr auto;
+			align-items: center;
+        }    	
     }
 }

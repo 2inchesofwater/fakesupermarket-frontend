@@ -47,7 +47,7 @@
   --fs-color-white: #ffffff;
   --fs-color-trueWhite: #fff;
   --fs-color-brand-primary: var(--fs-color-core-600);
-  --fs-color-brand-secondary: var(--fs-color-bright-cloud-middle);
+  --fs-color-brand-secondary: var(--fs-color-bright-orange-light);
   --fs-color-success: var(--fs-color-bright-green-middle);
   --fs-color-caution: var(--fs-color-bright-orange-middle);
   --fs-color-danger: var(--fs-color-bright-pink-middle);
@@ -118,6 +118,7 @@
   --fs-radius-sm: 4px;
   --fs-radius-md: 8px;
   --fs-radius-lg: 12px;
+  --fs-radius-xl: 2.5vw;
   --fs-screen-xs: 300px;
   --fs-screen-sm: 500px;
   --fs-screen-md: 750px;
@@ -161,7 +162,9 @@
   --fs-boxShadow-sm: 0 var(--spacing-3xs) 1vw var(--color-shadow-light);
   --fs-boxShadow-md: 0 var(--spacing-2xs) 2.5vw var(--color-shadow-medium);
   --fs-boxShadow-lg: 0 var(--spacing-xs) 5vw var(--color-shadow-medium);
-  --fs-transition-md: all 0.2s ease;
+  --fs-transition-sm: all 0.1s ease;
+  --fs-transition-md: all 0.3s ease;
+  --fs-transition-lg: all 0.6s ease;
   --fs-weight-light: 200;
   --fs-weight-regular: 300;
   --fs-weight-bold: 500;

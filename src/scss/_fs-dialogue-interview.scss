@@ -1,5 +1,4 @@
 @use "fs-variables" as *;
-@use 'fs-logo';
 
 #fs-interview {
 	position: relative;
@@ -14,11 +13,32 @@
 		margin-inline-end: 0;
 	}
 
-  header {}
+	.fs-dialogue-outer {
+		grid-template-rows: var(--fs-logo-size-md) auto;
+		grid-template-columns: 1fr;
 
-	.fs-dialogue {
-		.fs-dialogue-outer {
-			margin-block-start: var(--fs-thickness-xl);
+		margin-block-start: var(--fs-thickness-xl);
+		outline: var(--fs-thickness-xl) solid var(--fs-color-bright-orange-middle);
+    	border-width: var(--fs-thickness-lg);
+		overflow: unset;
+		@media (min-width: #{$screen-md}) {
+			grid-template-rows: 1fr;
+			grid-template-columns: calc(var(--fs-logo-size-md) * 0.5) auto;
+		}
+	}
+
+	.fakesupermarket-logo {
+		width: var(--fs-logo-size-md);
+		height: var(--fs-logo-size-md);
+		top: calc(var(--fs-logo-size-md) * -0.5 - var(--fs-spacing-xs));
+		left: var(--fs-spacing-md);
+		transform: rotate(-5deg);
+		@media (min-width: #{$screen-md}) {
+		  top: var(--fs-spacing-md);
+		  left: calc(var(--fs-logo-size-md) * -0.5 - var(--fs-spacing-2xs));
+		}
+		svg {
+		  filter: drop-shadow(1px 3px 2px rgba(0, 0, 0, 0.1));
 		}
 	}
 
@@ -81,14 +101,17 @@
 
 
 
-	#fs-interview-product {
-		box-shadow: 0 1px 15px rgba(0,0,0,0.15);
-	}
-	#fs-interview-controls {
-		padding-inline: var(--fs-spacing-md);
-		padding-block-end: var(--fs-spacing-lg);
-		@media (min-width: $screen-sm) {
-			padding-inline: var(--fs-spacing-lg);
-			padding-block-start: unset;
-		}	
-	}
+#fs-interview-product {
+	box-shadow: 0 1px 15px rgba(0,0,0,0.15);
+}
+#fs-interview-controls {
+	padding-inline: var(--fs-spacing-md);
+	padding-block-end: var(--fs-spacing-lg);
+	@media (min-width: $screen-sm) {
+		padding-inline: var(--fs-spacing-lg);
+		padding-block-start: unset;
+	}	
+}
+#fs-interview .badge-information {
+	border-color: var(--fs-color-core-300);
+}

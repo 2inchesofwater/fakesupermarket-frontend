@@ -1,6 +1,6 @@
 @use "fs-variables" as *;
 
-#paymentFlow-payment #fs-unavailableOptions {
+#paymentFlow-payment .fs-dialogue {
 	margin-block-end: var(--spacing-md);
 }
 

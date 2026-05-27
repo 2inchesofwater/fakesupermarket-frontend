@@ -3,17 +3,13 @@
 .fs-taskReminder {
     &.fs-dialogue .fs-dialogue-outer {
 	    display: grid;
-	    grid-template-rows: 1fr;
-	    grid-template-columns: calc(var(--fs-logo-size-sm) + var(--fs-spacing-xs)) auto;
+	    grid-template-rows: calc(var(--fs-logo-size-sm) + var(--fs-spacing-xs)) auto;
+	    grid-template-columns: 1fr;
 	    grid-gap: var(--fs-spacing-sm); 
 
-	    padding-block: var(--fs-thickness-lg);
-    	padding-inline: var(--fs-thickness-lg);
-
     	@container fs-dialogue (inline-size > #{$screen-xs}) {
-    		// grid-template-rows: 1fr;
-			// grid-template-columns: var(--fs-logo-size-sm) auto;
-			// padding-inline-start: var(--fs-spacing-md);
+    		grid-template-rows: 1fr;
+	    	grid-template-columns: calc(var(--fs-logo-size-sm) + var(--fs-spacing-xs)) auto;
         }   	
     }
     &.fs-dialogue .fakesupermarket-logo {
@@ -26,7 +22,12 @@
     }
     &.fs-dialogue .fs-dialogue-inner {
     	align-self: center;
-    	color: var(--fs-color-text-dialogue);
+    	border-top-left-radius: unset;
+    	border-top-right-radius: unset;
+		@container fs-dialogue (inline-size > #{$screen-xs}) {
+			border-top-left-radius: unset;
+    		border-bottom-left-radius: unset
+		}    	
     }
     .fs-dialogue-title {
     	margin-block-end: var(--fs-spacing-sm);

@@ -3,25 +3,30 @@
 .fs-infoCheckoutPostscript {
     .fs-dialogue-outer {
 	    display: block; 
-	    padding-block: var(--fs-thickness-lg);
-    	padding-inline: var(--fs-thickness-lg);   	
 	    margin-inline: auto;
-	    max-width: 85%;
+	    // max-width: 85%;
     	@container fs-dialogue (inline-size > #{$screen-sm}) {
 			max-width: 600px;
         } 	    
     }
     .fakesupermarket-logo {
     	display: none;
+    }
+    .fs-dialogue-inner {
+    	background: unset;
     }	
 }
 
 #checkout #orderSummary.incomplete {
-	.fs-dialogue-outer,
-	.fs-dialogue-inner {
+	
+	.fs-dialogue-outer {
 		background: unset;
+		border: unset;
+		outline: unset;
+		padding: unset;
 	}
-	.fs-dialogue-inner::after {
+
+	.fs-dialogue-inner {
 		background: unset;
 	}
 }

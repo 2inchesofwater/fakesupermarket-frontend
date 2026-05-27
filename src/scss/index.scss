@@ -18,10 +18,13 @@
 @use 'fs-completionsLoosenCriteriaOverlay';
 @use 'fs-details';
 @use 'fs-dialogue';
-@use 'fs-endEarly';
+@use 'fs-dialogue-endEarly';
+@use 'fs-dialogue-infoCheckoutPostscript';
+@use 'fs-dialogue-infoCheckoutNoNeed';
+@use 'fs-dialogue-onboarding';
+@use 'fs-dialogue-interview';
+@use 'fs-dialogue-taskReminder';
 @use 'fs-filters';
-@use 'fs-infoCheckoutPostscript';
-@use 'fs-infoCheckoutNoNeed';
 @use 'fs-input';
 @use 'fs-input-checkbox';
 @use 'fs-input-radio';
@@ -40,11 +43,8 @@
 @use 'fs-recruitQuestions';
 @use 'fs-recruitSegment';
 @use 'fs-stepper';
-@use 'fs-taskReminder';
 @use 'fs-tiles'; 
 
-@forward 'fs-onboarding';
-@forward 'fs-interview';
 
 @forward 'fonts';
 @forward 'typography';

@@ -7,8 +7,8 @@
 	    grid-template-columns: var(--fs-logo-size-sm) auto;
 	    grid-gap: var(--fs-spacing-sm); 
 
-	    padding-block: var(--fs-thickness-lg);
-    	padding-inline: var(--fs-thickness-lg);
+	    // padding-block: var(--fs-thickness-lg);
+    	margin-inline: calc(var(--fs-spacing-md) );
 
     	@container fs-dialogue (inline-size > #{$screen-sm}) {
     		grid-template-rows: 1fr;
@@ -29,6 +29,11 @@
     }
     &.fs-dialogue .fs-dialogue-inner {
     	align-self: center;
-    	color: var(--fs-color-text-dialogue);
+    	background: unset;
+    	padding-inline-start: unset;
+
+    	strong {
+    		text-decoration: underline;
+    	}
     }
 }
