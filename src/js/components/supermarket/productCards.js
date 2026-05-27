@@ -28,10 +28,10 @@ export function renderProductCards(products, storefront, productsGrid) {
           loading="lazy"
         >
         ${product.priceCurrent
-          ? `<div class="overlay overlay-text productCard-overlay
-                ${storefront.productCardShowOverlayOnLeft === false ? "productCardOverlay-alignRight" : ""}
-                ${storefront.productCardShowOverlayAtTop === false ? "productCardOverlay-alignBottom" : ""}"
-                aria-label="Special offer"><span class="overlay-label">SPECIAL</span></div>`
+          ? `<div class="sticker sticker-text productCard-sticker
+                ${storefront.productCardShowStickerOnLeft === false ? "productCardSticker-alignRight" : ""}
+                ${storefront.productCardShowStickerAtTop === false ? "productCardSticker-alignBottom" : ""}"
+                aria-label="Special offer"><span class="sticker-label">SPECIAL</span></div>`
           : ""}
       </div>
     ` : "";

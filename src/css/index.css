@@ -5851,39 +5851,6 @@ body {
   color: var(--color-text-primary);
 }
 
-.overlay {
-  position: absolute;
-  top: var(--spacing-sm);
-  left: var(--spacing-sm);
-}
-.overlay.overlay-text {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  font-size: var(--size-xs);
-  font-weight: var(--weight-heavy);
-  color: var(--color-text-primary);
-  padding: var(--spacing-2xs) var(--spacing-2xs);
-  box-sizing: border-box;
-  border-radius: 5rem;
-  min-inline-size: 3.5rem;
-  inline-size: max-content;
-  aspect-ratio: 1/1;
-  background: var(--color-core-100);
-  border: var(--thickness-lg) solid var(--color-brand-primary);
-  outline: var(--thickness-md) solid var(--color-white);
-  box-shadow: var(--boxShadow-sm);
-}
-.overlay.productCardOverlay-alignRight {
-  left: unset;
-  right: calc(var(--spacing-xs) * -1);
-}
-.overlay.productCardOverlay-alignBottom {
-  top: unset;
-  bottom: var(--spacing-xs);
-}
-
 #pagination {
   display: flex;
   flex-direction: column;
@@ -5945,6 +5912,39 @@ body {
   text-underline-offset: var(--thickness-lg);
   text-decoration-color: var(--color-brand-primary);
   text-decoration-thickness: var(--thickness-md);
+}
+
+.sticker {
+  position: absolute;
+  top: var(--spacing-sm);
+  left: var(--spacing-sm);
+}
+.sticker.sticker-text {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  font-size: var(--size-xs);
+  font-weight: var(--weight-heavy);
+  color: var(--color-text-primary);
+  padding: var(--spacing-2xs) var(--spacing-2xs);
+  box-sizing: border-box;
+  border-radius: 5rem;
+  min-inline-size: 3.5rem;
+  inline-size: max-content;
+  aspect-ratio: 1/1;
+  background: var(--color-core-100);
+  border: var(--thickness-lg) solid var(--color-brand-primary);
+  outline: var(--thickness-md) solid var(--color-white);
+  box-shadow: var(--boxShadow-sm);
+}
+.sticker.productCardSticker-alignRight {
+  left: unset;
+  right: calc(var(--spacing-xs) * -1);
+}
+.sticker.productCardSticker-alignBottom {
+  top: unset;
+  bottom: var(--spacing-xs);
 }
 
 table th.numeric, table td.numeric {

@@ -1,11 +1,11 @@
 @use "variables" as *;
 
-.overlay {
+.sticker {
 		position: absolute;
 		top: var(--spacing-sm);
 		left: var(--spacing-sm);
 
-	&.overlay-text {
+	&.sticker-text {
 		display: inline-flex;
 		flex-direction: column;
 		justify-content: center;
@@ -27,11 +27,11 @@
 		box-shadow: var(--boxShadow-sm);	 		
 	}
 
-	&.productCardOverlay-alignRight {
+	&.productCardSticker-alignRight {
 		left: unset;
 		right: calc( var(--spacing-xs) * -1);
 	}
-	&.productCardOverlay-alignBottom {
+	&.productCardSticker-alignBottom {
 		top: unset;
 		bottom: var(--spacing-xs);
 	}
