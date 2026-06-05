@@ -54,7 +54,11 @@
     border-width: var(--fs-thickness-md);
     box-shadow: inset 0 0 0 var(--fs-thickness-sm) var(--fs-color-white);
     color: var(--fs-color-action-primary-font);
+    padding-block: calc(var(--fs-spacing-xs) + var(--fs-spacing-2xs));
     
+    &.btn-sm { 
+      padding-block: var(--fs-spacing-md);
+    }
     &:hover {
       background: var(--fs-color-action-primary-hover);
     }

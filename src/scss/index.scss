@@ -3,6 +3,7 @@
 
 @use 'fs-styles';
 @use 'fs-advice';
+@use 'fs-auth';
 @use 'fs-badge';
 @use 'fs-completionsBoostIncentivesItem';
 @use 'fs-completionsBoostIncentivesOverlay';
@@ -17,6 +18,7 @@
 @use 'fs-completionsLoosenCriteriaItem';
 @use 'fs-completionsLoosenCriteriaOverlay';
 @use 'fs-details';
+@use 'fs-dialogOverlay';
 @use 'fs-dialogue';
 @use 'fs-dialogue-endEarly';
 @use 'fs-dialogue-infoCheckoutPostscript';

@@ -1,0 +1,44 @@
+@use "variables" as *;
+
+#auth-dialog {
+	inset-inline-start: unset;
+	inset-inline-end: 0;
+	inset-block-start: 0;
+	height: 100%;
+	width: 100%;
+	max-width: 420px;
+	z-index: 1055; /* Following Bootstrap's pattern for z-layering */
+	
+	border: unset;
+}
+#auth-dialog-body {
+	grid-template-rows: minmax(50vh, 100%) 2rem;
+}
+#auth-dialog-options {
+	display: grid;
+	grid-gap: var(--fs-spacing-xs);
+	align-content: center;
+  justify-content: center;
+}
+#auth-dialog-separator {
+	text-align: center;
+}
+
+#auth-dialog-signin {
+	display: flex;
+	flex-direction: row;
+	gap: var(--fs-spacing-xs);
+	align-items: center;
+	justify-content: center;
+
+	margin-block-start: var(--fs-spacing-sm);
+	padding-block-start: var(--fs-spacing-lg);
+	border-block-start: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+}
+
+@starting-style {
+  dialog[open] {
+    opacity: 0;
+    transform: translateX(110%);
+  }
+}

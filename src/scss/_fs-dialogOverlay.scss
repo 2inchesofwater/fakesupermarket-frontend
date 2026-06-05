@@ -1,0 +1,41 @@
+.fs-dialog-overlay {
+	position: fixed;
+  transform: translateX(110%);
+	transition:
+    transform 300ms ease,
+    display 300ms ease,
+    overlay 300ms ease;
+  transition-behavior: allow-discrete;
+
+	background: var(--color-background-page);
+
+	&[open] {
+		transform: translateX(0%);
+	}
+
+	.fs-dialog-header {
+		display: flex;
+		flex-direction: row;
+		gap: var(--spacing-md);
+		align-items: center;
+
+		padding: var(--spacing-md);
+		padding-inline: var(--spacing-lg);
+		padding-block-end: var(--spacing-sm);
+		background: var(--color-background-header);
+		border-block-end: var(--thickness-sm) solid var(--color-border-light);
+
+		.fs-dialog-title {
+			flex: 1;
+
+			margin-block-end: unset;
+			color: var(--color-text-primary);
+			font-weight: var(--weight-bold);
+		}
+	}
+
+	.fs-dialog-body {
+		display: grid;
+		padding: var(--spacing-md);
+	}	
+}

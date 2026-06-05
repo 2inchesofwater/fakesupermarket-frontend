@@ -388,6 +388,49 @@
   fill: var(--fs-color-text-secondary);
 }
 
+#auth-dialog {
+  inset-inline-start: unset;
+  inset-inline-end: 0;
+  inset-block-start: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 420px;
+  z-index: 1055; /* Following Bootstrap's pattern for z-layering */
+  border: unset;
+}
+
+#auth-dialog-body {
+  grid-template-rows: minmax(50vh, 100%) 2rem;
+}
+
+#auth-dialog-options {
+  display: grid;
+  grid-gap: var(--fs-spacing-xs);
+  align-content: center;
+  justify-content: center;
+}
+
+#auth-dialog-separator {
+  text-align: center;
+}
+
+#auth-dialog-signin {
+  display: flex;
+  flex-direction: row;
+  gap: var(--fs-spacing-xs);
+  align-items: center;
+  justify-content: center;
+  margin-block-start: var(--fs-spacing-sm);
+  padding-block-start: var(--fs-spacing-lg);
+  border-block-start: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+}
+
+@starting-style {
+  dialog[open] {
+    opacity: 0;
+    transform: translateX(110%);
+  }
+}
 .fs-badge {
   display: flex;
   flex-direction: row;
@@ -649,6 +692,10 @@
   border-width: var(--fs-thickness-md);
   box-shadow: inset 0 0 0 var(--fs-thickness-sm) var(--fs-color-white);
   color: var(--fs-color-action-primary-font);
+  padding-block: calc(var(--fs-spacing-xs) + var(--fs-spacing-2xs));
+}
+.fs-btn.btn-primary.btn-sm {
+  padding-block: var(--fs-spacing-md);
 }
 .fs-btn.btn-primary:hover {
   background: var(--fs-color-action-primary-hover);
@@ -1532,6 +1579,38 @@ details.fs-details:open > summary h3 {
 details.fs-details .fs-details-panel {
   padding: var(--fs-spacing-sm);
   background: var(--fs-color-gray-050);
+}
+
+.fs-dialog-overlay {
+  position: fixed;
+  transform: translateX(110%);
+  transition: transform 300ms ease, display 300ms ease, overlay 300ms ease;
+  transition-behavior: allow-discrete;
+  background: var(--color-background-page);
+}
+.fs-dialog-overlay[open] {
+  transform: translateX(0%);
+}
+.fs-dialog-overlay .fs-dialog-header {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-md);
+  align-items: center;
+  padding: var(--spacing-md);
+  padding-inline: var(--spacing-lg);
+  padding-block-end: var(--spacing-sm);
+  background: var(--color-background-header);
+  border-block-end: var(--thickness-sm) solid var(--color-border-light);
+}
+.fs-dialog-overlay .fs-dialog-header .fs-dialog-title {
+  flex: 1;
+  margin-block-end: unset;
+  color: var(--color-text-primary);
+  font-weight: var(--weight-bold);
+}
+.fs-dialog-overlay .fs-dialog-body {
+  display: grid;
+  padding: var(--spacing-md);
 }
 
 .fs-dialogue {
