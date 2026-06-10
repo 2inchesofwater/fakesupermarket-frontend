@@ -1,0 +1,88 @@
+@use "variables" as *;
+
+@forward 'fs-components/dashboard-cards';
+@forward 'fs-components/dashboard-welcome';
+@forward 'fs-components/dashboard-tasks';
+@forward 'fs-components/dashboard-incentives';
+@forward 'fs-components/dashboard-questions';
+@forward 'fs-components/dashboard-walkthrough';
+
+.dashboard.shoppers {
+		background:  
+    	linear-gradient(127deg, var(--fs-color-core-400), transparent 90.71%),
+    	linear-gradient(336deg, var(--fs-color-bright-orange-dark), transparent 90.71%),
+    	linear-gradient(217deg, #F4F1b6, transparent 90.71%);
+
+	// #fs-shopper-welcome { background: var(--fs-color-bright-tan-light); }
+	// #fs-shopper-tasks { background: var(--fs-color-bright-orange-light); }
+	// #fs-shopper-incentives { background: var(--fs-color-bright-yellow-light); }
+	// #fs-shopper-questions { background: var(--fs-color-bright-pink-light); }
+	// #fs-dashboard-walkthrough { background: var(--fs-color-bright-sky-light); }
+}
+
+#shopperHeader {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	background: var(--fs-color-bright-green-light);
+}
+
+#shopperDashboard {
+
+	#fs-shopper-welcome { grid-area: welcome; }
+	#fs-shopper-tasks { grid-area: tasks; }
+	#fs-shopper-secondary {grid-area: secondary; }
+	#fs-shopper-secondary-spacer {grid-area: spacer; }
+	#fs-shopper-incentives { grid-area: incentives; }
+	#fs-shopper-questions { grid-area: questions; }
+	#fs-dashboard-walkthrough { grid-area: walkthrough; }
+
+	display: grid;
+	row-gap: var(--fs-spacing-lg);
+	column-gap: var(--fs-spacing-lg);
+	align-content: start;
+	align-items: start;
+	grid-template-areas: 
+		"welcome"
+		"tasks"
+		"secondary";
+	margin-block: 5vh;
+
+	@media (min-width: 760px) {
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas: 
+			"welcome ."
+			"tasks secondary";
+		grid-template-rows: auto 1fr;
+		align-items: start;
+		margin-block: 7.5vh;		
+	}
+	@media (min-width: 1200px) {
+		grid-template-columns: 1fr 1fr 1fr;
+		column-gap: var(--fs-spacing-2xl);
+		grid-template-areas: 
+			"welcome tasks secondary";
+		align-items: start;
+		margin-block: 10vh;
+	}
+}
+
+#fs-shopper-secondary {
+	display: grid;
+	grid-gap: var(--fs-spacing-sm);
+	grid-template-areas:
+		"spacer" 
+		"incentives"
+		"questions"
+		"walkthrough";
+	grid-template-rows: auto auto auto auto;
+	align-content: start;		
+}
+
+#shopperDashboard {
+	min-height: 100vh;	
+}
+
+#fs-shopper-secondary-spacer {
+	font-size: var(--fs-size-3xl);
+	height: calc(var(--fs-size-3xl) * 1.25 + var(--fs-size-md) + var(--fs-spacing-xs));
+}

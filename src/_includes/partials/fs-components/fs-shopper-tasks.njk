@@ -1,0 +1,64 @@
+<section id="fs-shopper-tasks" class="fs-dashboard-card card-tasks" aria-labelledby="fs-tasks-title">
+  <header id="fs-tasks-header" class="fs-dashboard-card-header">
+    <h1 id="fs-tasks-title" class="fs-dashboard-card-title">Shopping list</h1>
+    <p class="label">These are the available research tasks.</p>
+  </header>
+
+  <div id="fs-tasks-list" class="">
+    {% for storefrontKey, storefront in fakesupermarket.storefronts %}
+      <div class="fs-dashboard-card-sub">
+        <header class="shoppingList-storefrontHeading fs-dashboard-card-header">
+          <h3 class="fs-dashboard-card-title">From the {{ storefront.storefrontName }}</h3>
+        </header>
+        <ul class="shoppingList fs-dashboard-card-body">
+          {% for item in storefront.shoppingList %}
+            <li class="shoppingList-item{% if item.completed %} is-completed{% endif %}">
+              <a href="{{ item.url }}" class="shoppingList-link">
+
+                <span class="shoppingList-marker icon" aria-hidden="true">
+                  {% if item.completed %}
+                    <svg class="" viewBox="0 0 24 24" focusable="false">
+                      <use href="#check"></use>
+                    </svg>
+                  {% endif %}
+                </span>
+
+                <span class="shoppingList-label">
+                  {{ item.label }}
+                </span>
+
+                {% if item.incentive and not item.completed %}
+                  <span class="shoppingList-incentive badge badge-incentive badge-icon">
+                    <div class="icon">
+                      <svg class="" viewBox="0 0 24 24" focusable="false">
+                        <use href="#dollar-sign"></use>
+                      </svg>
+                    </div>
+                    <div class="label">Available</div>
+                  </span>
+                {% endif %}
+
+                {% if item.incentive and item.completed %}
+                  <span class="shoppingList-incentive badge badge-information badge-icon">
+                    <div class="icon">
+                      <svg class="" viewBox="0 0 24 24" focusable="false">
+                        <use href="#dollar-sign"></use>
+                      </svg>                      
+                    </div>
+                    <div class="label">Completed</div>
+                  </span>
+                {% endif %}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+
+  <footer id="fs-tasks-note" class="fs-dashboard-card fs-dashboard-footer">
+    <p class="label"><strong>Good to know:</strong>
+      You're welcome to complete any items on this list, even those without an incentive marker. Sometimes more incentives will be added to a task later on, and your completed answers may become eligible.
+    </p>
+  </footer>
+</section>

@@ -1,0 +1,14 @@
+.fs-dashboard-card.card-welcome {
+    justify-self: start;
+    margin-block-end: 2.5vh;
+    padding-inline-end: var(--fs-spacing-3xl);
+    max-width: 100%;
+
+	.fs-dashboard-card-title {
+		color: var(--fs-color-text-primary);
+	}
+	.fs-dashboard-card-kicker {
+		color: var(--fs-color-core-700);
+		font-weight: var(--fs-weight-regular);
+	}
+}

@@ -1,0 +1,58 @@
+@use "variables" as *;
+
+.fs-dashboard-card.card-incentives {
+	.accordion-details-panel {
+		display: grid;
+		grid-gap: var(--fs-spacing-xs);
+		#fs-incentives-balance { grid-area: balance; }
+		#fs-incentives-tally { grid-area: tally; }
+		#fs-incentives-total { grid-area: total; }
+
+		grid-template-areas: 
+			"balance balance"
+			"tally total";
+		@media (min-width: #{$screen-sm}) {
+			grid-template-areas: 
+				"balance tally total";
+		}
+		@media (min-width: #{$screen-md}) {
+			grid-template-columns: 1fr 1fr;
+			grid-template-areas: 
+				"balance balance"
+				"tally total";			
+		}
+		@media (min-width: #{$screen-lg}) {
+			grid-template-columns: 2fr 1fr;
+			grid-template-areas: 
+				"balance tally"
+				"balance total";			
+		}		
+		@media (min-width: #{$screen-xl}) {
+			grid-template-columns: 2fr 1fr 1fr;
+			grid-template-areas: 
+				"balance tally total";			
+		}
+	}
+
+	#fs-incentives-balance {
+		display: flex;
+		flex-direction: column;
+		gap: var(--fs-spacing-xs);
+		align-items: start;
+		background: rgb(from var(--fs-color-background-active) r g b / 50%);
+		padding: var(--fs-spacing-sm);
+
+		.fs-dashboard-card-body {
+			flex: 1 1 100%;
+			width: 100%;
+
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+			justify-content: center;
+		}
+		.fs-btn {
+			border-color: var(--fs-color-core-400);
+		}
+	}
+}

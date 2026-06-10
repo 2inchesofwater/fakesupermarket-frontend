@@ -1,83 +1,83 @@
 @use "variables" as *;
 
-.accordion {
-	details {
-		border-top: var(--thickness-sm) solid var(--color-border-default);
-		transition: var(--transition-md);
-		font-size: var(--size-md);
-		&:last-of-type {
-			border-bottom: var(--thickness-sm) solid var(--color-border-default);
+details.accordion,
+.accordion > details {
+	border-top: var(--thickness-sm) solid var(--color-border-default);
+	transition: var(--transition-md);
+	font-size: var(--size-md);
+	&:last-of-type {
+		border-bottom: var(--thickness-sm) solid var(--color-border-default);
+	}
+	&[open] summary {
+		background: var(--color-accordion-summary-open);
+		.svg-open {
+			display: unset;
 		}
-		&[open] summary {
-			background: var(--color-accordion-summary-open);
-			.svg-open {
-				display: unset;
-			}
-			.svg-closed {
-				display: none;
-			}
+		.svg-closed {
+			display: none;
 		}
+	}
 
+	summary {
+		color: var(--color-text-secondary);
+		padding-block: var(--spacing-sm);
+		padding-inline: var(--spacing-xs);
+		cursor: pointer;
+
+		display: inline-flex;
+	    flex-direction: row;
+	    align-items: center;
+	    gap: var(--fs-spacing-xs);
+	    width: 100%;
+
+		h2, h3 {
+			display: inline-block;
+			margin-bottom: 0;
+			font-size: var(--size-lg);
+			font-weight: var(--weight-regular);
+		}
+		.accordion-markerGroup {
+			width: var(--size-md);
+			height: var(--size-md);
+			flex-shrink: 0;
+		}
+		.fs-accordion-markerGroup {
+			width: var(--fs-size-lg);
+			height: var(--fs-size-lg);
+			flex-shrink: 0;
+		}			
+		.svg-open {
+			display: none;
+		}
+		.svg-closed {
+			display: unset;
+		}
+	    @media (min-width: #{$screen-md}) {
+	    	padding-inline: var(--spacing-sm);
+	    }						
+	}
+
+	&:hover {
 		summary {
-			color: var(--color-text-secondary);
-			padding-block: var(--spacing-sm);
-			padding-inline: var(--spacing-xs);
-			cursor: pointer;
-
-			display: inline-flex;
-		    flex-direction: row;
-		    align-items: center;
-		    gap: var(--fs-spacing-xs);
-		    width: 100%;
-			& + div {
-				padding-inline-start: var(--spacing-md);
-				padding-inline-end: var(--spacing-md);
-				padding-block-start: var(--spacing-md);
-				padding-block-end: var(--spacing-md);
-				max-width: 45rem;
-				color: var(--color-text-secondary);
-			}
-
-			h2, h3 {
-				display: inline-block;
-				margin-bottom: 0;
-				font-size: var(--size-lg);
-				font-weight: var(--weight-regular);
-			}
-			.accordion-markerGroup {
-				width: var(--size-md);
-				height: var(--size-md);
-				flex-shrink: 0;
-			}
-			.fs-accordion-markerGroup {
-				width: var(--fs-size-lg);
-				height: var(--fs-size-lg);
-				flex-shrink: 0;
-			}			
-			.svg-open {
-				display: none;
-			}
-			.svg-closed {
-				display: unset;
-			}
-		    @media (min-width: #{$screen-md}) {
-		    	padding-inline: var(--spacing-sm);
-		    }						
+			color: var(--color-action-hover);
 		}
+	}
 
-		&:hover {
-			summary {
-				color: var(--color-action-hover);
+	&[open] {
+		summary {
+			color: var(--color-brand-primary);
+			& > * {
+				font-weight: var(--weight-bold);
 			}
 		}
+	}
 
-		&[open] {
-			summary {
-				color: var(--color-brand-primary);
-				& > * {
-					font-weight: var(--weight-bold);
-				}
-			}
-		}
+	.accordion-details-panel {
+		padding-inline-start: var(--spacing-md);
+		padding-inline-end: var(--spacing-md);
+		padding-block-start: var(--spacing-md);
+		padding-block-end: var(--spacing-md);
+		max-width: 45rem;
+		color: var(--color-text-secondary);
 	}
 }

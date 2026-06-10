@@ -47,6 +47,14 @@
 			fill: var(--color-text-tertiary);
 		}
 	}
+	&.badge-incentive {
+		background: rgb(from var(--fs-color-bright-sky-light) r g b / 50%);;
+		color: var(--fs-color-bright-sky-dark); 
+		border-color: transparent;
+		svg > * {
+			fill: var(--fs-color-bright-sky-middle);
+		}
+	}
 	&.badge-naked {
 		background: transparent;
 		color: var(--color-text-tertiary);

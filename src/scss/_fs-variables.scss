@@ -148,6 +148,11 @@ $screen-xl: 1600px;
 
   --fs-progress-height: 2px;
 
+  --fs-leading-sm: 0.875em;
+  --fs-leading-md: 1em;
+  --fs-leading-lg: 1.25em;
+  --fs-leading-xl: 1.5em;
+
   --fs-radius-none: 0;
   --fs-radius-xs: 2px;
   --fs-radius-sm: 4px;
@@ -201,8 +206,8 @@ $screen-xl: 1600px;
   --fs-unavailable-blur-lg: 4px;
   --fs-unavailable-color-pulse: var(--fs-color-bright-cloud-middle);
 
-  --fs-boxShadow-xs: 0 var(--spacing-3xs) .5vw var(--color-shadow-light);
-  --fs-boxShadow-sm: 0 var(--spacing-3xs) 1vw var(--color-shadow-light);
+  --fs-boxShadow-xs: 0 var(--spacing-3xs) .25vw var(--color-shadow-light);
+  --fs-boxShadow-sm: 0 var(--spacing-3xs) .5vw var(--color-shadow-light);
   --fs-boxShadow-md: 0 var(--spacing-2xs) 2.5vw var(--color-shadow-medium);
   --fs-boxShadow-lg: 0 var(--spacing-xs) 5vw var(--color-shadow-medium);
 

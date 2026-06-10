@@ -1,0 +1,78 @@
+{% set fakesupermarket = dashboard.fakesupermarket %}
+{% set pagelayout = "dashboard shoppers" %}
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+{# {% include "partials/header.njk" %} #}
+
+<header id="shopperHeader">
+  <p>Logo</p>
+  <button>Menu</button>
+</header>
+
+<main id="shopperDashboard">
+
+  <section id="fs-shopper-welcome" class="fs-dashboard-card card-welcome" aria-labelledby="fs-welcome-title">
+    <header id="fs-welcome-heading" class="fs-dashboard-card-header">
+      <h2 id="fs-welcome-title" class="fs-dashboard-card-title">Welcome back, Monet</h2>
+      <p class="fs-dashboard-card-kicker">{{ fakesupermarket.welcomeMessage }}</p>
+    </header>
+  </section>
+
+  {% include "partials/fs-components/fs-shopper-tasks.njk" %}
+
+  <div id="fs-shopper-secondary">
+    <div id="fs-shopper-secondary-spacer" aria-hidden="true"></div>
+    {% include "partials/fs-components/fs-shopper-incentives.njk" %}
+
+    <details open id="fs-shopper-questions" class="fs-dashboard-card card-questions accordion" aria-labelledby="fs-questions-title">
+      <summary id="fs-questions-heading" class="fs-dashboard-card-header">
+        <span class="fs-accordion-markerGroup" aria-hidden="true">
+          <svg class="fs-accordion-marker-icon svg-closed" viewBox="0 0 24 24" focusable="false">
+            <use href="#marker-closed"></use>
+          </svg>
+          <svg class="fs-accordion-marker-icon svg-open" viewBox="0 0 24 24" focusable="false">
+            <use href="#marker-open"></use>
+          </svg>
+        </span>      
+        <div class="fs-dashboard-card-wrapper">
+          <h2 id="fs-questions-title" class="fs-dashboard-card-title">Profile builder questions</h2>
+        </div>
+      </summary>
+      <div class="accordion-details-panel">
+        <form action="/shopper/profile/" method="post" class="quickQuestionForm">
+          {% include "partials/fs-components/fs-shopper-demo-question.njk" %}
+        </form>
+      </div>
+    </details>
+
+    <details open id="fs-dashboard-walkthrough" class="fs-dashboard-card card-walkthrough accordion" aria-labelledby="fs-walkthrough-title">
+      <summary id="fs-walkthrough-heading" class="fs-dashboard-card-header">
+        <span class="fs-accordion-markerGroup" aria-hidden="true">
+          <svg class="fs-accordion-marker-icon svg-closed" viewBox="0 0 24 24" focusable="false">
+            <use href="#marker-closed"></use>
+          </svg>
+          <svg class="fs-accordion-marker-icon svg-open" viewBox="0 0 24 24" focusable="false">
+            <use href="#marker-open"></use>
+          </svg>
+        </span>      
+        <div class="fs-dashboard-card-wrapper">
+          <h2 id="fs-walkthrough-title" class="fs-dashboard-card-title">How to do fake shopping</h2>
+        </div>
+      </summary>
+      <div class="accordion-details-panel">
+        <p>To come...</p>
+      </div>
+    </details>
+  </div>
+</main>
+{# {% include "partials/footer.njk" %} #}
+
+
+  <div class="fs-svg-hidden" aria-hidden style="position:absolute;width:0;height:0;overflow:hidden">
+    {% include "partials/icons/marker-interactive.njk" %}
+    {% include "partials/icons/check.njk" %}
+    {% include "partials/icons/dollar-sign.njk" %}
+  </div>
+{% endblock %}

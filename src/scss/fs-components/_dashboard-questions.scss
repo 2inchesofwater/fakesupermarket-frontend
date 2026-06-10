@@ -1,0 +1,10 @@
+.fs-dashboard-card.card-questions {
+	.fs-inputGroup {
+		background: rgb(from var(--fs-color-background-active) r g b / 50%);
+	}
+
+	h1 {
+	    margin-block-start: var(--spacing-md);
+	    margin-block-end: 0;		
+	}
+}

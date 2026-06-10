@@ -268,6 +268,10 @@
   --fs-btn-size-sm: 1rem;
   --fs-btn-size-md: 1.15rem;
   --fs-progress-height: 2px;
+  --fs-leading-sm: 0.875em;
+  --fs-leading-md: 1em;
+  --fs-leading-lg: 1.25em;
+  --fs-leading-xl: 1.5em;
   --fs-radius-none: 0;
   --fs-radius-xs: 2px;
   --fs-radius-sm: 4px;
@@ -313,8 +317,8 @@
   --fs-unavailable-blur-md: 2px;
   --fs-unavailable-blur-lg: 4px;
   --fs-unavailable-color-pulse: var(--fs-color-bright-cloud-middle);
-  --fs-boxShadow-xs: 0 var(--spacing-3xs) .5vw var(--color-shadow-light);
-  --fs-boxShadow-sm: 0 var(--spacing-3xs) 1vw var(--color-shadow-light);
+  --fs-boxShadow-xs: 0 var(--spacing-3xs) .25vw var(--color-shadow-light);
+  --fs-boxShadow-sm: 0 var(--spacing-3xs) .5vw var(--color-shadow-light);
   --fs-boxShadow-md: 0 var(--spacing-2xs) 2.5vw var(--color-shadow-medium);
   --fs-boxShadow-lg: 0 var(--spacing-xs) 5vw var(--color-shadow-medium);
   --fs-transition-sm: all 0.1s ease;
@@ -4257,24 +4261,30 @@ a.skiplink:focus {
   clip: rect(0, 0, 0, 0);
 }
 
-.accordion details {
+details.accordion,
+.accordion > details {
   border-top: var(--thickness-sm) solid var(--color-border-default);
   transition: var(--transition-md);
   font-size: var(--size-md);
 }
-.accordion details:last-of-type {
+details.accordion:last-of-type,
+.accordion > details:last-of-type {
   border-bottom: var(--thickness-sm) solid var(--color-border-default);
 }
-.accordion details[open] summary {
+details.accordion[open] summary,
+.accordion > details[open] summary {
   background: var(--color-accordion-summary-open);
 }
-.accordion details[open] summary .svg-open {
+details.accordion[open] summary .svg-open,
+.accordion > details[open] summary .svg-open {
   display: unset;
 }
-.accordion details[open] summary .svg-closed {
+details.accordion[open] summary .svg-closed,
+.accordion > details[open] summary .svg-closed {
   display: none;
 }
-.accordion details summary {
+details.accordion summary,
+.accordion > details summary {
   color: var(--color-text-secondary);
   padding-block: var(--spacing-sm);
   padding-inline: var(--spacing-xs);
@@ -4285,49 +4295,60 @@ a.skiplink:focus {
   gap: var(--fs-spacing-xs);
   width: 100%;
 }
-.accordion details summary + div {
+details.accordion summary h2, details.accordion summary h3,
+.accordion > details summary h2,
+.accordion > details summary h3 {
+  display: inline-block;
+  margin-bottom: 0;
+  font-size: var(--size-lg);
+  font-weight: var(--weight-regular);
+}
+details.accordion summary .accordion-markerGroup,
+.accordion > details summary .accordion-markerGroup {
+  width: var(--size-md);
+  height: var(--size-md);
+  flex-shrink: 0;
+}
+details.accordion summary .fs-accordion-markerGroup,
+.accordion > details summary .fs-accordion-markerGroup {
+  width: var(--fs-size-lg);
+  height: var(--fs-size-lg);
+  flex-shrink: 0;
+}
+details.accordion summary .svg-open,
+.accordion > details summary .svg-open {
+  display: none;
+}
+details.accordion summary .svg-closed,
+.accordion > details summary .svg-closed {
+  display: unset;
+}
+@media (min-width: 750px) {
+  details.accordion summary,
+  .accordion > details summary {
+    padding-inline: var(--spacing-sm);
+  }
+}
+details.accordion:hover summary,
+.accordion > details:hover summary {
+  color: var(--color-action-hover);
+}
+details.accordion[open] summary,
+.accordion > details[open] summary {
+  color: var(--color-brand-primary);
+}
+details.accordion[open] summary > *,
+.accordion > details[open] summary > * {
+  font-weight: var(--weight-bold);
+}
+details.accordion .accordion-details-panel,
+.accordion > details .accordion-details-panel {
   padding-inline-start: var(--spacing-md);
   padding-inline-end: var(--spacing-md);
   padding-block-start: var(--spacing-md);
   padding-block-end: var(--spacing-md);
   max-width: 45rem;
   color: var(--color-text-secondary);
-}
-.accordion details summary h2, .accordion details summary h3 {
-  display: inline-block;
-  margin-bottom: 0;
-  font-size: var(--size-lg);
-  font-weight: var(--weight-regular);
-}
-.accordion details summary .accordion-markerGroup {
-  width: var(--size-md);
-  height: var(--size-md);
-  flex-shrink: 0;
-}
-.accordion details summary .fs-accordion-markerGroup {
-  width: var(--fs-size-lg);
-  height: var(--fs-size-lg);
-  flex-shrink: 0;
-}
-.accordion details summary .svg-open {
-  display: none;
-}
-.accordion details summary .svg-closed {
-  display: unset;
-}
-@media (min-width: 750px) {
-  .accordion details summary {
-    padding-inline: var(--spacing-sm);
-  }
-}
-.accordion details:hover summary {
-  color: var(--color-action-hover);
-}
-.accordion details[open] summary {
-  color: var(--color-brand-primary);
-}
-.accordion details[open] summary > * {
-  font-weight: var(--weight-bold);
 }
 
 .badge {
@@ -4373,6 +4394,14 @@ a.skiplink:focus {
 }
 .badge.badge-information svg > * {
   fill: var(--color-text-tertiary);
+}
+.badge.badge-incentive {
+  background: rgb(from var(--fs-color-bright-sky-light) r g b/50%);
+  color: var(--fs-color-bright-sky-dark);
+  border-color: transparent;
+}
+.badge.badge-incentive svg > * {
+  fill: var(--fs-color-bright-sky-middle);
 }
 .badge.badge-naked {
   background: transparent;
@@ -6028,6 +6057,296 @@ body {
 
 table th.numeric, table td.numeric {
   text-align: end;
+}
+
+.fs-dashboard-card {
+  padding: var(--fs-spacing-md);
+  border: unset;
+  border-radius: var(--fs-radius-lg);
+  overflow: hidden;
+  background: rgb(from var(--fs-color-background-active) r g b/50%);
+}
+
+.fs-dashboard-card-sub {
+  padding-inline-start: var(--fs-spacing-sm);
+  border-radius: calc(var(--fs-radius-lg) - var(--fs-radius-sm));
+  overflow: hidden;
+}
+
+details.fs-dashboard-card.accordion {
+  border-block-start: unset;
+  border-block-end: unset;
+}
+details.fs-dashboard-card.accordion summary.fs-dashboard-card-header {
+  display: flex;
+  padding: unset;
+  background: unset;
+  color: var(--fs-color-text-secondary);
+}
+details.fs-dashboard-card.accordion summary.fs-dashboard-card-header .fs-dashboard-card-title {
+  font-weight: var(--fs-weight-bold);
+}
+details.fs-dashboard-card.accordion summary.fs-dashboard-card-header:hover, details.fs-dashboard-card.accordion summary.fs-dashboard-card-header:active {
+  color: var(--fs-color-brand-primary);
+}
+details.fs-dashboard-card.accordion .accordion-details-panel {
+  padding: unset;
+  padding-block-start: var(--fs-spacing-sm);
+}
+
+.fs-dashboard-card-title {
+  font-weight: var(--fs-weight-bold);
+  line-height: var(--fs-leading-lg);
+  margin-block-end: unset;
+}
+
+.fs-dashboard-card .text-2xl {
+  font-weight: var(--fs-weight-regular);
+}
+.fs-dashboard-card .text-xl {
+  font-weight: var(--fs-weight-regular);
+}
+.fs-dashboard-card .text-lg {
+  font-weight: var(--fs-weight-regular);
+}
+.fs-dashboard-card .label {
+  color: var(--fs-color-text-secondary);
+  font-size: var(--fs-size-sm);
+  max-width: 30rem;
+}
+
+.fs-dashboard-card.card-welcome {
+  justify-self: start;
+  margin-block-end: 2.5vh;
+  padding-inline-end: var(--fs-spacing-3xl);
+  max-width: 100%;
+}
+.fs-dashboard-card.card-welcome .fs-dashboard-card-title {
+  color: var(--fs-color-text-primary);
+}
+.fs-dashboard-card.card-welcome .fs-dashboard-card-kicker {
+  color: var(--fs-color-core-700);
+  font-weight: var(--fs-weight-regular);
+}
+
+.fs-dashboard-card.card-tasks {
+  padding: unset;
+  background: unset;
+}
+.fs-dashboard-card.card-tasks #fs-tasks-header .fs-dashboard-card-title {
+  color: var(--fs-color-white);
+  margin-block-start: unset;
+}
+.fs-dashboard-card.card-tasks #fs-tasks-header .label {
+  font-size: var(--fs-size-md);
+  color: var(--fs-color-core-700);
+  font-weight: var(--fs-weight-regular);
+}
+.fs-dashboard-card.card-tasks #fs-tasks-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: var(--fs-spacing-sm);
+  align-items: center;
+  margin-block: var(--fs-spacing-md);
+}
+.fs-dashboard-card.card-tasks #fs-tasks-list .fs-dashboard-card-sub {
+  padding-block: var(--fs-spacing-lg);
+  padding-inline: var(--fs-spacing-lg);
+  flex: 1 1 0;
+  background: var(--fs-color-background-active);
+  border: unset;
+  box-shadow: var(--fs-boxShadow-xs);
+}
+.fs-dashboard-card.card-tasks .shoppingList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fs-spacing-sm);
+  margin-block-start: var(--fs-spacing-sm);
+}
+.fs-dashboard-card.card-tasks .shoppingList > li {
+  font-size: var(--fs-size-lg);
+}
+.fs-dashboard-card.card-tasks .shoppingList > li a {
+  text-decoration: none;
+}
+.fs-dashboard-card.card-tasks .shoppingList .shoppingList-link {
+  display: flex;
+  flex-direction: row;
+  gap: var(--fs-spacing-xs);
+  align-items: center;
+  width: auto;
+}
+.fs-dashboard-card.card-tasks .shoppingList .shoppingList-link .shoppingList-label {
+  margin-inline-end: var(--fs-spacing-xs);
+}
+.fs-dashboard-card.card-tasks .shoppingList .shoppingList-link:hover, .fs-dashboard-card.card-tasks .shoppingList .shoppingList-link:active {
+  color: var(--fs-color-action-primary-default);
+}
+.fs-dashboard-card.card-tasks .shoppingList .shoppingList-link:hover .shoppingList-label, .fs-dashboard-card.card-tasks .shoppingList .shoppingList-link:active .shoppingList-label {
+  text-decoration: underline;
+  text-decoration-color: var(--fs-color-action-primary-default);
+  text-decoration-thickness: var(--fs-thickness-md);
+  text-underline-offset: var(--fs-spacing-2xs);
+}
+.fs-dashboard-card.card-tasks .shoppingList .is-completed > .shoppingList-link {
+  color: var(--fs-color-text-tertiary);
+  pointer-events: none;
+}
+.fs-dashboard-card.card-tasks .shoppingList .is-completed > .shoppingList-link .shoppingList-marker {
+  color: var(--fs-color-core-700);
+}
+.fs-dashboard-card.card-tasks .shoppingList .is-completed > .shoppingList-link .shoppingList-label {
+  text-decoration: line-through;
+  text-decoration-color: var(--fs-color-core-700);
+}
+.fs-dashboard-card.card-tasks .shoppingList .icon {
+  width: 1em;
+  height: 1em;
+}
+.fs-dashboard-card.card-tasks #fs-tasks-note {
+  background: unset;
+  padding-block-start: unset;
+}
+
+.fs-dashboard-card.card-incentives .accordion-details-panel {
+  display: grid;
+  grid-gap: var(--fs-spacing-xs);
+  grid-template-areas: "balance balance" "tally total";
+}
+.fs-dashboard-card.card-incentives .accordion-details-panel #fs-incentives-balance {
+  grid-area: balance;
+}
+.fs-dashboard-card.card-incentives .accordion-details-panel #fs-incentives-tally {
+  grid-area: tally;
+}
+.fs-dashboard-card.card-incentives .accordion-details-panel #fs-incentives-total {
+  grid-area: total;
+}
+@media (min-width: 500px) {
+  .fs-dashboard-card.card-incentives .accordion-details-panel {
+    grid-template-areas: "balance tally total";
+  }
+}
+@media (min-width: 750px) {
+  .fs-dashboard-card.card-incentives .accordion-details-panel {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "balance balance" "tally total";
+  }
+}
+@media (min-width: 1000px) {
+  .fs-dashboard-card.card-incentives .accordion-details-panel {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "balance tally" "balance total";
+  }
+}
+@media (min-width: 1600px) {
+  .fs-dashboard-card.card-incentives .accordion-details-panel {
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-areas: "balance tally total";
+  }
+}
+.fs-dashboard-card.card-incentives #fs-incentives-balance {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fs-spacing-xs);
+  align-items: start;
+  background: rgb(from var(--fs-color-background-active) r g b/50%);
+  padding: var(--fs-spacing-sm);
+}
+.fs-dashboard-card.card-incentives #fs-incentives-balance .fs-dashboard-card-body {
+  flex: 1 1 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+.fs-dashboard-card.card-incentives #fs-incentives-balance .fs-btn {
+  border-color: var(--fs-color-core-400);
+}
+
+.fs-dashboard-card.card-questions .fs-inputGroup {
+  background: rgb(from var(--fs-color-background-active) r g b/50%);
+}
+.fs-dashboard-card.card-questions h1 {
+  margin-block-start: var(--spacing-md);
+  margin-block-end: 0;
+}
+
+.dashboard.shoppers {
+  background: linear-gradient(127deg, var(--fs-color-core-400), transparent 90.71%), linear-gradient(336deg, var(--fs-color-bright-orange-dark), transparent 90.71%), linear-gradient(217deg, #F4F1b6, transparent 90.71%);
+}
+
+#shopperHeader {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  background: var(--fs-color-bright-green-light);
+}
+
+#shopperDashboard {
+  display: grid;
+  row-gap: var(--fs-spacing-lg);
+  column-gap: var(--fs-spacing-lg);
+  align-content: start;
+  align-items: start;
+  grid-template-areas: "welcome" "tasks" "secondary";
+  margin-block: 5vh;
+}
+#shopperDashboard #fs-shopper-welcome {
+  grid-area: welcome;
+}
+#shopperDashboard #fs-shopper-tasks {
+  grid-area: tasks;
+}
+#shopperDashboard #fs-shopper-secondary {
+  grid-area: secondary;
+}
+#shopperDashboard #fs-shopper-secondary-spacer {
+  grid-area: spacer;
+}
+#shopperDashboard #fs-shopper-incentives {
+  grid-area: incentives;
+}
+#shopperDashboard #fs-shopper-questions {
+  grid-area: questions;
+}
+#shopperDashboard #fs-dashboard-walkthrough {
+  grid-area: walkthrough;
+}
+@media (min-width: 760px) {
+  #shopperDashboard {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "welcome ." "tasks secondary";
+    grid-template-rows: auto 1fr;
+    align-items: start;
+    margin-block: 7.5vh;
+  }
+}
+@media (min-width: 1200px) {
+  #shopperDashboard {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: var(--fs-spacing-2xl);
+    grid-template-areas: "welcome tasks secondary";
+    align-items: start;
+    margin-block: 10vh;
+  }
+}
+
+#fs-shopper-secondary {
+  display: grid;
+  grid-gap: var(--fs-spacing-sm);
+  grid-template-areas: "spacer" "incentives" "questions" "walkthrough";
+  grid-template-rows: auto auto auto auto;
+  align-content: start;
+}
+
+#shopperDashboard {
+  min-height: 100vh;
+}
+
+#fs-shopper-secondary-spacer {
+  font-size: var(--fs-size-3xl);
+  height: calc(var(--fs-size-3xl) * 1.25 + var(--fs-size-md) + var(--fs-spacing-xs));
 }
 
 * {

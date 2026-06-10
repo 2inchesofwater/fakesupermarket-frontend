@@ -1,0 +1,103 @@
+@use "variables" as *;
+
+.fs-dashboard-card.card-tasks {
+	// border: var(--fs-thickness-lg) solid var(--fs-color-brand-primary);
+	// outline: var(--fs-thickness-xl) solid var(--fs-color-bright-orange-middle);
+	// padding: var(--fs-spacing-md);
+	padding: unset;
+	background: unset;
+
+	#fs-tasks-header {
+		.fs-dashboard-card-title {
+			color: var(--fs-color-white);
+			margin-block-start: unset;
+		}			
+		.label {
+			font-size: var(--fs-size-md);
+			color: var(--fs-color-core-700);
+			font-weight: var(--fs-weight-regular);
+		}
+	}
+
+
+	#fs-tasks-list {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: var(--fs-spacing-sm);
+		align-items: center;
+		margin-block: var(--fs-spacing-md);
+		// max-width: 25rem;
+
+		@media (min-width: #{$screen-lg}) {
+			// margin-inline-start: var(--fs-spacing-md);
+		}
+
+		.fs-dashboard-card-sub {
+			padding-block: var(--fs-spacing-lg);
+			padding-inline: var(--fs-spacing-lg);
+			flex: 1 1 0;
+			
+			background: var(--fs-color-background-active);
+			border: unset;
+			box-shadow: var(--fs-boxShadow-xs);
+		}
+	}
+
+	.shoppingList {
+		display: flex;
+		flex-direction: column;
+		gap: var(--fs-spacing-sm);
+
+		margin-block-start: var(--fs-spacing-sm);
+
+		& > li {
+			font-size: var(--fs-size-lg);
+			a {
+				text-decoration: none;
+			}
+		}
+		.shoppingList-link {
+			display: flex;
+			flex-direction: row;
+			gap: var(--fs-spacing-xs);
+			align-items: center;
+			width: auto;
+
+			.shoppingList-label {
+				margin-inline-end: var(--fs-spacing-xs);
+			}
+			&:hover,
+			&:active {
+				color: var(--fs-color-action-primary-default);
+				
+				.shoppingList-label {
+					text-decoration: underline;
+					text-decoration-color: var(--fs-color-action-primary-default);
+					text-decoration-thickness: var(--fs-thickness-md);
+					text-underline-offset: var(--fs-spacing-2xs);
+				}
+			}
+		}
+		.is-completed > .shoppingList-link {
+			color: var(--fs-color-text-tertiary);
+			pointer-events: none;
+			.shoppingList-marker {
+				color: var(--fs-color-core-700);
+			}
+			.shoppingList-label {
+				text-decoration: line-through;
+				text-decoration-color: var(--fs-color-core-700);
+			}
+		}
+		.icon {
+			width: 1em;
+			height: 1em;
+			// background: wheat;
+		}
+	}
+
+	#fs-tasks-note {
+		background: unset;
+		padding-block-start: unset;
+	}
+}

@@ -1,0 +1,77 @@
+{
+  "fakesupermarket": {
+    "welcomeMessage": "What's in store today?",
+    "actionLabel": "I can do that",
+
+    "storefronts": {
+      "supermarket": {
+        "storefrontName": "Supermarket",
+        "storefrontNameHTML": "<span id='primary'>Fake</span><span id='secondary'>Supermarket</span>",
+        "shoppingList": [
+          {
+            "label": "Breakfast cereal",
+            "url": "/shopper/tasks/supermarket/breakfast-cereal/",
+            "completed": false,
+            "incentive": true
+          },
+          {
+            "label": "Lunch meats",
+            "url": "/shopper/tasks/supermarket/lunch-meats/",
+            "completed": false,
+            "incentive": true
+          },
+          {
+            "label": "Fruit and veg",
+            "url": "/shopper/tasks/supermarket/fresh-produce/",
+            "completed": false,
+            "incentive": null
+          },
+          {
+            "label": "Dairy",
+            "url": "/shopper/tasks/supermarket/dairy-products/",
+            "completed": true,
+            "incentive": true
+          },
+          {
+            "label": "Bakery items",
+            "url": "/shopper/tasks/supermarket/bakery-items/",
+            "completed": true,
+            "incentive": null
+          },
+          {
+            "label": "Frozen foods",
+            "hint": "Stuff we can pop in the oven for the kids' lunches",
+            "url": "/shopper/tasks/supermarket/frozen-foods/",
+            "completed": false,
+            "incentive": null
+          },
+          {
+            "label": "Snacks",
+            "hint": "Something for the footy grand final",
+            "url": "/shopper/tasks/supermarket/snacks-and-beverages/",
+            "completed": false,
+            "incentive": null
+          },
+          {
+            "label": "Sauces",
+            "url": "/shopper/tasks/supermarket/condiments-and-sauces/",
+            "completed": false,
+            "incentive": null
+          }
+        ]
+      },
+      "clothes": {
+        "storefrontName": "Mall",
+        "storefrontNameHTML": "<span id='primary'>Fake</span><span id='secondary'>Shopping Mall</span>",
+        "shoppingList": [
+          {
+            "label": "Sneakers",
+            "url": "/shopper/tasks/clothes/everyday-sneakers/",
+            "completed": false,
+            "incentive": null
+          }
+        ]
+      }
+    }
+  }
+}
