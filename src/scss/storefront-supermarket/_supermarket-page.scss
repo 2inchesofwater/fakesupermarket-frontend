@@ -34,7 +34,7 @@ body.productDetails {
 	}
 }
 
-main h1 {
+main > h1 {
 	font-family: var(--font-display);
 	font-size: var(--size-3xl);
 	font-weight: var(--weight-heavy);

@@ -147,7 +147,7 @@
   --transition-sm: all 0.15s ease;
   --transition-md: all 0.3s ease;
   --transition-lg: all 0.6s ease;
-  --weight-light: 200;
+  --weight-light: 100;
   --weight-regular: 300;
   --weight-bold: 500;
   --weight-heavy: 600;
@@ -214,6 +214,7 @@
   --fs-color-background-subtle: var(--fs-color-gray-025);
   --fs-color-background-default: var(--fs-color-gray-050);
   --fs-color-background-emphasized: var(--fs-color-core-100);
+  --fs-color-background-demo: var(--fs-color-gray-200);
   --fs-color-background-page: var(--fs-color-gray-025);
   --fs-color-background-header: var(--fs-color-white);
   --fs-color-background-dialogue: var(--color-core-100);
@@ -324,7 +325,7 @@
   --fs-transition-sm: all 0.1s ease;
   --fs-transition-md: all 0.3s ease;
   --fs-transition-lg: all 0.6s ease;
-  --fs-weight-light: 200;
+  --fs-weight-light: 100;
   --fs-weight-regular: 300;
   --fs-weight-bold: 500;
   --fs-weight-heavy: 600;
@@ -2206,10 +2207,10 @@ details.fs-details .fs-details-panel {
 .fs-inputGroup label,
 .fs-inputGroup .label {
   display: block;
-  margin-block-end: var(--spacing-3xs);
-  font-size: var(--size-md);
-  font-weight: var(--weight-regular);
-  color: var(--color-text-primary);
+  margin-block-end: var(--fs-spacing-3xs);
+  font-size: var(--fs-size-md);
+  font-weight: var(--fs-weight-regular);
+  color: var(--fs-color-text-primary);
 }
 .fs-inputGroup .fs-inputGroup-help {
   font-size: var(--fs-size-sm);
@@ -2237,6 +2238,23 @@ details.fs-details .fs-details-panel {
   display: flex;
   flex-direction: row;
   gap: var(--fs-spacing-md);
+}
+
+.fs-input-pane-header .fs-input-pane-title {
+  font-family: var(--fs-font-display);
+  font-size: var(--fs-size-2xl);
+  font-weight: var(--fs-weight-bold);
+  margin-block-end: unset;
+}
+
+.fs-inputGroup-content {
+  margin-block-end: var(--fs-spacing-sm);
+}
+.fs-inputGroup-content .fs-inputGroup-help {
+  font-weight: var(--fs-weight-light);
+}
+.fs-inputGroup-content .fs-input {
+  margin-block-start: var(--fs-spacing-sm);
 }
 
 .fs-input-checkboxGroup {
@@ -2326,6 +2344,10 @@ details.fs-details .fs-details-panel {
 .fs-svg-hidden #check-filled #check-filled-circle {
   border: 1px solid red;
   fill: var(--fs-color-text-primary);
+}
+
+.fs-input-date__item label {
+  margin-block-end: var(--fs-spacing-xs);
 }
 
 .fs-input-radioGroup {
@@ -3363,6 +3385,28 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 .fs-stepper .fs-stepper-pane:not[inert] {
   max-height: 100vh;
+}
+.fs-stepper .fs-stepper-pane-eyebrow {
+  background: var(--fs-color-core-100);
+  border-radius: var(--fs-spacing-xl);
+  color: var(--fs-color-brand-primary);
+  display: inline-block;
+  font-size: var(--fs-size-md);
+  font-weight: var(--fs-weight-regular);
+  padding-block: var(--fs-spacing-2xs);
+  padding-inline: var(--fs-spacing-sm);
+  margin-inline-start: calc(var(--fs-spacing-sm) * -1);
+}
+.fs-stepper .fs-stepper-paragraphs-wrapper {
+  font-weight: var(--fs-weight-regular);
+}
+
+.fs-stepper-pane-eyebrow + .fs-input-pane-header {
+  margin-block-start: var(--fs-spacing-sm);
+}
+
+.fs-input-pane-header + .fs-stepper-paragraphs-wrapper {
+  margin-block-start: var(--fs-spacing-sm);
 }
 
 .fs-study.fs-card {
@@ -6177,12 +6221,12 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
   width: auto;
 }
 .fs-dashboard-card.card-tasks .shoppingList .shoppingList-link .shoppingList-label {
+  color: var(--fs-color-text-secondary);
+  font-weight: var(--fs-weight-regular);
   margin-inline-end: var(--fs-spacing-xs);
 }
-.fs-dashboard-card.card-tasks .shoppingList .shoppingList-link:hover, .fs-dashboard-card.card-tasks .shoppingList .shoppingList-link:active {
-  color: var(--fs-color-action-primary-default);
-}
 .fs-dashboard-card.card-tasks .shoppingList .shoppingList-link:hover .shoppingList-label, .fs-dashboard-card.card-tasks .shoppingList .shoppingList-link:active .shoppingList-label {
+  color: var(--fs-color-action-primary-default);
   text-decoration: underline;
   text-decoration-color: var(--fs-color-action-primary-default);
   text-decoration-thickness: var(--fs-thickness-md);
@@ -6190,6 +6234,7 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
 }
 .fs-dashboard-card.card-tasks .shoppingList .is-completed > .shoppingList-link {
   color: var(--fs-color-text-tertiary);
+  opacity: 0.75;
   pointer-events: none;
 }
 .fs-dashboard-card.card-tasks .shoppingList .is-completed > .shoppingList-link .shoppingList-marker {
@@ -6267,10 +6312,15 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
 
 .fs-dashboard-card.card-questions .fs-inputGroup {
   background: rgb(from var(--fs-color-background-active) r g b/50%);
+  padding: var(--fs-spacing-sm);
+  border-radius: var(--fs-radius-sm);
 }
-.fs-dashboard-card.card-questions h1 {
-  margin-block-start: var(--spacing-md);
-  margin-block-end: 0;
+.fs-dashboard-card.card-questions .fs-input-pane-header {
+  margin-block-start: var(--fs-spacing-xs);
+  margin-block-end: var(--fs-spacing-xs);
+}
+.fs-dashboard-card.card-questions .fs-input-pane-title {
+  font-size: var(--fs-size-xl);
 }
 
 .dashboard.shoppers {
@@ -6807,7 +6857,7 @@ body.productDetails main {
   }
 }
 
-main h1 {
+main > h1 {
   font-family: var(--font-display);
   font-size: var(--size-3xl);
   font-weight: var(--weight-heavy);
@@ -7439,18 +7489,19 @@ main h1 {
 .demo-page {
   background: var(--fs-color-background-page);
 }
-.demo-page h2 {
+.demo-page article h2 {
   margin-block-start: 2rem;
   margin-block-end: 0;
 }
 .demo-page .demo-block {
   padding: 5vw;
   margin-block-end: 1vh;
-  background: var(--fs-color-modalScreen-gradient1);
+  background: var(--fs-color-background-demo);
 }
 .demo-page .demo-notes {
   max-width: 40rem;
   margin-inline: auto;
+  margin-block-end: 10vh;
 }
 .demo-page .demo-notes h2 {
   font-weight: var(--fs-weight-bold);

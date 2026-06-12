@@ -28,7 +28,9 @@
 @use 'fs-dialogue-taskReminder';
 @use 'fs-filters';
 @use 'fs-input';
+@use 'fs-input-panes';
 @use 'fs-input-checkbox';
+@use 'fs-input-date';
 @use 'fs-input-radio';
 @use 'fs-input-range';
 @use 'fs-landing';
@@ -80,7 +82,7 @@
 @forward 'components/table';
 
 
-@forward 'layout-dashboard-shoppers';
+@forward 'layout-dashboard-shoppers'; 
 @forward 'layout-site';
 @forward 'layout-footer';
 

@@ -1,0 +1,90 @@
+
+{% extends "layouts/base.njk" %}   
+ 
+{% block content %}
+  <main id="main" class="main-content demo-page">
+    <h1>{{ title }}</h1>
+
+    <article class="demo-notes">
+      <h2>Context</h2>
+      <p>- Profile-building questions currently appear in either the <a href="#onboarding">Onboarding flow</a> (inside the Stepper component) or on the <a href="#dashboard">Shoppers Dashboard (AKA Shopping List)</a> page.</p>
+      <p>- On this page, we're focusing on making sure that the profile questions look correct, regardless of where they appear across our app.</p> 
+      <p>- The Onboarding flow's Stepper component is documented at <a href="https://fakesupermarket.app/pages/demo/stepper.html">Demo - Stepper page</a>.</p>
+      <p>- The three input components are documented at <a href="https://fakesupermarket.app/pages/demo/questions.html">Demo - Questions page</a>.</p>
+    </article>
+
+    <h2 id="onboarding">Example: Questions (AKA inputs) inside the Onboarding flow</h2>
+    <div class="demo-block">
+      <div id="fs-demo-stepper" role="" aria-modal="" aria-label="" class="demo-stepper">
+        <section id="fs-demo-stepper-wrapper" class="" role="region" aria-labelledby="">
+          <form id="fs-demo-stepper-dataCollection">
+          {# The Stepper component expects to receive an object called 'panes' #}
+          {% set panes = [] %}
+          {% set stepper = demoStepper %}
+
+          {% for group in groups | selectattr("groupUseForInterview") %}
+            {% set panes = panes.concat([{
+              title: group.groupTitle,
+              slug: group.groupSlug,
+              description: group.groupDescription,
+              example: group.groupDescriptionExample,
+              sourcePanePartial: group.groupInterviewPartial,
+              items: group.items
+            }]) %}
+          {% endfor %}
+
+          {% include "partials/fs-components/fs-stepper.njk" %}
+          </form>
+        </section>  
+      </div>
+    </div>
+    <article class="demo-notes">
+      <h2>Notes</h2>
+      <p>- The Onboarding flow iterates through a sample YAML document. You can find it inside <code>pages/demo-profileQuestions.njk</code>. </p>
+      <p>- Any usage of <code>input - radio.njk</code> requires its SVG icons to be included as part of the rendered HTML page. If you look for 'fs-svg-hidden' in DOM, you'll find one or more SVGs acting as a template, ready to be instantiated multiple times across a page. </p>
+      <p>- Stepper requires a little JS to make it run.</p>
+    </article>
+
+<hr>
+
+    <h2 id="dashboard">Example: Questions (AKA inputs) inside a Dashboard card</h2>
+    <div class="demo-block" style="max-width: 500px;">
+      <details open id="fs-shopper-questions" class="fs-dashboard-card card-questions accordion" aria-labelledby="fs-questions-title">
+        <summary id="fs-questions-heading" class="fs-dashboard-card-header">
+          <span class="fs-accordion-markerGroup" aria-hidden="true">
+            <svg class="fs-accordion-marker-icon svg-closed" viewBox="0 0 24 24" focusable="false">
+              <use href="#marker-closed"></use>
+            </svg>
+            <svg class="fs-accordion-marker-icon svg-open" viewBox="0 0 24 24" focusable="false">
+              <use href="#marker-open"></use>
+            </svg>
+          </span>      
+          <div class="fs-dashboard-card-wrapper">
+            <h2 id="fs-questions-title" class="fs-dashboard-card-title">Profile builder questions</h2>
+          </div>
+        </summary>
+        <div class="accordion-details-panel">
+          <form action="/shopper/profile/" method="post" class="quickQuestionForm">
+            {% include "partials/fs-components/fs-shopper-demo-question.njk" %}
+          </form>
+        </div>
+      </details>
+    </div>
+    <hr>
+
+    <article class="demo-notes">
+      <h2>Notes</h2>
+      <p>The example above uses static renderings of the input components. </p>
+    </article>
+
+    <div class="fs-svg-hidden" aria-hidden style="position:absolute;width:0;height:0;overflow:hidden">
+      {% include "partials/icons/radio-interactive.njk" %}
+      {% include "partials/icons/marker-interactive.njk" %}
+    </div>
+
+    <script src="/js/utils/stepper.js" defer></script>
+  </main>
+
+{% endblock %}
+
+<!-- scripts -->

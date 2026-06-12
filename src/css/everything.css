@@ -59,6 +59,7 @@
   --fs-color-background-subtle: var(--fs-color-gray-025);
   --fs-color-background-default: var(--fs-color-gray-050);
   --fs-color-background-emphasized: var(--fs-color-core-100);
+  --fs-color-background-demo: var(--fs-color-gray-200);
   --fs-color-background-page: var(--fs-color-gray-025);
   --fs-color-background-header: var(--fs-color-white);
   --fs-color-background-dialogue: var(--color-core-100);
@@ -169,7 +170,7 @@
   --fs-transition-sm: all 0.1s ease;
   --fs-transition-md: all 0.3s ease;
   --fs-transition-lg: all 0.6s ease;
-  --fs-weight-light: 200;
+  --fs-weight-light: 100;
   --fs-weight-regular: 300;
   --fs-weight-bold: 500;
   --fs-weight-heavy: 600;

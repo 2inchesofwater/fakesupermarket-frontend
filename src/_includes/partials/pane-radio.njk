@@ -1,24 +1,29 @@
-<div class="fs-inputGroup fs-stepper-pane-radio">
+<div class="fs-inputGroup fs-input-pane-radio">
   <fieldset class="fs-fieldset" role="group" aria-describedby="{{ pane.slug }}-hint">
-    <div class="fs-label-wrapper">
+    <div class="fs-input-pane-header fs-label-wrapper">
       <legend class="fs-fieldset__legend">
-        <h1 class="fs-fieldset__heading">
+        <h1 class="fs-input-pane-title fs-fieldset__heading">
           {{ pane.title }}
         </h1>
       </legend>
-
-      {% if pane.description %}
-      <label class="fs-label" for="{{ pane.slug }}">
-        {{ pane.description }}
-      </label>
-      {% endif %}
-
-      {% if pane.example %}
-      <div class="fs-inputGroup-help">
-        {{ pane.example }}
-      </div>
-      {% endif %}
     </div>
+
+    {% if pane.description or pane.example %}
+      <div class="fs-inputGroup-content">
+
+        {% if pane.description %}
+        <label class="fs-label" for="{{ pane.slug }}">
+          {{ pane.description }}
+        </label>
+        {% endif %}
+
+        {% if pane.example %}
+        <div class="fs-inputGroup-help">
+          {{ pane.example }}
+        </div>
+        {% endif %}
+      </div>
+    {% endif %}
 
     <div class="fs-input-radioGroup" data-module="fs-radios">
       {% for item in pane.items %}

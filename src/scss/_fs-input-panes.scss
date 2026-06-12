@@ -1,0 +1,20 @@
+  
+  .fs-input-pane-header {
+    .fs-input-pane-title {
+      font-family: var(--fs-font-display);
+      font-size: var(--fs-size-2xl);
+      font-weight: var(--fs-weight-bold);
+      margin-block-end: unset;
+    }   
+  }
+  .fs-inputGroup-content {
+    margin-block-end: var(--fs-spacing-sm);
+
+    label {}
+    .fs-inputGroup-help {
+      font-weight: var(--fs-weight-light);
+    }
+    .fs-input {
+      margin-block-start: var(--fs-spacing-sm);
+    }
+  }

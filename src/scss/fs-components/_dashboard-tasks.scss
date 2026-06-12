@@ -64,13 +64,14 @@
 			width: auto;
 
 			.shoppingList-label {
+				color: var(--fs-color-text-secondary);
+				font-weight: var(--fs-weight-regular);
 				margin-inline-end: var(--fs-spacing-xs);
 			}
 			&:hover,
 			&:active {
-				color: var(--fs-color-action-primary-default);
-				
 				.shoppingList-label {
+					color: var(--fs-color-action-primary-default);
 					text-decoration: underline;
 					text-decoration-color: var(--fs-color-action-primary-default);
 					text-decoration-thickness: var(--fs-thickness-md);
@@ -80,6 +81,7 @@
 		}
 		.is-completed > .shoppingList-link {
 			color: var(--fs-color-text-tertiary);
+			opacity: .75;
 			pointer-events: none;
 			.shoppingList-marker {
 				color: var(--fs-color-core-700);

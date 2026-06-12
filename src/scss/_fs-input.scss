@@ -5,7 +5,6 @@
 }
 
 .fs-inputGroup {
-
   .fs-label-wrapper {
     margin-block-end: var(--spacing-md);
   }
@@ -13,10 +12,10 @@
   label,
   .label {
     display: block;
-    margin-block-end: var(--spacing-3xs);
-    font-size: var(--size-md);
-    font-weight: var(--weight-regular);
-    color: var(--color-text-primary);
+    margin-block-end: var(--fs-spacing-3xs);
+    font-size: var(--fs-size-md);
+    font-weight: var(--fs-weight-regular);
+    color: var(--fs-color-text-primary);
   } 
 
   .fs-inputGroup-help {

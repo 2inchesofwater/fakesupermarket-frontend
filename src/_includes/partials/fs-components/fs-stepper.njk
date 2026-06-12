@@ -3,16 +3,21 @@
     <div class="fs-stepper-rail">
       
       {% if stepper.stepperUseIntroPane %}
-        <div id="fs-{{ slug }}-intro" class="fs-stepper-pane">
+        <div id="fs-{{ slug }}-intro" class="fs-stepper-pane" aria-labelledby="fs-{{ slug }}-intro-title">
           {% if stepper.stepperIntroPane.kicker %}
-            <p class="kicker">{{ stepper.stepperIntroPane.kicker }}</p>
-          {% endif %}
-          <h1>{{ stepper.stepperIntroPane.title }}</h1>
+            <p class="kicker fs-stepper-pane-eyebrow">
+              {{ stepper.stepperIntroPane.kicker }}
+            </p>
+          {% endif %}        
+          <div class="fs-input-pane-header">
+            <h1 id="fs-{{ slug }}-intro-title" class="fs-input-pane-title">{{ stepper.stepperIntroPane.title }}</h1>
+          </div>
+
           {% if stepper.stepperIntroPane.paragraphs %}  
             <div class="fs-stepper-paragraphs-wrapper">
               {% for paragraph in stepper.stepperIntroPane.paragraphs %}
                 <p>{{ paragraph }}</p>
-              {% endfor %}   
+              {% endfor %}    
             </div>         
           {% endif %}
           {% if stepper.stepperIntroPane.image %}
@@ -20,7 +25,7 @@
               <img src="{{ stepper.stepperIntroPane.image.src }}" alt="{{ stepper.stepperIntroPane.image.alt }}" />
             </div>
           {% endif %}
-        </div> 
+        </div>
       {% endif %}
 
       {% for pane in panes %}
@@ -33,11 +38,15 @@
       {% endfor %} 
 
       {% if stepper.stepperUseOutroPane %}
-        <div id="fs-{{ slug }}-outro" class="fs-stepper-pane">
+        <div id="fs-{{ slug }}-outro" class="fs-stepper-pane" aria-labelledby="fs-{{ slug }}-outro-title">
           {% if stepper.stepperOutroPane.kicker %}
-            <p class="kicker">{{ stepper.stepperOutroPane.kicker }}</p>
+            <p class="kicker fs-stepper-pane-eyebrow">{{ stepper.stepperOutroPane.kicker }}</p>
           {% endif %}
-          <h1>{{ stepper.stepperOutroPane.title }}</h1>
+
+          <div class="fs-input-pane-header">
+            <h1 id="fs-{{ slug }}-outro-title" class="fs-input-pane-title">{{ stepper.stepperOutroPane.title }}</h1>
+          </div>
+
           {% if stepper.stepperOutroPane.paragraphs %}  
             <div class="fs-stepper-paragraphs-wrapper">
               {% for paragraph in stepper.stepperOutroPane.paragraphs %}

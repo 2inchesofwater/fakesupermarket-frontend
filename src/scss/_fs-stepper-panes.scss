@@ -18,4 +18,27 @@
       max-height: 100vh;
     } 
   }
+
+  .fs-stepper-pane-eyebrow {
+    background: var(--fs-color-core-100);
+    border-radius: var(--fs-spacing-xl);
+    color: var(--fs-color-brand-primary);
+    display: inline-block;
+    font-size: var(--fs-size-md);
+    font-weight: var(--fs-weight-regular);
+    // margin-block-start: var(--fs-spacing-sm);
+    padding-block: var(--fs-spacing-2xs);
+    padding-inline: var(--fs-spacing-sm);
+    margin-inline-start: calc(var(--fs-spacing-sm) * -1);
+  }
+  .fs-stepper-paragraphs-wrapper {
+    font-weight: var(--fs-weight-regular);
+  }
 }
+
+  .fs-stepper-pane-eyebrow + .fs-input-pane-header {
+    margin-block-start: var(--fs-spacing-sm);
+  }
+  .fs-input-pane-header + .fs-stepper-paragraphs-wrapper {
+    margin-block-start: var(--fs-spacing-sm);
+  }  
