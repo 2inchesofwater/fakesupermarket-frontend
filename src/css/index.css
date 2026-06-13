@@ -6139,7 +6139,7 @@ details.fs-dashboard-card.accordion summary.fs-dashboard-card-header {
 }
 details.fs-dashboard-card.accordion summary.fs-dashboard-card-header .fs-dashboard-card-title {
   font-weight: var(--fs-weight-bold);
-  font-size: var(--fs-weight-md);
+  font-size: var(--fs-size-md);
 }
 details.fs-dashboard-card.accordion summary.fs-dashboard-card-header:hover, details.fs-dashboard-card.accordion summary.fs-dashboard-card-header:active {
   color: var(--fs-color-brand-primary);
@@ -6287,6 +6287,7 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
 }
 .fs-dashboard-card.card-tasks .shoppingList .shoppingList-link .fs-taskList-help {
   font-size: var(--fs-size-sm);
+  font-weight: var(--fs-weight-regular);
   line-height: var(--fs-size-sm);
   color: var(--fs-color-text-tertiary);
 }
