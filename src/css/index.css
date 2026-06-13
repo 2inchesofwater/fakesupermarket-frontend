@@ -6172,6 +6172,17 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
   font-size: var(--fs-size-sm);
   max-width: 30rem;
 }
+.fs-dashboard-card form {
+  gap: var(--fs-spacing-xs);
+}
+.fs-dashboard-card .fs-btn-group {
+  justify-content: space-between;
+}
+.fs-dashboard-card .fs-btn.btn-tertiary {
+  border-color: var(--fs-color-core-400);
+  background: var(--fs-color-background-active);
+}
+
 .fs-dashboard-card.card-welcome {
   margin-block-end: 2.5vh;
   padding: unset;
@@ -6353,10 +6364,6 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
   flex-direction: column;
   align-items: start;
   justify-content: center;
-}
-.fs-dashboard-card.card-incentives #fs-incentives-balance .fs-btn {
-  border-color: var(--fs-color-core-400);
-  background: var(--fs-color-background-active);
 }
 .fs-dashboard-card.card-incentives #fs-incentives-tally,
 .fs-dashboard-card.card-incentives #fs-incentives-total {

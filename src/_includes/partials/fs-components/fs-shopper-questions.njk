@@ -16,7 +16,10 @@
     <form action="/shopper/profile/" method="post" class="quickQuestionForm">
       {% include "partials/fs-components/fs-shopper-demo-question.njk" %}
 
-      {# Need to include some controls here #}
+      <div class="fs-dashboard-card-actions fs-btn-group">
+        <button class="fs-btn btn-tertiary">Continue</button>
+        <button class="fs-btn btn-link">Skip question</button>
+      </div>
     </form>
   </div>
 </details>

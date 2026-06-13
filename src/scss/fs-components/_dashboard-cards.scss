@@ -73,8 +73,15 @@ details.fs-dashboard-card.accordion {
 		font-size: var(--fs-size-sm);
 		max-width: 30rem;
 	}
-	p.label {
-
+	form {
+		gap: var(--fs-spacing-xs);
+	}
+	.fs-btn-group {
+		justify-content: space-between;
+	}
+	.fs-btn.btn-tertiary {
+		border-color: var(--fs-color-core-400); 
+    	background: var(--fs-color-background-active);	
 	}
 }
 
