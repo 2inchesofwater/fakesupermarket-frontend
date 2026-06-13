@@ -1,7 +1,9 @@
 .fs-dashboard-card.card-welcome {
-    justify-self: start;
+    // justify-self: start;
     margin-block-end: 2.5vh;
-    padding-inline-end: var(--fs-spacing-3xl);
+    padding: unset;
+    background: unset;
+    // padding-inline-end: var(--fs-spacing-3xl);
     max-width: 100%;
 
 	.fs-dashboard-card-title {

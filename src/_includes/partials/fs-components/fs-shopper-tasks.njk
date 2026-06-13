@@ -1,9 +1,11 @@
-<section id="fs-shopper-tasks" class="fs-dashboard-card card-tasks" aria-labelledby="fs-tasks-title">
-  <header id="fs-tasks-header" class="fs-dashboard-card-header">
+<div id="fs-tasks-header" class="fs-dashboard-card-sub">
+  <header class="fs-dashboard-card-header">
     <h1 id="fs-tasks-title" class="fs-dashboard-card-title">Shopping list</h1>
     <p class="label">These are the available research tasks.</p>
   </header>
+</div>
 
+<section id="fs-shopper-tasks" class="fs-dashboard-card card-tasks" aria-labelledby="fs-tasks-title">
   <div id="fs-tasks-list" class="">
     {% for storefrontKey, storefront in fakesupermarket.storefronts %}
       <div class="fs-dashboard-card-sub">
@@ -12,7 +14,7 @@
         </header>
         <ul class="shoppingList fs-dashboard-card-body">
           {% for item in storefront.shoppingList %}
-            <li class="shoppingList-item{% if item.completed %} is-completed{% endif %}">
+            <li class="shoppingList-item{% if item.completed %} is-completed{% endif %} {% if item.incentive %} is-incentivised{% endif %}">
               <a href="{{ item.url }}" class="shoppingList-link">
 
                 <span class="shoppingList-marker icon" aria-hidden="true">
@@ -21,33 +23,26 @@
                       <use href="#check"></use>
                     </svg>
                   {% endif %}
+                  {% if item.incentive and not item.completed %}
+                    <svg class="" viewBox="0 0 24 24" focusable="false">
+                      <use href="#dollar-sign"></use>
+                    </svg>
+                  {% endif %}
                 </span>
 
-                <span class="shoppingList-label">
-                  {{ item.label }}
-                </span>
+                <div class="fs-taskList-identifier">
+                  <div class="shoppingList-label">
+                    {{ item.label }}
+                  </div>
 
-                {% if item.incentive and not item.completed %}
-                  <span class="shoppingList-incentive badge badge-incentive badge-icon">
-                    <div class="icon">
-                      <svg class="" viewBox="0 0 24 24" focusable="false">
-                        <use href="#dollar-sign"></use>
-                      </svg>
-                    </div>
-                    <div class="label">Available</div>
-                  </span>
-                {% endif %}
+                  {% if item.incentive and not item.completed %}
+                      <div class="fs-taskList-help">Incentive available.</div>
+                  {% endif %}
 
-                {% if item.incentive and item.completed %}
-                  <span class="shoppingList-incentive badge badge-information badge-icon">
-                    <div class="icon">
-                      <svg class="" viewBox="0 0 24 24" focusable="false">
-                        <use href="#dollar-sign"></use>
-                      </svg>                      
-                    </div>
-                    <div class="label">Completed</div>
-                  </span>
-                {% endif %}
+                  {% if item.incentive and item.completed %}
+                      <div class="fs-taskList-help">Incentive task done.</div>
+                  {% endif %}
+                </div>
               </a>
             </li>
           {% endfor %}

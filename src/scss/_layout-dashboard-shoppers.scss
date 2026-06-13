@@ -8,16 +8,28 @@
 @forward 'fs-components/dashboard-walkthrough';
 
 .dashboard.shoppers {
-		background:  
-    	linear-gradient(127deg, var(--fs-color-core-400), transparent 90.71%),
-    	linear-gradient(336deg, var(--fs-color-bright-orange-dark), transparent 90.71%),
-    	linear-gradient(217deg, #F4F1b6, transparent 90.71%);
+	background:  
+    	// linear-gradient(127deg, var(--fs-color-core-500), transparent 90.71%),
+    	// linear-gradient(336deg, var(--fs-color-bright-orange-middle), transparent 90.71%),
+    	// linear-gradient(217deg, #F4F1b6, transparent 90.71%);
+     	linear-gradient(127deg, var(--fs-color-white), transparent 90.71%),
+    	linear-gradient(336deg, var(--fs-color-gray-025), transparent 90.71%),
+    	linear-gradient(217deg, var(--fs-color-gray-300), transparent 90.71%);
 
-	// #fs-shopper-welcome { background: var(--fs-color-bright-tan-light); }
-	// #fs-shopper-tasks { background: var(--fs-color-bright-orange-light); }
-	// #fs-shopper-incentives { background: var(--fs-color-bright-yellow-light); }
-	// #fs-shopper-questions { background: var(--fs-color-bright-pink-light); }
-	// #fs-dashboard-walkthrough { background: var(--fs-color-bright-sky-light); }
+	.fs-background {
+		position: fixed;
+		z-index: -1;
+		width: 100vw;
+		height: 100vh;
+		mix-blend-mode: multiply;
+		opacity: .2;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center right;
+		}
+	}
 }
 
 #shopperHeader {
@@ -29,6 +41,7 @@
 #shopperDashboard {
 
 	#fs-shopper-welcome { grid-area: welcome; }
+	#fs-tasks-header { grid-area: header; }
 	#fs-shopper-tasks { grid-area: tasks; }
 	#fs-shopper-secondary {grid-area: secondary; }
 	#fs-shopper-secondary-spacer {grid-area: spacer; }
@@ -43,34 +56,36 @@
 	align-items: start;
 	grid-template-areas: 
 		"welcome"
+		"header"
 		"tasks"
 		"secondary";
-	margin-block: 5vh;
+	margin-block: 2.5vh;
 
 	@media (min-width: 760px) {
 		grid-template-columns: 1fr 1fr;
 		grid-template-areas: 
 			"welcome ."
+			"header ."
 			"tasks secondary";
 		grid-template-rows: auto 1fr;
 		align-items: start;
-		margin-block: 7.5vh;		
+		margin-block: 5vh;		
 	}
 	@media (min-width: 1200px) {
 		grid-template-columns: 1fr 1fr 1fr;
 		column-gap: var(--fs-spacing-2xl);
 		grid-template-areas: 
-			"welcome tasks secondary";
+			"welcome header ."
+			". tasks secondary";
 		align-items: start;
-		margin-block: 10vh;
+		margin-block: 5vh;
 	}
 }
 
 #fs-shopper-secondary {
 	display: grid;
-	grid-gap: var(--fs-spacing-sm);
+	grid-gap: var(--fs-spacing-md);
 	grid-template-areas:
-		"spacer" 
 		"incentives"
 		"questions"
 		"walkthrough";
@@ -82,7 +97,7 @@
 	min-height: 100vh;	
 }
 
-#fs-shopper-secondary-spacer {
-	font-size: var(--fs-size-3xl);
-	height: calc(var(--fs-size-3xl) * 1.25 + var(--fs-size-md) + var(--fs-spacing-xs));
-}
+// #fs-shopper-secondary-spacer {
+// 	font-size: var(--fs-size-3xl);
+// 	height: calc(var(--fs-size-3xl) * 1.25 + var(--fs-size-md) + var(--fs-spacing-xs));
+// }

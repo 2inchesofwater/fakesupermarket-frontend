@@ -147,7 +147,7 @@
   --transition-sm: all 0.15s ease;
   --transition-md: all 0.3s ease;
   --transition-lg: all 0.6s ease;
-  --weight-light: 100;
+  --weight-light: 200;
   --weight-regular: 300;
   --weight-bold: 500;
   --weight-heavy: 600;
@@ -325,7 +325,7 @@
   --fs-transition-sm: all 0.1s ease;
   --fs-transition-md: all 0.3s ease;
   --fs-transition-lg: all 0.6s ease;
-  --fs-weight-light: 100;
+  --fs-weight-light: 200;
   --fs-weight-regular: 300;
   --fs-weight-bold: 500;
   --fs-weight-heavy: 600;
@@ -2370,6 +2370,9 @@ details.fs-details .fs-details-panel {
 .fs-input-radioGroup .fs-input-radio:focus-within {
   outline: var(--thickness-lg) solid var(--fs-color-focus-ring);
   outline-offset: 0;
+}
+.fs-input-radioGroup .fs-input-radio:has(.fs-radio-input-button:checked) {
+  background: var(--fs-color-background-active);
 }
 .fs-input-radioGroup .fs-input-radio.size-sm .fs-input-radio-modern {
   gap: var(--fs-spacing-sm);
@@ -4440,7 +4443,6 @@ details.accordion .accordion-details-panel,
   fill: var(--color-text-tertiary);
 }
 .badge.badge-incentive {
-  background: rgb(from var(--fs-color-bright-sky-light) r g b/50%);
   color: var(--fs-color-bright-sky-dark);
   border-color: transparent;
 }
@@ -6104,16 +6106,22 @@ table th.numeric, table td.numeric {
 }
 
 .fs-dashboard-card {
-  padding: var(--fs-spacing-md);
+  --fs-color-card-bg-default: rgb(from var(--fs-color-white) r g b / 25%);
+  --fs-color-card-bg-sub: rgb(from var(--fs-color-white) r g b / 75%);
+  --fs-radius-card-sub: calc(var(--fs-radius-lg) - var(--fs-radius-sm));
+  padding: var(--fs-spacing-xs);
   border: unset;
   border-radius: var(--fs-radius-lg);
   overflow: hidden;
-  background: rgb(from var(--fs-color-background-active) r g b/50%);
+  background: var(--fs-color-card-bg-default);
+  background-blend-mode: multiply;
+  backdrop-filter: blur(12px);
 }
 
 .fs-dashboard-card-sub {
   padding-inline-start: var(--fs-spacing-sm);
-  border-radius: calc(var(--fs-radius-lg) - var(--fs-radius-sm));
+  background: var(--fs-color-card-bg-sub);
+  border-radius: var(--fs-radius-card-sub);
   overflow: hidden;
 }
 
@@ -6123,19 +6131,25 @@ details.fs-dashboard-card.accordion {
 }
 details.fs-dashboard-card.accordion summary.fs-dashboard-card-header {
   display: flex;
+  gap: var(--fs-spacing-2xs);
   padding: unset;
+  padding-inline-start: var(--fs-spacing-xs);
   background: unset;
-  color: var(--fs-color-text-secondary);
+  color: var(--fs-color-text-tertiary);
 }
 details.fs-dashboard-card.accordion summary.fs-dashboard-card-header .fs-dashboard-card-title {
   font-weight: var(--fs-weight-bold);
+  font-size: var(--fs-weight-md);
 }
 details.fs-dashboard-card.accordion summary.fs-dashboard-card-header:hover, details.fs-dashboard-card.accordion summary.fs-dashboard-card-header:active {
   color: var(--fs-color-brand-primary);
 }
+details.fs-dashboard-card.accordion[open] summary {
+  color: var(--fs-color-text-primary);
+}
 details.fs-dashboard-card.accordion .accordion-details-panel {
   padding: unset;
-  padding-block-start: var(--fs-spacing-sm);
+  padding-block-start: var(--fs-spacing-xs);
 }
 
 .fs-dashboard-card-title {
@@ -6158,11 +6172,10 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
   font-size: var(--fs-size-sm);
   max-width: 30rem;
 }
-
 .fs-dashboard-card.card-welcome {
-  justify-self: start;
   margin-block-end: 2.5vh;
-  padding-inline-end: var(--fs-spacing-3xl);
+  padding: unset;
+  background: unset;
   max-width: 100%;
 }
 .fs-dashboard-card.card-welcome .fs-dashboard-card-title {
@@ -6173,25 +6186,35 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
   font-weight: var(--fs-weight-regular);
 }
 
-.fs-dashboard-card.card-tasks {
-  padding: unset;
+#shopperDashboard #fs-tasks-header.fs-dashboard-card-sub {
   background: unset;
+  padding-block: unset;
+  padding-inline: unset;
 }
-.fs-dashboard-card.card-tasks #fs-tasks-header .fs-dashboard-card-title {
-  color: var(--fs-color-white);
+#shopperDashboard #fs-tasks-header .fs-dashboard-card-title {
+  font-family: var(--fs-font-display);
+  font-size: var(--fs-size-3xl);
+  line-height: var(--fs-leading-md);
+  color: var(--fs-color-text-primary);
   margin-block-start: unset;
 }
-.fs-dashboard-card.card-tasks #fs-tasks-header .label {
+#shopperDashboard #fs-tasks-header .label {
   font-size: var(--fs-size-md);
   color: var(--fs-color-core-700);
   font-weight: var(--fs-weight-regular);
 }
+
+.fs-dashboard-card.card-tasks {
+  padding: unset;
+  background: unset;
+  backdrop-filter: unset;
+}
 .fs-dashboard-card.card-tasks #fs-tasks-list {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: var(--fs-spacing-sm);
+  grid-gap: var(--fs-spacing-xs);
   align-items: center;
-  margin-block: var(--fs-spacing-md);
+  margin-block-end: var(--fs-spacing-md);
 }
 .fs-dashboard-card.card-tasks #fs-tasks-list .fs-dashboard-card-sub {
   padding-block: var(--fs-spacing-lg);
@@ -6204,7 +6227,7 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
 .fs-dashboard-card.card-tasks .shoppingList {
   display: flex;
   flex-direction: column;
-  gap: var(--fs-spacing-sm);
+  gap: var(--fs-spacing-2xs);
   margin-block-start: var(--fs-spacing-sm);
 }
 .fs-dashboard-card.card-tasks .shoppingList > li {
@@ -6213,11 +6236,37 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
 .fs-dashboard-card.card-tasks .shoppingList > li a {
   text-decoration: none;
 }
+.fs-dashboard-card.card-tasks .shoppingList .shoppingList-item {
+  padding-inline: var(--spacing-sm);
+  padding-block: var(--spacing-xs);
+  border-radius: var(--fs-radius-md);
+}
+.fs-dashboard-card.card-tasks .shoppingList .shoppingList-item.is-incentivised {
+  background: rgb(from var(--fs-color-bright-sky-light) r g b/20%);
+}
+.fs-dashboard-card.card-tasks .shoppingList .shoppingList-item.is-incentivised .shoppingList-marker {
+  color: var(--fs-color-bright-sky-dark);
+}
+.fs-dashboard-card.card-tasks .shoppingList .shoppingList-item.is-incentivised:hover, .fs-dashboard-card.card-tasks .shoppingList .shoppingList-item.is-incentivised:active {
+  background: rgb(from var(--fs-color-bright-sky-light) r g b/30%);
+}
+.fs-dashboard-card.card-tasks .shoppingList .shoppingList-item.is-incentivised.is-completed {
+  background: unset;
+}
+.fs-dashboard-card.card-tasks .shoppingList .shoppingList-item.is-completed {
+  pointer-events: none;
+}
+.fs-dashboard-card.card-tasks .shoppingList .shoppingList-item:hover, .fs-dashboard-card.card-tasks .shoppingList .shoppingList-item:active {
+  box-shadow: var(--fs-boxShadow-sm);
+}
+.fs-dashboard-card.card-tasks .shoppingList .shoppingList-item:hover .shoppingList-label, .fs-dashboard-card.card-tasks .shoppingList .shoppingList-item:active .shoppingList-label {
+  color: var(--fs-color-text-primary);
+}
 .fs-dashboard-card.card-tasks .shoppingList .shoppingList-link {
   display: flex;
   flex-direction: row;
   gap: var(--fs-spacing-xs);
-  align-items: center;
+  align-items: start;
   width: auto;
 }
 .fs-dashboard-card.card-tasks .shoppingList .shoppingList-link .shoppingList-label {
@@ -6225,17 +6274,14 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
   font-weight: var(--fs-weight-regular);
   margin-inline-end: var(--fs-spacing-xs);
 }
-.fs-dashboard-card.card-tasks .shoppingList .shoppingList-link:hover .shoppingList-label, .fs-dashboard-card.card-tasks .shoppingList .shoppingList-link:active .shoppingList-label {
-  color: var(--fs-color-action-primary-default);
-  text-decoration: underline;
-  text-decoration-color: var(--fs-color-action-primary-default);
-  text-decoration-thickness: var(--fs-thickness-md);
-  text-underline-offset: var(--fs-spacing-2xs);
+.fs-dashboard-card.card-tasks .shoppingList .shoppingList-link .fs-taskList-help {
+  font-size: var(--fs-size-sm);
+  line-height: var(--fs-size-sm);
+  color: var(--fs-color-text-tertiary);
 }
 .fs-dashboard-card.card-tasks .shoppingList .is-completed > .shoppingList-link {
   color: var(--fs-color-text-tertiary);
   opacity: 0.75;
-  pointer-events: none;
 }
 .fs-dashboard-card.card-tasks .shoppingList .is-completed > .shoppingList-link .shoppingList-marker {
   color: var(--fs-color-core-700);
@@ -6247,10 +6293,12 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
 .fs-dashboard-card.card-tasks .shoppingList .icon {
   width: 1em;
   height: 1em;
+  margin-block-start: var(--fs-spacing-2xs);
 }
 .fs-dashboard-card.card-tasks #fs-tasks-note {
-  background: unset;
-  padding-block-start: unset;
+  background: var(--fs-color-card-bg-default);
+  backdrop-filter: blur(12px);
+  padding: var(--fs-spacing-md);
 }
 
 .fs-dashboard-card.card-incentives .accordion-details-panel {
@@ -6295,7 +6343,7 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
   flex-direction: column;
   gap: var(--fs-spacing-xs);
   align-items: start;
-  background: rgb(from var(--fs-color-background-active) r g b/50%);
+  background: var(--fs-color-card-bg-sub);
   padding: var(--fs-spacing-sm);
 }
 .fs-dashboard-card.card-incentives #fs-incentives-balance .fs-dashboard-card-body {
@@ -6308,23 +6356,47 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
 }
 .fs-dashboard-card.card-incentives #fs-incentives-balance .fs-btn {
   border-color: var(--fs-color-core-400);
+  background: var(--fs-color-background-active);
+}
+.fs-dashboard-card.card-incentives #fs-incentives-tally,
+.fs-dashboard-card.card-incentives #fs-incentives-total {
+  background: unset;
 }
 
 .fs-dashboard-card.card-questions .fs-inputGroup {
-  background: rgb(from var(--fs-color-background-active) r g b/50%);
+  background: var(--fs-color-card-bg-sub);
   padding: var(--fs-spacing-sm);
-  border-radius: var(--fs-radius-sm);
+  border-radius: var(--fs-radius-card-sub);
 }
 .fs-dashboard-card.card-questions .fs-input-pane-header {
   margin-block-start: var(--fs-spacing-xs);
-  margin-block-end: var(--fs-spacing-xs);
+  margin-block-end: var(--fs-spacing-2xs);
 }
 .fs-dashboard-card.card-questions .fs-input-pane-title {
-  font-size: var(--fs-size-xl);
+  color: var(--color-text-primary);
+  font-size: var(--fs-size-lg);
+}
+.fs-dashboard-card.card-questions .fs-inputGroup-content .fs-label {
+  font-size: var(--fs-size-sm);
+  color: var(--color-text-tertiary);
 }
 
 .dashboard.shoppers {
-  background: linear-gradient(127deg, var(--fs-color-core-400), transparent 90.71%), linear-gradient(336deg, var(--fs-color-bright-orange-dark), transparent 90.71%), linear-gradient(217deg, #F4F1b6, transparent 90.71%);
+  background: linear-gradient(127deg, var(--fs-color-white), transparent 90.71%), linear-gradient(336deg, var(--fs-color-gray-025), transparent 90.71%), linear-gradient(217deg, var(--fs-color-gray-300), transparent 90.71%);
+}
+.dashboard.shoppers .fs-background {
+  position: fixed;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  mix-blend-mode: multiply;
+  opacity: 0.2;
+}
+.dashboard.shoppers .fs-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
 }
 
 #shopperHeader {
@@ -6339,11 +6411,14 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
   column-gap: var(--fs-spacing-lg);
   align-content: start;
   align-items: start;
-  grid-template-areas: "welcome" "tasks" "secondary";
-  margin-block: 5vh;
+  grid-template-areas: "welcome" "header" "tasks" "secondary";
+  margin-block: 2.5vh;
 }
 #shopperDashboard #fs-shopper-welcome {
   grid-area: welcome;
+}
+#shopperDashboard #fs-tasks-header {
+  grid-area: header;
 }
 #shopperDashboard #fs-shopper-tasks {
   grid-area: tasks;
@@ -6366,37 +6441,32 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
 @media (min-width: 760px) {
   #shopperDashboard {
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "welcome ." "tasks secondary";
+    grid-template-areas: "welcome ." "header ." "tasks secondary";
     grid-template-rows: auto 1fr;
     align-items: start;
-    margin-block: 7.5vh;
+    margin-block: 5vh;
   }
 }
 @media (min-width: 1200px) {
   #shopperDashboard {
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: var(--fs-spacing-2xl);
-    grid-template-areas: "welcome tasks secondary";
+    grid-template-areas: "welcome header ." ". tasks secondary";
     align-items: start;
-    margin-block: 10vh;
+    margin-block: 5vh;
   }
 }
 
 #fs-shopper-secondary {
   display: grid;
-  grid-gap: var(--fs-spacing-sm);
-  grid-template-areas: "spacer" "incentives" "questions" "walkthrough";
+  grid-gap: var(--fs-spacing-md);
+  grid-template-areas: "incentives" "questions" "walkthrough";
   grid-template-rows: auto auto auto auto;
   align-content: start;
 }
 
 #shopperDashboard {
   min-height: 100vh;
-}
-
-#fs-shopper-secondary-spacer {
-  font-size: var(--fs-size-3xl);
-  height: calc(var(--fs-size-3xl) * 1.25 + var(--fs-size-md) + var(--fs-spacing-xs));
 }
 
 * {

@@ -3,8 +3,8 @@
     "welcomeMessage": "What's in store today?",
     "actionLabel": "I can do that",
 
-    "background": "photography/maria-lin-kim-8RaUEd8zD-U-unsplash.webp",
-    
+    "background": "photography/FS-ring.webp",
+
     "storefronts": {
       "supermarket": {
         "storefrontName": "Supermarket",

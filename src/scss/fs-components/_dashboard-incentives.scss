@@ -39,7 +39,7 @@
 		flex-direction: column;
 		gap: var(--fs-spacing-xs);
 		align-items: start;
-		background: rgb(from var(--fs-color-background-active) r g b / 50%);
+		background: var(--fs-color-card-bg-sub);
 		padding: var(--fs-spacing-sm);
 
 		.fs-dashboard-card-body {
@@ -53,6 +53,11 @@
 		}
 		.fs-btn {
 			border-color: var(--fs-color-core-400);
+			background: var(--fs-color-background-active);
 		}
+	}
+	#fs-incentives-tally,
+	#fs-incentives-total {
+		background: unset;
 	}
 }

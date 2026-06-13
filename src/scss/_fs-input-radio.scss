@@ -20,7 +20,11 @@
       outline: var(--thickness-lg) solid var(--fs-color-focus-ring);
       outline-offset: 0;
     }
-
+    &:has(.fs-radio-input-button:checked) {
+      background: var(--fs-color-background-active);
+      // box-shadow: var(--fs-boxShadow-sm);
+    }
+    
     &.size-sm {
       .fs-input-radio-modern {
         gap: var(--fs-spacing-sm);

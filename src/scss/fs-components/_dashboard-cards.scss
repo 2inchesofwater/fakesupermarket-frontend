@@ -1,17 +1,23 @@
 .fs-dashboard-card {
-	padding: var(--fs-spacing-md);
+	--fs-color-card-bg-default: rgb(from var(--fs-color-white) r g b / 25%);
+	--fs-color-card-bg-sub: rgb(from var(--fs-color-white) r g b / 75%);
+	
+	--fs-radius-card-sub: calc(var(--fs-radius-lg) - var(--fs-radius-sm));
+
+	padding: var(--fs-spacing-xs);
 	border: unset;
 	border-radius: var(--fs-radius-lg);
 	overflow: hidden;
 
-	background: rgb(from var(--fs-color-background-active) r g b / 50%);
+	background: var(--fs-color-card-bg-default);
+	background-blend-mode: multiply;
+	backdrop-filter: blur(12px);
 }
 
 .fs-dashboard-card-sub {
 	padding-inline-start: var(--fs-spacing-sm);
-	// padding: var(--fs-spacing-sm);
-	// border: 1px solid rgb(from var(--fs-color-background-dialogue) r g b / 25%);
-	border-radius: calc(var(--fs-radius-lg) - var(--fs-radius-sm));
+	background: var(--fs-color-card-bg-sub);
+	border-radius: var(--fs-radius-card-sub);
 	overflow: hidden;
 }
 
@@ -20,22 +26,29 @@ details.fs-dashboard-card.accordion {
 	border-block-end: unset;
 	summary.fs-dashboard-card-header {
 		display: flex;
+		gap: var(--fs-spacing-2xs);
 		padding: unset;
+		padding-inline-start: var(--fs-spacing-xs);
 		background: unset;
-		color: var(--fs-color-text-secondary);
+		color: var(--fs-color-text-tertiary);
 
 		.fs-dashboard-card-title {
 			font-weight: var(--fs-weight-bold);
+			font-size: var(--fs-weight-md);
 		}
 
 		&:hover,
 		&:active {
 			color: var(--fs-color-brand-primary);
 		}
+
+	}
+	&[open] summary {
+		color: var(--fs-color-text-primary);
 	}
 	.accordion-details-panel {
 		padding: unset;
-		padding-block-start: var(--fs-spacing-sm);
+		padding-block-start: var(--fs-spacing-xs);
 	}
 }
 
@@ -59,6 +72,9 @@ details.fs-dashboard-card.accordion {
 		color: var(--fs-color-text-secondary);
 		font-size: var(--fs-size-sm);
 		max-width: 30rem;
+	}
+	p.label {
+
 	}
 }
 

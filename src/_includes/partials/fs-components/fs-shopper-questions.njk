@@ -1,0 +1,22 @@
+<details open id="fs-shopper-questions" class="fs-dashboard-card card-questions accordion" aria-labelledby="fs-questions-title">
+  <summary id="fs-questions-heading" class="fs-dashboard-card-header">
+    <span class="fs-accordion-markerGroup" aria-hidden="true">
+      <svg class="fs-accordion-marker-icon svg-closed" viewBox="0 0 24 24" focusable="false">
+        <use href="#marker-closed"></use>
+      </svg>
+      <svg class="fs-accordion-marker-icon svg-open" viewBox="0 0 24 24" focusable="false">
+        <use href="#marker-open"></use>
+      </svg>
+    </span>      
+    <div class="fs-dashboard-card-wrapper">
+      <h2 id="fs-questions-title" class="fs-dashboard-card-title">Profile builder questions</h2>
+    </div>
+  </summary>
+  <div class="accordion-details-panel">
+    <form action="/shopper/profile/" method="post" class="quickQuestionForm">
+      {% include "partials/fs-components/fs-shopper-demo-question.njk" %}
+
+      {# Need to include some controls here #}
+    </form>
+  </div>
+</details>
