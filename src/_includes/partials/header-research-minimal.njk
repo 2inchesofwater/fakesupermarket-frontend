@@ -1,0 +1,18 @@
+{% set componentName = "research-minimal" %}
+{% set storefrontName = "Supermarket" %}
+{% set logoDescription = "Fake Supermarket logo - Use this shortcut to navigate back to the Shopping List page" %}
+
+<header id="header-{{ componentName }}" class="fs-header">
+  <div class="container">
+    <nav id="nav-main" >
+      <a title="{{ logoDescription }}" href="/pages/{{ storefront.slug }}/#" id="site-logo">
+        <span class="icon">
+          <svg class="fs-logo-symbol" viewBox="0 0 228 228" aria-hidden="true">
+            <use href="#fs-logo"></use>
+          </svg>
+        </span>
+        <span class="label">{{ storefrontName }}</span>      
+      </a> 
+    </nav>
+  </div>
+</header>

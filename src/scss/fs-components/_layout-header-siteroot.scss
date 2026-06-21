@@ -1,0 +1,16 @@
+#header-siteroot {
+	.header-compact {
+		display: block;
+	}
+	.header-expanded {
+		display: none;
+	}
+	@media (min-width: 48rem) {
+		.header-compact {
+			display: none;
+		}
+		.header-expanded {
+			display: block;
+		}
+	}
+}

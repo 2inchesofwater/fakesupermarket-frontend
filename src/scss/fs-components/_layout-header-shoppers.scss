@@ -1,0 +1,19 @@
+#header-shoppers {
+	#nav-main {
+		align-items: center;
+	}
+	.header-compact {
+		display: block;
+	}
+	.header-expanded {
+		// display: none;
+	}
+	@media (min-width: 48rem) {
+		.header-compact {
+			display: none;
+		}
+		.header-expanded {
+			display: block;
+		}
+	}
+}

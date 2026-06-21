@@ -1,0 +1,104 @@
+@use "variables" as *;
+
+@forward 'fs-components/layout-header-siteroot'; 
+@forward 'fs-components/layout-header-participants'; 
+@forward 'fs-components/layout-header-shoppers'; 
+@forward 'fs-components/layout-header-research'; 
+
+.fs-header {
+	position: relative;
+	background: var(--fs-color-background-active);
+	padding-block: var(--fs-spacing-xs);
+	padding-inline: var(--fs-spacing-sm);
+	box-shadow: 
+		var(--fs-boxShadow-sm),
+		var(--fs-boxShadow-md);
+
+	#nav-main {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+    align-items: center;
+    align-content: flex-end;
+    flex-wrap: wrap;
+		width: 100%;
+		max-width: $screen-xl;	
+	}
+	#site-logo {
+		display: flex;
+		position: relative;
+		svg {
+			// position: absolute;
+			// top: calc((var(--fs-spacing-md) + var(--fs-spacing-xs)) * -1);
+			width: var(--fs-logo-size-sm);
+			height: var(--fs-logo-size-sm);
+			// transform: rotate(-4deg);
+		}
+	}
+
+	.header-expanded {
+		.fs-btn {
+			padding-inline: var(--fs-spacing-sm);
+		}
+		.btn-secondary {
+			background: var(--fs-color-background-active);
+			border-color: var(--fs-color-background-active);
+			border-width: var(--fs-thickness-sm);
+			transition: var(--fs-transition-md);
+			&:hover,
+			&:active {
+				background: var(--fs-color-action-secondary-hover);
+			}			
+		}
+		.btn-tertiary {
+			transition: var(--fs-transition-md);
+			&:hover,
+			&:active {
+				background: var(--fs-color-action-secondary-hover);
+			}
+		}
+		.fs-btn-group {
+			gap: var(--fs-spacing-2xs);
+			border-radius: var(--fs-radius-md);
+			& > .fs-btn-group {
+				background: var(--fs-color-action-secondary-default);
+				padding: var(--fs-spacing-2xs);
+				.fs-btn {
+					border-radius: calc(var(--fs-radius-md) - var(--fs-spacing-2xs));
+				}
+			}
+		}
+	}
+}
+
+.fs-dialog-overlay {
+	.fs-dialog-body {
+		.fs-btn {
+			// padding-inline: var(--fs-spacing-sm);
+			padding-block: var(--fs-spacing-sm);
+		}
+		.btn-secondary {
+			border-color: var(--fs-color-background-active);
+			border-width: var(--fs-thickness-sm);
+		}
+		.btn-tertiary {
+			background: var(--fs-color-background-active);
+			&:hover,
+			&:active {
+				background: var(--fs-color-action-secondary-hover);
+			}
+		}		
+	}
+	.fs-btn-group {
+		flex-direction: column;
+		gap: var(--fs-spacing-md);
+		border-radius: calc(var(--fs-radius-md) + var(--fs-spacing-2xs));
+		& > .fs-btn-group {
+			flex-direction: column;
+			gap: var(--fs-spacing-2xs);
+			background: var(--fs-color-action-secondary-default);
+			padding: var(--fs-spacing-xs);
+		}
+	}
+}
+

@@ -1,6 +1,9 @@
 .demo-page {
 	background: var(--fs-color-background-page);
 
+	main {
+		max-width: unset;
+	}
 	article h2 {
 		margin-block-start: 2rem;
 		margin-block-end: 0;
@@ -12,7 +15,19 @@
 		margin-block-end: 1vh;
 		background: var(--fs-color-background-demo);
 	}
-	
+	.demo-intro {
+		width: 100%;
+		max-width: 40rem;
+		margin-inline: auto;
+	}
+	.demo-files {
+		font-size: var(--size-xs);
+		li {
+			list-style: disc;
+			margin-inline-start: 1.5rem;
+			margin-block-end: 0.25rem;
+		}
+	}
 	.demo-notes {
 		max-width: 40rem;
 		margin-inline: auto;
@@ -102,4 +117,8 @@
 .demo-page .demo-wrapper-loosenCriteriaOverlay #fs-loosencriteria  {
 	width: 390px;
 	height: 844px;
+}
+
+.demo-headers .demo-block {
+	position: relative;
 }

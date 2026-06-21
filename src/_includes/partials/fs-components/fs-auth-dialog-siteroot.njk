@@ -1,0 +1,24 @@
+<dialog id="auth-{{ componentName }}" aria-label="" class="fs-dialog-overlay">
+  <header id="auth-header-header" class="fs-dialog-header">
+    <h2 id="auth-title-signin" class="fs-dialog-title">Fake Supermarket</h2>
+    <button commandfor="auth-{{ componentName }}" command="close" aria-label="Close the account panel" class="fs-btn btn-tertiary btn-icon btn-iconOnly" id="auth-btn-close" type="button">
+        <svg class="fs-logo-symbol" viewBox="0 0 24 24" aria-hidden="true">
+          <use href="#fs-x"></use>
+        </svg> 
+    </button>
+  </header>
+
+  <section id="auth-dialog-body" class="fs-dialog-body" aria-label="Account sign-in options">
+    <div id="auth-dialog-options" class="wrapper">
+          <div class="fs-btn-group">
+            <button class="fs-btn btn-tertiary">Sign in</button>
+            <div class="fs-btn-group">
+              <button class="fs-btn btn-secondary">Get paid for fake shopping</button>
+              <button class="fs-btn btn-tertiary">Schedule a demo</button>
+            </div>
+          </div>
+    </div>
+  </section>
+
+  <section id="auth-dialog-footer" class="fs-dialog-footer"></section>
+</dialog>

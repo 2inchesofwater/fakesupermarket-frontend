@@ -188,7 +188,52 @@
   }
   > .label {
     white-space: nowrap;
-  }  
+  }
+
+  &.btn-identityAvatar {
+    gap: var(--fs-spacing-2xs);
+    background: unset;
+    transition: var(--fs-transition-md);
+    &:hover,
+    &:active {
+      background: rgb(from var(--fs-color-action-secondary-hover) r g b / 25%);
+      .label {
+        color: var(--fs-color-text-primary);
+      }
+    }    
+    .icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      width: calc(var(--fs-logo-size-sm) / 1.5);
+      aspect-ratio: 1 / 1;
+
+      border-radius: var(--fs-logo-size-sm);
+      border: var(--fs-thickness-lg) solid var(--fs-color-chart-1);
+      font-size: var(--fs-size-md);
+      font-weight: var(--fs-weight-light);
+      color: var(--fs-color-chart-1);
+    }
+    .label {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-weight: var(--fs-weight-bold);
+      color: var(--fs-color-text-secondary);
+      padding: var(--fs-spacing-xs);
+      border-radius: var(--fs-radius-sm);
+    }
+  }
+  .label > .label-extra {
+    display: block;
+    font-size: var(--fs-size-xs);
+    font-weight: var(--fs-weight-regular);
+    // line-height: var(--fs-leading-md);
+    color: var(--fs-color-text-tertiary);
+  }
+
 }
 
 .fs-btn-group {

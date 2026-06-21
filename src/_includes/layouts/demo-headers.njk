@@ -1,0 +1,143 @@
+{% set storefront = breakfastcereal %}
+{% set pagelayout = "demo-headers" %}
+
+{% extends "layouts/base.njk" %}   
+ 
+{% block content %} 
+  <main id="main" class="main-content demo-page">
+    <h1>{{ title }}</h1>
+
+    <article class="demo-notes">
+      <h2>Context</h2>
+      <p>On this page, we're focusing on the various headers used throughout the app. We're especially interested in how/where/when pieces of the sign-up / sign-in process appear.</p>
+      <p>I've also been using this page to test the responsive breakpoints; but also to see which headers even need a 'burger' menu.</p> 
+      <p>In many instances, a side-panel will appear. The contents of those side panels are still pretty rough. </p>
+    </article>
+
+    <h2 id="root">URL root (AKA Clients landing page) (AKA universal sign-in)</h2>
+    <article class="demo-intro">
+		</article>
+    <div class="demo-block">
+    	{% include "partials/header-siteroot.njk" %}
+    </div>
+    <article class="demo-notes">
+		  <h2>Notes</h2>
+    	<p>- Sign-in (universal) --> Opens a side panel?</p>
+		  <p>- Join today --> Routes to the Prospective shoppers landing page.</p>
+		  <p>- (Future) Request a demo --> Routes to an enquiry/booking page for clients.</p>
+		  
+		  <p>- 20260613 - It's currently uncertain where a <u>client</u> might self-create their sign-in credentials. </p>
+
+    	<h2>Key files</h2>
+    	<ul class="demo-files">
+	    	<li><code>_includes/partials/header-siteroot.njk</code></li>
+	    	<li><code>_includes/partials/fs-components/fs-auth-dialog-siteroot.njk</code></li>
+	    	<li><code>scss/_layout-headers.scss</code></li>
+	    	<li><code>scss/fs-components/_layout-header-siteroot.scss</code></li> 
+    	</ul>   
+
+		</article>
+
+    <h2>Prospective shoppers landing page (AKA sign-up page)</h2>
+    <div class="demo-block">
+    	{% include "partials/header-participants.njk" %}
+    </div>
+    <article class="demo-notes">
+		  <h2>Notes</h2>
+		  <p>- The user has not yet created their sign-in credentials. The primary call to action across this page (including the header) is "Sign up today".</p>
+			<p>- 20260613 - Folks with a Marketing brain might ask: Wouldn't something like "Join today" be more friendly, and perhaps convert better? Quite likely, yes. I produced a version using "Join", and it felt <em>too</em> casual. Happy to revisit this in the future.</p>
+		  <p>- 20260613 - While I've re-used the side-panel, for illustrative purposes, it's currently undecided whether the CTA would open a side panel with credentials options (such as email, Google, Facebook, etc), or whether to throw straight across to a Cognito page... Happy to take advice on this!</p>
+    	<h2>Key files</h2>
+    	<ul class="demo-files">
+	    	<li><code>_includes/partials/header-participants.njk</code></li>
+	    	<li><code>_includes/partials/fs-components/fs-auth-dialog-join.njk</code></li>    	
+	    	<li><code>scss/_layout-headers.scss</code></li>
+	    	<li><code>scss/fs-components/_layout-header-participants.scss</code></li>
+    	</ul>     
+		</article>
+
+    <h2>Shoppers Dashboard page (AKA successfully signed-in)</h2>
+    <div class="demo-block">
+    	{% include "partials/header-dashboard-shoppers.njk" %}
+    </div>
+    <article class="demo-notes">
+		  <h2>Notes</h2>
+		  <p>- The user is successfully signed-in; we need to offer them a menu containing account management options + a sign-out option.</p>
+		  <p>- If a user has signed-in but has not yet completed their Onboarding questions, then that must happen before they fully reach this Dashboard page.</p>
+		  <h2>Key files</h2>
+    	<ul class="demo-files">
+	    	<li><code>_includes/partials/header-dashboard-shoppers.njk</code></li>
+	    	<li><code>_includes/partials/fs-components/fs-auth-dialog-shoppers.njk</code></li>    	
+	    	<li><code>scss/_layout-headers.scss</code></li>
+	    	<li><code>scss/fs-components/_layout-header-shoppers.scss</code></li>
+    	</ul>     
+
+		</article>
+
+    <h2>Supermarket Storefront (AKA research task)</h2>
+    <div class="demo-block">
+    	{% include "partials/header-research-full.njk" %}
+    </div>
+    <article class="demo-notes">
+    	<h2>Key files</h2>
+    	<ul class="demo-files">
+	    	<li><code>_includes/partials/header-research-full.njk</code></li>
+	    	<li><code>_includes/partials/header-search.njk</code></li>
+	    	<li><code>_includes/partials/fs-components/fs-auth-dialog-research.njk</code></li>    	
+	    	<li><code>scss/_layout-headers.scss</code></li>
+	    	<li><code>scss/fs-components/_layout-header-research.scss</code></li>
+    	</ul>      
+		  <h2>Notes</h2>
+		  <p>- FYI, the search bar is a nested partial, called <code>header-search.njk</code>. Once upon a time, I had a brainwave that maybe shoppers would actually prefer to search for their preferred groceries (rather than scanning through all the options in a category). On the basis of that thought, maybe we'll need to significantly enhance the search function at some point in the (distant) future.</p>
+		  <p>- 20260613 - The text "Fake Supermarket" has been replaced with the actual Fake Supermarket logo. Why? Users are likely to use the logo as a "return to home" shortcut. As such, we must use our established, trusted logo as the anchor for that interaction. <br/>
+		  The storefront's "mode" (eg, 'Supermarket' or 'Mall') is now a piece of dynamic text. </p>
+		  <p>- 20260613 - A FS-branded "I'm done" button now appears in the header. It gives users a way to abandon their research task(s), without forcing them through the Checkout. </p>
+		  <p>- 20260613 - I'm gonna propose that we <u>don't</u> use the My Account button in the header's fake navigation. Users do need to have access to account management stuff... but inside a research task isn't the right place for it. Those functions will be available from the Shoppers Dashboard page.</p>
+		  <p>- 20260613 - <strike>This file probably needs to be renamed from <code>header.njk</code> to <code>header-research-full.njk</code></strike>.</p>
+		  <p>- 20260615 - The header shown above uses <code>header-research-full.njk</code>. Other instances of <code>header.njk</code> have not yet been replaced.</p>
+		  <p>- 20260615 - The new header's Cart button hasn't been tested, to confirm that it opens the Cart Summary panel, or whether the tally thingy still works.</p>
+		</article>
+
+    <h2>Supermarket Storefront - Do Not Disturb mode (AKA research task)</h2>
+    <p>- As with real supermarket sites, once you get into the actual ecommerce flow, the site shuts down almost all of the options for shoppers to back out.</p>
+    <div class="demo-block">
+    	{% include "partials/header-research-minimal.njk" %}
+    </div>
+    <article class="demo-notes">
+		  <h2>Notes</h2>
+		  <p>- 20260613 - A FS-branded "I'm done" button now appears in the header. It gives users a way to abandon their research task(s), without forcing them to complete the Checkout or Interview. </p>
+		  <p>- 20260613 - <strike>This file probably needs to be renamed from <code>header-minimal.njk</code> to <code>header-research-minimal.njk</code></strike>.</p>
+		  <p>- 20260615 - The header shown above uses <code>header-research-minimal.njk</code>. Other instances of <code>header.njk</code> have not yet been replaced.</p>
+    	<h2>Key files</h2>
+    	<ul class="demo-files">
+	    	<li><code>_includes/partials/header-research-minimal.njk</code></li>
+	    	<li><code>scss/_layout-headers.scss</code></li>
+	    	<li><code>scss/fs-components/_layout-header-research.scss</code></li>
+    	</ul> 
+    </article>
+
+    <h2>Clients Dashboard page (AKA successfully signed-in)</h2>
+    <div class="demo-block">
+    	{% include "partials/header-dashboard-clients.njk" %}
+    </div>
+    <article class="demo-notes">
+		<h2>Notes</h2>
+		  <p>- 20260615 - This header is pretty much a direct rip of the Shoppers' header at the moment. </p>
+    	<h2>Key files</h2>
+    	<ul class="demo-files">
+	    	<li><code>_includes/partials/header-dashboard-clients.njk</code></li>
+	    	<li><code>_includes/partials/fs-components/fs-auth-dialog-clients.njk</code></li>    	
+	    	<li><code>scss/_layout-headers.scss</code></li>
+	    	<li><code>scss/fs-components/_layout-header-clients.scss</code></li>
+    	</ul>     
+		</article>
+
+	</main>
+
+  <div class="fs-svg-hidden" aria-hidden style="position:absolute;width:0;height:0;overflow:hidden">
+    {% include "partials/logo/fakesupermarket.njk" %}
+    {% include "partials/icons/x.njk" %}
+
+  </div>
+
+{% endblock %}

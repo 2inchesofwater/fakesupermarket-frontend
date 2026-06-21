@@ -1,0 +1,28 @@
+{% set componentName = "clients" %}
+{% set logoDescription = "Fake Supermarket logo" %}
+<header id="header-{{ componentName }}" class="fs-header">
+  <div class="container">
+    <nav id="nav-main" >
+      <a title="{{ logoDescription }}" href="/pages/{{ storefront.slug }}/#" id="site-logo">
+        <svg class="fs-logo-symbol" viewBox="0 0 228 228" aria-hidden="true">
+          <use href="#fs-logo"></use>
+        </svg>        
+      </a> 
+
+      <div id="header-main-actions" aria-hidden="true"></div>
+      <div id="header-cart" aria-hidden="true"></div>        
+      <div id="header-auth">
+        <div class="header-expanded">
+          <div class="fs-btn-group">
+            <button commandfor="auth-{{ componentName }}" command="show-modal" aria-label="Open the My Account menu" id="auth-btn-{{ componentName }}" type="button" class="fs-btn btn-identityAvatar">
+              <span class="icon">DG</span>
+              <span class="label">Dan<span class="label-extra">More text</span></span>
+            </button>
+          </div>
+        </div>
+      </div>        
+    </nav>
+  </div>
+</header>
+
+{% include "partials/fs-components/fs-auth-dialog-clients.njk" %}

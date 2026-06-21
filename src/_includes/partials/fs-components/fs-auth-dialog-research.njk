@@ -1,0 +1,36 @@
+<dialog id="auth-{{ componentName }}" aria-label="" class="fs-dialog-overlay">
+  <header id="auth-header-header" class="fs-dialog-header">
+    <h2 id="auth-title-research" class="fs-dialog-title">Fake Supermarket</h2>
+    <button commandfor="auth-{{ componentName }}" command="close" aria-label="Close the menu panel" class="fs-btn btn-tertiary btn-icon btn-iconOnly" id="auth-btn-close" type="button">
+        <svg class="fs-logo-symbol" viewBox="0 0 24 24" aria-hidden="true">
+          <use href="#fs-x"></use>
+        </svg> 
+    </button>
+  </header>
+
+  <section id="auth-dialog-body" class="fs-dialog-body" aria-label="Research task options">
+    <div id="auth-dialog-options" class="wrapper">
+      <div id="header-search">
+        {% include "partials/header-search.njk" %}
+      </div>
+
+      <div id="header-fake-actions">
+        <ul disabled class="fs-unavailable nav-list">
+          <li class="nav-item">{{ navLinkItem('Lists', '#', '', 'noun-shopping-list-7687839.svg', 'Created by Humam from Noun Project') }}</li>
+          <li class="nav-item">{{ navLinkItem('More', '#', '', 'noun-more-7849118.svg', 'Created by Soetarman Atmodjo from Noun Project') }}</li>
+          {# <li class="nav-item">{{ navLinkItem('My account', '#', '', 'noun-user-account-6233307-2.svg', 'Created by Meyda from Noun Project') }}</li> #}
+
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="auth-dialog-footer" class="fs-dialog-footer">
+              <div class="fs-btn-group">
+            <button id="auth-btn-{{ componentName }}" type="button" class="fs-btn btn-secondary">
+              {# <span class="icon">MJ</span> #}
+              <span class="label">I'm done<span class="label-extra">End early</span></span>
+            </button>
+          </div>
+  </section>
+</dialog>

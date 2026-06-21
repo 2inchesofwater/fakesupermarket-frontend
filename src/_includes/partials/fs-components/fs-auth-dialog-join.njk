@@ -1,0 +1,36 @@
+<dialog id="auth-dialog-join" aria-label="Sign in to your Fake Supermarket account, or create an account" class="fs-dialog-overlay">
+	<header id="auth-header-join" class="fs-dialog-header">
+		<h2 id="auth-title-signin" class="fs-dialog-title">Sign up today</h2>
+		<button commandfor="auth-dialog-join" command="close" aria-label="Close the account panel" class="btn btn-tertiary btn-icon btn-iconOnly" id="auth-btn-close" type="button">
+	        <svg class="fs-logo-symbol" viewBox="0 0 24 24" aria-hidden="true">
+	          <use href="#fs-x"></use>
+	        </svg> 
+		</button>
+	</header>
+
+	<section id="auth-dialog-body" class="fs-dialog-body" aria-label="Account sign-in options">
+		<div id="auth-dialog-options" class="wrapper">
+			<button class="fs-btn btn-primary btn-icon" type="button">
+				<span class="label">Sign up with email</span></button>
+			<p id="auth-dialog-separator">or</p>
+			<button class="fs-btn btn-tertiary btn-icon" type="button">
+				<span class="icon">
+					{% include "partials/icons/social-google.svg" %}
+				</span>
+				<span class="label">Continue with Google</span>
+			</button>
+			<button class="fs-btn btn-tertiary btn-icon" type="button">
+				<span class="icon">
+					{% include "partials/icons/social-facebook.svg" %}
+				</span>
+				<span class="label">Continue with Facebook</span>
+			</button>			
+		</div>
+		<div id="auth-dialog-signin" class="wrapper">
+			<p>Already have an account?</p>
+			<a href="#" class="fs-btn btn-link">Sign in</a>
+		</div>
+	</section>
+
+	<section id="auth-dialog-footer" class="fs-dialog-footer"></section>
+</dialog>

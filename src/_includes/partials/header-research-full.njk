@@ -1,0 +1,95 @@
+{% set componentName = "research-full" %}
+{% set storefrontName = "Supermarket" %}
+{% set logoDescription = "Fake Supermarket logo - Use this shortcut to navigate back to the Shopping List page" %}
+
+{% macro navLinkItem(label, url, className='', iconPath='', iconCreator='') %}
+  <a href="{{ url }}" class="nav-link fs-btn btn-icon {{ className }}">    
+    {% if iconPath != '' %}
+      {% set svgContent = ('src/images/icons/' + iconPath) | fs %}
+      <span class="icon {{ className | safe }}">
+          {{ svgContent | safe }}
+      </span>
+    {%  endif %}
+    <span class="label">{{ label }}</span>
+  </a>
+{% endmacro %} 
+
+
+<header id="header-{{ componentName }}" class="fs-header">
+  <div class="container">
+    <nav id="nav-main" >
+      <a title="{{ logoDescription }}" href="/pages/{{ storefront.slug }}/#" id="site-logo">
+        <span class="icon">
+          <svg class="fs-logo-symbol" viewBox="0 0 228 228" aria-hidden="true">
+            <use href="#fs-logo"></use>
+          </svg>
+        </span>
+        <span class="label">{{ storefrontName }}</span>      
+      </a> 
+
+      <div id="header-search">
+        {% include "partials/header-search.njk" %}
+      </div>
+
+      <div id="header-fake-actions">
+        <ul disabled class="fs-unavailable nav-list">
+          <li class="nav-item">{{ navLinkItem('Lists', '#', '', 'noun-shopping-list-7687839.svg', 'Created by Humam from Noun Project') }}</li>
+          <li class="nav-item">{{ navLinkItem('More', '#', '', 'noun-more-7849118.svg', 'Created by Soetarman Atmodjo from Noun Project') }}</li>
+          {# <li class="nav-item">{{ navLinkItem('My account', '#', '', 'noun-user-account-6233307-2.svg', 'Created by Meyda from Noun Project') }}</li> #}
+
+        </ul>
+      </div>
+
+      <div id="header-cart">
+        <button id="header-cartBtn" class="btn btn-cart" href="pages/{{ storefront.slug }}/cart" class="cart" aria-label="Shopping cart summary">
+          <span class="cart-icon" aria-hidden="true">🛒</span>
+          <span class="cart-value"><span id="header-cartBtn-subtotal">$0.00</span><span class="sr-only"> worth of items in the cart</span></span>
+          <span hidden class="badge badge-tally" id="header-cartBtn-badge"><span class="sr-only">And there's:</span><span id="header-cartBtn-tally">0</span><span class="sr-only"> items in the cart</span></span>
+        </button>
+      </div>
+
+      <div id="header-auth">
+        <div class="header-compact">
+          <button commandfor="auth-{{ componentName }}" command="show-modal" aria-label="Open the site menu" class="btn btn-tertiary btn-icon btn-iconOnly" id="auth-btn-menu" type="button">
+            <span class="icon">
+              {% include "partials/icons/menu.svg" %}
+            </span>
+          </button>
+        </div>      
+        <div class="header-expanded">
+          <div class="fs-btn-group">
+            <button id="auth-btn-{{ componentName }}" type="button" class="fs-btn btn-secondary">
+              {# <span class="icon">MJ</span> #}
+              <span class="label">I'm done<span class="label-extra">End early</span></span>
+            </button>
+          </div>
+        </div>
+      </div>               
+    </nav>
+  </div>
+</header>
+
+{% include "partials/fs-components/fs-auth-dialog-research.njk" %}
+
+<!-- A second row of supermarket-style buttons was designed but not introduced. -->
+{# <menu id="site-menu" role="banner">
+  <div class="container">
+     <nav id="nav-secondary">
+        <div id="nav-browse">
+          <ul disabled class="fs-unavailable nav-list">
+            <li class="nav-item">{{ navLinkItem('Shop products', '#', 'fs_unavailable fill-brand whitespace-none-start', 'noun-food-7543523.svg', 'Created by Fahmi Hidayat from Noun Project') }}</li>
+            <li class="nav-item">{{ navLinkItem('Specials + catalogues', '#', 'fs_unavailable') }}</li>
+            <li class="nav-item">{{ navLinkItem('Previous purchases', '#', 'fs_unavailable') }}</li>
+            <li class="nav-item">{{ navLinkItem('More', '#', 'fs_unavailable') }}</li>
+          </ul>
+        </div>
+
+        <div class="nav-location">
+          <ul disabled class="fs-unavailable nav-list">
+            <li class="nav-item">{{ navLinkItem('Your local shop', '#', 'fs_unavailable fill-brand whitespace-none-end', 'noun-add-location-7811864.svg', 'Created by Rumana Islam from Noun Project') }}</li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</menu> #}

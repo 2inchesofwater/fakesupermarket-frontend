@@ -1,13 +1,24 @@
 .fs-dialog-overlay {
 	position: fixed;
+	inset-inline-start: unset;
+	inset-inline-end: var(--fs-spacing-sm);
+	inset-block: var(--fs-spacing-sm);
+	width: 100%;
+	max-width: 420px;
+	min-height: calc(100vh - (var(--fs-spacing-sm) * 2) );
+	z-index: 1055; /* Following Bootstrap's pattern for z-layering */
+	
   transform: translateX(110%);
 	transition:
-    transform 300ms ease,
-    display 300ms ease,
-    overlay 300ms ease;
+		transform 300ms ease,
+		display 300ms ease,
+		overlay 300ms ease;
   transition-behavior: allow-discrete;
 
 	background: var(--color-background-page);
+	outline: var(--fs-thickness-lg) solid var(--fs-color-bright-orange-middle);
+	border: var(--fs-thickness-md) solid var(--fs-color-brand-primary);
+	border-radius: var(--fs-radius-lg);	
 
 	&[open] {
 		transform: translateX(0%);
@@ -19,8 +30,9 @@
 		gap: var(--spacing-md);
 		align-items: center;
 
-		padding: var(--spacing-md);
-		padding-inline: var(--spacing-lg);
+		padding-block-start: var(--spacing-md);
+		padding-inline-start: var(--spacing-lg);
+		padding-inline-end: var(--spacing-md);
 		padding-block-end: var(--spacing-sm);
 		background: var(--color-background-header);
 		border-block-end: var(--thickness-sm) solid var(--color-border-light);
@@ -38,4 +50,11 @@
 		display: grid;
 		padding: var(--spacing-md);
 	}	
+}
+
+@starting-style {
+  dialog[open] {
+    opacity: 0;
+    transform: translateX(110%);
+  }
 }
