@@ -14,7 +14,7 @@
         max-height: 0;
       }
     } 
-    &:not[inert] {
+    &:not([inert]) {
       max-height: 100vh;
     } 
   }

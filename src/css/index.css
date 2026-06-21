@@ -3426,7 +3426,7 @@ input[type=range]::-webkit-slider-runnable-track {
     max-height: 0;
   }
 }
-.fs-stepper .fs-stepper-pane:not[inert] {
+.fs-stepper .fs-stepper-pane:not([inert]) {
   max-height: 100vh;
 }
 .fs-stepper .fs-stepper-pane-eyebrow {
