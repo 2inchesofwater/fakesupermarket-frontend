@@ -1,0 +1,52 @@
+<dialog id="auth-{{ componentName }}-overlay" aria-label="" class="fs-dialog-overlay">
+  <header id="auth-{{ componentName }}-dialog-header" class="fs-dialog-header">
+    <h2 id="auth-{{ componentName }}-title" class="fs-dialog-title">Profile + settings</h2>
+    
+    <button commandfor="auth-{{ componentName }}-overlay" command="close" aria-label="Close the account panel" class="fs-btn btn-tertiary btn-icon btn-iconOnly" id="auth-{{ componentName }}-btn-close" type="button">
+        <span class="icon">
+        	<svg class="fs-logo-symbol" viewBox="0 0 24 24" aria-hidden="true">
+          	<use href="#fs-x"></use>
+        	</svg>
+        </span> 
+    </button>
+  </header>
+
+  <section id="auth-{{ componentName }}-dialog-body" class="fs-dialog-body" aria-label="Account sign-in options">
+    <div class="wrapper">
+      <p>Placeholder menu items</p>
+      <a href="https://trello.com/c/Ej1ABE7V">Refer to Trello card for discussion</a>
+    </div>
+
+    <ul class="fs-menu-group">
+      <li>
+        <button class="fs-btn btn-link">
+          <span class="label">Manage my profile data</span>
+        </button>
+      </li>
+      <li>
+        <button class="fs-btn btn-link">
+          <span class="label">Payouts</span>
+        </button>
+      </li>
+      <li>
+        <button class="fs-btn btn-link">
+          <span class="label">Notifications</span>
+        </button>
+      </li>
+    </ul>
+
+    <ul class="fs-menu-group">
+      <li>
+        <button class="fs-btn btn-link">
+          <span class="label">Delete my account</span>
+        </button>
+      </li>
+    </ul>
+  </section>
+
+  <section id="auth-{{ componentName }}-dialog-footer" class="fs-dialog-footer">
+    <button class="fs-btn btn-link">
+      <span class="label">Sign out</span>
+    </button>
+  </section>
+</dialog>

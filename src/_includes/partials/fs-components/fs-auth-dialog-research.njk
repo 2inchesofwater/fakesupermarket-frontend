@@ -1,15 +1,14 @@
-<dialog id="auth-{{ componentName }}" aria-label="" class="fs-dialog-overlay">
-  <header id="auth-header-header" class="fs-dialog-header">
-    <h2 id="auth-title-research" class="fs-dialog-title">Fake Supermarket</h2>
-    <button commandfor="auth-{{ componentName }}" command="close" aria-label="Close the menu panel" class="fs-btn btn-tertiary btn-icon btn-iconOnly" id="auth-btn-close" type="button">
+<dialog id="auth-{{ componentName }}-overlay" aria-label="" class="fs-dialog-overlay">
+  <header id="auth-{{ componentName }}-dialog-header" class="fs-dialog-header">
+    <h2 id="auth-{{ componentName }}-title" class="fs-dialog-title">Fake Supermarket</h2>
+    <button commandfor="auth-{{ componentName }}-overlay" command="close" aria-label="Close the menu panel" class="fs-btn btn-tertiary btn-icon btn-iconOnly" id="auth-{{ componentName }}-btn-close" type="button">
         <svg class="fs-logo-symbol" viewBox="0 0 24 24" aria-hidden="true">
           <use href="#fs-x"></use>
         </svg> 
     </button>
   </header>
 
-  <section id="auth-dialog-body" class="fs-dialog-body" aria-label="Research task options">
-    <div id="auth-dialog-options" class="wrapper">
+  <section id="auth-{{ componentName }}-dialog-body" class="fs-dialog-body" aria-label="Research task options">
       <div id="header-search">
         {% include "partials/header-search.njk" %}
       </div>
@@ -22,15 +21,18 @@
 
         </ul>
       </div>
-    </div>
+
+      <div>
+        Cart..?
+      </div>
   </section>
 
-  <section id="auth-dialog-footer" class="fs-dialog-footer">
-              <div class="fs-btn-group">
-            <button id="auth-btn-{{ componentName }}" type="button" class="fs-btn btn-secondary">
-              {# <span class="icon">MJ</span> #}
-              <span class="label">I'm done<span class="label-extra">End early</span></span>
-            </button>
-          </div>
+  <section id="auth-{{ componentName }}-dialog-footer" class="fs-dialog-footer">
+    <div class="fs-btn-group">
+      <button id="auth-btn-{{ componentName }}" type="button" class="fs-btn btn-secondary">
+        {# <span class="icon">MJ</span> #}
+        <span class="label">I'm done<span class="label-extra">End early</span></span>
+      </button>
+    </div>
   </section>
 </dialog>

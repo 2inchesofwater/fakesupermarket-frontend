@@ -1,28 +1,37 @@
-{% set componentName = "siteroot" %}
-<header id="header-{{ componentName }}" class="fs-header">
+{% set pageName = "siteroot" %}
+{% set componentName = "signin" %}
+{% set logoDescription = "Fake Supermarket logo" %}
+
+<header id="header-{{ pageName }}" class="fs-header">
   <div class="container">
     <nav id="nav-main" >
-      <a href="/pages/{{ storefront.slug }}/#" id="site-logo">
+
+      <a title="{{ logoDescription }}" href="/pages/{{ storefront.slug }}/#" id="site-logo">
         <svg class="fs-logo-symbol" viewBox="0 0 228 228" aria-hidden="true">
           <use href="#fs-logo"></use>
         </svg>        
       </a> 
 
-      <div id="header-main-actions" aria-hidden="true"></div>
-      <div id="header-cart" aria-hidden="true"></div>        
-      <div id="header-auth">
+      {# <div id="header-main-actions" aria-hidden="true"></div>
+      <div id="header-cart" aria-hidden="true"></div> #}        
+      
+      <div id="header-{{ pageName }}-auth">
         <div class="header-compact">
-          <button commandfor="auth-{{ componentName }}" command="show-modal" aria-label="Open the site menu" class="btn btn-tertiary btn-icon btn-iconOnly" id="auth-btn-menu" type="button">
+          <button commandfor="auth-{{ pageName }}-overlay" command="show-modal" aria-label="Open the site menu" class="btn btn-tertiary btn-icon btn-iconOnly" id="auth-{{ pageName }}-menu-btn" type="button">
             <span class="icon">
               {% include "partials/icons/menu.svg" %}
             </span>
           </button>
         </div>
+
         <div class="header-expanded">
           <div class="fs-btn-group">
-            <button class="fs-btn btn-tertiary">
+            <button commandfor="auth-{{ componentName }}-overlay" command="show-modal" aria-label="Open the sign-in menu" class="fs-btn btn-tertiary" id="auth-{{ componentName }}-menu-btn" type="button">
               <span class="label">Sign in</span>
-            </button>
+            </button>          
+{#             <button class="fs-btn btn-tertiary">
+              <span class="label">Sign in</span>
+            </button> #}
             <div class="fs-btn-group">
               <button class="fs-btn btn-secondary">
                 <span class="label">Get paid for fake shopping</span>
@@ -33,8 +42,10 @@
             </div>
           </div>
         </div>
-      </div>        
+      </div> 
+
     </nav>
   </div>
 </header>
 {% include "partials/fs-components/fs-auth-dialog-siteroot.njk" %}
+{% include "partials/fs-components/fs-auth-dialog-signin.njk" %}

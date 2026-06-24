@@ -1,4 +1,5 @@
-{% set componentName = "research-full" %}
+{% set pageName = "research-full" %}
+{% set componentName = "end_early" %}
 {% set storefrontName = "Supermarket" %}
 {% set logoDescription = "Fake Supermarket logo - Use this shortcut to navigate back to the Shopping List page" %}
 
@@ -15,9 +16,10 @@
 {% endmacro %} 
 
 
-<header id="header-{{ componentName }}" class="fs-header">
+<header id="header-{{ pageName }}" class="fs-header">
   <div class="container">
     <nav id="nav-main" >
+
       <a title="{{ logoDescription }}" href="/pages/{{ storefront.slug }}/#" id="site-logo">
         <span class="icon">
           <svg class="fs-logo-symbol" viewBox="0 0 228 228" aria-hidden="true">
@@ -36,7 +38,6 @@
           <li class="nav-item">{{ navLinkItem('Lists', '#', '', 'noun-shopping-list-7687839.svg', 'Created by Humam from Noun Project') }}</li>
           <li class="nav-item">{{ navLinkItem('More', '#', '', 'noun-more-7849118.svg', 'Created by Soetarman Atmodjo from Noun Project') }}</li>
           {# <li class="nav-item">{{ navLinkItem('My account', '#', '', 'noun-user-account-6233307-2.svg', 'Created by Meyda from Noun Project') }}</li> #}
-
         </ul>
       </div>
 
@@ -48,9 +49,9 @@
         </button>
       </div>
 
-      <div id="header-auth">
+      <div id="header-{{ pageName }}-auth">
         <div class="header-compact">
-          <button commandfor="auth-{{ componentName }}" command="show-modal" aria-label="Open the site menu" class="btn btn-tertiary btn-icon btn-iconOnly" id="auth-btn-menu" type="button">
+          <button commandfor="auth-{{ componentName }}-overlay" command="show-modal" aria-label="Open the site menu" class="btn btn-tertiary btn-icon btn-iconOnly" id="auth-btn-menu" type="button">
             <span class="icon">
               {% include "partials/icons/menu.svg" %}
             </span>
@@ -58,7 +59,7 @@
         </div>      
         <div class="header-expanded">
           <div class="fs-btn-group">
-            <button id="auth-btn-{{ componentName }}" type="button" class="fs-btn btn-secondary">
+            <button id="auth-{{ componentName }}-menu-btn" type="button" class="fs-btn btn-secondary">
               {# <span class="icon">MJ</span> #}
               <span class="label">I'm done<span class="label-extra">End early</span></span>
             </button>

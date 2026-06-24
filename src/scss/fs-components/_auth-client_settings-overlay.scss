@@ -1,0 +1,24 @@
+#auth-client_settings-overlay {
+	.fs-dialog-body,
+	.fs-dialog-footer {
+		justify-self: center;
+
+		align-items: center;
+   	align-content: start;
+
+    width: 100%;
+    max-width: 22rem;	
+	}	
+
+	.fs-dialog-body {
+		padding-block-start: 5vh;
+		row-gap: 5vh;
+	  row-rule: var(--fs-thickness-sm) solid var(--fs-color-border-default);		
+	}
+	.fs-menu-group {
+		button {
+			width: 100%;
+			justify-content: start;
+		}
+	}
+}

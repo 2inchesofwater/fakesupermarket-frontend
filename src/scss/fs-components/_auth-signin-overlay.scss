@@ -1,0 +1,71 @@
+#auth-signin-overlay {
+	.fs-dialog-body,
+	.fs-dialog-footer {
+		justify-self: center;
+
+		align-items: center;
+    align-content: center;
+
+    width: 100%;
+    max-width: 22rem;		
+
+		.btn-primary,
+		.btn-secondary,
+		.btn-tertiary {
+			padding-block: var(--fs-spacing-sm);
+		}
+		.btn-link {
+			padding-block: var(--fs-spacing-2xs);
+		}
+	}
+
+	.fs-dialog-body {
+    row-gap: 10vh;
+    row-rule: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+
+    .wrapper {
+    	display: flex;
+    	flex-direction: column;
+    	gap: var(--fs-spacing-xs);
+
+    	p {
+    		text-align: center;
+    	}
+    }		
+	}
+}
+
+.fs-dialog-overlay {
+	.fs-dialog-body {
+		.btn-primary,
+		.btn-secondary,
+		.btn-tertiary {
+			padding-block: var(--fs-spacing-sm);
+		}
+		.btn-link {
+			padding-block: var(--fs-spacing-2xs);
+		}
+		// .btn-secondary {
+		// 	border-color: var(--fs-color-background-active);
+		// 	border-width: var(--fs-thickness-sm);
+		// }
+		// .btn-tertiary {
+		// 	background: var(--fs-color-background-active);
+		// 	&:hover,
+		// 	&:active {
+		// 		background: var(--fs-color-action-secondary-hover);
+		// 	}
+		// }		
+	}
+	.fs-btn-group {
+		flex-direction: column;
+		gap: var(--fs-spacing-md);
+		border-radius: calc(var(--fs-radius-md) + var(--fs-spacing-2xs));
+		& > .fs-btn-group {
+			flex-direction: column;
+			gap: var(--fs-spacing-2xs);
+			background: var(--fs-color-action-secondary-default);
+			padding: var(--fs-spacing-xs);
+		}
+	}
+}

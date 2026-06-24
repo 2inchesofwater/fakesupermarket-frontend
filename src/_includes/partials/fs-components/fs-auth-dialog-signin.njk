@@ -1,0 +1,42 @@
+<dialog id="auth-{{ componentName }}-overlay" aria-label="Sign in to your Fake Supermarket account, or create an account" class="fs-dialog-overlay">
+	<header id="auth-{{ componentName }}-dialog-header" class="fs-dialog-header">
+		<h2 id="auth-{{ componentName }}-title" class="fs-dialog-title">Sign in</h2>
+		<button commandfor="auth-{{ componentName }}-overlay" command="close" aria-label="Close the account panel" class="btn btn-tertiary btn-icon btn-iconOnly" id="auth-{{ componentName }}-btn-close" type="button">
+	        <span class="icon">
+	        	<svg class="fs-logo-symbol" viewBox="0 0 24 24" aria-hidden="true">
+	          	<use href="#fs-x"></use>
+	        	</svg> 
+	        </span>
+		</button>
+	</header>
+
+	<section id="auth-{{ componentName }}-dialog-body" class="fs-dialog-body" aria-label="Account sign-up options">
+		<div id="auth-{{ componentName }}-dialog-options" class="wrapper">
+			<button class="fs-btn btn-primary btn-icon" type="button">
+				<span class="label">Sign in with email</span></button>
+			<p id="auth-dialog-separator">or</p>
+			<button class="fs-btn btn-tertiary btn-icon" type="button">
+				<span class="icon">
+					{% include "partials/icons/social-google.svg" %}
+				</span>
+				<span class="label">Continue with Google</span>
+			</button>
+			<button class="fs-btn btn-tertiary btn-icon" type="button">
+				<span class="icon">
+					{% include "partials/icons/social-facebook.svg" %}
+				</span>
+				<span class="label">Continue with Facebook</span>
+			</button>			
+		</div>
+		<div id="auth-{{ componentName }}-dialog-signin" class="wrapper">
+			<p>New to Fake Supermarket?</p>
+		  <button commandfor="auth-join-overlay" command="show-modal" aria-label="Open the sign-up menu" class="fs-btn btn-link" id="auth-join-menu-btn" type="button">
+        <span class="label">Sign in</span>
+      </button>
+		</div>
+	</section>
+
+	<section id="auth-{{ componentName }}-dialog-footer" class="fs-dialog-footer">
+		<a href="#" class="fs-btn btn-link">Forgot your password?</a>
+	</section>
+</dialog>

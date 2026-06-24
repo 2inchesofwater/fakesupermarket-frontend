@@ -1,0 +1,13 @@
+#auth-siteroot-overlay {
+	.fs-dialog-body,
+	.fs-dialog-footer {
+		justify-self: center;
+
+		align-items: center;
+    align-content: center;
+
+    width: 100%;
+    max-width: 22rem;	
+    height: 50%;	
+	}	
+}

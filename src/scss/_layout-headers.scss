@@ -5,6 +5,13 @@
 @forward 'fs-components/layout-header-shoppers'; 
 @forward 'fs-components/layout-header-research'; 
 
+@forward 'fs-components/auth-siteroot-overlay'; 
+@forward 'fs-components/auth-signin-overlay'; 
+@forward 'fs-components/auth-signup-overlay'; 
+@forward 'fs-components/auth-profile_settings-overlay'; 
+@forward 'fs-components/auth-client_settings-overlay'; 
+@forward 'fs-components/auth-end_early-overlay'; 
+
 .fs-header {
 	position: relative;
 	background: var(--fs-color-background-active);
@@ -40,65 +47,8 @@
 		.fs-btn {
 			padding-inline: var(--fs-spacing-sm);
 		}
-		.btn-secondary {
-			background: var(--fs-color-background-active);
-			border-color: var(--fs-color-background-active);
-			border-width: var(--fs-thickness-sm);
-			transition: var(--fs-transition-md);
-			&:hover,
-			&:active {
-				background: var(--fs-color-action-secondary-hover);
-			}			
-		}
-		.btn-tertiary {
-			transition: var(--fs-transition-md);
-			&:hover,
-			&:active {
-				background: var(--fs-color-action-secondary-hover);
-			}
-		}
-		.fs-btn-group {
-			gap: var(--fs-spacing-2xs);
-			border-radius: var(--fs-radius-md);
-			& > .fs-btn-group {
-				background: var(--fs-color-action-secondary-default);
-				padding: var(--fs-spacing-2xs);
-				.fs-btn {
-					border-radius: calc(var(--fs-radius-md) - var(--fs-spacing-2xs));
-				}
-			}
-		}
+		
 	}
 }
 
-.fs-dialog-overlay {
-	.fs-dialog-body {
-		.fs-btn {
-			// padding-inline: var(--fs-spacing-sm);
-			padding-block: var(--fs-spacing-sm);
-		}
-		.btn-secondary {
-			border-color: var(--fs-color-background-active);
-			border-width: var(--fs-thickness-sm);
-		}
-		.btn-tertiary {
-			background: var(--fs-color-background-active);
-			&:hover,
-			&:active {
-				background: var(--fs-color-action-secondary-hover);
-			}
-		}		
-	}
-	.fs-btn-group {
-		flex-direction: column;
-		gap: var(--fs-spacing-md);
-		border-radius: calc(var(--fs-radius-md) + var(--fs-spacing-2xs));
-		& > .fs-btn-group {
-			flex-direction: column;
-			gap: var(--fs-spacing-2xs);
-			background: var(--fs-color-action-secondary-default);
-			padding: var(--fs-spacing-xs);
-		}
-	}
-}
 

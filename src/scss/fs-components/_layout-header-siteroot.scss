@@ -14,3 +14,55 @@
 		}
 	}
 }
+
+#header-siteroot,
+#auth-siteroot-overlay {
+	.btn-secondary {
+		background: var(--fs-color-background-active);
+		border-color: var(--fs-color-background-active);
+		border-width: var(--fs-thickness-sm);
+		transition: var(--fs-transition-md);
+		&:hover,
+		&:active {
+			background: var(--fs-color-action-secondary-hover);
+		}			
+	}
+	.btn-tertiary {
+		background: var(--fs-color-background-active);
+		transition: var(--fs-transition-md);
+		&:hover,
+		&:active {
+			background: var(--fs-color-action-secondary-hover);
+			border-color: var(--fs-color-action-secondary-hover);
+		}
+	}	
+
+	.fs-btn-group {
+		gap: var(--fs-spacing-md);
+		border-radius: calc(var(--fs-radius-sm) + var(--fs-spacing-2xs));
+		& > .fs-btn-group {
+			gap: var(--fs-spacing-2xs);
+			background: var(--fs-color-action-secondary-default);
+			padding: var(--fs-spacing-2xs);
+			.fs-btn {
+				border-radius: calc(var(--fs-radius-sm) + (var(--fs-spacing-2xs) / 2));
+			}
+			.btn-tertiary {
+				background: unset;
+				transition: var(--fs-transition-md);
+				&:hover,
+				&:active {
+					background: var(--fs-color-action-secondary-hover);
+					border-color: var(--fs-color-action-secondary-hover);
+				}				
+			}			
+		}
+	}	
+}
+#header-siteroot .header-expanded .fs-btn-group {
+	flex-direction: row;
+}
+#auth-siteroot-overlay .fs-btn-group {
+	flex-direction: column;
+}
+

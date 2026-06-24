@@ -3,8 +3,11 @@
 	inset-inline-start: unset;
 	inset-inline-end: var(--fs-spacing-sm);
 	inset-block: var(--fs-spacing-sm);
+	
+	display: grid;
+  grid-template-rows: auto 1fr auto;
+
 	width: 100%;
-	max-width: 420px;
 	min-height: calc(100vh - (var(--fs-spacing-sm) * 2) );
 	z-index: 1055; /* Following Bootstrap's pattern for z-layering */
 	
@@ -20,6 +23,10 @@
 	border: var(--fs-thickness-md) solid var(--fs-color-brand-primary);
 	border-radius: var(--fs-radius-lg);	
 
+	@media (width >= 420px ) {
+		max-width: 420px;
+	}
+
 	&[open] {
 		transform: translateX(0%);
 	}
@@ -30,26 +37,35 @@
 		gap: var(--spacing-md);
 		align-items: center;
 
-		padding-block-start: var(--spacing-md);
-		padding-inline-start: var(--spacing-lg);
-		padding-inline-end: var(--spacing-md);
-		padding-block-end: var(--spacing-sm);
-		background: var(--color-background-header);
-		border-block-end: var(--thickness-sm) solid var(--color-border-light);
+		padding-block-start: var(--fs-spacing-md);
+		padding-inline-start: var(--fs-spacing-lg);
+		padding-inline-end: var(--fs-spacing-md);
+		padding-block-end: var(--fs-spacing-sm);
+		background: var(--fs-color-background-header);
+		border-block-end: var(--fs-thickness-sm) solid var(--fs-color-border-light);
 
 		.fs-dialog-title {
 			flex: 1;
 
 			margin-block-end: unset;
-			color: var(--color-text-primary);
-			font-weight: var(--weight-bold);
+			color: var(--fs-color-text-primary);
+			font-weight: var(--fs-weight-bold);
 		}
 	}
 
 	.fs-dialog-body {
 		display: grid;
-		padding: var(--spacing-md);
+		padding: var(--fs-spacing-md);
+		height: 100%;
 	}	
+
+	.fs-dialog-footer {
+		display: grid;
+		padding: var(--spacing-md);
+		padding-block-end: calc(var(--fs-spacing-md) + var(--fs-spacing-xs));
+		// height: 100%;
+		border-block-start: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+	}
 }
 
 @starting-style {

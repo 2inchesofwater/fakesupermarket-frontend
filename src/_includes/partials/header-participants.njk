@@ -1,25 +1,27 @@
-{% set componentName = "participants" %}
-<header id="header-{{ componentName }}" class="fs-header">
+{% set pageName = "participants" %}
+{% set componentName = "signup" %}
+{% set logoDescription = "Fake Supermarket logo" %}
+
+<header id="header-{{ pageName }}" class="fs-header">
   <div class="container">
     <nav id="nav-main" >
-      <a href="/pages/{{ storefront.slug }}/#" id="site-logo">
+
+      <a title="{{ logoDescription }}" href="/pages/{{ storefront.slug }}/#" id="site-logo">
         <svg class="fs-logo-symbol" viewBox="0 0 228 228" aria-hidden="true">
           <use href="#fs-logo"></use>
         </svg>        
       </a> 
 
-      <div id="header-main-actions" aria-hidden="true"></div>
-      <div id="header-cart" aria-hidden="true"></div>        
-      <div id="header-auth">
-
+      <div id="header-{{ pageName }}-auth">
         <div class="header-expanded">
-          <button commandfor="auth-dialog-join" command="show-modal" aria-label="Open the site menu" class="btn btn-primary" id="auth-btn-join" type="button">
+          <button commandfor="auth-{{ componentName }}-overlay" command="show-modal" aria-label="Open the site menu" class="btn btn-primary" id="auth-{{ componentName }}-menu-btn" type="button">
             <span class="label">Sign up today</span>
           </button>
         </div>
-      </div>        
+      </div>
+
     </nav>
   </div>
 </header>
 
-{% include "partials/fs-components/fs-auth-dialog-join.njk" %}
+{% include "partials/fs-components/fs-auth-dialog-signup.njk" %}

@@ -8,74 +8,99 @@
     <h1>{{ title }}</h1>
 
     <article class="demo-notes">
-      <h2>Context</h2>
+      <h2>Overall context</h2>
       <p>On this page, we're focusing on the various headers used throughout the app. We're especially interested in how/where/when pieces of the sign-up / sign-in process appear.</p>
-      <p>I've also been using this page to test the responsive breakpoints; but also to see which headers even need a 'burger' menu.</p> 
-      <p>In many instances, a side-panel will appear. The contents of those side panels are still pretty rough. </p>
+      <p>I've also been using this page to test the responsive breakpoints.</p>
     </article>
 
     <h2 id="root">URL root (AKA Clients landing page) (AKA universal sign-in)</h2>
     <article class="demo-intro">
+    	<h2>Context</h2>
+    	<p>This is the header for the site root (ie, fakesupermarket.app). While the page itself caters for clients, the header has to support anyone and everyone who lands here.</p>
+    	<h2>Features</h2>
+    	<p>- Collapses to a burger menu.</p>
+    	<p>- Sign in button opens an auth dialog.</p>
 		</article>
     <div class="demo-block">
     	{% include "partials/header-siteroot.njk" %}
     </div>
     <article class="demo-notes">
-		  <h2>Notes</h2>
-    	<p>- Sign-in (universal) --> Opens a side panel?</p>
-		  <p>- Join today --> Routes to the Prospective shoppers landing page.</p>
-		  <p>- (Future) Request a demo --> Routes to an enquiry/booking page for clients.</p>
-		  
-		  <p>- 20260613 - It's currently uncertain where a <u>client</u> might self-create their sign-in credentials. </p>
-
     	<h2>Key files</h2>
     	<ul class="demo-files">
 	    	<li><code>_includes/partials/header-siteroot.njk</code></li>
 	    	<li><code>_includes/partials/fs-components/fs-auth-dialog-siteroot.njk</code></li>
 	    	<li><code>scss/_layout-headers.scss</code></li>
 	    	<li><code>scss/fs-components/_layout-header-siteroot.scss</code></li> 
-    	</ul>   
+	    	<li><code>scss/fs-components/_auth-siteroot-overlay.scss</code></li> 
+	    	<li><code>scss/fs-components/_auth-signin-overlay.scss</code></li> 
+    	</ul> 
 
+		  <h2>Notes</h2>
+    	<p>- "Sign in" --> (proposed) Opens a side panel --> "Sign in with email" routes to a dedicated page.</p>
+		  <p>- "Get paid for fake shopping" --> Routes to the Prospective shoppers landing page.</p>
+		  <p>- (Future) Schedule a demo --> Routes to an enquiry/booking page for clients.</p>
+		  <p>&nbsp;</p>
+		  <p>- 20260613 - It's currently uncertain where a <u>client</u> might self-create their sign-in credentials. </p>
 		</article>
 
     <h2>Prospective shoppers landing page (AKA sign-up page)</h2>
+    <article class="demo-intro">
+    	<h2>Context</h2>
+    	<p>This is the header for the Participants landing page. This is where the vast majority of marketing will lead prospective participants, so they can join up.</p>
+    	<h2>Features</h2>
+    	<p>- "Sign up today" button opens an auth dialog.</p>
+		</article>    
     <div class="demo-block">
     	{% include "partials/header-participants.njk" %}
     </div>
     <article class="demo-notes">
-		  <h2>Notes</h2>
-		  <p>- The user has not yet created their sign-in credentials. The primary call to action across this page (including the header) is "Sign up today".</p>
-			<p>- 20260613 - Folks with a Marketing brain might ask: Wouldn't something like "Join today" be more friendly, and perhaps convert better? Quite likely, yes. I produced a version using "Join", and it felt <em>too</em> casual. Happy to revisit this in the future.</p>
-		  <p>- 20260613 - While I've re-used the side-panel, for illustrative purposes, it's currently undecided whether the CTA would open a side panel with credentials options (such as email, Google, Facebook, etc), or whether to throw straight across to a Cognito page... Happy to take advice on this!</p>
     	<h2>Key files</h2>
     	<ul class="demo-files">
 	    	<li><code>_includes/partials/header-participants.njk</code></li>
-	    	<li><code>_includes/partials/fs-components/fs-auth-dialog-join.njk</code></li>    	
+	    	<li><code>_includes/partials/fs-components/fs-auth-dialog-signup.njk</code></li>    	
 	    	<li><code>scss/_layout-headers.scss</code></li>
 	    	<li><code>scss/fs-components/_layout-header-participants.scss</code></li>
+	    	<li><code>scss/fs-components/_auth-signup-overlay.scss</code></li>
     	</ul>     
+		  <h2>Notes</h2>
+		  <p>- The user has not yet created their sign-in credentials. The primary call to action across this page (including the header) is "Sign up today".</p>
+			<p>- 20260613 - Folks with a Marketing brain might ask: Wouldn't something like "Join today" be more friendly, and perhaps convert better? Quite likely, yes. I produced a version using "Join", and it felt <em>too</em> casual. Happy to revisit this in the future.</p>
+		  <p class="highlight">- 20260624 - The side panels use HTML's new <code>dialog</code> element. It's pretty great for a native element! However, it has some limitations. You can see one limitation when you jump between the "Sign up" and "Sign in" panels and then back again, from within each other. The browser doesn't clear off the previous <code>dialog</code> before opening the next; and we end up confusing the browser. Mitch, could you please invent a little JS? When I click "Sign in" from the "Sign up" panel, I want the "Sign up" panel to close (including its animation), and then the "Sign in" panel slides in. The inverse is also true. </p>    
 		</article>
 
     <h2>Shoppers Dashboard page (AKA successfully signed-in)</h2>
+    <article class="demo-intro">
+    	<h2>Context</h2>
+    	<p>This is the header for the Shoppers Dashboard.</p>
+    	<h2>Features</h2>
+    	<p>- The user's identity button opens an auth dialog for settings and account management stuff.</p>
+		</article>    
     <div class="demo-block">
     	{% include "partials/header-dashboard-shoppers.njk" %}
     </div>
     <article class="demo-notes">
-		  <h2>Notes</h2>
-		  <p>- The user is successfully signed-in; we need to offer them a menu containing account management options + a sign-out option.</p>
-		  <p>- If a user has signed-in but has not yet completed their Onboarding questions, then that must happen before they fully reach this Dashboard page.</p>
 		  <h2>Key files</h2>
     	<ul class="demo-files">
 	    	<li><code>_includes/partials/header-dashboard-shoppers.njk</code></li>
-	    	<li><code>_includes/partials/fs-components/fs-auth-dialog-shoppers.njk</code></li>    	
+	    	<li><code>_includes/partials/fs-components/fs-auth-dialog-profile_settings.njk</code></li>    	
 	    	<li><code>scss/_layout-headers.scss</code></li>
 	    	<li><code>scss/fs-components/_layout-header-shoppers.scss</code></li>
-    	</ul>     
-
+	    	<li><code>scss/fs-components/auth-profile_settings-overlay.scss</code></li>
+    	</ul>
+ 		  <h2>Notes</h2>
+		  <p>- The user is successfully signed-in; we need to offer them a menu containing account management options + a sign-out option.</p>
+		  <p>- If a user has signed-in but has not yet completed their Onboarding questions, then that must happen before they fully reach this Dashboard page.</p>     
 		</article>
 
     <h2>Supermarket Storefront (AKA research task)</h2>
-    <div class="demo-block">
+    <article class="demo-intro">
+    	<h2>Context</h2>
+    	<p>This is the header for the <em>first half</em> of the actual research task in the fake supermarket (or other storefront).</p>
+    	<h2>Features</h2>
+    	<p>- Collapses to a burger menu.</p>
+    	<p>- The "End early" button opens a modal dialog to help a user confirm they actually want to bail out of their research task.</p>
+		</article>      
+		<div class="demo-block">
     	{% include "partials/header-research-full.njk" %}
     </div>
     <article class="demo-notes">
@@ -86,6 +111,7 @@
 	    	<li><code>_includes/partials/fs-components/fs-auth-dialog-research.njk</code></li>    	
 	    	<li><code>scss/_layout-headers.scss</code></li>
 	    	<li><code>scss/fs-components/_layout-header-research.scss</code></li>
+	    	<li><code>scss/fs-components/auth-end_early-overlay.scss</code></li>
     	</ul>      
 		  <h2>Notes</h2>
 		  <p>- FYI, the search bar is a nested partial, called <code>header-search.njk</code>. Once upon a time, I had a brainwave that maybe shoppers would actually prefer to search for their preferred groceries (rather than scanning through all the options in a category). On the basis of that thought, maybe we'll need to significantly enhance the search function at some point in the (distant) future.</p>
@@ -96,24 +122,30 @@
 		  <p>- 20260613 - <strike>This file probably needs to be renamed from <code>header.njk</code> to <code>header-research-full.njk</code></strike>.</p>
 		  <p>- 20260615 - The header shown above uses <code>header-research-full.njk</code>. Other instances of <code>header.njk</code> have not yet been replaced.</p>
 		  <p>- 20260615 - The new header's Cart button hasn't been tested, to confirm that it opens the Cart Summary panel, or whether the tally thingy still works.</p>
+		  <p>- 20260624 - I've implemented the burger menu as a side-panel, for now. I don't think this is correct; displaying all of the fake nav items and stuff is confusing (even though it is faithful to real supermarkets). I'm considering whether to make the burger menu button just straight up open the 'End early' modal dialog.</p> 
 		</article>
 
     <h2>Supermarket Storefront - Do Not Disturb mode (AKA research task)</h2>
-    <p>- As with real supermarket sites, once you get into the actual ecommerce flow, the site shuts down almost all of the options for shoppers to back out.</p>
+    <article class="demo-intro">
+    	<h2>Context</h2>
+    	<p>This is the header for the <em>second half</em> of the actual research task in the fake supermarket (or other storefront).</p>
+    	<h2>Features</h2>
+    	<p>- No buttons. As with real supermarket sites, once you get into the checkout flow, sites shut down almost all of the options for shoppers to back out.</p>
+		</article>    
     <div class="demo-block">
     	{% include "partials/header-research-minimal.njk" %}
     </div>
     <article class="demo-notes">
-		  <h2>Notes</h2>
-		  <p>- 20260613 - A FS-branded "I'm done" button now appears in the header. It gives users a way to abandon their research task(s), without forcing them to complete the Checkout or Interview. </p>
-		  <p>- 20260613 - <strike>This file probably needs to be renamed from <code>header-minimal.njk</code> to <code>header-research-minimal.njk</code></strike>.</p>
-		  <p>- 20260615 - The header shown above uses <code>header-research-minimal.njk</code>. Other instances of <code>header.njk</code> have not yet been replaced.</p>
     	<h2>Key files</h2>
     	<ul class="demo-files">
 	    	<li><code>_includes/partials/header-research-minimal.njk</code></li>
 	    	<li><code>scss/_layout-headers.scss</code></li>
 	    	<li><code>scss/fs-components/_layout-header-research.scss</code></li>
     	</ul> 
+    	<h2>Notes</h2>
+		  <p>- 20260613 - A FS-branded "I'm done" button now appears in the header. It gives users a way to abandon their research task(s), without forcing them to complete the Checkout or Interview. </p>
+		  <p>- 20260613 - <strike>This file probably needs to be renamed from <code>header-minimal.njk</code> to <code>header-research-minimal.njk</code></strike>.</p>
+		  <p>- 20260615 - The header shown above uses <code>header-research-minimal.njk</code>. Other instances of <code>header.njk</code> have not yet been replaced.</p>
     </article>
 
     <h2>Clients Dashboard page (AKA successfully signed-in)</h2>
@@ -126,9 +158,10 @@
     	<h2>Key files</h2>
     	<ul class="demo-files">
 	    	<li><code>_includes/partials/header-dashboard-clients.njk</code></li>
-	    	<li><code>_includes/partials/fs-components/fs-auth-dialog-clients.njk</code></li>    	
+	    	<li><code>_includes/partials/fs-components/fs-auth-dialog-client_settings.njk</code></li>    	
 	    	<li><code>scss/_layout-headers.scss</code></li>
 	    	<li><code>scss/fs-components/_layout-header-clients.scss</code></li>
+	    	<li><code>scss/fs-components/auth-client_settings-overlay.scss</code></li>
     	</ul>     
 		</article>
 

@@ -1614,8 +1614,9 @@ details.fs-details .fs-details-panel {
   inset-inline-start: unset;
   inset-inline-end: var(--fs-spacing-sm);
   inset-block: var(--fs-spacing-sm);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   width: 100%;
-  max-width: 420px;
   min-height: calc(100vh - var(--fs-spacing-sm) * 2);
   z-index: 1055; /* Following Bootstrap's pattern for z-layering */
   transform: translateX(110%);
@@ -1626,6 +1627,11 @@ details.fs-details .fs-details-panel {
   border: var(--fs-thickness-md) solid var(--fs-color-brand-primary);
   border-radius: var(--fs-radius-lg);
 }
+@media (width >= 420px) {
+  .fs-dialog-overlay {
+    max-width: 420px;
+  }
+}
 .fs-dialog-overlay[open] {
   transform: translateX(0%);
 }
@@ -1634,22 +1640,29 @@ details.fs-details .fs-details-panel {
   flex-direction: row;
   gap: var(--spacing-md);
   align-items: center;
-  padding-block-start: var(--spacing-md);
-  padding-inline-start: var(--spacing-lg);
-  padding-inline-end: var(--spacing-md);
-  padding-block-end: var(--spacing-sm);
-  background: var(--color-background-header);
-  border-block-end: var(--thickness-sm) solid var(--color-border-light);
+  padding-block-start: var(--fs-spacing-md);
+  padding-inline-start: var(--fs-spacing-lg);
+  padding-inline-end: var(--fs-spacing-md);
+  padding-block-end: var(--fs-spacing-sm);
+  background: var(--fs-color-background-header);
+  border-block-end: var(--fs-thickness-sm) solid var(--fs-color-border-light);
 }
 .fs-dialog-overlay .fs-dialog-header .fs-dialog-title {
   flex: 1;
   margin-block-end: unset;
-  color: var(--color-text-primary);
-  font-weight: var(--weight-bold);
+  color: var(--fs-color-text-primary);
+  font-weight: var(--fs-weight-bold);
 }
 .fs-dialog-overlay .fs-dialog-body {
   display: grid;
+  padding: var(--fs-spacing-md);
+  height: 100%;
+}
+.fs-dialog-overlay .fs-dialog-footer {
+  display: grid;
   padding: var(--spacing-md);
+  padding-block-end: calc(var(--fs-spacing-md) + var(--fs-spacing-xs));
+  border-block-start: var(--fs-thickness-sm) solid var(--fs-color-border-default);
 }
 
 @starting-style {
@@ -6543,6 +6556,64 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
   }
 }
 
+#header-siteroot .btn-secondary,
+#auth-siteroot-overlay .btn-secondary {
+  background: var(--fs-color-background-active);
+  border-color: var(--fs-color-background-active);
+  border-width: var(--fs-thickness-sm);
+  transition: var(--fs-transition-md);
+}
+#header-siteroot .btn-secondary:hover, #header-siteroot .btn-secondary:active,
+#auth-siteroot-overlay .btn-secondary:hover,
+#auth-siteroot-overlay .btn-secondary:active {
+  background: var(--fs-color-action-secondary-hover);
+}
+#header-siteroot .btn-tertiary,
+#auth-siteroot-overlay .btn-tertiary {
+  background: var(--fs-color-background-active);
+  transition: var(--fs-transition-md);
+}
+#header-siteroot .btn-tertiary:hover, #header-siteroot .btn-tertiary:active,
+#auth-siteroot-overlay .btn-tertiary:hover,
+#auth-siteroot-overlay .btn-tertiary:active {
+  background: var(--fs-color-action-secondary-hover);
+  border-color: var(--fs-color-action-secondary-hover);
+}
+#header-siteroot .fs-btn-group,
+#auth-siteroot-overlay .fs-btn-group {
+  gap: var(--fs-spacing-md);
+  border-radius: calc(var(--fs-radius-sm) + var(--fs-spacing-2xs));
+}
+#header-siteroot .fs-btn-group > .fs-btn-group,
+#auth-siteroot-overlay .fs-btn-group > .fs-btn-group {
+  gap: var(--fs-spacing-2xs);
+  background: var(--fs-color-action-secondary-default);
+  padding: var(--fs-spacing-2xs);
+}
+#header-siteroot .fs-btn-group > .fs-btn-group .fs-btn,
+#auth-siteroot-overlay .fs-btn-group > .fs-btn-group .fs-btn {
+  border-radius: calc(var(--fs-radius-sm) + var(--fs-spacing-2xs) / 2);
+}
+#header-siteroot .fs-btn-group > .fs-btn-group .btn-tertiary,
+#auth-siteroot-overlay .fs-btn-group > .fs-btn-group .btn-tertiary {
+  background: unset;
+  transition: var(--fs-transition-md);
+}
+#header-siteroot .fs-btn-group > .fs-btn-group .btn-tertiary:hover, #header-siteroot .fs-btn-group > .fs-btn-group .btn-tertiary:active,
+#auth-siteroot-overlay .fs-btn-group > .fs-btn-group .btn-tertiary:hover,
+#auth-siteroot-overlay .fs-btn-group > .fs-btn-group .btn-tertiary:active {
+  background: var(--fs-color-action-secondary-hover);
+  border-color: var(--fs-color-action-secondary-hover);
+}
+
+#header-siteroot .header-expanded .fs-btn-group {
+  flex-direction: row;
+}
+
+#auth-siteroot-overlay .fs-btn-group {
+  flex-direction: column;
+}
+
 #header-participants .header-compact {
   display: none;
 }
@@ -6732,6 +6803,180 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
   }
 }
 
+#auth-siteroot-overlay .fs-dialog-body,
+#auth-siteroot-overlay .fs-dialog-footer {
+  justify-self: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  max-width: 22rem;
+  height: 50%;
+}
+
+#auth-signin-overlay .fs-dialog-body,
+#auth-signin-overlay .fs-dialog-footer {
+  justify-self: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  max-width: 22rem;
+}
+#auth-signin-overlay .fs-dialog-body .btn-primary,
+#auth-signin-overlay .fs-dialog-body .btn-secondary,
+#auth-signin-overlay .fs-dialog-body .btn-tertiary,
+#auth-signin-overlay .fs-dialog-footer .btn-primary,
+#auth-signin-overlay .fs-dialog-footer .btn-secondary,
+#auth-signin-overlay .fs-dialog-footer .btn-tertiary {
+  padding-block: var(--fs-spacing-sm);
+}
+#auth-signin-overlay .fs-dialog-body .btn-link,
+#auth-signin-overlay .fs-dialog-footer .btn-link {
+  padding-block: var(--fs-spacing-2xs);
+}
+#auth-signin-overlay .fs-dialog-body {
+  row-gap: 10vh;
+  row-rule: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+}
+#auth-signin-overlay .fs-dialog-body .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fs-spacing-xs);
+}
+#auth-signin-overlay .fs-dialog-body .wrapper p {
+  text-align: center;
+}
+
+.fs-dialog-overlay .fs-dialog-body .btn-primary,
+.fs-dialog-overlay .fs-dialog-body .btn-secondary,
+.fs-dialog-overlay .fs-dialog-body .btn-tertiary {
+  padding-block: var(--fs-spacing-sm);
+}
+.fs-dialog-overlay .fs-dialog-body .btn-link {
+  padding-block: var(--fs-spacing-2xs);
+}
+.fs-dialog-overlay .fs-btn-group {
+  flex-direction: column;
+  gap: var(--fs-spacing-md);
+  border-radius: calc(var(--fs-radius-md) + var(--fs-spacing-2xs));
+}
+.fs-dialog-overlay .fs-btn-group > .fs-btn-group {
+  flex-direction: column;
+  gap: var(--fs-spacing-2xs);
+  background: var(--fs-color-action-secondary-default);
+  padding: var(--fs-spacing-xs);
+}
+
+#auth-signup-overlay .fs-dialog-body,
+#auth-signup-overlay .fs-dialog-footer {
+  justify-self: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  max-width: 22rem;
+}
+#auth-signup-overlay .fs-dialog-body .btn-primary,
+#auth-signup-overlay .fs-dialog-body .btn-secondary,
+#auth-signup-overlay .fs-dialog-body .btn-tertiary,
+#auth-signup-overlay .fs-dialog-footer .btn-primary,
+#auth-signup-overlay .fs-dialog-footer .btn-secondary,
+#auth-signup-overlay .fs-dialog-footer .btn-tertiary {
+  padding-block: var(--fs-spacing-sm);
+}
+#auth-signup-overlay .fs-dialog-body .btn-link,
+#auth-signup-overlay .fs-dialog-footer .btn-link {
+  padding-block: var(--fs-spacing-2xs);
+}
+#auth-signup-overlay .fs-dialog-body {
+  row-gap: 10vh;
+  row-rule: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+}
+#auth-signup-overlay .fs-dialog-body .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fs-spacing-xs);
+}
+#auth-signup-overlay .fs-dialog-body .wrapper p {
+  text-align: center;
+}
+
+.fs-dialog-overlay .fs-dialog-body .btn-primary,
+.fs-dialog-overlay .fs-dialog-body .btn-secondary,
+.fs-dialog-overlay .fs-dialog-body .btn-tertiary {
+  padding-block: var(--fs-spacing-sm);
+}
+.fs-dialog-overlay .fs-dialog-body .btn-link {
+  padding-block: var(--fs-spacing-2xs);
+}
+.fs-dialog-overlay .fs-btn-group {
+  flex-direction: column;
+  gap: var(--fs-spacing-md);
+  border-radius: calc(var(--fs-radius-md) + var(--fs-spacing-2xs));
+}
+.fs-dialog-overlay .fs-btn-group > .fs-btn-group {
+  flex-direction: column;
+  gap: var(--fs-spacing-2xs);
+  background: var(--fs-color-action-secondary-default);
+  padding: var(--fs-spacing-xs);
+}
+
+#auth-profile_settings-overlay .fs-dialog-body,
+#auth-profile_settings-overlay .fs-dialog-footer {
+  justify-self: center;
+  align-items: center;
+  align-content: start;
+  width: 100%;
+  max-width: 22rem;
+}
+#auth-profile_settings-overlay .fs-dialog-body {
+  padding-block-start: 5vh;
+  row-gap: 5vh;
+  row-rule: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+}
+#auth-profile_settings-overlay .fs-menu-group button {
+  width: 100%;
+  justify-content: start;
+}
+
+#auth-client_settings-overlay .fs-dialog-body,
+#auth-client_settings-overlay .fs-dialog-footer {
+  justify-self: center;
+  align-items: center;
+  align-content: start;
+  width: 100%;
+  max-width: 22rem;
+}
+#auth-client_settings-overlay .fs-dialog-body {
+  padding-block-start: 5vh;
+  row-gap: 5vh;
+  row-rule: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+}
+#auth-client_settings-overlay .fs-menu-group button {
+  width: 100%;
+  justify-content: start;
+}
+
+#auth-end_early-overlay .fs-dialog-body,
+#auth-end_early-overlay .fs-dialog-footer {
+  justify-self: center;
+  align-items: center;
+  align-content: start;
+  width: 100%;
+  max-width: 22rem;
+}
+#auth-end_early-overlay .fs-dialog-body {
+  padding-block-start: 5vh;
+  row-gap: 5vh;
+  row-rule: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+}
+#auth-end_early-overlay .fs-headerSearch .headerSearch-buttonWrapper button.actionButton {
+  width: var(--fs-icon-size-md);
+  aspect-ratio: 1/1;
+  margin-inline-end: var(--fs-spacing-sm);
+}
+#auth-end_early-overlay .nav-list .fs-btn {
+  justify-content: start;
+}
+
 .fs-header {
   position: relative;
   background: var(--fs-color-background-active);
@@ -6759,57 +7004,6 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
 }
 .fs-header .header-expanded .fs-btn {
   padding-inline: var(--fs-spacing-sm);
-}
-.fs-header .header-expanded .btn-secondary {
-  background: var(--fs-color-background-active);
-  border-color: var(--fs-color-background-active);
-  border-width: var(--fs-thickness-sm);
-  transition: var(--fs-transition-md);
-}
-.fs-header .header-expanded .btn-secondary:hover, .fs-header .header-expanded .btn-secondary:active {
-  background: var(--fs-color-action-secondary-hover);
-}
-.fs-header .header-expanded .btn-tertiary {
-  transition: var(--fs-transition-md);
-}
-.fs-header .header-expanded .btn-tertiary:hover, .fs-header .header-expanded .btn-tertiary:active {
-  background: var(--fs-color-action-secondary-hover);
-}
-.fs-header .header-expanded .fs-btn-group {
-  gap: var(--fs-spacing-2xs);
-  border-radius: var(--fs-radius-md);
-}
-.fs-header .header-expanded .fs-btn-group > .fs-btn-group {
-  background: var(--fs-color-action-secondary-default);
-  padding: var(--fs-spacing-2xs);
-}
-.fs-header .header-expanded .fs-btn-group > .fs-btn-group .fs-btn {
-  border-radius: calc(var(--fs-radius-md) - var(--fs-spacing-2xs));
-}
-
-.fs-dialog-overlay .fs-dialog-body .fs-btn {
-  padding-block: var(--fs-spacing-sm);
-}
-.fs-dialog-overlay .fs-dialog-body .btn-secondary {
-  border-color: var(--fs-color-background-active);
-  border-width: var(--fs-thickness-sm);
-}
-.fs-dialog-overlay .fs-dialog-body .btn-tertiary {
-  background: var(--fs-color-background-active);
-}
-.fs-dialog-overlay .fs-dialog-body .btn-tertiary:hover, .fs-dialog-overlay .fs-dialog-body .btn-tertiary:active {
-  background: var(--fs-color-action-secondary-hover);
-}
-.fs-dialog-overlay .fs-btn-group {
-  flex-direction: column;
-  gap: var(--fs-spacing-md);
-  border-radius: calc(var(--fs-radius-md) + var(--fs-spacing-2xs));
-}
-.fs-dialog-overlay .fs-btn-group > .fs-btn-group {
-  flex-direction: column;
-  gap: var(--fs-spacing-2xs);
-  background: var(--fs-color-action-secondary-default);
-  padding: var(--fs-spacing-xs);
 }
 
 #site-footer {
@@ -7894,9 +8088,20 @@ main > h1 {
 .demo-page main {
   max-width: unset;
 }
+.demo-page h2 {
+  margin-block-end: unset;
+  font-weight: var(--fs-weight-bold);
+  color: var(--fs-color-brand-primary);
+}
 .demo-page article h2 {
-  margin-block-start: 2rem;
-  margin-block-end: 0;
+  margin-block-start: 0;
+  margin-block-end: var(--fs-spacing-xs);
+  font-weight: var(--fs-weight-regular);
+  color: var(--fs-color-text-primary);
+}
+.demo-page article p + h2,
+.demo-page article ul + h2 {
+  margin-block-start: var(--fs-spacing-xl);
 }
 .demo-page .demo-block {
   padding: 5vw;
@@ -7921,25 +8126,11 @@ main > h1 {
   margin-inline: auto;
   margin-block-end: 10vh;
 }
-.demo-page .demo-notes h2 {
-  font-weight: var(--fs-weight-bold);
-  margin-block-end: var(--fs-spacing-md);
-}
-.demo-page .demo-notes h3 {
-  font-weight: var(--fs-weight-bold);
-  margin-block-end: var(--fs-spacing-md);
-}
 .demo-page .demo-notes p {
   line-height: var(--fs-size-xl);
 }
 .demo-page .demo-notes p > strong {
   font-weight: var(--fs-weight-bold);
-}
-.demo-page .demo-notes p + p {
-  margin-block-start: var(--fs-spacing-sm);
-}
-.demo-page .demo-notes p + h3 {
-  margin-block-start: var(--fs-spacing-lg);
 }
 .demo-page .demo-notes .highlight {
   font-weight: var(--fs-weight-bold);
