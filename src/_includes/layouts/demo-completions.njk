@@ -17,7 +17,10 @@
       <span style="font-size: 13px">(Context and notes follow)</span>
     </h2>
 
-    {%  include "partials/fs-completionsSummary.njk" %}
+    <div>
+      {% include "partials/header-dashboard-clients.njk" %}
+      {%  include "partials/fs-completionsSummary.njk" %}
+    </div>
     <article class="demo-notes">
       <h2>Notes on the Summary block</h2>
       <p>- The two buttons would open their respective overlays, which are shown further down the page. I'm not doing full overlays on a demo page, thank you very much. <em>[face with tongue poking out emoji]</em></p>

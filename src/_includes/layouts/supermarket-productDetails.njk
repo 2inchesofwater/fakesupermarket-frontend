@@ -3,7 +3,7 @@
 {% extends "layouts/base.njk" %}
 
 {% block content %}
-    {% include "partials/header.njk" %}
+  {% include "partials/header-research-full.njk" %}
     
   <div id="utility-wrapper" role="region">
     {% set breadcrumbs = (storefront.breadcrumbs or []).concat([product.productName]) %}

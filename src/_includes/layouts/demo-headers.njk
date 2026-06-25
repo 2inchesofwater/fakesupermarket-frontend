@@ -85,7 +85,7 @@
 	    	<li><code>_includes/partials/fs-components/fs-auth-dialog-profile_settings.njk</code></li>    	
 	    	<li><code>scss/_layout-headers.scss</code></li>
 	    	<li><code>scss/fs-components/_layout-header-shoppers.scss</code></li>
-	    	<li><code>scss/fs-components/auth-profile_settings-overlay.scss</code></li>
+	    	<li><code>scss/fs-components/_auth-profile_settings-overlay.scss</code></li>
     	</ul>
  		  <h2>Notes</h2>
 		  <p>- The user is successfully signed-in; we need to offer them a menu containing account management options + a sign-out option.</p>
@@ -111,7 +111,7 @@
 	    	<li><code>_includes/partials/fs-components/fs-auth-dialog-research.njk</code></li>    	
 	    	<li><code>scss/_layout-headers.scss</code></li>
 	    	<li><code>scss/fs-components/_layout-header-research.scss</code></li>
-	    	<li><code>scss/fs-components/auth-end_early-overlay.scss</code></li>
+	    	<li><code>scss/fs-components/_auth-end_early-overlay.scss</code></li>
     	</ul>      
 		  <h2>Notes</h2>
 		  <p>- FYI, the search bar is a nested partial, called <code>header-search.njk</code>. Once upon a time, I had a brainwave that maybe shoppers would actually prefer to search for their preferred groceries (rather than scanning through all the options in a category). On the basis of that thought, maybe we'll need to significantly enhance the search function at some point in the (distant) future.</p>
@@ -122,30 +122,32 @@
 		  <p>- 20260613 - <strike>This file probably needs to be renamed from <code>header.njk</code> to <code>header-research-full.njk</code></strike>.</p>
 		  <p>- 20260615 - The header shown above uses <code>header-research-full.njk</code>. Other instances of <code>header.njk</code> have not yet been replaced.</p>
 		  <p>- 20260615 - The new header's Cart button hasn't been tested, to confirm that it opens the Cart Summary panel, or whether the tally thingy still works.</p>
-		  <p>- 20260624 - I've implemented the burger menu as a side-panel, for now. I don't think this is correct; displaying all of the fake nav items and stuff is confusing (even though it is faithful to real supermarkets). I'm considering whether to make the burger menu button just straight up open the 'End early' modal dialog.</p> 
+		  <p>- 20260624 - I've implemented the burger menu as a side-panel, for now. I don't think this is correct; displaying all of the fake nav items and stuff is confusing (even though it is faithful to real supermarkets). I'm considering whether to make the burger menu button just straight up open the 'End early' modal dialog.</p>
+		  <p>- 20260624 - FYI, on a mobile device, the burger menu will look cramped. Please bear in mind that there's two additional sets of padding around this specimen header.</p> 
 		</article>
 
-    <h2>Supermarket Storefront - Do Not Disturb mode (AKA research task)</h2>
+    <h2>Minimal (AKA Do Not Disturb mode)</h2>
     <article class="demo-intro">
     	<h2>Context</h2>
-    	<p>This is the header for the <em>second half</em> of the actual research task in the fake supermarket (or other storefront).</p>
+    	<p>Through the platform, we'll occasionally need to run a header with no additional options – during the Onboarding flow, for instance.  
+    	<p>It's also needed during the <em>second half</em> of the actual research task in the fake supermarket (or other storefront).</p>
     	<h2>Features</h2>
+    	<p>- The storefront label is optional.</p>
     	<p>- No buttons. As with real supermarket sites, once you get into the checkout flow, sites shut down almost all of the options for shoppers to back out.</p>
 		</article>    
     <div class="demo-block">
-    	{% include "partials/header-research-minimal.njk" %}
+  		{% set storefrontName = "Supermarket" %}
+    	{% include "partials/header-minimal.njk" %}
     </div>
     <article class="demo-notes">
     	<h2>Key files</h2>
     	<ul class="demo-files">
-	    	<li><code>_includes/partials/header-research-minimal.njk</code></li>
+	    	<li><code>_includes/partials/header-minimal.njk</code></li>
 	    	<li><code>scss/_layout-headers.scss</code></li>
-	    	<li><code>scss/fs-components/_layout-header-research.scss</code></li>
+	    	<li><code>scss/fs-components/_layout-header-minimal.scss</code></li>
     	</ul> 
     	<h2>Notes</h2>
-		  <p>- 20260613 - A FS-branded "I'm done" button now appears in the header. It gives users a way to abandon their research task(s), without forcing them to complete the Checkout or Interview. </p>
-		  <p>- 20260613 - <strike>This file probably needs to be renamed from <code>header-minimal.njk</code> to <code>header-research-minimal.njk</code></strike>.</p>
-		  <p>- 20260615 - The header shown above uses <code>header-research-minimal.njk</code>. Other instances of <code>header.njk</code> have not yet been replaced.</p>
+		  <p>...</p>
     </article>
 
     <h2>Clients Dashboard page (AKA successfully signed-in)</h2>
@@ -161,7 +163,7 @@
 	    	<li><code>_includes/partials/fs-components/fs-auth-dialog-client_settings.njk</code></li>    	
 	    	<li><code>scss/_layout-headers.scss</code></li>
 	    	<li><code>scss/fs-components/_layout-header-clients.scss</code></li>
-	    	<li><code>scss/fs-components/auth-client_settings-overlay.scss</code></li>
+	    	<li><code>scss/fs-components/_auth-client_settings-overlay.scss</code></li>
     	</ul>     
 		</article>
 

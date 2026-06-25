@@ -4,6 +4,7 @@
 @forward 'fs-components/layout-header-participants'; 
 @forward 'fs-components/layout-header-shoppers'; 
 @forward 'fs-components/layout-header-research'; 
+// @forward 'fs-components/layout-header-minimal'; 
 
 @forward 'fs-components/auth-siteroot-overlay'; 
 @forward 'fs-components/auth-signin-overlay'; 
@@ -16,20 +17,26 @@
 	position: relative;
 	background: var(--fs-color-background-active);
 	padding-block: var(--fs-spacing-xs);
-	padding-inline: var(--fs-spacing-sm);
+	// padding-inline: var(--fs-spacing-sm);
 	box-shadow: 
 		var(--fs-boxShadow-sm),
 		var(--fs-boxShadow-md);
+
+	@media (width > #{$screen-sm}) {
+		padding-block: var(--fs-spacing-sm);
+	}
 
 	#nav-main {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-    align-items: center;
-    align-content: flex-end;
-    flex-wrap: wrap;
+		align-items: center;
+		align-content: flex-end;
+		flex-wrap: wrap;
 		width: 100%;
-		max-width: $screen-xl;	
+		max-width: $screen-xl;
+		margin-inline: auto;
+		padding-inline: 5vw;
 	}
 	#site-logo {
 		display: flex;
@@ -47,7 +54,6 @@
 		.fs-btn {
 			padding-inline: var(--fs-spacing-sm);
 		}
-		
 	}
 }
 

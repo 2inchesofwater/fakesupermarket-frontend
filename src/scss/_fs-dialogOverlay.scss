@@ -11,12 +11,17 @@
 	min-height: calc(100vh - (var(--fs-spacing-sm) * 2) );
 	z-index: 1055; /* Following Bootstrap's pattern for z-layering */
 	
-  transform: translateX(110%);
+	// Real closed state
+	opacity: 0;
+	transform: translateX(110%);
+
+	// Closing transition:
+	// slide immediately, but delay the fade slightly so the slide remains visible
 	transition:
 		transform 300ms ease,
-		display 300ms ease,
-		overlay 300ms ease;
-  transition-behavior: allow-discrete;
+		opacity 180ms ease 120ms,
+		display 300ms ease allow-discrete,
+		overlay 300ms ease allow-discrete;
 
 	background: var(--color-background-page);
 	outline: var(--fs-thickness-lg) solid var(--fs-color-bright-orange-middle);
@@ -28,8 +33,43 @@
 	}
 
 	&[open] {
+		opacity: 1;
 		transform: translateX(0%);
+
+		// Opening transition:
+		// fade in immediately while sliding in
+		transition:
+			transform 300ms ease,
+			opacity 180ms ease,
+			display 300ms ease allow-discrete,
+			overlay 300ms ease allow-discrete;
 	}
+
+	&::backdrop {
+		background: rgb(0 0 0 / 0);
+		transition:
+			background 300ms ease,
+			display 300ms ease allow-discrete,
+			overlay 300ms ease allow-discrete;
+	}
+
+	&[open]::backdrop {
+		// background: rgb(0 0 0 / 0.45);
+		background:  //var(--color-backdrop-default);
+	    linear-gradient(217deg, var(--color-core-400), transparent 90.71%),
+	    linear-gradient(127deg, var(--color-bright-orange-light), transparent 90.71%),
+	    linear-gradient(336deg, var(--color-bright-orange-middle), transparent 90.71%);		
+	}
+
+
+
+	// &[open]::backdrop {
+	// 	background:  //var(--color-backdrop-default);
+	//     linear-gradient(217deg, var(--color-core-400), transparent 90.71%),
+	//     linear-gradient(127deg, var(--color-bright-orange-light), transparent 90.71%),
+	//     linear-gradient(336deg, var(--color-bright-orange-middle), transparent 90.71%);
+	// }
+
 
 	.fs-dialog-header {
 		display: flex;
@@ -69,8 +109,15 @@
 }
 
 @starting-style {
-  dialog[open] {
+  .fs-dialog-overlay[open] {
     opacity: 0;
     transform: translateX(110%);
   }
+	.fs-dialog-overlay[open]::backdrop {
+		// background: rgb(0 0 0 / 0);
+		background:  //var(--color-backdrop-default);
+	    linear-gradient(217deg, var(--color-core-400), transparent 0%),
+	    linear-gradient(127deg, var(--color-bright-orange-light), transparent 0%),
+	    linear-gradient(336deg, var(--color-bright-orange-middle), transparent 0%);		
+	}  
 }

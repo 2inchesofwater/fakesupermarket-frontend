@@ -1619,9 +1619,9 @@ details.fs-details .fs-details-panel {
   width: 100%;
   min-height: calc(100vh - var(--fs-spacing-sm) * 2);
   z-index: 1055; /* Following Bootstrap's pattern for z-layering */
+  opacity: 0;
   transform: translateX(110%);
-  transition: transform 300ms ease, display 300ms ease, overlay 300ms ease;
-  transition-behavior: allow-discrete;
+  transition: transform 300ms ease, opacity 180ms ease 120ms, display 300ms ease allow-discrete, overlay 300ms ease allow-discrete;
   background: var(--color-background-page);
   outline: var(--fs-thickness-lg) solid var(--fs-color-bright-orange-middle);
   border: var(--fs-thickness-md) solid var(--fs-color-brand-primary);
@@ -1633,7 +1633,16 @@ details.fs-details .fs-details-panel {
   }
 }
 .fs-dialog-overlay[open] {
+  opacity: 1;
   transform: translateX(0%);
+  transition: transform 300ms ease, opacity 180ms ease, display 300ms ease allow-discrete, overlay 300ms ease allow-discrete;
+}
+.fs-dialog-overlay::backdrop {
+  background: rgba(0, 0, 0, 0);
+  transition: background 300ms ease, display 300ms ease allow-discrete, overlay 300ms ease allow-discrete;
+}
+.fs-dialog-overlay[open]::backdrop {
+  background: linear-gradient(217deg, var(--color-core-400), transparent 90.71%), linear-gradient(127deg, var(--color-bright-orange-light), transparent 90.71%), linear-gradient(336deg, var(--color-bright-orange-middle), transparent 90.71%);
 }
 .fs-dialog-overlay .fs-dialog-header {
   display: flex;
@@ -1666,9 +1675,12 @@ details.fs-details .fs-details-panel {
 }
 
 @starting-style {
-  dialog[open] {
+  .fs-dialog-overlay[open] {
     opacity: 0;
     transform: translateX(110%);
+  }
+  .fs-dialog-overlay[open]::backdrop {
+    background: linear-gradient(217deg, var(--color-core-400), transparent 0%), linear-gradient(127deg, var(--color-bright-orange-light), transparent 0%), linear-gradient(336deg, var(--color-bright-orange-middle), transparent 0%);
   }
 }
 .fs-dialogue {
@@ -6981,8 +6993,12 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
   position: relative;
   background: var(--fs-color-background-active);
   padding-block: var(--fs-spacing-xs);
-  padding-inline: var(--fs-spacing-sm);
   box-shadow: var(--fs-boxShadow-sm), var(--fs-boxShadow-md);
+}
+@media (width > 500px) {
+  .fs-header {
+    padding-block: var(--fs-spacing-sm);
+  }
 }
 .fs-header #nav-main {
   display: flex;
@@ -6993,6 +7009,8 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
   flex-wrap: wrap;
   width: 100%;
   max-width: 1600px;
+  margin-inline: auto;
+  padding-inline: 5vw;
 }
 .fs-header #site-logo {
   display: flex;

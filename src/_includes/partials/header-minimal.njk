@@ -1,9 +1,22 @@
-<header id="site-header">
+{% set pageName = "research-minimal" %}
+{% set componentName = "end_early" %}
+{% set logoDescription = "Fake Supermarket logo - Use this shortcut to navigate back to the Shopping List page" %}
+
+<header id="header-{{ pageName }}" class="fs-header">
   <div class="container">
     <nav id="nav-main" >
-      <a href="pages/{{ storefront.slug }}/#" id="site-logo">
-        {{ storefront.storefrontNameHTML | safe }}
-      </a>       
+
+      <a title="{{ logoDescription }}" href="/pages/{{ storefront.slug }}/#" id="site-logo">
+        <span class="icon">
+          <svg class="fs-logo-symbol" viewBox="0 0 228 228" aria-hidden="true">
+            <use href="#fs-logo"></use>
+          </svg>
+        </span>
+        {% if storefrontName %}
+          <span class="label">{{ storefrontName }}</span>      
+        {% endif %}
+      </a> 
+      
     </nav>
   </div>
 </header>
