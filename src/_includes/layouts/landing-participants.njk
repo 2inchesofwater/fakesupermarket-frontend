@@ -1,9 +1,9 @@
 {% set pagelayout = "landingpage participants" %}
 
-{% extends "layouts/base.njk" %} 
+{% extends "layouts/base.njk" %}
   
 {% block content %}
-<body id="participants" class="landing">
+  {% include "partials/header-participants.njk" %}
 
   <div class="page">
     <header class="site-header"> 
@@ -206,6 +206,8 @@
   </div>
   <div class="fs-svg-hidden" aria-hidden style="position:absolute;width:0;height:0;overflow:hidden">
     {% include "partials/icons/marker-interactive.njk" %}
+    {% include "partials/logo/fakesupermarket.njk" %}
+    {% include "partials/icons/x.njk" %}    
   </div>
 </body>
 {% endblock %}

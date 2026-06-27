@@ -1,6 +1,33 @@
-.fs-panel {}
+.fs-panel {
+	  background: var(--fs-color-background-active);
+    border: unset;
+    border-radius: var(--fs-spacing-sm);
+    box-shadow: var(--fs-boxShadow-xs);
+    padding-block: var(--fs-spacing-lg);
+    padding-inline: var(--fs-spacing-lg);
+    margin: var(--fs-spacing-sm);
+
+    .fs-panel-header {
+    	margin-block-end: var(--fs-spacing-xs);
+    }
+    .fs-panel-body {
+    	margin-block: var(--fs-spacing-md);
+    }
+    .fs-panel-actions {}
+    .fs-panel-footer {
+
+    }
+
+    .fs-panel-title {
+    	font-size: var(--fs-size-lg);
+			font-weight: var(--fs-weight-bold);
+	    line-height: var(--fs-leading-lg);
+	    margin-block-end: unset;    	
+    }
+}
 
 .fs-insetPanel {
+// Known to be used inside the Project Completion panel, as part of http://localhost:8080/pages/demo/completions.html 
 		background: var(--fs-color-white);
 		border-radius: var(--fs-radius-sm);
 	  padding-block: var(--fs-spacing-md);

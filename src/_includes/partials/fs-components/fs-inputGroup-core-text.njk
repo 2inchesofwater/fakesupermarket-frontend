@@ -1,0 +1,24 @@
+<div id="inputGroup-{{ input.slug }}" class="fs-inputGroup fs-inputGroup-text">
+  {% if input.title or input.help %}
+    <div class="fs-inputGroup-content">
+      {% if input.title %}
+        <label class="fs-label" for="fs-input-{{ input.slug }}">
+          {{ input.title }}
+        </label>
+      {% endif %}
+
+      {% if input.help %}
+        <div class="fs-inputGroup-help">
+          {{ input.help }}
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <p hidden id="input-{{ input.slug }}-error" class="fs-input-warning">
+    <span class="icon"></span>
+    <span class="text-label">Enter a {{ input.title }}</span>
+  </p>
+
+  <input class="fs-input" id="fs-input-{{ input.slug }}" name="fs-input-{{ input.slug }}" type="{{ input.type }}" {% if input.passthroughAttributes %}{{ input.passthroughAttributes | safe }}{% endif %}>
+</div>

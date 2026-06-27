@@ -1,19 +1,168 @@
 {% set storefront = breakfastcereal %}
-{% set pagelayout = "category" %}
+{% set pagelayout = "demo-auth" %}
 
-{% extends "layouts/base.njk" %}   
- 
+{% extends "layouts/base.njk" %} 
+
 {% block content %} 
-  {% include "partials/header.njk" %}
-<div id="modalBackdrop" class="show"></div>  
-<main class="demo-auth">
-	<h1>Shoppers landing page</h1>
+  
+  <main id="main" class="main-content demo-page">
+    <h1>{{ title }}</h1>
+
+    <article class="demo-notes">
+      <h2>Overall context</h2>
+      <p>On this page, we're looking at the various forms which make up the auth system.</p>
+    </article>
+
+    <h2 id="root">Sign up with email</h2>
+    <article class="demo-intro">
+      <h2>Context</h2>
+      <p>A user wants to sign-up using an email address and password. </p>
+      <h2>Features</h2>
+      <p>...</p>
+    </article>
+    <div>
+      {% include "partials/header-minimal.njk" %}
+      <div class="demo-block">
+
+
+
+<div id="fs-auth-signup" class="fs-panel">
+  <div class="fs-panel-header">
+    <h1 class="fs-panel-title">Sign up</h1>
+  </div>
+
+  <div class="fs-panel-body">
+    <form>
+      {% set input = {
+        slug: "signup",
+        title: "Email",
+        type: "text",
+        passthroughAttributes: "required"
+      } %}
+      {% include "partials/fs-components/fs-inputGroup-core-text.njk" %}
+
+
+      {% set input = {
+        slug: "password",
+        title: "Password",
+        type: "password",
+        passthroughAttributes: "required autocomplete='new-password' spellcheck='false' autocapitalize='none'"
+      } %}
+      {% include "partials/fs-components/fs-inputGroup-core-text.njk" %} 
+
+      <div class="fs-input-checkboxGroup fs-inputGroup">
+      <!-- Note to self: Checkboxes often come in groups; the Group wrappers can't be stuffed inside the partial for an individual checkbox -->
+        {% set input = {
+          slug: "legals",
+          useModernCheckbox: true,
+          title: "I accept the <a href>Terms and Conditions</a> and the <a href>Privacy Policy</a>.",
+          passthroughAttributes: "required"
+        } %}
+        {% include "partials/fs-components/fs-inputGroup-core-checkbox.njk" %}
+      </div>
+
+      <div id="inputGroup-continue" class="fs-inputGroup fs-btn-group">
+        <button class="fs-btn btn-primary btn-lg">
+          <span class="text-label">Continue</span>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="fs-panel-footer">
+    Already have an account? <button class="fs-btn btn-link">Sign in now</button>
+  </div>
+</div>
+
+
+
+      </div>
+    </div>
+    <article class="demo-notes">
+      <h2>Key files</h2>
+      <ul class="demo-files">
+        <li><code>...</code></li> 
+      </ul> 
+
+      <h2>Notes</h2>
+      <p>- ...</p>
+    </article>
+
+
+    <h2 id="root">Sign in using email</h2>
+    <article class="demo-intro">
+      <h2>Context</h2>
+      <p>A user wants to sign-in using their email address and password. </p>
+      <h2>Features</h2>
+      <p>...</p>
+    </article>
+    <div>
+      {% include "partials/header-minimal.njk" %}
+      <div class="demo-block">
+
+
+
+<div id="fs-auth-signin" class="fs-panel">
+  <div class="fs-panel-header">
+    <h1 class="fs-panel-title">Sign in</h1>
+  </div>
+
+  <div class="fs-panel-body">
+    <form>
+      {% set input = {
+        slug: "signin",
+        title: "Email",
+        type: "text",
+        passthroughAttributes: "required"
+      } %}
+      {% include "partials/fs-components/fs-inputGroup-core-text.njk" %}
+
+
+      {% set input = {
+        slug: "password",
+        title: "Password",
+        type: "password",
+        passthroughAttributes: "required autocomplete='current-password' spellcheck='false' autocapitalize='none'"
+      } %}
+      {% include "partials/fs-components/fs-inputGroup-core-text.njk" %} 
+
+      <div id="inputGroup-continue" class="fs-inputGroup fs-btn-group">
+        <button class="fs-btn btn-primary btn-lg">
+          <span class="text-label">Continue</span>
+        </button>
+        <button class="fs-btn btn-link">
+          <span class="text-label">Forgot your password?</span>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="fs-panel-footer">
+    New to Fake Supermarket? <button class="fs-btn btn-link">Sign up now</button>
+  </div>
+</div>
+
+
+
+      </div>
+    </div>
+    <article class="demo-notes">
+      <h2>Key files</h2>
+      <ul class="demo-files">
+        <li><code>...</code></li> 
+      </ul> 
+
+      <h2>Notes</h2>
+      <p>- ...</p>
+    </article>
+
+
 </main>	
+  <div class="fs-svg-hidden" aria-hidden style="position:absolute;width:0;height:0;overflow:hidden">
+    {% include "partials/logo/fakesupermarket.njk" %}
+    {% include "partials/icons/x.njk" %}
+    {% include "partials/icons/checkbox-interactive.njk" %}
 
-	{# {% include "partials/fs-components/fs-auth-dialog-signup.njk" %} #}
-
-  {% include "partials/footer.njk" %}
-
-  <script type="module" src="/js/utils/backdrop.js" ></script>  
+  </div>
 
 {% endblock %}

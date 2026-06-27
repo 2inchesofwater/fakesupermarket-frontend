@@ -1,0 +1,53 @@
+{# 
+
+	Accepts – 
+	slug										- string, unique, used for ID attributes.
+	useModernCheckbox				- boolean, defaults to false. Triggers modern SVG-based checkbox 
+														styling.
+	title 									- Required. String, used for the label. HTML-capable.
+	checkboxSize						- string, T-shirt sizing. Options: sm, md (default), lg, xl, 2xl.
+	passthroughAttributes 	- string, used to pass config. HTML-capable. Don't use 
+														double-apostrophes.
+
+ #}
+
+
+<div id="inputGroup-{{ input.slug }}" class="
+	{% if  input.useModernCheckbox | default(true) %}fs-input-checkbox-useModern{% else %}fs-input-checkbox-useNative{% endif %} 
+		size-{{ input.checkboxSize | default('md') }}">
+  
+  <input 
+    class="fs-input fs-input-checkbox-native" 
+    id="fs-input-{{ input.slug }}" 
+    name="fs-input-{{ input.slug }}" 
+    type="checkbox"
+    {% if input.value %}value="{{ input.value }}"{% endif %}
+    aria-describedby="{% if input.help %}input-{{ input.slug }}-help{% endif %}"
+    {% if input.passthroughAttributes %}{{ input.passthroughAttributes | safe }}{% endif %}
+  >
+    
+  {% if input.title %}
+    <label class="fs-label fs-input-checkbox-labelGroup" for="fs-input-{{ input.slug }}">
+	    {% if input.useModernCheckbox %}
+	      <div class="fs-input-checkbox-modern">
+	        <svg class="icon check-empty"><use href="#checkbox-empty"></use></svg>
+	        <svg class="icon check-filled"><use href="#checkbox-filled"></use></svg>
+	      </div>
+	    {% endif %} 
+
+      <div class="fs-label">
+      	{{ input.title | safe }}
+      	{% if input.help %}
+			    <div class="fs-inputGroup-help" id="input-{{ input.slug }}-help">
+			      {{ input.help }}
+			    </div>
+			  {% endif %}
+			</div>
+    </label>
+  {% endif %}
+
+
+  <p hidden id="input-{{ input.slug }}-error" class="fs-error-message">
+    <span>Error:</span> {{ input.error or "Please check this box to continue" }}
+  </p>
+</div>

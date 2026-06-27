@@ -1,29 +1,32 @@
-@use "variables" as *;
+@use "fs-variables" as *;
 
-#auth-dialog {
+#fs-auth-signup,
+#fs-auth-signin {
+	max-width: $screen-sm;
+	margin-inline: auto;
 
-}
-#auth-dialog-body {
-	grid-template-rows: minmax(50vh, 100%) 2rem;
-}
-#auth-dialog-options {
-	display: grid;
-	grid-gap: var(--fs-spacing-xs);
-	align-content: center;
-  justify-content: center;
-}
-#auth-dialog-separator {
-	text-align: center;
+	.fs-panel-body,
+	.fs-panel-actions,
+	.fs-panel-footer {
+		padding-inline: var(--fs-spacing-md);
+		
+	}
+
+	.fs-panel-footer {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: end;
+		gap: var(--fs-spacing-sm);
+
+		padding-block-start: var(--fs-spacing-xl);
+		font-size: var(--fs-size-sm);
+	}
 }
 
-#auth-dialog-signin {
-	display: flex;
-	flex-direction: row;
-	gap: var(--fs-spacing-xs);
-	align-items: center;
-	justify-content: center;
-
-	margin-block-start: var(--fs-spacing-sm);
-	padding-block-start: var(--fs-spacing-lg);
-	border-block-start: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+#fs-auth-signup,
+#fs-auth-signin {
+	.fs-btn-group {
+		align-items: center;
+	}
 }

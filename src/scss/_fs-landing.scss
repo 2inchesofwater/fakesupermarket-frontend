@@ -1,5 +1,4 @@
-.landingpage {
-	.page {}
+.landingpage.participants .page {
 
 	#main {
 		padding-block: unset;
@@ -579,31 +578,31 @@
 	}
 }
 
-	.fs-btn.btn-landing {
-		color: var(--fs-color-core-800);
-    font-size: var(--fs-size-sm);
-    font-weight: var(--fs-weight-regular);
-    text-decoration: none;
-    text-align: center;
-    background: var(--fs-color-core-200);
-    padding-block: var(--fs-spacing-xs);
-    padding-inline: var(--fs-spacing-md);
-    border-radius: 2vh;
-    transition: var(--fs-transition-md);	
+.fs-btn.btn-landing {
+	color: var(--fs-color-core-800);
+font-size: var(--fs-size-sm);
+font-weight: var(--fs-weight-regular);
+text-decoration: none;
+text-align: center;
+background: var(--fs-color-core-200);
+padding-block: var(--fs-spacing-xs);
+padding-inline: var(--fs-spacing-md);
+border-radius: 2vh;
+transition: var(--fs-transition-md);	
 
-    &.btn-primary {
-    	background: var(--fs-color-core-200);
-    	color: var(--fs-color-core-800);
-    	box-shadow: unset;
-    	border-width: unset;
-    }
-		&:hover,
-		&:active,
-		&:focus {
-			color: var(--fs-color-text-primary);
-			background: var(--fs-color-core-400);
-		}    	
-	}
+&.btn-primary {
+	background: var(--fs-color-core-200);
+	color: var(--fs-color-core-800);
+	box-shadow: unset;
+	border-width: unset;
+}
+	&:hover,
+	&:active,
+	&:focus {
+		color: var(--fs-color-text-primary);
+		background: var(--fs-color-core-400);
+	}    	
+}
 
 
 .container-panel {

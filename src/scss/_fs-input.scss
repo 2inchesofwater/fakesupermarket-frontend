@@ -9,6 +9,35 @@
     margin-block-end: var(--spacing-md);
   }
 
+  .fs-inputGroup-content {
+    margin-block-end: var(--fs-spacing-2xs);
+
+    .fs-inputGroup-help {
+      margin-block-end: var(--fs-spacing-sm);
+    }
+  }
+
+  .fs-inputGroup-help {
+    font-size: var(--fs-size-sm);
+    line-height: var(--fs-size-sm);
+    font-weight: var(--fs-weight-light);
+    color: var(--fs-color-text-tertiary);
+  }  
+
+  .fs-input-warning:not([hidden]) {
+    border-inline-start: var(--fs-thickness-lg) solid var(--fs-color-caution);
+    margin-block-end: var(--fs-spacing-xs);
+    padding-block: var(--fs-spacing-2xs);
+    padding-inline-start: var(--fs-spacing-xs);
+
+    font-weight: var(--fs-weight-regular);
+
+    + input {
+      background: rgb(from var(--fs-color-caution) r g b/10%);
+      border-color: var(--fs-color-caution);
+    }
+  }
+
   label,
   .label {
     display: block;
@@ -18,16 +47,17 @@
     color: var(--fs-color-text-primary);
   } 
 
-  .fs-inputGroup-help {
-    font-size: var(--fs-size-sm);
-    line-height: var(--fs-size-sm);
-    color: var(--fs-color-text-tertiary);
-  }  
+  label {
+    cursor: pointer;
+  }
 
   fieldset {
     border: 0;
   }
 
+  & + .fs-inputGroup {
+  	margin-block-start: var(--fs-spacing-sm);
+  }
 }
 
 .fs-input {
