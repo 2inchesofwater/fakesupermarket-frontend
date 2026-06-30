@@ -17,143 +17,256 @@
     <article class="demo-intro">
       <h2>Context</h2>
       <p>A user wants to sign-up using an email address and password. </p>
-      <h2>Features</h2>
-      <p>...</p>
+      {# <h2>Features</h2>
+      <p>- ...</p> #}
     </article>
     <div>
       {% include "partials/header-minimal.njk" %}
       <div class="demo-block">
 
-
-
-<div id="fs-auth-signup" class="fs-panel">
-  <div class="fs-panel-header">
-    <h1 class="fs-panel-title">Sign up</h1>
-  </div>
-
-  <div class="fs-panel-body">
-    <form>
-      {% set input = {
-        slug: "signup",
-        title: "Email",
-        type: "text",
-        passthroughAttributes: "required"
-      } %}
-      {% include "partials/fs-components/fs-inputGroup-core-text.njk" %}
-
-
-      {% set input = {
-        slug: "password",
-        title: "Password",
-        type: "password",
-        passthroughAttributes: "required autocomplete='new-password' spellcheck='false' autocapitalize='none'"
-      } %}
-      {% include "partials/fs-components/fs-inputGroup-core-text.njk" %} 
-
-      <div class="fs-input-checkboxGroup fs-inputGroup">
-      <!-- Note to self: Checkboxes often come in groups; the Group wrappers can't be stuffed inside the partial for an individual checkbox -->
-        {% set input = {
-          slug: "legals",
-          useModernCheckbox: true,
-          title: "I accept the <a href>Terms and Conditions</a> and the <a href>Privacy Policy</a>.",
-          passthroughAttributes: "required"
-        } %}
-        {% include "partials/fs-components/fs-inputGroup-core-checkbox.njk" %}
-      </div>
-
-      <div id="inputGroup-continue" class="fs-inputGroup fs-btn-group">
-        <button class="fs-btn btn-primary btn-lg">
-          <span class="text-label">Continue</span>
-        </button>
-      </div>
-    </form>
-  </div>
-
-  <div class="fs-panel-footer">
-    Already have an account? <button class="fs-btn btn-link">Sign in now</button>
-  </div>
-</div>
-
-
+        {% include "partials/fs-components/fs-auth-signup.njk" %}
 
       </div>
     </div>
     <article class="demo-notes">
       <h2>Key files</h2>
       <ul class="demo-files">
-        <li><code>...</code></li> 
+        <li><code> _includes/layouts/demo-auth.njk</code></li> 
+        <li><code> _includes/partials/fs-components/fs-auth-signup.njk</code></li> 
+        <li><code> _includes/partials/fs-inputGroup-core-text.njk</code></li> 
+        <li><code> _includes/layouts/fs-inputGroup-core-checkbox.njk</code></li> 
+        <li><code> _scss/_fs-auth.scss</code></li> 
+        <li><code> _scss/_fs-panel.scss</code></li> 
+        <li><code> _scss/_fs-input.scss</code></li> 
+        <li><code> _scss/_fs-input-checkbox.scss</code></li> 
       </ul> 
 
       <h2>Notes</h2>
-      <p>- ...</p>
+      <p>- In terms of enforcing password strength, I use <a href="https://design-system.service.gov.uk/patterns/passwords/" target="_blank">Gov.UK's password advice</a> as a starting point. 
+      <p>- All of the text-based input fields include hidden validation messages. Use the Inspector to remove the 'hidden' attribute.<br/>[<em>thinking out loud</em>] I put a lot of stock in the <a href="https://design-system.service.gov.uk/components/error-message/" target="_blank">Gov.UK design system</a>. What I've drawn in will do for now; but when I get some time, I might bring our error styling closer into alignment with Gov.UK.</p>
+      <p>- Mental note: Options to <strong>sign up</strong> using external authentication services, ie "Continue with Google", are shown as part of the Participants Landing Page Header + Dialog.</p> 
     </article>
+
+
+
+    <h2 id="root">Confirm your email</h2>
+    <article class="demo-intro">
+      <h2>Context</h2>
+      <p>We need to confirm that a new user's email address is legit. </p>
+      <h2>Features</h2>
+      <p>- Cooldown timer on the "Resend the email" button. </p>
+    </article>
+    <div>
+      {% include "partials/header-minimal.njk" %}
+      <div class="demo-block">
+
+        {% include "partials/fs-components/fs-auth-confirmSignupEmail.njk" %}
+
+      </div>
+    </div>
+    <article class="demo-notes">
+      <h2>Key files</h2>
+      <ul class="demo-files">
+        <li><code> _includes/layouts/demo-auth.njk</code></li> 
+        <li><code> _includes/partials/fs-components/fs-auth-confirmSignupEmail.njk</code></li> 
+        <li><code> _includes/partials/fs-inputGroup-core-text.njk</code></li> 
+        <li><code> _scss/_fs-auth.scss</code></li> 
+        <li><code> _scss/_fs-panel.scss</code></li> 
+        <li><code> _scss/_fs-input.scss</code></li> 
+      </ul> 
+      <h2>Notes</h2>
+      <p>- Pressing the "Resend" button sends a fresh email link; and restarts the cooldown timer.</p>
+      <p>- I've diverged from Cognito's "Confirm your account" page; they choose to obscure the user's email address. I've presented it back to the user, in case they spot a typo. This is different from account recovery – in which case, yes, we obscure the email address. The security risk of showing the email <em>here</em> is probably quite low, because we aren't revealing a stored account identifier to a random unauthenticated person; we're reflecting back something the user just typed. Doing some research, I can see that OWASP’s email identity guidance focuses on preventing account enumeration, user confusion, and unsafe email handling in identity systems, not on universally masking email addresses in all flows.</p>
+    </article>
+
+
+
+    <h2 id="root">Email: Confirmation code</h2>
+    <article class="demo-intro">
+      <h2>Context</h2>
+      <p>This is the HTML body of an email.</p>
+      {# <h2>Features</h2>
+      <p>- ... </p> #}
+    </article>
+    <div>
+      <div class="demo-block">
+
+        {% include "partials/fs-components/fs-auth-emailConfirmationCode.njk" %}
+
+      </div>
+    </div>
+    <article class="demo-notes">
+      <h2>Key files</h2>
+      <ul class="demo-files">
+        <li><code> _includes/layouts/demo-auth.njk</code></li> 
+        <li><code> _includes/partials/fs-components/fs-auth-confirmationCode.njk</code></li> 
+        <li><code> _includes/partials/fs-inputGroup-core-text.njk</code></li> 
+        <li><code> _scss/_fs-auth.scss</code></li> 
+        <li><code> _scss/_fs-panel.scss</code></li> 
+        <li><code> _scss/_fs-input.scss</code></li> 
+      </ul> 
+      <h2>Notes</h2>
+      <p>- ... </p>
+      <p>- At some point, we'll need to get the HTML and vanilla CSS carried over to the relevant email-sending system. </p>
+    </article>
+
+
+
 
 
     <h2 id="root">Sign in using email</h2>
     <article class="demo-intro">
       <h2>Context</h2>
       <p>A user wants to sign-in using their email address and password. </p>
-      <h2>Features</h2>
-      <p>...</p>
+      {# <h2>Features</h2>
+      <p>- ... </p> #}
     </article>
     <div>
       {% include "partials/header-minimal.njk" %}
       <div class="demo-block">
 
-
-
-<div id="fs-auth-signin" class="fs-panel">
-  <div class="fs-panel-header">
-    <h1 class="fs-panel-title">Sign in</h1>
-  </div>
-
-  <div class="fs-panel-body">
-    <form>
-      {% set input = {
-        slug: "signin",
-        title: "Email",
-        type: "text",
-        passthroughAttributes: "required"
-      } %}
-      {% include "partials/fs-components/fs-inputGroup-core-text.njk" %}
-
-
-      {% set input = {
-        slug: "password",
-        title: "Password",
-        type: "password",
-        passthroughAttributes: "required autocomplete='current-password' spellcheck='false' autocapitalize='none'"
-      } %}
-      {% include "partials/fs-components/fs-inputGroup-core-text.njk" %} 
-
-      <div id="inputGroup-continue" class="fs-inputGroup fs-btn-group">
-        <button class="fs-btn btn-primary btn-lg">
-          <span class="text-label">Continue</span>
-        </button>
-        <button class="fs-btn btn-link">
-          <span class="text-label">Forgot your password?</span>
-        </button>
-      </div>
-    </form>
-  </div>
-
-  <div class="fs-panel-footer">
-    New to Fake Supermarket? <button class="fs-btn btn-link">Sign up now</button>
-  </div>
-</div>
-
-
+        {% include "partials/fs-components/fs-auth-signin.njk" %}
 
       </div>
     </div>
     <article class="demo-notes">
       <h2>Key files</h2>
       <ul class="demo-files">
-        <li><code>...</code></li> 
+        <li><code> _includes/layouts/demo-auth.njk</code></li> 
+        <li><code> _includes/partials/fs-auth-signin.njk</code></li> 
+        <li><code> _includes/partials/fs-inputGroup-core-text.njk</code></li> 
+        <li><code> _scss/_fs-auth.scss</code></li> 
+        <li><code> _scss/_fs-panel.scss</code></li> 
+        <li><code> _scss/_fs-input.scss</code></li> 
       </ul> 
-
       <h2>Notes</h2>
-      <p>- ...</p>
+      <p>- Options to <strong>sign in</strong> via external authentication services, ie "Continue with Google" or "SSO", are shown as part of the Siteroot Landing Page Header + Dialog.</p>
+    </article>
+
+
+    <h2 id="root">Forgot password</h2>
+    <article class="demo-intro">
+      <h2>Context</h2>
+      <p>A user wants to get their password reset. </p>
+      {# <h2>Features</h2>
+      <p>- ... </p> #}
+    </article>
+    <div>
+      {% include "partials/header-minimal.njk" %}
+      <div class="demo-block">
+
+        {% include "partials/fs-components/fs-auth-forgot.njk" %}
+
+      </div>
+    </div>
+    <article class="demo-notes">
+      <h2>Key files</h2>
+      <ul class="demo-files">
+        <li><code> _includes/layouts/demo-auth.njk</code></li> 
+        <li><code> _includes/partials/fs-components/fs-auth-forgot.njk</code></li> 
+        <li><code> _includes/partials/fs-inputGroup-core-text.njk</code></li> 
+        <li><code> _scss/_fs-auth.scss</code></li> 
+        <li><code> _scss/_fs-panel.scss</code></li> 
+        <li><code> _scss/_fs-input.scss</code></li> 
+      </ul> 
+      {# <h2>Notes</h2>
+      <p>- ...</p> #}
+    </article>
+
+
+
+    <h2 id="root">Check your email</h2>
+    <article class="demo-intro">
+      <h2>Context</h2>
+      <p>A user has requested that their password should be reset. </p>
+      <h2>Features</h2>
+      <p>- Cooldown timer on the "Resend the email" button. </p>
+    </article>
+    <div>
+      {% include "partials/header-minimal.njk" %}
+      <div class="demo-block">
+
+        {% include "partials/fs-components/fs-auth-sentResetEmail.njk" %}
+
+      </div>
+    </div>
+    <article class="demo-notes">
+      <h2>Key files</h2>
+      <ul class="demo-files">
+        <li><code> _includes/layouts/demo-auth.njk</code></li> 
+        <li><code> _includes/partials/fs-inputGroup-core-text.njk</code></li> 
+        <li><code> _scss/_fs-auth.scss</code></li> 
+        <li><code> _scss/_fs-panel.scss</code></li> 
+        <li><code> _scss/_fs-input.scss</code></li> 
+      </ul> 
+      <h2>Notes</h2>
+      <p>- Pressing the "Resend" button sends a fresh email link; and restarts the cooldown timer.</p>
+      <p>- There's intentionally no primary CTA on this page. It's a soft dead end.
+    </article>
+
+
+
+
+    <h2 id="root">Email: Reset passwork link</h2>
+    <article class="demo-intro">
+      <h2>Context</h2>
+      <p>This is the HTML body of an email.</p>
+      <h2>Features</h2>
+      <p>- ... </p>
+    </article>
+    <div>
+      <div class="demo-block">
+
+        {% include "partials/fs-components/fs-auth-emailResetPassword.njk" %}
+
+      </div>
+    </div>
+    <article class="demo-notes">
+      <h2>Key files</h2>
+      <ul class="demo-files">
+        <li><code> _includes/layouts/demo-auth.njk</code></li> 
+        <li><code> _includes/partials/fs-components/fs-auth-emailResetPassword.njk</code></li> 
+        <li><code> _includes/partials/fs-inputGroup-core-text.njk</code></li> 
+        <li><code> _scss/_fs-auth.scss</code></li> 
+        <li><code> _scss/_fs-panel.scss</code></li> 
+        <li><code> _scss/_fs-input.scss</code></li> 
+      </ul> 
+      <h2>Notes</h2>
+      <p>- At some point, we'll need to get the HTML and vanilla CSS carried over to the relevant email-sending system. </p>
+    </article>
+
+
+
+
+
+    <h2 id="root">New password</h2>
+    <article class="demo-intro">
+      <h2>Context</h2>
+      <p>A user has responded to a tokenised link in the email we sent 'em.</p>
+      <h2>Features</h2>
+      <p>- ... </p>
+    </article>
+    <div>
+      {% include "partials/header-minimal.njk" %}
+      <div class="demo-block">
+
+        {% include "partials/fs-components/fs-auth-newPassword.njk" %}
+
+      </div>
+    </div>
+    <article class="demo-notes">
+      <h2>Key files</h2>
+      <ul class="demo-files">
+        <li><code> _includes/layouts/demo-auth.njk</code></li> 
+        <li><code> _includes/partials/fs-components/fs-auth-newPassword.njk</code></li> 
+        <li><code> _includes/partials/fs-inputGroup-core-text.njk</code></li> 
+        <li><code> _scss/_fs-auth.scss</code></li> 
+        <li><code> _scss/_fs-panel.scss</code></li> 
+        <li><code> _scss/_fs-input.scss</code></li> 
+      </ul> 
+      <h2>Notes</h2>
+      <p>- From here, we route users back to the Sign-in using email page. </p>
+      <p>- In terms of enforcing password strength, I use <a href="https://design-system.service.gov.uk/patterns/passwords/" target="_blank">Gov.UK's password advice</a> as a starting point. 
     </article>
 
 

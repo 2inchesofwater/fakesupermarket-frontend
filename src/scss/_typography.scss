@@ -140,6 +140,21 @@ footer h2.heading {
 	font-size: var(--size-xs);
 } 
 
+.text-light {
+	font-weight: var(--fs-weight-light);
+} 
+
+.text-secondary {
+	color: var(--fs-color-text-secondary);
+}
+.text-tertiary {
+	color: var(--fs-color-text-tertiary);
+}
+.text-highlight {
+	background-color: var(--fs-color-core-100);
+}
+
+
 ul, ol, menu {
   margin: 0;
   padding: 0;

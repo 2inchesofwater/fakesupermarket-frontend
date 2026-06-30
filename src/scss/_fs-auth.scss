@@ -1,7 +1,6 @@
 @use "fs-variables" as *;
 
-#fs-auth-signup,
-#fs-auth-signin {
+.fs-panel.fs-auth {
 	max-width: $screen-sm;
 	margin-inline: auto;
 
@@ -12,6 +11,9 @@
 		
 	}
 
+	.fs-panel-actions {
+		margin-block-start: var(--fs-spacing-lg);
+	}
 	.fs-panel-footer {
 		display: flex;
 		flex-direction: row;
@@ -19,14 +21,83 @@
 		justify-content: end;
 		gap: var(--fs-spacing-sm);
 
-		padding-block-start: var(--fs-spacing-xl);
+		margin-block-start: var(--fs-spacing-lg);
 		font-size: var(--fs-size-sm);
+		color: var(--fs-color-text-tertiary);
+	}
+}
+
+.fs-panel.fs-auth {
+	.fs-btn-group {
+		align-items: center;
+	}
+	.fs-inputGroup.fs-btn-group {
+		margin-block-start: var(--fs-spacing-sm) ;
+	}
+}
+
+#fs-auth-signup {
+	#inputGroup-legals .text-tertiary {
+		display: block;
+		margin-block-start: var(--fs-spacing-2xs);
+	}
+}
+
+#fs-auth-confirmSignupEmail,
+#fs-auth-sentResetEmail {
+	.fs-panel-body {
+		// margin-block: var(--fs-spacing-xl);
+		p + p {
+			margin-block-start: var(--fs-spacing-md);
+		}
+	}
+}
+
+#fs-auth-emailConfirmationCode,
+#fs-auth-emailResetPassword {
+	.fs-panel-body {
+		// margin-block: var(--fs-spacing-xl);
+		p + p {
+			margin-block-start: var(--fs-spacing-md);
+		}
+	}
+	.fs-panel-actions {
+		// padding-block-end: var(--fs-spacing-md);
+	}
+	#fs-auth-reset-unique {
+		font-size: var(--fs-size-xl);
+		a {
+			color: var(--fs-color-brand-primary);
+		}
+	}
+}
+
+#fs-auth-confirmSignupEmail {
+	p + form {
+		margin-block-start: var(--fs-spacing-md);
+	}
+}
+#fs-auth-forgot,
+#fs-auth-newPassword {
+	.fs-panel-body p {
+		// margin-block-end: var(--fs-spacing-md);
 	}
 }
 
 #fs-auth-signup,
-#fs-auth-signin {
-	.fs-btn-group {
-		align-items: center;
-	}
+#fs-auth-signin,
+#fs-auth-newPassword {
+	.fs-inputGroup-showPassword {
+		gap: var(--fs-spacing-xs);
+		.fs-inputGroup-text {
+			flex: 1;
+		}
+		.fs-btn {
+			align-self: stretch;
+    	// margin-block-start: calc(var(--fs-size-lg) + var(--fs-spacing-2xs));
+    	padding-inline: var(--fs-spacing-sm);
+		}
+	}	
 }
+
+

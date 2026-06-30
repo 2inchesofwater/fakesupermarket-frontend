@@ -1,0 +1,39 @@
+<div id="fs-auth-signin" class="fs-panel fs-auth">
+  <div class="fs-panel-header">
+    <h1 class="fs-panel-title">Sign in</h1>
+  </div>
+
+  <div class="fs-panel-body">
+    <form>
+      {% set input = {
+        slug: "signin",
+        title: "Email",
+        type: "email",
+        passthroughAttributes: "required"
+      } %}
+      {% include "partials/fs-components/fs-inputGroup-core-text.njk" %}
+
+
+      {% set input = {
+        slug: "password",
+        title: "Password",
+        type: "password",
+        passthroughAttributes: "required autocomplete='current-password' spellcheck='false' autocapitalize='none'"
+      } %}
+      {% include "partials/fs-components/fs-inputGroup-core-text.njk" %} 
+
+      <div id="inputGroup-continue" class="fs-inputGroup fs-btn-group">
+        <button class="fs-btn btn-primary btn-lg">
+          <span class="text-label">Continue</span>
+        </button>
+        <button class="fs-btn btn-link">
+          <span class="text-label">Forgot your password?</span>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="fs-panel-footer">
+    New to Fake Supermarket? <button class="fs-btn btn-link">Sign up now</button>
+  </div>
+</div>

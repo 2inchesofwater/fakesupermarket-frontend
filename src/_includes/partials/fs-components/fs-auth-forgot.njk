@@ -1,0 +1,32 @@
+<div id="fs-auth-forgot" class="fs-panel fs-auth">
+  <div class="fs-panel-header">
+    <h1 class="fs-panel-title">Forgot password</h1>
+  </div>
+
+  <div class="fs-panel-body">
+    
+    <form>
+      <div id="fs-inputGroup-text">
+        <p>Enter your email address and we’ll send you instructions to reset your password.</p>
+      </div>
+
+      {% set input = {
+        slug: "forgot",
+        title: "Email",
+        type: "email",
+        passthroughAttributes: "required"
+      } %}
+      {% include "partials/fs-components/fs-inputGroup-core-text.njk" %}
+
+      <div id="inputGroup-continue" class="fs-inputGroup fs-btn-group">
+        <button class="fs-btn btn-primary btn-lg">
+          <span class="text-label">Request password reset</span>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="fs-panel-footer">
+    Having trouble resetting your password? <a href class="fs-btn btn-link btn-sm">Help center</a>
+  </div>
+</div>

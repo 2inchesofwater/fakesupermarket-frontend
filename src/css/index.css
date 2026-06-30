@@ -394,33 +394,78 @@
   fill: var(--fs-color-text-secondary);
 }
 
-#fs-auth-signup,
-#fs-auth-signin {
+.fs-panel.fs-auth {
   max-width: 500px;
   margin-inline: auto;
 }
-#fs-auth-signup .fs-panel-body,
-#fs-auth-signup .fs-panel-actions,
-#fs-auth-signup .fs-panel-footer,
-#fs-auth-signin .fs-panel-body,
-#fs-auth-signin .fs-panel-actions,
-#fs-auth-signin .fs-panel-footer {
+.fs-panel.fs-auth .fs-panel-body,
+.fs-panel.fs-auth .fs-panel-actions,
+.fs-panel.fs-auth .fs-panel-footer {
   padding-inline: var(--fs-spacing-md);
 }
-#fs-auth-signup .fs-panel-footer,
-#fs-auth-signin .fs-panel-footer {
+.fs-panel.fs-auth .fs-panel-actions {
+  margin-block-start: var(--fs-spacing-lg);
+}
+.fs-panel.fs-auth .fs-panel-footer {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: end;
   gap: var(--fs-spacing-sm);
-  padding-block-start: var(--fs-spacing-xl);
+  margin-block-start: var(--fs-spacing-lg);
   font-size: var(--fs-size-sm);
+  color: var(--fs-color-text-tertiary);
 }
 
-#fs-auth-signup .fs-btn-group,
-#fs-auth-signin .fs-btn-group {
+.fs-panel.fs-auth .fs-btn-group {
   align-items: center;
+}
+.fs-panel.fs-auth .fs-inputGroup.fs-btn-group {
+  margin-block-start: var(--fs-spacing-sm);
+}
+
+#fs-auth-signup #inputGroup-legals .text-tertiary {
+  display: block;
+  margin-block-start: var(--fs-spacing-2xs);
+}
+
+#fs-auth-confirmSignupEmail .fs-panel-body p + p,
+#fs-auth-sentResetEmail .fs-panel-body p + p {
+  margin-block-start: var(--fs-spacing-md);
+}
+
+#fs-auth-emailConfirmationCode .fs-panel-body p + p,
+#fs-auth-emailResetPassword .fs-panel-body p + p {
+  margin-block-start: var(--fs-spacing-md);
+}
+#fs-auth-emailConfirmationCode #fs-auth-reset-unique,
+#fs-auth-emailResetPassword #fs-auth-reset-unique {
+  font-size: var(--fs-size-xl);
+}
+#fs-auth-emailConfirmationCode #fs-auth-reset-unique a,
+#fs-auth-emailResetPassword #fs-auth-reset-unique a {
+  color: var(--fs-color-brand-primary);
+}
+
+#fs-auth-confirmSignupEmail p + form {
+  margin-block-start: var(--fs-spacing-md);
+}
+
+#fs-auth-signup .fs-inputGroup-showPassword,
+#fs-auth-signin .fs-inputGroup-showPassword,
+#fs-auth-newPassword .fs-inputGroup-showPassword {
+  gap: var(--fs-spacing-xs);
+}
+#fs-auth-signup .fs-inputGroup-showPassword .fs-inputGroup-text,
+#fs-auth-signin .fs-inputGroup-showPassword .fs-inputGroup-text,
+#fs-auth-newPassword .fs-inputGroup-showPassword .fs-inputGroup-text {
+  flex: 1;
+}
+#fs-auth-signup .fs-inputGroup-showPassword .fs-btn,
+#fs-auth-signin .fs-inputGroup-showPassword .fs-btn,
+#fs-auth-newPassword .fs-inputGroup-showPassword .fs-btn {
+  align-self: stretch;
+  padding-inline: var(--fs-spacing-sm);
 }
 
 .fs-badge {
@@ -2361,7 +2406,7 @@ details.fs-details .fs-details-panel {
 .fs-inputGroup label.fs-input-checkbox-labelGroup {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: start;
   justify-content: start;
 }
 
@@ -4323,6 +4368,22 @@ footer h2.heading {
 
 .text-xs {
   font-size: var(--size-xs);
+}
+
+.text-light {
+  font-weight: var(--fs-weight-light);
+}
+
+.text-secondary {
+  color: var(--fs-color-text-secondary);
+}
+
+.text-tertiary {
+  color: var(--fs-color-text-tertiary);
+}
+
+.text-highlight {
+  background-color: var(--fs-color-core-100);
 }
 
 ul, ol, menu {

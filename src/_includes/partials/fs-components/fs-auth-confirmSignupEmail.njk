@@ -1,0 +1,30 @@
+<div id="fs-auth-confirmSignupEmail" class="fs-panel fs-auth">
+  <div class="fs-panel-header">
+    <h1 class="fs-panel-title">Confirm your email</h1>
+  </div>
+
+  <div class="fs-panel-body">
+    <p>We sent a code to <span class="text-highlight">example@email.com</span>.</p>
+    <p>The link will expire shortly. If you don’t see the email, check your spam folder.</p>
+    <form>
+      {% set input = {
+        slug: "confirmSignupEmail",
+        title: "Confirmation code",
+        type: "text",
+        passthroughAttributes: "required"
+      } %}
+      {% include "partials/fs-components/fs-inputGroup-core-text.njk" %}
+
+      <div id="inputGroup-continue" class="fs-inputGroup fs-btn-group">
+        <button class="fs-btn btn-primary btn-lg">
+          <span class="text-label">Continue</span>
+        </button>
+      </div> 
+    </form>         
+  </div>
+
+  <div class="fs-panel-footer">
+    Still can’t find it? <span id="fs-auth-possessionCheck-cooldown">Resend in 29 seconds</span><button hidden id="fs-auth-possessionCheck-btn" class="fs-btn btn-link btn-sm">Resend the email</button>
+  </div>
+
+</div>

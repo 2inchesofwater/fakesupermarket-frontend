@@ -1,3 +1,14 @@
+{# 
+
+  Accepts – 
+  slug                    - string, unique, used for ID attributes.
+  title                   - Required. String, used for the label. HTML-capable.
+  help                    - string. Additional guidance for users, such as a helpful example of valid input.
+  type                    - string. One of the input 'type' options, such as 'text', 'email', or 'password'.
+  passthroughAttributes   - string, used to pass config. HTML-capable. Don't use double-apostrophes.
+
+ #}
+
 <div id="inputGroup-{{ input.slug }}" class="fs-inputGroup fs-inputGroup-text">
   {% if input.title or input.help %}
     <div class="fs-inputGroup-content">
@@ -20,5 +31,8 @@
     <span class="text-label">Enter a {{ input.title }}</span>
   </p>
 
-  <input class="fs-input" id="fs-input-{{ input.slug }}" name="fs-input-{{ input.slug }}" type="{{ input.type }}" {% if input.passthroughAttributes %}{{ input.passthroughAttributes | safe }}{% endif %}>
+  <div id="fs-auth-signin-password" class="fs-btn-group fs-inputGroup-showPassword">
+    <input class="fs-input" id="fs-input-{{ input.slug }}" name="fs-input-{{ input.slug }}" type="{{ input.type }}" {% if input.passthroughAttributes %}{{ input.passthroughAttributes | safe }}{% endif %}>
+    {% if input.type == "password" %}<button class="fs-btn btn-link">Show</button>{% endif %}
+  </div>
 </div>
