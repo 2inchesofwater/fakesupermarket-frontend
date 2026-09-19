@@ -1,0 +1,66 @@
+@use "../fs-variables" as *;
+@use "../fs-styles";
+
+.brandguide {
+  .fs-pageSection {
+    &--siteHero {
+      padding-block: unset;
+      background: var(--fs-color-background-emphasized);
+      .pageSection {
+        &__heading {
+          margin-block-end: unset;
+
+          .line-1 {
+            @extend .fs-typo-pageTitle;
+            margin-block-end: unset;
+            color: var(--fs-color-brand-primary);
+          }
+          .line-2 {
+            @extend .fs-typo-pageHead-default;
+            margin-block-end: unset;
+          }
+        }
+        &__lead {
+          // margin: 0;
+          // @extend .fs-typo-label-default;
+        }  
+        &__focalpoint {
+          p {
+            @extend .fs-typo-displayTitle;
+            margin-block-end: unset;
+          }
+        } 
+      }
+    }
+  }
+}
+
+
+.brandguide {
+  .fs-pageSection {
+    &--siteHero {
+      .grid__wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--fs-spacing-md);
+        align-items: end;
+
+        #siteHero__group-focal {
+          order: 1;
+        }
+
+        #siteHero__group-title {
+          order: 2;
+        }
+
+        @media (min-width: 48rem) {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      .grid__group {
+        min-width: 0;
+      }
+    }
+  }
+}

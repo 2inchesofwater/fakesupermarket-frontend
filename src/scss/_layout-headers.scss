@@ -1,4 +1,4 @@
-@use "variables" as *;
+@use "variables" as *; 
 
 @forward 'fs-components/layout-header-siteroot'; 
 @forward 'fs-components/layout-header-participants'; 
@@ -11,7 +11,7 @@
 @forward 'fs-components/auth-signup-overlay'; 
 @forward 'fs-components/auth-profile_settings-overlay'; 
 @forward 'fs-components/auth-client_settings-overlay'; 
-@forward 'fs-components/auth-end_early-overlay'; 
+@forward 'fs-components/auth-end_early-overlay';   
 
 .fs-header {
 	position: relative;

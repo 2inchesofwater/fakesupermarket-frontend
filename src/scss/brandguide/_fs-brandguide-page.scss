@@ -1,0 +1,28 @@
+@use "../_fs-variables";
+@use "../_fs-styles";
+
+body.brandguide {
+  --fs-section-radius-default: 10vh;
+  --fs-section-gap: 10vh;
+  --fs-section-padding-inline: 5vw;
+
+  --fs-section-inner-gridGap-sm: var(--fs-spacing-md);
+  --fs-section-inner-gridGap-lg: var(--fs-spacing-lg);  
+}
+
+
+body {
+  margin: 0;
+  color: var(--fs-color-text-primary);
+  background: var(--fs-color-background-page);
+  @extend .fs-typo-body-default;
+}
+
+a {
+  color: inherit;
+}
+
+
+// .section + .page {
+// 	margin-block-start: 10vh;
+// }

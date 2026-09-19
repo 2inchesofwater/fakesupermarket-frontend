@@ -1,7 +1,8 @@
-@use 'variables';       		// CSS and Sass variables for storefronts
+// @use 'variables';       		// CSS and Sass variables for storefronts
 @use 'fs-variables';			// CSS and Sass variables for FS pages and branding
 
 @use 'fs-styles';
+
 @use 'fs-advice';
 @use 'fs-auth';
 @use 'fs-badge';
@@ -9,7 +10,6 @@
 @use 'fs-completionsBoostIncentivesOverlay';
 @use 'fs-buttons';
 @use 'fs-carousel';
-@use 'fs-chartcolors';
 @use 'fs-clientDashboard';
 @use 'fs-completionGroup';
 @use 'fs-completionChart';
@@ -49,9 +49,8 @@
 @use 'fs-stepper';
 @use 'fs-tiles'; 
 
-
-@forward 'fonts';
-@forward 'typography';
+// @forward 'fonts';
+// @forward 'typography';
 @forward 'components/accessibility';
 @forward 'components/accordion';
 @forward 'components/badge';
@@ -87,6 +86,8 @@
 @forward 'layout-headers';
 @forward 'layout-footer';
 
+@use 'participants/participants-main';
+@use 'brandguide/brandguide-main';
 
 // Storefront-specific stylesheets
 @forward 'storefront-supermarket/_supermarket-header';

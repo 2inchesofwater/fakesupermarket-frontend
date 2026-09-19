@@ -1,0 +1,32 @@
+{% macro contentQuestionsList(items, size="md") %}
+  <div class="fs-content fs-content--questionsList fs-listBlock-{{ size }}">
+    {% for item in items %}
+      <details class="fs-content__inner"{% if loop.first %} open{% endif %}>
+        <summary class="fs-content__summary">
+          <span class="fs-accordion-markerGroup" aria-hidden="true">
+            <svg class="fs-accordion-marker-icon svg-closed" viewBox="0 0 24 24" focusable="false">
+              <use href="#marker-closed"></use>
+            </svg>
+            <svg class="fs-accordion-marker-icon svg-open" viewBox="0 0 24 24" focusable="false">
+              <use href="#marker-open"></use>
+            </svg>
+          </span>         
+          <div class="fs-content__header">
+          {% if item.eyebrow %}
+            <span class="fs-eyebrow">{{ item.eyebrow | safe }}</span>
+          {% endif %}
+          <span class="fs-content__heading">{{ item.title | safe }}</span>
+          </div>
+        </summary>
+
+        {% if item.body %}
+          <div class="fs-content__group">
+            {% for paragraph in item.body %}
+              <p>{{ paragraph | safe }}</p>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </details>
+    {% endfor %}
+  </div>
+{% endmacro %}

@@ -1,0 +1,7 @@
+// @use "shared/fs-variables" as *;
+// @use "shared/fs-styles";
+
+.typo-specimens .content-page__body {
+	display: flex;
+	gap: var(--fs-spacing-xl);
+}

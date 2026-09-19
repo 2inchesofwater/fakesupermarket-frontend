@@ -1,0 +1,27 @@
+@use "../fs-variables" as *;
+@use "../fs-styles";
+
+.fs-pageSection {
+  &--twoColumn {
+  	.pageSection {
+			&__inner {
+				display: grid;
+				grid-template-columns: minmax(0, 1fr);
+				grid-gap: var(--fs-spacing-2xs);
+				column-gap: var(--fs-spacing-lg);
+				max-width: var(--fs-content-width-pageColumn);
+				margin-inline: auto;	  
+				list-style: none;
+
+			  @container (width > #{$fs-content-width-contentBody}) {
+			    grid-template-columns: repeat(2, 1fr);
+			  }
+			}
+			&__group { 
+				&:nth-of-type(2) {
+					margin-block-start: var(--fs-spacing-sm);
+				}
+			}
+	}
+}
+}

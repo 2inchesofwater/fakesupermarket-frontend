@@ -1,0 +1,16 @@
+<div class="fs-card fs-card--content">
+  {% if card.data.status %}
+    <div class="fs-card__status fs-badge {{ card.data.statusClass }}">
+      {{ card.data.status | capitalize }}
+    </div>
+  {% endif %}
+  <h2 class="fs-card__heading">
+      {{ card.data.title }}
+  </h2>
+  {% if card.data.description %}
+    <p class="fs-card__body">
+      {{ card.data.description }}
+    </p>
+  {% endif %}
+
+</div>

@@ -1,0 +1,46 @@
+@use "../fs-variables" as *;
+@use "../fs-styles";
+
+.fs-pageSection {
+  &--pageHero {
+    // padding-block: var(--fs-padding-section-block);
+    // padding-inline: var(--fs-spacing-2xl);
+    // background: var(--fs-color-background-default);
+    // border-block-end: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+
+    .pageSection {
+      &__inner {
+        display: grid;
+        row-gap: var(--fs-section-inner-gridGap-sm);
+        width: 100%;
+        @container (width > #{$fs-content-width-contentBody}) {
+          grid-template-columns: 1fr 1fr;
+          column-gap: var(--fs-section-inner-gridGap-lg);
+          align-content: center;
+          align-items: center;
+          max-width: var(--fs-content-width-pageColumn);
+          margin-inline: auto;    
+          // padding: 0;
+          > *:nth-of-type(1) {
+            justify-self: end;
+          }
+          > *:nth-of-type(2) {
+            justify-self: start;
+          }
+        }
+      }
+      &__heading {
+        @extend .fs-typo-pageTitle;
+      }
+      &__kicker {
+        @extend .fs-typo-label-default;
+      }
+      &__body {
+        p {
+          @extend .fs-typo-label-default;
+        }
+      }
+    }
+  }
+}
+

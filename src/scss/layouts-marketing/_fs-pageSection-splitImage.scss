@@ -1,0 +1,36 @@
+@use "../fs-variables" as *;
+@use "../fs-styles";
+
+.fs-pageSection--splitImage {
+	.pageSection {
+		&__inner {
+			display: grid;
+			row-gap: var(--fs-spacing-xl);
+			width: 100%;
+			@container (width > #{$fs-content-width-contentBody}) {
+				grid-template-columns: 1fr 1fr;
+				column-gap: var(--fs-spacing-xl);
+				align-content: center;
+	  		align-items: center;
+	  		max-width: none;
+	  		margin-inline: auto;	  
+				// padding: 0;
+	  		> *:nth-of-type(1) {
+	  			justify-self: end;
+	  		}
+	   		> *:nth-of-type(2) {
+	  			justify-self: start;
+	  		}
+			}		
+		}
+		&__group {
+			width: auto;
+			max-width: 100%;
+			@container (width > #{$fs-content-width-contentBody}) {
+				max-width: calc(var(--fs-content-width-pageColumn) / 1.5);
+				margin-inline: auto;
+			}
+		}
+	}
+
+}

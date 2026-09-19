@@ -1,0 +1,45 @@
+@use "../fs-variables" as *;
+@use "../fs-styles";
+
+.fs-pageSection {
+	container-type: inline-size;
+	padding-inline: var(--fs-spacing-md);
+	@media (min-width: #{$screen-md}) {
+		padding-inline: var(--fs-padding-section-inline);
+	}
+
+	.pageSection {
+		&__inner {
+			margin-inline: auto;
+			padding-block: calc(var(--fs-padding-section-block) - var(--fs-spacing-md));
+			@container (min-width: #{$fs-content-width-pageColumn}) {
+				padding-block: var(--fs-padding-section-block);
+				max-width: var(--fs-content-width-pageColumn);
+			}
+		}
+		.__group {}	
+		&__header {
+			text-align: start;
+		}
+		&__heading {
+			@extend .fs-typo-pageTitle;
+		}
+		&__lead {
+			p:nth-of-type(1) {
+				@extend .fs-typo-body-major;
+			}
+			margin-block-start: var(--fs-spacing-md);
+			margin-block-end: var(--fs-spacing-sm);
+			color: var(--fs-color-text-secondary);
+		}
+		&__body {
+			color: var(--fs-color-text-secondary);
+		}		
+	}
+	p {
+		@extend .fs-typo-body-default;
+		& + p {
+			margin-block-start: var(--fs-spacing-md);
+		}			
+	}	
+}

@@ -6,7 +6,7 @@
 {% macro navLinkItem(label, url, className='', iconPath='', iconCreator='') %}
   <a href="{{ url }}" class="nav-link fs-btn btn-icon {{ className }}">    
     {% if iconPath != '' %}
-      {% set svgContent = ('src/images/icons/' + iconPath) | fs %}
+      {% set svgContent = ('src/assets/images/icons/' + iconPath) | fs %}
       <span class="icon {{ className | safe }}">
           {{ svgContent | safe }}
       </span>

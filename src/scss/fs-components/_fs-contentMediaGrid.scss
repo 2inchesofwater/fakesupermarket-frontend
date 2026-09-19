@@ -1,0 +1,26 @@
+@use "../fs-variables" as *;
+@use "../fs-styles";
+
+.fs-contentMediaGrid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: calc(var(--fs-media-grid-spacing));
+	row-gap: calc(var(--fs-media-grid-spacing));
+
+	.fs-columnMedia__item {
+	  aspect-ratio: 3 / 4;
+	  background: var(--fs-media-background-default);
+	  border: var(--fs-media-borderWidth-sm) solid var(--fs-media-background-focus);
+	  border-radius: var(--fs-media-radius-sm);
+	  .__asset {
+	  	mix-blend-mode: darken;
+	  }	  
+	  &:nth-child(even) {
+	  	margin-block-start: var(--fs-spacing-xl);
+	  	margin-block-end: calc(var(--fs-spacing-xl) * -1);
+	  }
+	  &:nth-child(2) {
+	  	background: var(--fs-media-background-focus);
+	  }	
+	}	
+}

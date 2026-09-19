@@ -1,0 +1,48 @@
+{% macro siteHero(hero) %}
+
+{% from "../fs-components/fs-contentFeaturesList.njk" import contentFeaturesList as renderFeaturesList %}
+{% from "../fs-components/fs-contentMediaColumn.njk" import contentMediaColumn as renderMediaColumn %}
+
+<section id="hero-{{ slug }}" class="fs-pageSection fs-pageSection--siteHero"
+		{% if hero.backgroundImage %}
+			style="--hero-background-image: url('{{ hero.backgroundImage | url }}');"
+		{% endif %}
+>
+	<div class="pageSection__inner">
+		<div class="pageSection__group">
+			<div class="pageSection__header">
+				{% if hero.eyebrow %}
+					<p class="pageSection__eyebrow">{{ hero.eyebrow | safe }}</p>
+				{% endif %}
+
+				<h1 class="pageSection__heading">{{ hero.heading | safe }}</h1>
+
+				{% if hero.body %}
+					<p class="pageSection__lead">{{ hero.body | safe }}</p>
+				{% endif %}
+			</div>
+
+			{% if hero.buttons and hero.buttons.length %}
+				<div class="fs-btn-group">
+					{% for button in hero.buttons %}
+						<a
+							class="{% if loop.first %}fs-btn btn-lg btn-primary{% else %}fs-btn btn-link{% endif %}"
+							href="{{ button.href }}"
+						>
+							{{ button.label | safe }}
+						</a>
+					{% endfor %}
+				</div>
+			{% endif %}
+			{% if hero.keypoints %}
+				{{ renderFeaturesList(hero.keypoints, size="sm") }}
+			{% endif %}
+		</div>
+	{% if hero.foregroundImage %}
+		<div class="pageSection__group">
+			{{ renderMediaColumn(hero.foregroundImage) }}
+		</div>
+	{% endif %}
+	</div>
+</section>
+{% endmacro %}

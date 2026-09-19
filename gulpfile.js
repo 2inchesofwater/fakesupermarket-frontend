@@ -4,7 +4,71 @@ const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const esbuild = require('gulp-esbuild');
+const mergeStream = require('merge-stream');
 const { exec } = require('child_process');
+const path = require('path');
+
+const brandGuideProject = path.join(
+  __dirname,
+  '../fakesupermarket-brandguide'
+);
+
+const participantsProject = path.join(
+  __dirname,
+  '../fakesupermarket-participants'
+);
+
+const sharedScssSources = [
+  path.join(__dirname, 'src/scss/_fs-variables.scss'),
+  path.join(__dirname, 'src/scss/_fs-styles.scss')
+];
+
+const sharedNunjucksSources = [
+  path.join(__dirname, 'src/_includes/partials/**/*'),
+];
+
+const brandGuideVariablesDestination = path.join(
+  brandGuideProject,
+  'src/assets/scss/shared'
+);
+
+const participantsVariablesDestination = path.join(
+  participantsProject,
+  'src/assets/scss/shared'
+);
+
+const brandGuideCssDestination = path.join(
+  brandGuideProject,
+  'src/assets/css'
+);
+
+const participantsCssDestination = path.join(
+  participantsProject,
+  'src/assets/css'
+);
+
+const brandGuideNunjucksDestination = path.join(
+  brandGuideProject,
+  'src/_includes/partials'
+);
+const participantsNunjucksDestination = path.join(
+  participantsProject,
+  'src/_includes/partials'
+);
+
+function copySharedVariables() {
+  return src(sharedScssSources)
+    .pipe(dest(brandGuideVariablesDestination))
+    .pipe(dest(participantsVariablesDestination));
+}
+function copySharedNunjucks() {
+  return src(sharedNunjucksSources, {
+    base: path.join(__dirname, 'src/_includes/partials')
+  })
+    .pipe(dest(participantsNunjucksDestination))
+    .pipe(dest(brandGuideNunjucksDestination));
+}
+
 
 // Sass compilation task
 function compileSass() {
@@ -15,9 +79,16 @@ function compileSass() {
 
 // CSS processing task (just minification, no autoprefixer)
 function css() {
-  return src('src/css/**/*.css')
+  const siteCss = src('src/css/**/*.css')
     .pipe(postcss([cssnano()]))
     .pipe(dest('_site/css'));
+
+  const participantsCss = src('src/css/index.css')
+    .pipe(postcss([cssnano()]))
+    .pipe(dest(brandGuideCssDestination))
+    .pipe(dest(participantsCssDestination));
+
+  return mergeStream(siteCss, participantsCss);
 }
 
 // JavaScript bundling task
@@ -56,10 +127,12 @@ function eleventyServe(cb) {
 
 // Watch task
 function watchFiles() {
+  watch(sharedScssSources, copySharedVariables);
+  watch(sharedNunjucksSources, copySharedNunjucks);
+
   watch('src/scss/**/*.scss', compileSass);
   watch('src/css/**/*.css', css);
   watch('src/js/**/*.js', js);
-  // Eleventy has its own watch through --serve
 }
 
 // Clean task (optional)
@@ -71,6 +144,7 @@ function clean(cb) {
 
 // Build task for production
 const build = series(
+  parallel(copySharedVariables, copySharedNunjucks),
   compileSass,
   parallel(css, js),
   eleventy
@@ -78,12 +152,15 @@ const build = series(
 
 // Dev task for development
 const dev = series(
+  parallel(copySharedVariables, copySharedNunjucks),
   compileSass,
   parallel(css, js),
   parallel(eleventyServe, watchFiles)
 );
 
 exports.clean = clean;
+exports.copySharedVariables = copySharedVariables;
+exports.copySharedNunjucks = copySharedNunjucks;
 exports.sass = compileSass;
 exports.css = css;
 exports.js = js;

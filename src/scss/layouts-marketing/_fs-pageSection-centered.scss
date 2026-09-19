@@ -1,0 +1,15 @@
+@use "../fs-variables" as *;
+@use "../fs-styles";
+
+.fs-pageSection--centered {
+	.pageSection {
+		&__inner {}
+		&__group {
+			width: 100%;
+			max-width: var(--fs-content-width-contentBody);
+			margin-inline: auto;
+		}
+		&__header,
+		&__body {}
+	}
+}

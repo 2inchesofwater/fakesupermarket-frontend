@@ -1,0 +1,22 @@
+@use "../fs-variables" as *;
+@use "../fs-styles";
+
+.fs-card {
+  &.fs-card--content {
+    display: block;
+    padding: var(--fs-spacing-xl);
+
+    color: var(--fs-color-text-primary);
+    background-color: var(--fs-color-background-subtle);
+    border: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+    border-radius: var(--fs-radius-lg);
+  }
+  &__heading {
+    @extend .fs-typo-panelHead-major;
+  }
+  .fs-card__body {
+    @extend .fs-typo-body-minor;
+    color: var(--fs-color-text-tertiary);
+    margin: 0;
+  }
+}

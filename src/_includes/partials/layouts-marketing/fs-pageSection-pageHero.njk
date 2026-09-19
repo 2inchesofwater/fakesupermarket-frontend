@@ -1,0 +1,19 @@
+{% macro pageHero(hero) %}
+  <section id="hero-{{ slug }}" class="fs-pageSection fs-pageSection--pageHero">
+    <div class="pageSection__inner">
+      <div class="pageSection__header">
+        {% if hero.eyebrow %}
+          {% if hero.eyebrowURL %}<a href="{{ hero.eyebrowURL | safe }}">{% endif %}
+            <p class="pageSection__eyebrow">{{ hero.eyebrow | safe }}</p>
+          {% if hero.eyebrowURL %}</a>{% endif %}
+        {% endif %}
+
+        <h1 class="pageSection__heading">{{ hero.title | safe }}</h1>
+
+        {% if hero.description %}
+          <p class="pageSection__kicker">{{ hero.description | safe }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endmacro %}

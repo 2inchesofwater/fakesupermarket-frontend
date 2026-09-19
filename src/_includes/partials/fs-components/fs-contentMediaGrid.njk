@@ -1,0 +1,17 @@
+{% from "./fs-contentMediaItem.njk" import mediaItem %}
+
+{% macro contentMediaGrid(data) %}
+
+  <div class="fs-contentMedia fs-contentMediaGrid">
+    {% for item in data %}
+      <figure class="fs-columnMedia__item">
+        {{ mediaItem(item) }}
+
+        {% if item.caption %}
+          <figcaption class="fs-columnMedia__caption">{{ item.caption | safe }}</figcaption>
+        {% endif %}
+      </figure>
+    {% endfor %}
+  </div>
+
+{% endmacro %}

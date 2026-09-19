@@ -1,0 +1,25 @@
+{% macro mediaItem(media) %}
+
+  {% if media.type == "video" %}
+    <video
+      class="__asset"
+      {% if media.width %}width="{{ media.width }}"{% endif %}
+      {% if media.height %}height="{{ media.height }}"{% endif %}
+      {% if media.poster %}poster="{{ media.poster }}"{% endif %}
+      controls
+    >
+      <source src="{{ media.src }}">
+    </video>
+
+  {% else %}
+    <img
+      class="__asset"
+      src="{{ media.src }}"
+      alt="{{ media.alt | default('') }}"
+      {% if media.width %}width="{{ media.width }}"{% endif %}
+      {% if media.height %}height="{{ media.height }}"{% endif %}
+      loading="lazy"
+    >
+  {% endif %}
+
+{% endmacro %}

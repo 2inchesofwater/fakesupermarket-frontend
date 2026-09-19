@@ -1,0 +1,48 @@
+@use "../fs-styles";
+@use "../fs-variables";
+
+.fs-pageSection.fs-pageSection--footer {
+	background-color: var(--fs-color-text-primary);
+	margin-inline: auto;
+	padding-inline: 5vw;
+	width: 100%;  	
+}
+.fs-pageSection--footer {  
+  .pageSection {
+		&__inner {
+	    max-width: var(--fs-content-width-column);
+	    margin-inline: auto;
+			display: grid;
+			flex-direction: column;
+			gap: var(--fs-spacing-md);
+			@media (min-width: 48rem) {
+				grid-template-columns: 2fr 1fr;
+				column-gap: var(--fs-spacing-lg);
+			}
+		}
+		&__group {
+			&#tail {
+				align-self: end;
+			}
+			&#links {
+				align-self: end;
+			}
+		}
+		&__heading {
+			@extend .fs-typo-panelHead-minor;
+			margin-block-end: var(--fs-spacing-xs);
+			color: var(--fs-color-gray-300);		
+		}
+		&__body {
+			> * {
+				@extend .fs-typo-body-micro;
+				color: var(--fs-color-gray-500);
+			}
+			ul {
+				li {
+					list-style: none;
+				}
+			}
+		}
+	}
+}

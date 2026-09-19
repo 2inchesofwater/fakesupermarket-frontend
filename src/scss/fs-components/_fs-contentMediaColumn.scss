@@ -1,0 +1,14 @@
+@use "../fs-variables" as *;
+@use "../fs-styles";
+
+.fs-contentMediaColumn {
+	.fs-columnMedia__item {
+	  aspect-ratio: 4 / 3;
+	  background: var(--fs-media-background-default);
+	  border: var(--fs-media-borderWidth-default) solid var(--fs-color-brand-secondary);
+	  border-radius: var(--fs-media-radius-default);
+	  .__asset {
+	  	mix-blend-mode: darken;
+	  }	  
+	}	
+}

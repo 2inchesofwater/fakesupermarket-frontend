@@ -1,0 +1,10 @@
+<a href="{{ card.url }}" class="fs-card fs-card--nav">
+  <h2 class="fs-card__heading">
+      {{ card.data.title }}
+  </h2>
+  {% if card.data.description %}
+    <p class="fs-card__body">
+      {{ card.data.description }}
+    </p>
+  {% endif %}
+</a>

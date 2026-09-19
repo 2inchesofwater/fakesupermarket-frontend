@@ -56,6 +56,7 @@ a {
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: auto;
+  background-color: wheat;
 
   &:hover {
     color: var(--hover);
@@ -150,9 +151,7 @@ footer h2.heading {
 .text-tertiary {
 	color: var(--fs-color-text-tertiary);
 }
-.text-highlight {
-	background-color: var(--fs-color-core-100);
-}
+
 
 
 ul, ol, menu {
@@ -193,6 +192,7 @@ ul, ol, menu {
 .strikethrough {
 	text-decoration: line-through;
 }
+
 
 sup {
 	filter: opacity(0.5);

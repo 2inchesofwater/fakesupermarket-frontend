@@ -1,0 +1,183 @@
+@use "../fs-variables" as *;
+@use "../fs-styles";
+
+body#page-participants {
+
+	--fs-section-radius-default: 10vh;
+	--fs-section-padding-inline: 5vw;
+
+	--fs-media-background-default: var(--fs-color-brand-secondary);
+	--fs-media-background-focus: var(--fs-color-white);
+	--fs-media-borderWidth-sm: clamp(4px, 1vw, 0.5rem);
+	--fs-media-borderWidth-default: clamp(0.5rem, 2.5vw, 0.5rem);
+	--fs-media-radius-sm: var(--fs-radius-xl);
+	--fs-media-radius-default: 2.5vh;
+	--fs-media-grid-spacing: clamp(4px, 1.5vw, 0.5rem); 
+
+	background: var(--fs-color-background-default);
+	@extend .fs-typo-body-default;
+	color: var(--fs-color-text-primary);
+	margin-block-end: 0;
+
+	> #header-positioning {
+		position: fixed;
+		top: 0;
+		left:0;
+		right: 0;
+		z-index: 1000;
+		width: auto;
+		max-width: 100%;
+		margin: var(--fs-spacing-xs);
+	}
+	header#header-participants {
+		padding-block: var(--fs-spacing-xs);
+		border-radius: 10vh;
+		@media (min-width: #{$fs-content-breakpoint}) {
+			width: calc((100% - (var(--fs-padding-section-inline) * 2) + var(--fs-logo-size-sm) ));
+			margin-inline: calc(var(--fs-padding-section-inline) - var(--fs-logo-size-sm)/2);
+		}
+		.container {
+			margin-inline: var(--fs-spacing-xs);
+		}
+		#nav-main {
+			padding-inline: unset;
+		}
+	}
+	#header-participants-auth {
+		margin-inline-end: var(--fs-spacing-md);
+		pointer-events: none;
+	}
+
+	> main.page {
+		gap: var(--fs-section-gap);
+		max-width: none;
+		padding-inline: 0;
+		padding-block-start: 0;
+		> section {
+			margin-inline: auto;
+	    width: 100%;
+	    max-width: var(--fs-screen-xl);
+	    padding-inline: var(--fs-section-padding-inline);			
+		}
+	}
+
+	.fs-list-unstyled {
+		margin-block: var(--fs-spacing-md);
+		margin-inline-start: var(--fs-spacing-sm);
+		margin-inline-end: 0;
+		padding: 0;
+
+		li {
+			list-style: none;
+			color: var(--fs-color-text-tertiary);
+			& + li {
+				margin-block-start: var(--fs-spacing-md);
+			}
+		}
+	}
+}
+
+
+
+#page-participants {
+	.fs-pageSection--siteHero {
+		background-color: var(--fs-color-brand-secondary);
+		border-bottom-left-radius: var(--fs-section-radius-default);
+		border-bottom-right-radius: var(--fs-section-radius-default);
+
+	  @media (max-width: #{$fs-content-breakpoint}) {
+	  	padding-block-end: 0;
+	  }
+		.pageSection__group:nth-of-type(2) {
+			margin-block-end: calc(var(--fs-spacing-xl) * -1);
+		}
+	}
+
+	#closing-summary {
+		// padding-block: 0;
+		.pageSection  {
+			&__inner {
+				background-color: var(--fs-color-brand-secondary);
+				width: 100%;
+				max-width: none;
+				margin-inline: auto;
+				padding-inline: var(--fs-section-padding-inline);
+				border-top-left-radius: var(--fs-section-radius-default);
+				border-top-right-radius: var(--fs-section-radius-default);
+				> * {
+					max-width: var(--fs-content-width-pageColumn);
+					margin-inline: auto;
+				}
+			}
+			&__header,
+			&__body {
+				width: 100%;
+			}
+			&__heading {
+				@extend .fs-typo-displayTitle;
+				text-wrap: balance;
+			}
+			&__lead {
+				color: var(--fs-color-text-primary);
+			}		
+		}
+	}
+
+	.fs-pageSection--siteHero,
+	#closing-summary {
+		.fs-btn {
+			pointer-events: none;
+		}		
+		.fs-content--featuresList {
+			margin-block-start: var(--fs-spacing-xl);
+			margin-block-end: 0;
+			@container (min-width: #{$fs-content-breakpoint}) {
+				column-rule-color: transparent;
+				row-rule-color: transparent;
+			}
+			p {
+				color: var(--fs-color-text-primary);
+			}			
+		}	
+		.fs-content__inner {
+			min-height: 0;
+			padding-inline: var(--fs-spacing-sm);
+		}			
+	}		
+}
+
+#page-participants {
+	#just-shop-normal {
+		width: auto;
+		margin-inline: 0;
+
+		.pageSection__inner {
+			background-color: var(--fs-color-brand-secondary);
+			border-radius: var(--fs-section-radius-default);
+			padding-inline: var(--fs-padding-section-inline);
+			@container (min-width: var(--fs-content-breakpoint)) {
+				margin-inline: var(--fs-padding-section-inline);
+			}
+		}
+		.pageSection__group {
+			padding-block: unset;
+		}
+		p,
+		li {
+			color: var(--fs-color-text-primary);
+		}
+	}
+	#how-fake-supermarket-works {
+		.fs-content.fs-listBlock-md {
+			margin-block: 0;
+		}
+	}
+}
+
+body#page-participants footer {
+	margin-inline: auto;
+  max-width: var(--fs-screen-xl);
+  padding-inline: 5vw;
+  width: 100%;
+}
+
