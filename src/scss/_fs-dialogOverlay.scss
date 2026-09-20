@@ -24,9 +24,9 @@
 		overlay 300ms ease allow-discrete;
 
 	background: var(--color-background-page);
-	outline: var(--fs-thickness-lg) solid var(--fs-color-bright-orange-middle);
-	border: var(--fs-thickness-md) solid var(--fs-color-brand-primary);
-	border-radius: var(--fs-radius-lg);	
+	// outline: var(--fs-thickness-lg) solid var(--fs-color-bright-orange-middle);
+	border: var(--fs-thickness-xl) solid var(--fs-color-brand-primary);
+	border-radius: var(--fs-radius-xl);	
 
 	@media (width >= 420px ) {
 		max-width: 420px;
@@ -56,9 +56,9 @@
 	&[open]::backdrop {
 		// background: rgb(0 0 0 / 0.45);
 		background:  //var(--color-backdrop-default);
-	    linear-gradient(217deg, var(--color-core-400), transparent 90.71%),
-	    linear-gradient(127deg, var(--color-bright-orange-light), transparent 90.71%),
-	    linear-gradient(336deg, var(--color-bright-orange-middle), transparent 90.71%);		
+	    linear-gradient(217deg, transparent 2%, var(--fs-color-bright-maize-middle)),
+	    linear-gradient(127deg, transparent 2%, var(--fs-color-bright-maize-dark)),
+	    linear-gradient(336deg, transparent 98%, var(--fs-color-bright-maize-light));		
 	}
 
 
@@ -82,7 +82,7 @@
 		padding-inline-end: var(--fs-spacing-md);
 		padding-block-end: var(--fs-spacing-sm);
 		background: var(--fs-color-background-header);
-		border-block-end: var(--fs-thickness-sm) solid var(--fs-color-border-light);
+		border-block-end: var(--fs-thickness-sm) solid var(--fs-color-border-default);
 
 		.fs-dialog-title {
 			flex: 1;

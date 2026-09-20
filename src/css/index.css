@@ -1883,9 +1883,8 @@ details.fs-details .fs-details-panel {
   transform: translateX(110%);
   transition: transform 300ms ease, opacity 180ms ease 120ms, display 300ms ease allow-discrete, overlay 300ms ease allow-discrete;
   background: var(--color-background-page);
-  outline: var(--fs-thickness-lg) solid var(--fs-color-bright-orange-middle);
-  border: var(--fs-thickness-md) solid var(--fs-color-brand-primary);
-  border-radius: var(--fs-radius-lg);
+  border: var(--fs-thickness-xl) solid var(--fs-color-brand-primary);
+  border-radius: var(--fs-radius-xl);
 }
 @media (width >= 420px) {
   .fs-dialog-overlay {
@@ -1902,7 +1901,7 @@ details.fs-details .fs-details-panel {
   transition: background 300ms ease, display 300ms ease allow-discrete, overlay 300ms ease allow-discrete;
 }
 .fs-dialog-overlay[open]::backdrop {
-  background: linear-gradient(217deg, var(--color-core-400), transparent 90.71%), linear-gradient(127deg, var(--color-bright-orange-light), transparent 90.71%), linear-gradient(336deg, var(--color-bright-orange-middle), transparent 90.71%);
+  background: linear-gradient(217deg, transparent 2%, var(--fs-color-bright-maize-middle)), linear-gradient(127deg, transparent 2%, var(--fs-color-bright-maize-dark)), linear-gradient(336deg, transparent 98%, var(--fs-color-bright-maize-light));
 }
 .fs-dialog-overlay .fs-dialog-header {
   display: flex;
@@ -1914,7 +1913,7 @@ details.fs-details .fs-details-panel {
   padding-inline-end: var(--fs-spacing-md);
   padding-block-end: var(--fs-spacing-sm);
   background: var(--fs-color-background-header);
-  border-block-end: var(--fs-thickness-sm) solid var(--fs-color-border-light);
+  border-block-end: var(--fs-thickness-sm) solid var(--fs-color-border-default);
 }
 .fs-dialog-overlay .fs-dialog-header .fs-dialog-title {
   flex: 1;
@@ -7718,7 +7717,6 @@ body#page-participants header#header-participants #nav-main {
 }
 body#page-participants #header-participants-auth {
   margin-inline-end: var(--fs-spacing-md);
-  pointer-events: none;
 }
 body#page-participants > main.page {
   gap: var(--fs-section-gap);
