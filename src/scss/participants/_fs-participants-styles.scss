@@ -26,9 +26,9 @@ body#page-participants {
 		padding-block-start: 0;
 		> section {
 			margin-inline: auto;
-	    width: 100%;
-	    max-width: var(--fs-screen-xl);
-	    padding-inline: var(--fs-section-padding-inline);			
+		    width: 100%;
+		    max-width: var(--fs-screen-xl);
+		    padding-inline: var(--fs-section-padding-inline);			
 		}
 	}
 
@@ -54,9 +54,6 @@ body#page-participants {
 		.fs-contentMedia {
 			&__item {
 		  	border: var(--fs-media-borderWidth-sm) solid var(--fs-media-background-default);
-			  img {
-			  	aspect-ratio: 3 / 4;
-			  }
 			  &:nth-child(even) {
 			  	margin-block-start: var(--fs-spacing-xl);
 			  	margin-block-end: calc(var(--fs-spacing-xl) * -1);
@@ -73,13 +70,17 @@ body#page-participants {
 	.fs-contentMedia--grid {
 		.fs-contentMedia {
 		  &__containsCaption {
-		  	background: var(--fs-media-background-focus);	
+		  	background: var(--fs-media-background-focus);
+			  img {
+			  	aspect-ratio: 3 / 4;
+			  }		  		
 		  }	
 		}
 	}
 	.fs-pageSection--siteHero .fs-contentMedia--column {
 		.fs-contentMedia__item {
 			border-color: var(--fs-media-background-focus);
+			background: var(--fs-media-background-focus);
 		}
 	}
 }
@@ -94,6 +95,7 @@ body#page-participants {
 	  	padding-block-end: 0;
 	  }
 		.pageSection__group:nth-of-type(2) {
+			// This margin sucks up some of the excessive padding along the bottom edge of the section.
 			margin-block-end: calc(var(--fs-spacing-xl) * -1);
 		}
 	}
