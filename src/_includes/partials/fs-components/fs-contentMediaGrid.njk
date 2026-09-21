@@ -2,14 +2,19 @@
 
 {% macro contentMediaGrid(data) %}
 
-  <div class="fs-contentMedia fs-contentMediaGrid">
+  <div class="fs-contentMedia fs-contentMedia--grid">
     {% for item in data %}
-      <figure class="fs-columnMedia__item">
-        {{ mediaItem(item) }}
-
+      <figure class="fs-contentMedia__item {% if item.caption %}fs-contentMedia__containsCaption{% endif %}">
         {% if item.caption %}
-          <figcaption class="fs-columnMedia__caption">{{ item.caption | safe }}</figcaption>
+          <div class="fs-contentMedia__wrapper">
         {% endif %}
+        {{ mediaItem(item) }}
+        {% if item.caption %}    
+          </div>
+        {% endif %}
+        {% if item.caption %}
+          <figcaption class="fs-contentMedia__caption">{{ item.caption | safe }}</figcaption>
+        {% endif %} 
       </figure>
     {% endfor %}
   </div>

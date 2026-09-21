@@ -2,7 +2,7 @@
 
   {% if media.type == "video" %}
     <video
-      class="__asset"
+      class="fs-contentMedia__asset"
       {% if media.width %}width="{{ media.width }}"{% endif %}
       {% if media.height %}height="{{ media.height }}"{% endif %}
       {% if media.poster %}poster="{{ media.poster }}"{% endif %}
@@ -13,7 +13,7 @@
 
   {% else %}
     <img
-      class="__asset"
+      class="fs-contentMedia__asset"
       src="{{ media.src }}"
       alt="{{ media.alt | default('') }}"
       {% if media.width %}width="{{ media.width }}"{% endif %}

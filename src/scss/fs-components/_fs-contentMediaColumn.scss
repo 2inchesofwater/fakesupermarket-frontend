@@ -1,14 +1,21 @@
 @use "../fs-variables" as *;
 @use "../fs-styles";
 
-.fs-contentMediaColumn {
-	.fs-columnMedia__item {
-	  aspect-ratio: 4 / 3;
-	  background: var(--fs-media-background-default);
-	  border: var(--fs-media-borderWidth-default) solid var(--fs-color-brand-secondary);
-	  border-radius: var(--fs-media-radius-default);
-	  .__asset {
-	  	mix-blend-mode: darken;
-	  }	  
-	}	
+.fs-contentMedia--column {
+	.fs-contentMedia {
+		isolation: isolate;
+		&__item {
+		  background: var(--fs-media-background-default);
+		  border: var(--fs-media-borderWidth-default) solid var(--fs-color-brand-secondary);
+		  border-radius: var(--fs-media-radius-default);
+		  img {
+		  	aspect-ratio: 4 / 3;
+		  	border-bottom-left-radius: calc(var(--fs-media-radius-default) - var(--fs-media-borderWidth-default));
+		  	border-bottom-right-radius: calc(var(--fs-media-radius-default) - var(--fs-media-borderWidth-default));
+		  }
+		}
+		&__caption {
+			padding-inline: var(--fs-media-borderWidth-default);
+		}	    
+	}
 }

@@ -1,5 +1,14 @@
 @use "../fs-styles";
 
+body.brandguide {
+--fs-media-background-default: var(--fs-color-brand-secondary);
+--fs-media-background-focus: var(--fs-color-white);
+--fs-media-borderWidth-sm: clamp(4px, 1vw, 0.5rem);
+--fs-media-borderWidth-default: clamp(0.5rem, 2.5vw, 0.5rem);
+--fs-media-radius-sm: var(--fs-radius-xl);
+--fs-media-radius-default: 2.5vh;
+--fs-media-grid-spacing: clamp(4px, 1.5vw, 0.5rem);
+}
 
 .brandguide .fs-pageSection--pageHero {
   background: var(--fs-color-background-default);
@@ -215,20 +224,20 @@
 		}				
 	}
 
-	figure {
-		// border: var(--fs-thickness-sm) solid var(--fs-color-border-light);
-		// border-radius: var(--fs-radius-md);
-		// padding: var(--fs-spacing-xl);
-		overflow-x: scroll;
-		+ figure {
-			margin-block-start: var(--fs-spacing-md);
-		}
-		figcaption {
-			// Should be slaved across to use the @label mixin.
-			@extend .fs-typo-label-default;
-		}
-		h2 {
-			margin-block-end: var(--fs-spacing-xs);
-		}
-	} 
+	// figure {
+	// 	// border: var(--fs-thickness-sm) solid var(--fs-color-border-light);
+	// 	// border-radius: var(--fs-radius-md);
+	// 	// padding: var(--fs-spacing-xl);
+	// 	overflow-x: scroll;
+	// 	+ figure {
+	// 		// margin-block-start: var(--fs-spacing-md);
+	// 	}
+	// 	figcaption {
+	// 		// Should be slaved across to use the @label mixin.
+	// 		@extend .fs-typo-label-default;
+	// 	}
+	// 	h2 {
+	// 		margin-block-end: var(--fs-spacing-xs);
+	// 	}
+	// } 
 }

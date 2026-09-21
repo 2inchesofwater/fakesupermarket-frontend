@@ -67,10 +67,12 @@
 			padding-inline: var(--fs-spacing-sm);
 		}		
 
-		.__content {
-			padding-inline: calc( var(--fs-icon-size-sm) + var(--fs-spacing-sm) + var(--fs-spacing-2xs));
-			padding-block-end: var(--fs-spacing-md);
-			min-height: 10vh;
+		.fs-content {
+			&__group {
+				padding-inline: calc( var(--fs-icon-size-sm) + var(--fs-spacing-sm) + var(--fs-spacing-2xs));
+				padding-block-end: var(--fs-spacing-md);
+				min-height: 10vh;
+			}
 		}
 		> details:nth-of-type(1) {
 				summary {

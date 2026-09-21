@@ -1,26 +1,42 @@
 @use "../fs-variables" as *;
 @use "../fs-styles";
 
-.fs-contentMediaGrid {
+.fs-contentMedia--grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	column-gap: calc(var(--fs-media-grid-spacing));
 	row-gap: calc(var(--fs-media-grid-spacing));
+	padding-block-end: calc(var(--fs-spacing-xl) * 1);
+	@container (min-width: #{$fs-content-breakpoint}) {
+		padding-block-end: 0;
+	}
 
-	.fs-columnMedia__item {
-	  aspect-ratio: 3 / 4;
-	  background: var(--fs-media-background-default);
-	  border: var(--fs-media-borderWidth-sm) solid var(--fs-media-background-focus);
-	  border-radius: var(--fs-media-radius-sm);
-	  .__asset {
-	  	mix-blend-mode: darken;
-	  }	  
-	  &:nth-child(even) {
-	  	margin-block-start: var(--fs-spacing-xl);
-	  	margin-block-end: calc(var(--fs-spacing-xl) * -1);
+	.fs-contentMedia {
+		isolation: isolate;
+		&__item {
+		  background: var(--fs-media-background-default);
+		  border: var(--fs-media-borderWidth-sm) solid var(--fs-media-background-default);
+		  border-radius: var(--fs-media-radius-sm);
+		  img {
+		  	aspect-ratio: 3 / 4;
+		  }
+		}
+	  &__containsCaption {
+	  	background: var(--fs-media-background-default);
+	  	position: relative;
+	  	.fs-contentMedia {
+	  		&__wrapper {
+	  			background: var(--fs-media-background-default);
+					overflow: hidden;
+					border-bottom-left-radius: var(--fs-radius-sm);
+					border-bottom-right-radius: var(--fs-radius-sm);
+					@container (min-width: #{$fs-content-breakpoint}) {	  			
+				  	border-bottom-left-radius: calc(var(--fs-media-radius-default) - var(--fs-media-borderWidth-sm));
+				  	border-bottom-right-radius: calc(var(--fs-media-radius-default) - var(--fs-media-borderWidth-sm));
+				  }
+	  		}
+		  }
 	  }
-	  &:nth-child(2) {
-	  	background: var(--fs-media-background-focus);
-	  }	
+	  &__caption {}
 	}	
 }

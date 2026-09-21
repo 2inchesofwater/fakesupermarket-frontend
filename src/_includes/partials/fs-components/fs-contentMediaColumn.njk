@@ -2,13 +2,13 @@
 
 {% macro contentMediaColumn(data) %}
 
-  <div class="fs-contentMedia fs-contentMediaColumn">
+  <div class="fs-contentMedia fs-contentMedia--column">
     {% for item in data %}
-      <figure class="fs-columnMedia__item">
+      <figure class="fs-contentMedia__item">
         {{ mediaItem(item) }}
 
         {% if item.caption %}
-          <figcaption class="fs-columnMedia__caption">{{ item.caption | safe }}</figcaption>
+          <figcaption class="fs-contentMedia__caption">{{ item.caption | safe }}</figcaption>
         {% endif %}
       </figure>
     {% endfor %}
