@@ -10,7 +10,7 @@
 .fs-pageSection--footer {  
   .pageSection {
 		&__inner {
-	    max-width: var(--fs-content-width-column);
+	    max-width: var(--fs-content-width-pageColumn);
 	    margin-inline: auto;
 			display: grid;
 			flex-direction: column;
@@ -37,6 +37,16 @@
 			> * {
 				@extend .fs-typo-body-micro;
 				color: var(--fs-color-gray-500);
+			}
+			a {
+				&:hover,
+				&:focus {
+					color: var(--fs-color-focus-ring);
+				}
+
+				&:focus {
+					outline: var(--fs-thickness-md) solid var(--fs-color-focus-ring);
+				} 
 			}
 			ul {
 				li {

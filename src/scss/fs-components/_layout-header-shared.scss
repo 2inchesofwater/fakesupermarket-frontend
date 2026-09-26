@@ -1,0 +1,52 @@
+@use "../fs-variables" as *;
+@use "../fs-styles";
+
+#page-participants,
+#page-clients {
+	#header-positioning {
+		position: fixed;
+		top: 0;
+		left:0;
+		right: 0;
+		z-index: 1000;
+		width: auto;
+		max-width: 100%;
+		padding: var(--fs-spacing-xs);
+		// background: var(--fs-media-background-default);
+	}
+	.header-compact {
+		display: none;
+	}
+	.header-expanded {
+		display: block;
+	}	
+	.fs-header {
+		padding-block: var(--fs-spacing-xs);
+		border-radius: 10vh;
+		@media (min-width: #{$fs-content-breakpoint}) {
+			width: calc((100% - (var(--fs-padding-section-inline) * 2) + var(--fs-logo-size-sm) ));
+			margin-inline: calc(var(--fs-padding-section-inline) - var(--fs-logo-size-sm)/2);
+		}
+		.container {
+			margin-inline: var(--fs-spacing-xs);
+		}
+		#nav-main {
+			// padding-inline: unset;
+		}
+	}
+	.fs-nav-main {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		align-content: flex-end;
+		flex-wrap: wrap;
+		width: 100%;
+		max-width: $screen-xl;
+		margin-inline: auto;
+		// padding-inline: 5vw;
+	}	
+	.fs-nav-btnGroup {
+		margin-inline-end: var(--fs-spacing-md);
+	}		
+}

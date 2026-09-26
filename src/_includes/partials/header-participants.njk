@@ -4,7 +4,7 @@
 
 <header id="header-{{ pageName }}" class="fs-header">
   <div class="container">
-    <nav id="nav-main" >
+    <nav id="site-navigation" class="fs-nav-main">
 
       <a title="{{ logoDescription }}" href="/pages/{{ storefront.slug }}/#" id="site-logo">
         <svg class="fs-logo-symbol" viewBox="0 0 228 228" aria-hidden="true">
@@ -12,11 +12,12 @@
         </svg>        
       </a> 
 
-      <div id="header-{{ pageName }}-auth">
+      <div id="header-{{ pageName }}-auth" class="fs-nav-btnGroup">
         <div class="header-expanded">
-          <button commandfor="auth-{{ componentName }}-overlay" command="show-modal" aria-label="Open the site menu" class="btn btn-primary" id="auth-{{ componentName }}-menu-btn" type="button">
+              <div class="fs-btn-group"><div class="fs-btn btn-primary">Coming soon</div></div>
+{#           <button commandfor="auth-{{ componentName }}-overlay" command="show-modal" aria-label="Open the site menu" class="btn btn-primary" id="auth-{{ componentName }}-menu-btn" type="button">
             <span class="label">Sign up today</span>
-          </button>
+          </button> #}
         </div>
       </div>
 

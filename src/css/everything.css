@@ -179,7 +179,7 @@
   --fs-size-xl: clamp(1.125rem, 2vw, 1.5rem);
   --fs-size-2xl: 2.2rem;
   --fs-size-3xl: 3.15rem;
-  --fs-size-4xl: clamp(3rem, 8vw, 6.5rem);
+  --fs-size-4xl: clamp(3rem, 6vw, 5rem);
   --fs-size-5xl: 5.6rem;
   --fs-spacing-inset: 1.5vh;
   --fs-spacing-none: 0;

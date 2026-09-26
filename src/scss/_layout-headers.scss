@@ -1,6 +1,7 @@
 @use "variables" as *; 
 
-@forward 'fs-components/layout-header-siteroot'; 
+@forward 'fs-components/layout-header-shared'; 
+@forward 'fs-components/layout-header-clients'; 
 @forward 'fs-components/layout-header-participants'; 
 @forward 'fs-components/layout-header-shoppers'; 
 @forward 'fs-components/layout-header-research'; 
@@ -41,6 +42,10 @@
 	#site-logo {
 		display: flex;
 		position: relative;
+		&:focus {
+			outline: var(--fs-thickness-lg) solid var(--fs-color-focus-ring);
+			outline-offset: var(--fs-thickness-md);
+		}
 		svg {
 			// position: absolute;
 			// top: calc((var(--fs-spacing-md) + var(--fs-spacing-xs)) * -1);

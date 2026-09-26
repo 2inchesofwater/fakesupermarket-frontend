@@ -14,11 +14,12 @@
   <link rel="icon" href="../../images/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">  
 </head>
-<body id="top" class="{{ pagelayout }}">
+<body id="" class="{{ pagelayout }}">
+  <div id="top"></div>
+  {% include "partials/skiplinks.njk" %}
   {% if not skipOnboarding %}
     {% include "partials/fs-onboarding.njk" %}
   {% endif %}
-  {% include "partials/skiplinks.njk" %}
   {% include "partials/modalBackdrop.njk" %}
   
   {% block content %}

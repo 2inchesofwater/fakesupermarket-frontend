@@ -1,22 +1,7 @@
-#header-siteroot {
-	.header-compact {
-		display: block;
-	}
-	.header-expanded {
-		display: none;
-	}
-	@media (min-width: 48rem) {
-		.header-compact {
-			display: none;
-		}
-		.header-expanded {
-			display: block;
-		}
-	}
-}
+#header-clients {}
 
-#header-siteroot,
-#auth-siteroot-overlay {
+#header-clients,
+#auth-clients-overlay {
 	.btn-secondary {
 		background: var(--fs-color-background-active);
 		border-color: var(--fs-color-background-active);

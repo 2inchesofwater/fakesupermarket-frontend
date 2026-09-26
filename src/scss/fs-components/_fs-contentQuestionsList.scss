@@ -37,6 +37,7 @@
 
 	&.fs-listBlock-md {
 		gap: var(--fs-spacing-sm);
+		padding-block: var(--fs-spacing-xs);
 		summary {
 			padding-block: var(--fs-spacing-xs);
 			padding-inline: var(--fs-spacing-xs);
@@ -48,41 +49,21 @@
 					min-height: 25vh;
 				}
 			}
-		}
-		> details:nth-of-type(1) {
-				summary {
-					padding-block-start: calc(var(--fs-spacing-xs) * 2);
-				}
-		}
-		> details:last-of-type {
-				summary {
-					padding-block-end: calc(var(--fs-spacing-xs) * 2);
-				}
 		}		
 	}
 	&.fs-listBlock-lg {
 		gap: var(--fs-spacing-md);
+		padding-block: var(--fs-spacing-sm);
 		summary {
 			padding-block: var(--fs-spacing-sm);
 			padding-inline: var(--fs-spacing-sm);
 		}		
-
 		.fs-content {
 			&__group {
 				padding-inline: calc( var(--fs-icon-size-sm) + var(--fs-spacing-sm) + var(--fs-spacing-2xs));
 				padding-block-end: var(--fs-spacing-md);
 				min-height: 10vh;
 			}
-		}
-		> details:nth-of-type(1) {
-				summary {
-					padding-block-start: calc(var(--fs-spacing-sm) * 2);
-				}
-		}
-		> details:last-of-type {
-				summary {
-					padding-block-end: calc(var(--fs-spacing-sm) * 2);
-				}
 		}				
 	}	
 }
@@ -99,6 +80,9 @@
 	    height: var(--fs-icon-size-sm);
 	    flex-shrink: 0;
 	  }
+	    &:focus-within {
+	    	outline: var(--fs-thickness-lg) solid var(--fs-color-focus-ring);
+	    }	  
 	}
 	summary {
 	  .svg-closed {
