@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use "../fs-styles";
 
 .productDetails {
 	> article {
@@ -68,18 +69,19 @@
 
 		.product-productName {
 			grid-area: productName;
-			font-size: var(--size-xl);
-			margin-bottom: 0;
+			@extend .fs-typo-pageHead-default;
+			margin-block: 0;
 		}
 		.product-grossWeight {
 			grid-area: grossWeight;
-			font-size: var(--size-md);
-			font-weight: var(--weight-regular);
-			color: var(--color-text-tertiary);
+			@extend .fs-typo-body-default;
+			margin-block-end: 0;
 		}
 		.product-brandInfo {
 			grid-area: brandInfo;
-			color: var(--color-text-tertiary);
+			@extend .fs-typo-body-default;
+			margin-block-end: 0;
+			// color: var(--color-text-tertiary);
 		}
 		.product-shortDescription {
 			margin-block-end: var(--spacing-sm);
@@ -104,11 +106,11 @@
 			margin-block-end: var(--spacing-xs);
 			display: flex;
 			flex-direction: column;
+			gap: var(--fs-spacing-xs);
 			@container essentials (width > #{$screen-xs}) {
 				flex-direction: row;
 				gap: var(--spacing-sm);
-				margin-block-start: var(--spacing-xs);
-				margin-block-end: var(--spacing-xs);
+				margin-block-end: var(--spacing-sm);
 			}
 			.product-pricing-topline {
 				display: flex;
@@ -125,15 +127,16 @@
 				align-self: unset;
 			}
 			.price {
-				font-size: var(--size-xl);
-				font-weight: var(--weight-bold);
+				@extend .fs-typo-pageHead-default;
+				margin-block-end: 0;
 				order: -1;
 			}
 			.product-price-value {
 				display: flex;
 				flex-direction: row;
 				gap: var(--spacing-xs);
-				color: var(--color-text-tertiary);
+				@extend .fs-typo-label-default;
+				margin-block-end: 0;
 				@container essentials (width > #{$screen-xs}) {
 					flex: 1;
 					// justify-content: end;

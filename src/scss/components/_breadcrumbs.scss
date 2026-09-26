@@ -16,6 +16,7 @@ nav.breadcrumbs {
         font-weight: var(--weight-light);
         color: var(--color-text-tertiary);
         text-wrap-mode: nowrap; 
+        list-style: none;
         > .fs-unavailable {
             @include fs-styles.fs-unavailable;
         }
