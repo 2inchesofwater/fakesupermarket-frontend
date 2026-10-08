@@ -20,9 +20,11 @@
 		.__group {}	
 		&__header {
 			text-align: start;
+			margin-block-end: var(--fs-spacing-lg);
 		}
 		&__heading {
 			@extend .fs-typo-pageTitle;
+			margin-block-end: 0;
 		}
 		&__lead {
 			p:nth-of-type(1) {

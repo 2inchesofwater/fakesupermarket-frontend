@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {# <base href="http://localhost:8080/" target="_self"> #}
   <title>{% if storefront.storefrontName %}{{ storefront.storefrontName }} | {% endif %}Fake Supermarket</title>
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:url" content="https://fakesupermarket.app/" />
+  <meta property="og:site_name" content="{{ title }}" />
+  <meta property="og:type" content="website" />
+
   <link rel="stylesheet" href="/css/index.css?ver={{ assetVersion }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

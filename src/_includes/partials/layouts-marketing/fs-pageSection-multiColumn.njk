@@ -1,0 +1,50 @@
+{% macro layoutMultiColumn(section) %}
+  <section id="section-{{ section.slug }}" class="fs-pageSection fs-pageSection--multiColumn">
+
+    <div class="pageSection__inner">
+      <div class="pageSection__header">
+        {% if section.eyebrow %}
+          {% if section.eyebrowURL %}
+            <a href="{{ section.eyebrowURL | safe }}">
+          {% endif %}
+              <p class="pageSection__eyebrow">{{ section.eyebrow | safe }}</p>
+          {% if section.eyebrowURL %}
+            </a>
+          {% endif %}
+        {% endif %}
+
+        <h1 class="pageSection__heading">{{ section.title | safe }}</h1>
+
+        {% if section.description %}
+          <p class="pageSection__lead">{{ section.description | safe }}</p>
+        {% endif %}
+      </div>
+
+      <div class="pageSection__group multiColumn__inner">
+        {% for item in section.items %}
+          <div class="multiColumn__item">
+
+            {% if item.image %}
+              <div class="multiColumn__image">
+                <img
+                  src="{{ item.image | safe }}"
+                  alt="{{ item.imageAlt | default('') }}"
+                >
+              </div>
+            {% endif %}
+
+            <div class="multiColumn__header">
+              <h2 class="multiColumn__heading">{{ item.title | safe }}</h2>
+
+              {% if item.description %}
+                <p class="multiColumn__kicker">{{ item.description | safe }}</p>
+              {% endif %}
+            </div>
+
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+  </section>
+{% endmacro %}

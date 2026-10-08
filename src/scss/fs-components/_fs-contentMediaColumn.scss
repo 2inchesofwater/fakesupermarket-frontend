@@ -2,6 +2,9 @@
 @use "../fs-styles";
 
 .fs-contentMedia--column {
+	display: flex; 
+	flex-direction: column;
+	gap: var(--fs-spacing-md);
 	.fs-contentMedia {
 		isolation: isolate;
 		&__item {
@@ -9,9 +12,11 @@
 		  border: var(--fs-media-borderWidth-default) solid var(--fs-color-brand-secondary);
 		  border-radius: var(--fs-media-radius-default);
 		  img {
-		  	aspect-ratio: 4 / 3;
+
 		  	border-bottom-left-radius: calc(var(--fs-media-radius-default) - var(--fs-media-borderWidth-default));
 		  	border-bottom-right-radius: calc(var(--fs-media-radius-default) - var(--fs-media-borderWidth-default));
+		  		aspect-ratio: 4 / 3;
+		  		max-height: 50vh;
 		  }
 		}
 		&__caption {

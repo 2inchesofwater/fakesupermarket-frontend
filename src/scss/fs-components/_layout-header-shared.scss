@@ -23,9 +23,10 @@
 	.fs-header {
 		padding-block: var(--fs-spacing-xs);
 		border-radius: 10vh;
+		margin-inline: var(--fs-spacing-sm);
+		margin-inline: auto;
 		@media (min-width: #{$fs-content-breakpoint}) {
-			width: calc((100% - (var(--fs-padding-section-inline) * 2) + var(--fs-logo-size-sm) ));
-			margin-inline: calc(var(--fs-padding-section-inline) - var(--fs-logo-size-sm)/2);
+			max-width: var(--fs-screen-lg);
 		}
 		.container {
 			margin-inline: var(--fs-spacing-xs);
@@ -47,6 +48,12 @@
 		// padding-inline: 5vw;
 	}	
 	.fs-nav-btnGroup {
-		margin-inline-end: var(--fs-spacing-md);
+		margin-inline-end: var(--fs-spacing-2xs);
+		*:last-child {
+			// border-top-left-radius: 8px;
+			border-top-right-radius: 20px;
+			// border-bottom-left-radius: 8px;
+			border-bottom-right-radius: 20px;
+		}		
 	}		
 }

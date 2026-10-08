@@ -194,18 +194,9 @@ pre {
 .highlight {
   color: var(--fs-color-text-primary);
   position: relative;
-  display: inline-block;
-
-  &:after {
-    content: "";
-    position: absolute;
-    top: -2.5%;
-    left: -2.5%;
-    right: -2.5%;
-    bottom: -2.5%;
-    background: rgb(from var(--fs-color-brand-primary) r g b / 15%);
-    // z-index: -1;
-  }
+  // display: inline-block;
+  box-decoration-break: clone;
+  background: rgb(from var(--fs-color-brand-primary) r g b / 15%);
 }
 
 .fs-forcefield-ripple {

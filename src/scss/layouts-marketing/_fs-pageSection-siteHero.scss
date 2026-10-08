@@ -34,6 +34,25 @@
         }
       }
     }
+    &__group {
+      max-width: calc(var(--fs-content-width-pageColumn) / 1.5); 
+      margin-inline: auto;
+      .fs-contentMedia--column {
+        margin-block-end: calc(var(--fs-spacing-sm) * -1);
+      }       
+    }    
+    &__eyebrow {
+      @extend .fs-typo-body-minor;
+      color: var(--fs-color-background-emphasized);
+      display: inline-block;
+      border: var(--fs-thickness-sm) solid var(--fs-color-background-emphasized);
+      padding-block: var(--fs-spacing-xs);
+      padding-inline: var(--fs-spacing-sm);
+      border-radius: var(--fs-radius-eyebrow);      
+    }
+    &__header {
+      margin-block-end: 0;
+    }
     &__heading {
       @extend .fs-typo-displayTitle;
     }

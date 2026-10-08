@@ -3,7 +3,11 @@
 
 .fs-pageSection--centered {
 	.pageSection {
-		&__inner {}
+		&__inner {
+			display: flex;
+			flex-direction: column;
+			gap: var(--fs-spacing-lg);
+		}
 		&__group {
 			width: 100%;
 			max-width: var(--fs-content-width-contentBody);

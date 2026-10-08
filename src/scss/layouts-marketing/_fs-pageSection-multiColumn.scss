@@ -1,0 +1,55 @@
+@use "../fs-variables" as *;
+@use "../fs-styles";
+
+.fs-pageSection.fs-pageSection--multiColumn {
+	.pageSection {
+		&__inner {
+			max-width: unset;
+		}
+		&__header {
+			max-width: var(--fs-content-width-pageColumn);
+			margin-inline: auto;
+		}
+		&__lead {
+			@extend .fs-typo-body-major;
+		}
+	}
+
+	.multiColumn {
+	  &__inner {
+	    display: flex;
+	    flex-direction: column;
+	    flex-wrap: wrap;
+	    gap: 0;
+	    margin-block-start: var(--fs-spacing-xl);
+			@container (width > #{$fs-content-breakpoint * 1}) {
+				flex-direction: row;
+				.multiColumn__item {
+					flex-basis: 50%;
+					min-height: 15vh;
+				}
+			}
+		  @container (width > #{$fs-content-breakpoint  * 1.5}) {
+		  	.multiColumn__item {
+		  		flex-basis: 33%;
+		  		min-height: 25vh;
+		  	}
+		  }	    
+	  }			  
+
+	  &__item {
+	  	flex: 1 1 100%;
+	    min-width: 0;
+	    min-height: 10vh;
+	    padding-block: var(--fs-spacing-xl);
+	    padding-inline: var(--fs-spacing-xl);
+	  }
+	  &__header {}
+	  &__heading {
+	  	@extend .fs-typo-panelHead-major;
+	  }
+	  &__kicker {
+	  	@extend .fs-typo-body-default;
+	  }
+	}
+}

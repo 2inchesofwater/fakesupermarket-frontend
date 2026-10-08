@@ -71,5 +71,20 @@
 	}
 	&.fs-listBlock-lg {
 		gap: var(--fs-spacing-md);
+		.fs-content {
+			&__inner {
+			@container (min-width: #{$fs-content-breakpoint}) {
+				min-height: 20vh;
+			}				
+			}
+			&__heading {
+				@extend .fs-typo-panelHead-major;
+			}
+			&__group {
+				p {
+					@extend .fs-typo-body-default;
+				}				
+			}
+		}
 	}
 }

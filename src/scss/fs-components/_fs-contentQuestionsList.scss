@@ -59,10 +59,16 @@
 			padding-inline: var(--fs-spacing-sm);
 		}		
 		.fs-content {
+			&__heading {
+				@extend .fs-typo-panelHead-major;
+			}
 			&__group {
 				padding-inline: calc( var(--fs-icon-size-sm) + var(--fs-spacing-sm) + var(--fs-spacing-2xs));
 				padding-block-end: var(--fs-spacing-md);
 				min-height: 10vh;
+				p {
+					@extend .fs-typo-body-default;
+				}
 			}
 		}				
 	}	

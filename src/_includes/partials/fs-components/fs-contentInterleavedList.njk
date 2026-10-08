@@ -1,0 +1,45 @@
+{% from "./fs-contentMediaColumn.njk" import contentMediaColumn as renderMediaColumn %}
+
+{% macro contentInterleavedList(itemsText, itemsMedia, size="md") %}
+  <ul
+    class="fs-content fs-content--interleavedList fs-listBlock-{{ size }}"
+    role="list"
+  >
+
+    {% for item in itemsText %}
+      {% set media = itemsMedia[loop.index0] %}
+
+      <li class="fs-content__item">
+
+        <div class="fs-content__inner">
+          {% if item.title %}
+            <div class="fs-content__header">
+              {% if item.eyebrow %}
+                <p class="fs-eyebrow">{{ item.eyebrow | safe }}</p>
+              {% endif %}
+
+              <h3 class="fs-content__heading">{{ item.title | safe }}</h3>
+            </div>
+          {% endif %}
+
+          {% if item.body %}
+            <div class="fs-content__group">
+              {% for paragraph in item.body %}
+                <p>{{ paragraph | safe }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+
+        {% if media %}
+          <div class="fs-content__media">
+            {{ renderMediaColumn([media]) }}
+          </div>
+        {% endif %}
+
+      </li>
+
+    {% endfor %}
+
+  </ul>
+{% endmacro %}
