@@ -2,7 +2,8 @@
 @use "../fs-styles";
 
 #page-participants,
-#page-clients {
+#page-clients,
+body.staticpage {
 	#header-positioning {
 		position: fixed;
 		top: 0;

@@ -1,5 +1,6 @@
 {% macro mediaItem(media) %}
-
+  
+  {% set imageProperties = media.imageProperties | default({}) %}
   {% if media.type == "video" %}
     <video
       class="fs-contentMedia__asset"
@@ -15,10 +16,19 @@
     <img
       class="fs-contentMedia__asset"
       src="{{ media.src }}"
+      {% if imageProperties.srcset %}
+        srcset="{{ imageProperties.srcset }}"
+      {% endif %}
+      {% if imageProperties.sizes %}
+        sizes="{{ imageProperties.sizes }}"
+      {% endif %}
       alt="{{ media.alt | default('') }}"
       {% if media.width %}width="{{ media.width }}"{% endif %}
       {% if media.height %}height="{{ media.height }}"{% endif %}
-      loading="lazy"
+      loading="{{ imageProperties.loading | default('lazy') }}"
+      {% if imageProperties.fetchpriority %}
+        fetchpriority="{{ imageProperties.fetchpriority }}"
+      {% endif %}
     >
   {% endif %}
 

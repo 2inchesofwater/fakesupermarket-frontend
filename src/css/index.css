@@ -330,7 +330,7 @@
   margin-block-end: 0.5em;
 }
 
-.fs-typo-body-default, .productDetails .product-essentials .product-grossWeight, .productDetails .product-essentials .product-brandInfo, .content-page__body .demo__header p,
+.fs-typo-body-default, .productDetails .product-essentials .product-grossWeight, .productDetails .product-essentials .product-brandInfo, body.staticpage, .content-page__body .demo__header p,
 .content-page__body .demo__notes p, body, body#page-clients, .fs-content--interleavedList.fs-listBlock-lg .fs-content__group p, .fs-pageSection.fs-pageSection--multiColumn .multiColumn__kicker, body#page-participants, .fs-content--questionsList.fs-listBlock-lg .fs-content__group p, .fs-content--featuresList.fs-listBlock-lg .fs-content__group p, .fs-pageSection p {
   font-family: var(--fs-font-sans);
   font-size: var(--fs-size-md);
@@ -1864,7 +1864,7 @@ details.fs-details .fs-details-panel {
   inset-inline-start: unset;
   inset-inline-end: var(--fs-spacing-sm);
   inset-block: var(--fs-spacing-sm);
-  display: grid;
+  display: none;
   grid-template-rows: auto 1fr auto;
   width: 100%;
   min-height: calc(100vh - var(--fs-spacing-sm) * 2);
@@ -1882,6 +1882,7 @@ details.fs-details .fs-details-panel {
   }
 }
 .fs-dialog-overlay[open] {
+  display: grid;
   opacity: 1;
   transform: translateX(0%);
   transition: transform 300ms ease, opacity 180ms ease, display 300ms ease allow-discrete, overlay 300ms ease allow-discrete;
@@ -6664,7 +6665,8 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
 }
 
 #page-participants #header-positioning,
-#page-clients #header-positioning {
+#page-clients #header-positioning,
+body.staticpage #header-positioning {
   position: fixed;
   top: 0;
   left: 0;
@@ -6675,15 +6677,18 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
   padding: var(--fs-spacing-xs);
 }
 #page-participants .header-compact,
-#page-clients .header-compact {
+#page-clients .header-compact,
+body.staticpage .header-compact {
   display: none;
 }
 #page-participants .header-expanded,
-#page-clients .header-expanded {
+#page-clients .header-expanded,
+body.staticpage .header-expanded {
   display: block;
 }
 #page-participants .fs-header,
-#page-clients .fs-header {
+#page-clients .fs-header,
+body.staticpage .fs-header {
   padding-block: var(--fs-spacing-xs);
   border-radius: 10vh;
   margin-inline: var(--fs-spacing-sm);
@@ -6691,16 +6696,19 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
 }
 @media (min-width: 32rem) {
   #page-participants .fs-header,
-  #page-clients .fs-header {
+  #page-clients .fs-header,
+  body.staticpage .fs-header {
     max-width: var(--fs-screen-lg);
   }
 }
 #page-participants .fs-header .container,
-#page-clients .fs-header .container {
+#page-clients .fs-header .container,
+body.staticpage .fs-header .container {
   margin-inline: var(--fs-spacing-xs);
 }
 #page-participants .fs-nav-main,
-#page-clients .fs-nav-main {
+#page-clients .fs-nav-main,
+body.staticpage .fs-nav-main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -6712,11 +6720,13 @@ details.fs-dashboard-card.accordion .accordion-details-panel {
   margin-inline: auto;
 }
 #page-participants .fs-nav-btnGroup,
-#page-clients .fs-nav-btnGroup {
+#page-clients .fs-nav-btnGroup,
+body.staticpage .fs-nav-btnGroup {
   margin-inline-end: var(--fs-spacing-2xs);
 }
 #page-participants .fs-nav-btnGroup *:last-child,
-#page-clients .fs-nav-btnGroup *:last-child {
+#page-clients .fs-nav-btnGroup *:last-child,
+body.staticpage .fs-nav-btnGroup *:last-child {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }
@@ -8909,6 +8919,49 @@ body.brandguide {
 .fs-card .fs-card__body {
   color: var(--fs-color-text-tertiary);
   margin: 0;
+}
+
+body.staticpage {
+  --fs-section-radius-default: 10vh;
+  --fs-section-padding-inline: 5vw;
+  --fs-media-background-default: var(--fs-color-brand-secondary);
+  --fs-media-background-focus: var(--fs-color-white);
+  --fs-media-borderColor-default: var(--fs-color-brand-secondary);
+  --fs-media-borderColor-focus: var(--fs-color-white);
+  --fs-media-borderWidth-sm: clamp(4px, 1vw, 0.5rem);
+  --fs-media-borderWidth-default: clamp(0.5rem, 2.5vw, 0.5rem);
+  --fs-media-radius-sm: var(--fs-radius-xl);
+  --fs-media-radius-default: 2.5vh;
+  --fs-media-grid-spacing: clamp(4px, 1.5vw, 0.5rem);
+  --fs-radius-eyebrow: var(--fs-radius-sm);
+  background: var(--fs-color-background-default);
+  margin-block-end: 0;
+  color: var(--fs-color-text-primary);
+}
+body.staticpage .fs-header #nav-main {
+  padding-inline: unset;
+}
+body.staticpage > main.page {
+  gap: 0;
+  max-width: none;
+  min-height: 90vh;
+  padding-inline: 0;
+  padding-block-start: 0;
+}
+body.staticpage > main.page > section {
+  margin-block: var(--fs-padding-section-block);
+  margin-inline: auto;
+  width: 100%;
+  max-width: var(--fs-screen-xl);
+  padding-inline: var(--fs-section-padding-inline);
+}
+
+body#page-privacy .fs-pageSection .pageSection__body h2, body#page-privacy .fs-pageSection .pageSection__body h3 {
+  color: var(--fs-color-text-primary);
+  margin-block-end: var(--fs-spacing-xs);
+}
+body#page-privacy .fs-pageSection .pageSection__body p {
+  font-size: var(--fs-size-sm);
 }
 
 #site-header,

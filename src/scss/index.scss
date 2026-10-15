@@ -89,6 +89,7 @@
 @use 'participants/participants-main';
 @use 'clients/clients-main';
 @use 'brandguide/brandguide-main';
+@use 'staticpages/staticpages-main';
 
 // Storefront-specific stylesheets
 @forward 'storefront-supermarket/_supermarket-header';

@@ -4,7 +4,7 @@
 	inset-inline-end: var(--fs-spacing-sm);
 	inset-block: var(--fs-spacing-sm);
 	
-	display: grid;
+	display: none;
   grid-template-rows: auto 1fr auto;
 
 	width: 100%;
@@ -33,6 +33,7 @@
 	}
 
 	&[open] {
+		display: grid;
 		opacity: 1;
 		transform: translateX(0%);
 

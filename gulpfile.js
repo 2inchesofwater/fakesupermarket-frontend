@@ -13,7 +13,8 @@ const path = require('path');
 const siblingProjects = [
   'fakesupermarket-brandguide',
   'fakesupermarket-participants',
-  'fakesupermarket-clients'
+  'fakesupermarket-clients',
+  'fakesupermarket-staticpages'
 ].map(project => path.join(__dirname, `../${project}`));
 
 
