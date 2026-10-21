@@ -8957,11 +8957,11 @@ body.staticpage > main.page > section {
   padding-inline: var(--fs-section-padding-inline);
 }
 
-body#page-privacy .fs-pageSection .pageSection__body h2, body#page-privacy .fs-pageSection .pageSection__body h3 {
+body.staticpage .fs-pageSection .pageSection__body h2, body.staticpage .fs-pageSection .pageSection__body h3 {
   color: var(--fs-color-text-primary);
   margin-block-end: var(--fs-spacing-xs);
 }
-body#page-privacy .fs-pageSection .pageSection__body p {
+body.staticpage .fs-pageSection .pageSection__body p {
   font-size: var(--fs-size-sm);
 }
 
