@@ -112,9 +112,7 @@ body#page-clients {
 	  	padding-block-end: 0;
 	  }
 	  .pageSection {
-	  	&__inner {
-			min-height: 92.5vh;	  	
-		  }
+	  	&__inner {}
 		  &__eyebrow {
 		  	margin-block-end: var(--fs-spacing-md);
 		  }

@@ -26,6 +26,11 @@
 			}
 			&#links {
 				align-self: end;
+				li {
+					& + li {
+						margin-block-start: var(--fs-spacing-sm);
+					}
+				}
 			}
 		}
 		&__heading {

@@ -1,4 +1,4 @@
-{% macro layoutFooter() %}
+{% macro layoutFooter(siteroot) %}
 
 
 <footer>
@@ -30,7 +30,7 @@
       <div id="links" class="pageSection__group">
         <div class="pageSection__body">
           <ul>
-            <li><a href="#">Privacy policy</a></li>
+            <li><a href="{{ siteroot }}/pages/privacy/index.html">Privacy policy</a></li>
             <li><a href="#">Terms &amp; Conditions</a></li>
           </ul>
         </div>

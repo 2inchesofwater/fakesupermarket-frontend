@@ -16,7 +16,7 @@
       display: grid;
       row-gap: var(--fs-spacing-xl);
       width: 100%;
-      //padding-block-end: 0;
+      min-height: clamp(640px, 90vh, 800px);      
       
       @container (width > #{$fs-content-width-pageColumn}) {
         grid-template-columns: 1fr 1fr;
@@ -25,7 +25,6 @@
         align-items: center;
         max-width: none;
         margin-inline: auto;    
-        // padding: 0;
         > *:nth-of-type(1) {
           justify-self: end;
         }
