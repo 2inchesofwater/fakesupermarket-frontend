@@ -1,17 +1,21 @@
 .fs-btn {
+  --fs-btn-size-sm: calc(var(--fs-spacing-md) + var(--fs-spacing-2xs));
+  --fs-btn-size-md: var(--fs-spacing-lg);
+  --fs-btn-size-lg: calc(var(--fs-spacing-lg) + var(--fs-spacing-xs));
+
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  gap: calc(var(--fs-spacing-xs) + var(--fs-spacing-2xs));
+  gap: var(--fs-spacing-xs);
 
-  border: var(--fs-thickness-md) solid transparent;
+  border: var(--fs-thickness-sm) solid transparent;
   border-radius: var(--fs-radius-md);
 
   font-family: var(--fs-font-sans);
   font-size: var(--fs-size-md);
-  line-height: 1em;
+  line-height: var(--fs-btn-size-md);  
   font-weight: var(--fs-weight-regular);
   text-align: center;
   text-wrap-mode: nowrap;
@@ -30,35 +34,71 @@
     outline-offset: -1px;
   } 
 
+  > .label {
+    white-space: nowrap;
+  }
+
+  > .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--fs-btn-size-md);
+    height: var(--fs-btn-size-md);
+  }
+  > svg,
+  .icon > svg {
+    width: var(--fs-btn-size-md);
+    height: unset;
+    aspect-ratio: 1 / 1;
+    overflow: visible;
+  }
+
+  &.btn-icon {
+    padding-inline-start: calc(var(--fs-spacing-md) - var(--fs-spacing-2xs));
+    &.btn-sm {
+      padding-inline-start: calc(var(--fs-spacing-sm) - var(--fs-spacing-2xs));
+    }
+    &.btn-lg {
+      padding-inline-start: calc(var(--fs-spacing-lg) - var(--fs-spacing-xs));
+    }
+    &.btn-iconOnly {
+      padding-inline: var(--spacing-sm);
+    }
+  }
+
   &.btn-sm {
-    font-size: var(--fs-size-sm);
+    line-height: var(--fs-btn-size-sm);    
     padding-block: var(--fs-spacing-xs); 
     padding-inline: var(--fs-spacing-sm);
+    gap: var(--fs-spacing-2xs);
     > .label {
       font-size: var(--fs-size-sm);
-    }    
+    }
+    > svg,
+    .icon > svg {
+      width: var(--fs-btn-size-sm);
+    }        
   }
   &.btn-lg {
-    border-radius: var(--fs-radius-lg);
-    font-size: var(--fs-size-lg);
+    line-height: var(--fs-btn-size-lg);
     padding-block: var(--fs-spacing-sm); 
     padding-inline: var(--fs-spacing-lg); 
+    gap: calc(var(--fs-spacing-xs) + var(--fs-spacing-2xs));
+    border-radius: var(--fs-radius-lg);
     > .label {
       font-size: var(--fs-size-lg);
-    }        
+    } 
+    > svg,
+    .icon > svg {
+      width: var(--fs-btn-size-lg);
+    }           
   }
 
 
   &.btn-primary {
     background: var(--fs-color-action-primary-default);
-    border-width: var(--fs-thickness-md);
-    box-shadow: inset 0 0 0 var(--fs-thickness-sm) var(--fs-color-white);
     color: var(--fs-color-action-primary-font);
-    padding-block: calc(var(--fs-spacing-xs) + var(--fs-spacing-2xs));
     
-    &.btn-sm { 
-      padding-block: var(--fs-spacing-md);
-    }
     &:hover {
       background: var(--fs-color-action-primary-hover);
     }
@@ -71,13 +111,12 @@
     > svg > *,
     .icon svg > * {
       fill: var(--fs-color-action-primary-font);
-      // stroke: var(--fs-color-action-primary-font);
     }
   }
 
   &.btn-secondary {
     background: var(--fs-color-action-secondary-default);
-    border-color: transparent;
+    border-color: var(--fs-color-action-secondary-hover);
     color: var(--fs-color-action-secondary-font);
     &:hover {
       background: var(--fs-color-action-secondary-hover);
@@ -89,17 +128,16 @@
     > svg > *,
     .icon svg > * {
       fill: var(--fs-color-action-secondary-font);
-      // stroke: var(--fs-color-action-secondary-font);
     } 
   }
 
   &.btn-tertiary {
     background: var(--fs-color-action-tertiary-default);
-    border-width: var(--fs-thickness-sm);
-    border-color: var(--fs-color-action-tertiary-hover);
+    border-color: var(--fs-color-border-default);
     color: var(--fs-color-action-tertiary-font);
     &:hover {
       background: var(--fs-color-action-tertiary-hover);
+      border-color: var(--fs-color-action-tertiary-hover);
       color: var(--fs-color-text-primary);
     }
     &:focus {
@@ -122,28 +160,28 @@
   }
 
   &.btn-link {
-    background: transparent;
-    color: var(--fs-color-brand-primary);
-    font-weight: unset;
-    text-decoration: unset;
-    border: var(--fs-thickness-lg) solid transparent;
-    padding-block: unset;
-    padding-inline: var(--fs-spacing-2xs);
-    &:disabled {
-      background: none;
-    }
+    background: var(--fs-color-white);
+    color: var(--fs-color-action-tertiary-font);
+    border: var(--fs-thickness-sm) solid transparent;
+
     &:hover {
-      background: var(--fs-color-core-200);
-      color: var(--fs-color-core-700);
-      border: var(--fs-thickness-lg) solid var(--fs-color-core-200);
+      background: var(--fs-color-action-tertiary-hover);
+      color: var(--fs-color-text-primary);
+      border: var(--fs-thickness-sm) solid var(--fs-color-action-tertiary-hover);
     }
     &:focus {
-      outline-color: var(--fs-color-focus-ring);
-      //outline-offset: 2px;
-    }    
+      // outline-color: var(--fs-color-focus-ring);
+    } 
+    > .label {
+      text-decoration: underline solid var(--fs-color-action-tertiary-hover) var(--fs-thickness-sm);
+      text-underline-offset: var(--fs-thickness-lg);      
+    }
+    &:hover > .label {
+      text-decoration-color: var(--fs-color-action-tertiary-hover);
+    }   
     > svg > *,
     .icon svg > * {
-      fill: var(--fs-color-brand-primary);
+      fill: var(--fs-color-action-tertiary-font);
     }  
   }
 
@@ -157,37 +195,6 @@
       fill: var(--fs-color-action-disabled-font);
       // stroke: var(--fs-color-action-disabled-font);
     }   
-  }
-
-
-  &.btn-icon {
-    padding-inline: calc(var(--fs-spacing-md) - var(--fs-spacing-2xs));
-    &.btn-lg {
-      padding-inline: calc(var(--fs-spacing-lg) - var(--fs-spacing-xs));
-    }
-    .icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: var(--fs-btn-size-md);
-      height: var(--fs-btn-size-md);
-    }
-    .label {
-      line-height: var(--fs-btn-size-md);
-    }
-    > svg,
-    .icon > svg {
-      width: var(--fs-btn-size-md);
-      height: unset;
-      aspect-ratio: 1 / 1;
-      overflow: visible;
-    }
-    &.btn-iconOnly {
-      padding-inline: var(--spacing-sm);
-    }
-  }
-  > .label {
-    white-space: nowrap;
   }
 
   &.btn-identityAvatar {
