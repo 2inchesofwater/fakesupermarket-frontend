@@ -6680,16 +6680,6 @@ body.staticpage #header-positioning {
   max-width: 100%;
   padding: var(--fs-spacing-xs);
 }
-#page-participants .header-compact,
-#page-clients .header-compact,
-body.staticpage .header-compact {
-  display: none;
-}
-#page-participants .header-expanded,
-#page-clients .header-expanded,
-body.staticpage .header-expanded {
-  display: block;
-}
 #page-participants .fs-header,
 #page-clients .fs-header,
 body.staticpage .fs-header {
@@ -6733,6 +6723,28 @@ body.staticpage .fs-nav-btnGroup {
 body.staticpage .fs-nav-btnGroup *:last-child {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+#page-participants .header-compact,
+#page-clients .header-compact,
+body.staticpage .header-compact {
+  display: block;
+}
+#page-participants .header-expanded,
+#page-clients .header-expanded,
+body.staticpage .header-expanded {
+  display: none;
+}
+@media (min-width: 32rem) {
+  #page-participants .header-compact,
+  #page-clients .header-compact,
+  body.staticpage .header-compact {
+    display: none;
+  }
+  #page-participants .header-expanded,
+  #page-clients .header-expanded,
+  body.staticpage .header-expanded {
+    display: block;
+  }
 }
 
 #header-clients .btn-secondary,

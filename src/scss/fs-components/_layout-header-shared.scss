@@ -13,14 +13,7 @@ body.staticpage {
 		width: auto;
 		max-width: 100%;
 		padding: var(--fs-spacing-xs);
-		// background: var(--fs-media-background-default);
 	}
-	.header-compact {
-		display: none;
-	}
-	.header-expanded {
-		display: block;
-	}	
 	.fs-header {
 		padding-block: var(--fs-spacing-xs);
 		border-radius: 10vh;
@@ -32,9 +25,7 @@ body.staticpage {
 		.container {
 			margin-inline: var(--fs-spacing-xs);
 		}
-		#nav-main {
-			// padding-inline: unset;
-		}
+		#nav-main {}
 	}
 	.fs-nav-main {
 		display: flex;
@@ -46,15 +37,27 @@ body.staticpage {
 		width: 100%;
 		max-width: $screen-xl;
 		margin-inline: auto;
-		// padding-inline: 5vw;
 	}	
 	.fs-nav-btnGroup {
 		margin-inline-end: var(--fs-spacing-2xs);
 		*:last-child {
-			// border-top-left-radius: 8px;
 			border-top-right-radius: 20px;
-			// border-bottom-left-radius: 8px;
 			border-bottom-right-radius: 20px;
 		}		
-	}		
+	}
+
+	.header-compact {
+		display: block;
+	}
+	.header-expanded {
+		display: none;
+	}
+	@media (min-width: #{$fs-content-breakpoint}) {
+		.header-compact {
+			display: none;
+		}
+		.header-expanded {
+			display: block;
+		}
+	}
 }
