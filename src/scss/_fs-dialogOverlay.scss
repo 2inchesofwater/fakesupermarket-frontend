@@ -1,13 +1,17 @@
 .fs-dialog-overlay {
 	position: fixed;
-	inset-inline-start: var(--fs-spacing-sm);
+	inset-inline-start: unset;
 	inset-inline-end: var(--fs-spacing-sm);
 	inset-block: var(--fs-spacing-sm);
 	
 	display: none;
   grid-template-rows: auto 1fr auto;
 
-	min-width: calc(100vw - (var(--fs-spacing-sm) * 2) );
+	width: min(
+	  100%,
+	  calc(100vw - (var(--fs-spacing-sm) * 2)),
+	  var(--fs-content-dialogOverlay)
+	);
 	min-height: calc(100vh - (var(--fs-spacing-sm) * 2) );
 	z-index: 1055; /* Following Bootstrap's pattern for z-layering */
 	
@@ -28,13 +32,10 @@
 	border: var(--fs-thickness-xl) solid var(--fs-color-brand-primary);
 	border-radius: var(--fs-spacing-lg);	
 
-	@media (width >= 420px ) {
-		max-width: 420px;
-	}
-
 	&[open] {
 		display: grid;
 		opacity: 1;
+		max-width: var(--fs-content-breakpoint);
 		transform: translateX(0%);
 
 		// Opening transition:

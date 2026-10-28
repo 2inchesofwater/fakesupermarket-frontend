@@ -172,6 +172,7 @@
   --fs-content-width-pageColumn: 52rem;
   --fs-content-width-contentBody: 42rem;
   --fs-content-breakpoint: 32rem;
+  --fs-content-dialogOverlay: calc(var(--fs-screen-xs) * 1.25);
   --fs-size-xs: 0.75rem;
   --fs-size-sm: 0.875rem;
   --fs-size-md: 1rem;

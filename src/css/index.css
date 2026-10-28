@@ -173,6 +173,7 @@
   --fs-content-width-pageColumn: 52rem;
   --fs-content-width-contentBody: 42rem;
   --fs-content-breakpoint: 32rem;
+  --fs-content-dialogOverlay: calc(var(--fs-screen-xs) * 1.25);
   --fs-size-xs: 0.75rem;
   --fs-size-sm: 0.875rem;
   --fs-size-md: 1rem;
@@ -1869,12 +1870,12 @@ details.fs-details .fs-details-panel {
 
 .fs-dialog-overlay {
   position: fixed;
-  inset-inline-start: var(--fs-spacing-sm);
+  inset-inline-start: unset;
   inset-inline-end: var(--fs-spacing-sm);
   inset-block: var(--fs-spacing-sm);
   display: none;
   grid-template-rows: auto 1fr auto;
-  min-width: calc(100vw - var(--fs-spacing-sm) * 2);
+  width: min(100%, 100vw - var(--fs-spacing-sm) * 2, var(--fs-content-dialogOverlay));
   min-height: calc(100vh - var(--fs-spacing-sm) * 2);
   z-index: 1055; /* Following Bootstrap's pattern for z-layering */
   opacity: 0;
@@ -1884,14 +1885,10 @@ details.fs-details .fs-details-panel {
   border: var(--fs-thickness-xl) solid var(--fs-color-brand-primary);
   border-radius: var(--fs-spacing-lg);
 }
-@media (width >= 420px) {
-  .fs-dialog-overlay {
-    max-width: 420px;
-  }
-}
 .fs-dialog-overlay[open] {
   display: grid;
   opacity: 1;
+  max-width: var(--fs-content-breakpoint);
   transform: translateX(0%);
   transition: transform 300ms ease, opacity 180ms ease, display 300ms ease allow-discrete, overlay 300ms ease allow-discrete;
 }

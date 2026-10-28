@@ -219,6 +219,7 @@ $fs-content-breakpoint: 32rem;
   --fs-content-width-pageColumn: #{$fs-content-width-pageColumn};
   --fs-content-width-contentBody: #{$fs-content-width-contentBody};
   --fs-content-breakpoint: #{$fs-content-breakpoint};
+  --fs-content-dialogOverlay: calc(var(--fs-screen-xs) * 1.25);
 
   --fs-size-xs: 0.75rem;
   --fs-size-sm: 0.875rem;
