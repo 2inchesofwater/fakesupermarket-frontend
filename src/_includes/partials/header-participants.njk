@@ -14,11 +14,17 @@
 
       <div id="header-{{ pageName }}-auth" class="fs-nav-btnGroup">
         <div class="header-compact">
+  {% if showAuthDialogue %}           
           <button commandfor="auth-signup-overlay" command="show-modal" aria-label="Open the site menu" class="fs-btn btn-tertiary btn-icon btn-iconOnly" id="auth-siteroot-menu-btn" type="button">
             <span class="icon">
               {% include "partials/icons/menu.svg" %}
             </span>
           </button>
+  {% else %}
+          <div class="fs-btn-group">
+            <div class="fs-btn btn-primary btn-placeholder">Coming soon</div>
+          </div>
+  {% endif %}          
         </div>      
         <div class="header-expanded">
   {% if showAuthDialogue %}         

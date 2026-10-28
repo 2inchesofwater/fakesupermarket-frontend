@@ -14,11 +14,22 @@
 
       <div id="header-{{ pageName }}-auth" class="fs-nav-btnGroup">
         <div class="header-compact">
+  {% if showAuthDialogue %} 
           <button commandfor="auth-{{ pageName }}-overlay" command="show-modal" aria-label="Open the site menu" class="fs-btn btn-tertiary btn-icon btn-iconOnly" id="auth-{{ pageName }}-menu-btn" type="button">
             <span class="icon">
               {% include "partials/icons/menu.svg" %}
             </span>
           </button>
+  {% else %}
+          <div class="fs-btn-group">
+            <a href="{{ site.root }}/participants/index.html" class="fs-btn btn-primary">
+              <span class="label">Get paid to do fake shopping</span>
+              <span class="icon">
+                {% include "partials/icons/chevrons-right.njk" %}
+              </span>              
+            </a>
+          </div>  
+  {% endif %}
         </div>
 
         <div class="header-expanded">
