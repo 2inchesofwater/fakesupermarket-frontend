@@ -4,7 +4,6 @@ const sass = require('gulp-sass')(require('sass'));
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const esbuild = require('gulp-esbuild');
-const mergeStream = require('merge-stream');
 const { exec } = require('child_process');
 const path = require('path');
 
@@ -67,21 +66,21 @@ function compileSass() {
 }
 
 
-// CSS processing task
-function css() {
-  const siteCss = src('src/css/**/*.css')
+function cssSite() {
+  return src('src/css/**/*.css')
     .pipe(postcss([cssnano()]))
     .pipe(dest('_site/css'));
+}
 
-  const sharedCss = copyToSiblingProjects(
+function cssShared() {
+  return copyToSiblingProjects(
     src('src/css/index.css')
       .pipe(postcss([cssnano()])),
     'src/assets/css'
   );
-
-  return mergeStream(siteCss, sharedCss);
 }
 
+const css = parallel(cssSite, cssShared);
 
 // JavaScript bundling task
 function js() {

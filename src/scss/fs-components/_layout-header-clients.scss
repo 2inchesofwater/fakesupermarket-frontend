@@ -2,26 +2,19 @@
 
 #header-clients,
 #auth-clients-overlay {
-	.btn-secondary { 
-		background: var(--fs-color-white);
-		border-color: var(--fs-color-core-100);
-		border-width: var(--fs-thickness-md);
-		transition: var(--fs-transition-md);
-		&:hover,
-		&:active {
-			background: var(--fs-color-action-secondary-hover);
-			border-color: var(--fs-color-action-secondary-hover);
-		}			
-	}
-	.btn-tertiary {
-		background: var(--fs-color-background-active);
-		transition: var(--fs-transition-md);
-		&:hover,
-		&:active {
-			background: var(--fs-color-action-secondary-hover);
-			border-color: var(--fs-color-action-secondary-hover);
+	.btn-primary {
+		.icon {
+			background-color: var(--fs-color-brand-secondary);
+			border-radius: var(--fs-spacing-lg);
+			margin-inline-end: calc(var(--fs-spacing-xs) * -1);
+			svg {
+				margin-inline-start: var(--fs-thickness-md);
+			}
+			svg > * {
+				fill: var(--fs-color-brand-primary);
+			}
 		}
-	}	
+	}
 
 	.fs-btn-group {
 		gap: var(--fs-spacing-xs);

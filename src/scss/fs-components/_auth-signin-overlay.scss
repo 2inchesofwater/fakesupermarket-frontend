@@ -7,55 +7,37 @@
     align-content: center;
 
     width: 100%;
-    max-width: 22rem;		
-
-		.btn-primary,
-		.btn-secondary,
-		.btn-tertiary {
-			padding-block: var(--fs-spacing-sm);
-		}
-		.btn-link {
-			padding-block: var(--fs-spacing-2xs);
-		}
 	}
 
 	.fs-dialog-body {
     row-gap: 10vh;
     row-rule: var(--fs-thickness-sm) solid var(--fs-color-border-default);
 
-    .wrapper {
-    	display: flex;
-    	flex-direction: column;
-    	gap: var(--fs-spacing-xs);
-
-    	p {
-    		text-align: center;
-    	}
-    }		
+		.wrapper {
+			display: flex;
+			flex-direction: column;
+			gap: var(--fs-spacing-xs);
+			&#auth-signin-dialog-signup {
+				align-items: center;				
+			}
+			p {
+				text-align: center;
+			}
+		}		
+	}
+	.fs-dialog-footer {
+		justify-items: center;
 	}
 }
 
 .fs-dialog-overlay {
-	.fs-dialog-body {
+	#auth-signin-dialog-options {
 		.btn-primary,
 		.btn-secondary,
 		.btn-tertiary {
 			padding-block: var(--fs-spacing-sm);
 		}
-		.btn-link {
-			padding-block: var(--fs-spacing-2xs);
-		}
-		// .btn-secondary {
-		// 	border-color: var(--fs-color-background-active);
-		// 	border-width: var(--fs-thickness-sm);
-		// }
-		// .btn-tertiary {
-		// 	background: var(--fs-color-background-active);
-		// 	&:hover,
-		// 	&:active {
-		// 		background: var(--fs-color-action-secondary-hover);
-		// 	}
-		// }		
+		
 	}
 	.fs-btn-group {
 		flex-direction: column;

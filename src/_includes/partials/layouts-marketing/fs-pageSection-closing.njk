@@ -1,0 +1,86 @@
+{% macro siteClosing(closing, showAuthDialogue="") %}
+
+{% from "../fs-components/fs-contentFeaturesList.njk" import contentFeaturesList as renderFeaturesList %}
+
+<section id="closing-{{ slug }}" class="fs-pageSection fs-pageSection--siteClosing"
+		{% if closing.backgroundImage %}
+			style="--closing-background-image: url('{{ closing.backgroundImage | url }}');"
+		{% endif %}
+>
+	<div class="pageSection__inner">
+		<div class="pageSection__group">
+			<div class="pageSection__header">
+				{% if closing.eyebrow %}
+					<p class="pageSection__eyebrow">{{ closing.eyebrow | safe }}</p>
+				{% endif %}
+
+				<h1 class="pageSection__heading">{{ closing.heading | safe }}</h1>
+
+				{% if closing.body and closing.body.length %}
+				  <p class="pageSection__lead">{{ closing.body[0] | safe }}</p>
+
+				  {% if closing.body.length > 1 %}
+				    <div class="pageSection__body">
+				      {% for paragraph in closing.body.slice(1) %}
+				        <p>{{ paragraph | safe }}</p>
+				      {% endfor %}
+				    </div>
+				  {% endif %}
+				{% endif %}
+			</div>
+
+	{% if showAuthDialogue %} 
+			{% if closing.buttons and closing.buttons.length %}
+				<div class="fs-btn-group">
+					{% for button in closing.buttons %}
+						{% if button.href %}
+							<a class="{% if loop.first %}fs-btn btn-lg btn-primary{% else %}fs-btn btn-link{% endif %}" href="{{ button.href }}">
+								<span class="label">
+									{{ button.label | safe }}
+								</span>
+								{% if button.icon %}
+									<span class="icon">
+										{% include "partials/icons/{{ button.icon }}" %}
+									</span>
+								{% endif %}								
+							</a>
+						{% elseif button.commandfor %}
+		          <button commandfor="{{ button.commandfor }}" command="show-modal" aria-label="Open the site menu" class="{% if loop.first %}fs-btn btn-lg btn-primary{% else %}fs-btn btn-link{% endif %}" id="{{ button.commandfor }}-btn" type="button">
+		            <span class="label">
+									{{ button.label | safe }}
+								</span>
+								{% if button.icon %}
+									<span class="icon">
+										{% include "partials/icons/{{ button.icon }}" %}
+									</span>
+								{% endif %}
+		          </button>	
+	          {% endif %}	
+
+					{% endfor %}
+				</div>
+			{% endif %}
+	{% else %}
+				<div class="fs-btn-group">
+					{% for button in closing.btnPlaceholders %}
+						<div class="fs-btn btn-primary btn-lg btn-placeholder">
+							<span class="label">
+								{{ button.label | safe }}
+							</span>
+						</div>
+					{% endfor %}
+				</div>
+	{% endif %}
+
+			{% if closing.keypoints %}
+				{{ renderFeaturesList(closing.keypoints, size="sm") }}
+			{% endif %}
+		</div>
+	{% if closing.foregroundImage %}
+		<div class="pageSection__group">
+			{{ renderMediaColumn(closing.foregroundImage) }}
+		</div>
+	{% endif %}
+	</div>
+</section>
+{% endmacro %}

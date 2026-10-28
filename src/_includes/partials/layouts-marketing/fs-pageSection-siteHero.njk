@@ -1,4 +1,4 @@
-{% macro siteHero(hero) %}
+{% macro siteHero(hero, showAuthDialogue="") %}
 
 {% from "../fs-components/fs-contentFeaturesList.njk" import contentFeaturesList as renderFeaturesList %}
 {% from "../fs-components/fs-contentMediaColumn.njk" import contentMediaColumn as renderMediaColumn %}
@@ -14,25 +14,64 @@
 				{% if hero.eyebrow %}
 					<p class="pageSection__eyebrow">{{ hero.eyebrow | safe }}</p>
 				{% endif %}
-
 				<h1 class="pageSection__heading">{{ hero.heading | safe }}</h1>
+				{% if hero.body and hero.body.length %}
+				  <p class="pageSection__lead">{{ hero.body[0] | safe }}</p>
 
-				{% if hero.body %}
-					<p class="pageSection__lead">{{ hero.body | safe }}</p>
+				  {% if hero.body.length > 1 %}
+				    <div class="pageSection__body">
+				      {% for paragraph in hero.body.slice(1) %}
+				        <p>{{ paragraph | safe }}</p>
+				      {% endfor %}
+				    </div>
+				  {% endif %}
 				{% endif %}
 			</div>
+
+	{% if showAuthDialogue %} 
 			{% if hero.buttons and hero.buttons.length %}
 				<div class="fs-btn-group">
 					{% for button in hero.buttons %}
-						<a
-							class="{% if loop.first %}fs-btn btn-lg btn-primary{% else %}fs-btn btn-link{% endif %}"
-							href="{{ button.href }}"
-						>
-							{{ button.label | safe }}
-						</a>
+						{% if button.href %}
+							<a class="{% if loop.first %}fs-btn btn-lg btn-primary{% else %}fs-btn btn-link{% endif %}" href="{{ button.href }}">
+								<span class="label">
+									{{ button.label | safe }}
+								</span>
+								{% if button.icon %}
+									<span class="icon">
+										{% include "partials/icons/{{ button.icon }}" %}
+									</span>
+								{% endif %}
+							</a>
+						{% elseif button.commandfor %}
+		          <button commandfor="{{ button.commandfor }}" command="show-modal" aria-label="Open the site menu" class="{% if loop.first %}fs-btn btn-lg btn-primary{% else %}fs-btn btn-link{% endif %}" id="{{ button.commandfor }}-btn" type="button">
+		            <span class="label">
+									{{ button.label | safe }}
+								</span>
+								
+		          </button>	
+	          {% endif %}	
+
 					{% endfor %}
 				</div>
 			{% endif %}
+	{% else %}
+				<div class="fs-btn-group">
+					{% for button in hero.btnPlaceholders %}
+						<div class="fs-btn btn-primary btn-lg btn-placeholder">
+							<span class="label">
+								{{ button.label | safe }}
+							</span>
+							{% if button.icon %}
+								<span class="icon">
+									{% include "partials/icons/{{ button.icon }}" %}
+								</span>
+							{% endif %}
+						</div>
+					{% endfor %}
+				</div>
+	{% endif %}
+
 			{% if hero.keypoints %}
 				{{ renderFeaturesList(hero.keypoints, size="sm") }}
 			{% endif %}

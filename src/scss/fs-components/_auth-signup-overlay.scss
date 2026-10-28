@@ -7,16 +7,7 @@
     align-content: center;
 
     width: 100%;
-    max-width: 22rem;		
-
-		.btn-primary,
-		.btn-secondary,
-		.btn-tertiary {
-			padding-block: var(--fs-spacing-sm);
-		}
-		.btn-link {
-			padding-block: var(--fs-spacing-2xs);
-		}
+    
 	}
 
 	.fs-dialog-body {
@@ -27,7 +18,9 @@
     	display: flex;
     	flex-direction: column;
     	gap: var(--fs-spacing-xs);
-
+			&#auth-signup-dialog-signin {
+				align-items: center;				
+			}
     	p {
     		text-align: center;
     	}
@@ -36,15 +29,12 @@
 }
 
 .fs-dialog-overlay {
-	.fs-dialog-body {
+	#auth-signup-dialog-options{
 		.btn-primary,
 		.btn-secondary,
 		.btn-tertiary {
 			padding-block: var(--fs-spacing-sm);
-		}
-		.btn-link {
-			padding-block: var(--fs-spacing-2xs);
-		}		
+		}	
 	}
 	.fs-btn-group {
 		flex-direction: column;

@@ -243,6 +243,10 @@
 
 }
 
+div.fs-btn.btn-placeholder {
+  pointer-events: none;
+}
+
 .fs-btn-group {
   display: flex;
   flex-direction: row;

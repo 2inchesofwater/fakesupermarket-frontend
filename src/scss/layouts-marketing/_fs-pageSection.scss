@@ -27,13 +27,11 @@
 			margin-block-end: 0;
 		}
 		&__lead {
-			p:nth-of-type(1) {
-				@extend .fs-typo-body-major;
-			}
+			@extend .fs-typo-body-major;
 			margin-block-start: var(--fs-spacing-md);
 			margin-block-end: var(--fs-spacing-sm);
 			color: var(--fs-color-text-secondary);
-		}
+		}		
 		&__body {
 			color: var(--fs-color-text-secondary);
 		}		

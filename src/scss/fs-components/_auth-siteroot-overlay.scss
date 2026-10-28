@@ -1,4 +1,4 @@
-#auth-siteroot-overlay {
+#auth-clients-overlay {
 	.fs-dialog-body,
 	.fs-dialog-footer {
 		justify-self: center;
@@ -6,8 +6,19 @@
 		align-items: center;
     align-content: center;
 
-    width: 100%;
-    max-width: 22rem;	
-    height: 50%;	
+		width: 100%;
 	}	
+	.fs-dialog-body {
+    row-gap: 10vh;
+    row-rule: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+	}
+}
+.fs-dialog-overlay {
+	#auth-clients-dialog-signin {
+		.btn-primary,
+		.btn-secondary,
+		.btn-tertiary {
+			padding-block: var(--fs-spacing-sm);
+		}	
+	}
 }

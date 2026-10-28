@@ -42,16 +42,19 @@
 	#site-logo {
 		display: flex;
 		position: relative;
+		svg {
+			border-radius: var(--fs-spacing-xl);
+		}
 		&:focus {
-			outline: var(--fs-thickness-lg) solid var(--fs-color-focus-ring);
-			outline-offset: var(--fs-thickness-md);
+			outline: unset;
+			svg {
+				outline: var(--fs-thickness-lg) solid var(--fs-color-focus-ring);
+				outline-offset: var(--fs-thickness-sm);
+			}
 		}
 		svg {
-			// position: absolute;
-			// top: calc((var(--fs-spacing-md) + var(--fs-spacing-xs)) * -1);
 			width: var(--fs-logo-size-sm);
 			height: var(--fs-logo-size-sm);
-			// transform: rotate(-4deg);
 		}
 	}
 
