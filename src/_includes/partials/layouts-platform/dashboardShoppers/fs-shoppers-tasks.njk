@@ -1,0 +1,84 @@
+<div id="fs-dashboard-tasksLists" class="fs-dashboard fs-dashboard__tasksLists">
+  <div class="fs-dashboard__inner">
+    <header class="fs-dashboard__header">
+      <h2 id="fs-dashboard__heading-tasksLists" class="fs-dashboard__heading">Shopping list</h2>
+      <p class="fs-dashboard__kicker">This week's research tasks –</p>
+    </header>
+
+    <section id="fs-tasksList" class="fs-tasksList" aria-labelledby="fs-dashboard__heading-tasksLists">
+      <div class="fs-tasksList__inner">
+        {% for storefrontKey, storefront in dashboard.fakesupermarket.storefronts %}
+          <div class="fs-tasksList__group">
+            <header class="fs-tasksList__header">
+              <h3 class="fs-tasksList__heading">From the {{ storefront.storefrontName }}</h3>
+            </header>
+
+            <ul class="fs-tasksList__body">
+              {% for item in storefront.shoppingList %}
+                <li class="fs-tasksList__item">
+                  {% if not item.completed %}
+                    <a href="{{ item.url }}" class="fs-tasksList__button {% if item.incentive %} is-incentivised{% endif %}">
+                  {% else %}
+                    <div class="fs-tasksList__button is-completed {% if item.incentive %} is-incentivised{% endif %}">
+                  {% endif %}
+                    <span class="fs-tasksList__marker icon" aria-hidden="true">
+                      {% if item.completed %}
+                        <svg class="" viewBox="0 0 24 24" focusable="false">
+                          <use href="#check"></use>
+                        </svg>
+                      {% endif %}
+                      {% if item.incentive and not item.completed %}
+                        <svg class="" viewBox="0 0 24 24" focusable="false">
+                          <use href="#dollar-sign"></use>
+                        </svg>
+                      {% endif %}
+                    </span>
+
+                    <div class="fs-tasksList__identifier">
+                      <div class="identifier__label">
+                        {{ item.label }}
+                      </div>
+
+                      {% if item.incentive and not item.completed %}
+                          <div class="identifier__status">Incentive available</div>
+                      {% endif %}
+
+                      {% if item.incentive and item.completed %}
+                          <div class="identifier__status">Incentive task done</div>
+                      {% endif %}
+
+                      {% if not item.incentive and item.completed %}
+                          <div class="identifier__status">Task done</div>
+                      {% endif %}
+                    </div>
+
+                    {% if item.incentive and item.amount %}
+                      <div class="fs-tasksList__incentive">
+                        {{ formatPrice(item.amount, currency="AUD", locale="en-AU") }}
+                      </div>
+                    {% endif %} 
+
+                  {% if not item.completed %}          
+                    </a>
+                  {% else %}
+                    </div>
+                  {% endif %}
+
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <footer id="fs-tasksList-footer" class="fs-tasksList__footer">
+      <div class="footer__header">
+        <h3>Good to know:</h3>
+      </div>
+      <div class="footer__body">
+        <p>You're welcome to complete any tasks on this list... even those without an incentive marker. Sometimes more incentives will be added to a task later on, and your completed answers may become eligible for a payout.</p>
+      </div>
+    </footer>
+  </div>
+</div>

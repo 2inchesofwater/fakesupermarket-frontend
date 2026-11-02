@@ -3,6 +3,7 @@ pagination:
   data: meat.productsAll
   size: 1
   alias: product
-permalink: "/pages/meat/{{ product.productSlug }}.html"
+route: meat
+permalink: "{{ route | pageUrl(product.productSlug) }}"
 layout: "supermarket-productDetails.njk"
 ---

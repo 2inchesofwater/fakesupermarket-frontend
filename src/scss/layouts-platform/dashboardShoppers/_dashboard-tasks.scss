@@ -1,0 +1,149 @@
+@use "fs-variables" as *;
+@use "../../fs-styles";
+
+#fs-dashboard-tasksLists {
+	background: var(--fs-color-brand-secondary);
+	padding-block: var(--fs-spacing-2xl);
+	padding-inline: var(--fs-spacing-md);
+	border-bottom-left-radius: 10vh;
+	border-bottom-right-radius: 10vh;
+
+	.fs-dashboard {
+		&__inner {
+			display: flex;
+			flex-direction: column;
+			gap: var(--fs-spacing-md);
+			max-width: var(--fs-content-breakpoint);
+			margin-inline: auto;
+		}
+		&__heading {
+			@extend .fs-typo-pageTitle;
+			margin-block-end: 0.1em;
+		}
+		&__kicker {
+			@extend .fs-typo-body-minor;
+		}
+	}
+	
+	@media (min-width: #{$fs-content-breakpoint}) {
+		border-bottom-left-radius: unset;
+	}	
+	.fs-tasksList {
+		&__inner {
+			display: flex;
+			flex-direction: column;
+			gap: var(--fs-spacing-xs);
+		}
+		&__group {
+			display: flex;
+			flex-direction: column;
+			gap: var(--fs-spacing-xs);
+
+			width: 100%;
+			max-width: calc(var(--fs-content-breakpoint) * 0.75);
+			margin-inline: auto;
+
+			background: var(--fs-color-background-active);
+			padding: var(--fs-spacing-md);
+			border-radius: var(--fs-radius-sm);
+			padding-block: var(--fs-spacing-lg);
+		}
+		&__header {
+		}
+		&__heading {
+			@extend .fs-typo-panelHead-major;
+		}
+		&__lead {
+			@extend .fs-typo-body-major;
+		}
+		&__kicker {
+			@extend .fs-typo-body-minor;
+		}
+		&__body {
+			display: flex;
+			flex-direction: column;
+			gap: var(--fs-spacing-xs);
+		}
+		&__item {
+			list-style: none;
+		}
+	}
+}
+
+.fs-tasksList {
+	&__button {
+		text-decoration: none;
+		display: flex;
+		flex-direction: row;
+		gap: var(--fs-spacing-xs);
+		align-items: center;
+		padding-block: var(--fs-spacing-xs);
+		padding-inline: var(--fs-spacing-xs);
+		border-radius: var(--fs-radius-sm);
+	}
+	&__marker {
+		width: var(--fs-size-md);
+		height: var(--fs-size-md);
+		padding: var(--fs-spacing-2xs);
+		box-sizing: content-box;
+		border: var(--fs-thickness-md) solid transparent;
+		border-radius: var(--fs-size-lg);
+	}
+	&__identifier {
+		flex: 1;
+		.identifier {
+			&__label {
+				font-weight: var(--fs-weight-md);
+			}
+			&__status {
+				@extend .fs-typo-label-default;
+				margin-block-end: 0;
+			}		
+		}
+	}
+	&__incentive {
+		border: var(--fs-thickness-md) solid var(--fs-color-brand-secondary);
+		border-radius: var(--fs-radius-xl);
+		padding-block: var(--fs-spacing-2xs);
+		padding-inline: var(--fs-spacing-sm);
+	}
+}
+
+.fs-tasksList__button {
+	&:not(.is-completed) {
+		&:hover,
+		&:focus {
+			background: var(--fs-color-action-secondary-hover);
+			.identifier__status {
+				color: var(--fs-color-text-secondary);
+			}
+		}		
+	}
+	&.is-incentivised {
+		.fs-tasksList {
+			&__marker {
+				background: var(--fs-color-background-active);
+				border: var(--fs-thickness-md) solid var(--fs-color-brand-primary);
+				outline: var(--fs-thickness-md) solid var(--fs-color-background-active);				
+			}
+		}
+	}
+	&.is-completed {
+		.identifier__label {
+			color: var(--fs-color-text-tertiary);
+		}
+	}
+}
+
+.fs-tasksList__footer {
+	padding-block-start: var(--fs-spacing-md);
+	padding-inline: var(--fs-spacing-md);
+	.footer {
+		&__header {
+			@extend .fs-typo-panelHead-minor;
+		}
+		&__body {
+			@extend .fs-typo-body-minor;
+		}
+	}
+}

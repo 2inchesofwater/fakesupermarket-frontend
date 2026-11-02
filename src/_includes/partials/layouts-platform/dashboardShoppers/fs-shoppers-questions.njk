@@ -1,0 +1,33 @@
+<div id="fs-dashboard--questions" class="fs-dashboard--questions">
+  <div class="fs-questions__inner">
+    <details open class="fs-details" aria-labelledby="fs-questions__heading">
+      <summary class="fs-details__summary">
+        <span class="fs-details__marker icon" aria-hidden="true">
+          <svg class="svg-closed" viewBox="0 0 24 24" focusable="false">
+            <use href="#marker-closed"></use>
+          </svg>
+          <svg class="svg-open" viewBox="0 0 24 24" focusable="false">
+            <use href="#marker-open"></use>
+          </svg>
+        </span>      
+        <div class="fs-details__header">
+          <h2 id="fs-questions__heading" class="fs-details__heading">Profile builder questions</h2>
+        </div>
+      </summary>
+
+      <div class="fs-questions__body fs-details__body">
+        <form action="/shopper/profile/" method="post" class="quickQuestionForm">
+          {% include "partials/layouts-platform/dashboardShoppers/fs-shoppers-demo_question.njk" %}
+
+          <div class="fs-questions__actions">
+            <div class="fs-btn-group">
+              <button class="fs-btn btn-secondary btn-sm">Continue</button>
+              <button class="fs-btn btn-tertiary btn-sm">Skip question</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </details>
+
+  </div>
+</div>

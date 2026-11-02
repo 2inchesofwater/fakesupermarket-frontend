@@ -1,0 +1,7 @@
+{% macro formatPrice(amount, currency="AUD", locale="en-AU") -%}
+  <bdi class="fs-price">
+    {%- for part in amount | priceParts(currency, locale) -%}
+      <span class="fs-price__{{ part.className }}">{{ part.value }}</span>
+    {%- endfor -%}
+  </bdi>
+{%- endmacro %}

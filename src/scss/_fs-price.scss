@@ -1,0 +1,11 @@
+.fs-price {
+	&__currency,
+	&__major {
+		font-weight: var(--fs-weight-md);
+	}
+	&__decimal,
+	&__minor {
+		font-size: 0.75em; 
+		font-weight: var(--fs-weight-md);
+	}
+}

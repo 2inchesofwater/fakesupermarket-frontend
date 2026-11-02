@@ -198,47 +198,47 @@
   }
 
   &.btn-identityAvatar {
-    gap: var(--fs-spacing-2xs);
-    background: unset;
-    transition: var(--fs-transition-md);
-    &:hover,
-    &:active {
-      background: rgb(from var(--fs-color-action-secondary-hover) r g b / 25%);
-      .label {
-        color: var(--fs-color-text-primary);
-      }
-    }    
+    display: grid;
+    grid-template-areas: 
+      "icon label"
+      "icon label-extra";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 3fr 2fr;      
+    grid-row-gap: var(--fs-thickness-sm);
+    grid-column-gap: var(--fs-spacing-xs);
+    justify-items: start;
     .icon {
+      grid-area: icon;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
 
-      width: calc(var(--fs-logo-size-sm) / 1.5);
-      aspect-ratio: 1 / 1;
-
-      border-radius: var(--fs-logo-size-sm);
+      width: calc(var(--fs-logo-size-sm) - var(--fs-spacing-md));
+      height: calc(var(--fs-logo-size-sm) - var(--fs-spacing-md));
       border: var(--fs-thickness-lg) solid var(--fs-color-chart-1);
+      border-radius: var(--fs-logo-size-sm);
+
       font-size: var(--fs-size-md);
       font-weight: var(--fs-weight-light);
       color: var(--fs-color-chart-1);
     }
     .label {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      grid-area: label;
+      align-self: end;
       font-weight: var(--fs-weight-bold);
-      color: var(--fs-color-text-secondary);
-      padding: var(--fs-spacing-xs);
-      border-radius: var(--fs-radius-sm);
     }
-  }
-  .label > .label-extra {
-    display: block;
-    font-size: var(--fs-size-xs);
-    font-weight: var(--fs-weight-regular);
-    // line-height: var(--fs-leading-md);
-    color: var(--fs-color-text-tertiary);
+    .label-extra {
+      grid-area: label-extra;
+      align-self: start;
+      font-size: var(--fs-size-xs);
+      font-weight: var(--fs-weight-light);
+      line-height: var(--fs-leading-sm);
+    }
+    .label,
+    .label-extra {
+      padding-inline-end: var(--fs-spacing-md);
+    }
   }
 
 }

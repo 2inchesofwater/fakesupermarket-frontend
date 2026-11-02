@@ -1,0 +1,437 @@
+:root {
+  /* Design system palette spectrum */
+  --fs-color-core-900: #280B0E;
+  --fs-color-core-800: #701C33;
+  --fs-color-core-700: #A72347;
+  --fs-color-core-600: #D92958;
+  --fs-color-core-500: #E96286;
+  --fs-color-core-400: #EC93A8;
+  --fs-color-core-300: #F5BCC7;
+  --fs-color-core-200: #FAD1D1;
+  --fs-color-core-100: #FCE8E8;
+  --fs-color-core-050: #FEF6F6;
+  --fs-color-bright-tan-light: #E6D2C1;
+  --fs-color-bright-tan-middle: #D8B99E;
+  --fs-color-bright-tan-dark: #C5966D;
+  --fs-color-bright-pink-light: #EC93CD;
+  --fs-color-bright-pink-middle: #E467B8;
+  --fs-color-bright-pink-dark: #D742A3;
+  --fs-color-bright-orange-light: #F9A186;
+  --fs-color-bright-orange-middle: #F67B55;
+  --fs-color-bright-orange-dark: #EB6E47;
+  --fs-color-bright-yellow-light: #FFE580;
+  --fs-color-bright-yellow-middle: #FFD52E;
+  --fs-color-bright-yellow-dark: #ECC013;
+  --fs-color-bright-green-light: #9CE68E;
+  --fs-color-bright-green-middle: #59D543;
+  --fs-color-bright-green-dark: #40BC2A;
+  --fs-color-bright-sky-light: #80DEFF;
+  --fs-color-bright-sky-middle: #42CEFF;
+  --fs-color-bright-sky-dark: #00BDFF;
+  --fs-color-bright-cloud-light: #496169;
+  --fs-color-bright-cloud-middle: #3E5259;
+  --fs-color-bright-cloud-dark: #34454B;
+  --fs-color-bright-sherbet-light: #FBA5A9;
+  --fs-color-bright-sherbet-middle: #F66F79;
+  --fs-color-bright-sherbet-dark: #F4434F;
+  --fs-color-bright-violet-light: #B6BBEE;
+  --fs-color-bright-violet-middle: #9388D6;
+  --fs-color-bright-violet-dark: #6E66CD;
+  --fs-color-bright-cheese-light: #FBD4A9;
+  --fs-color-bright-cheese-middle: #F5AC73;
+  --fs-color-bright-cheese-dark: #F39648;
+  --fs-color-bright-tangerine-light: #FBBDA9;
+  --fs-color-bright-tangerine-middle: #F58B73;
+  --fs-color-bright-tangerine-dark: #F36A48;
+  --fs-color-bright-olive-light: #E3EAA9;
+  --fs-color-bright-olive-middle: #DAD087;
+  --fs-color-bright-olive-dark: #CEC762;
+  --fs-color-bright-maize-light: #FAEAA9;
+  --fs-color-bright-maize-middle: #F4CC75;
+  --fs-color-bright-maize-dark: #F2C149;
+  --fs-color-bright-apple-light: #B6EAAB;
+  --fs-color-bright-apple-middle: #A2D087;
+  --fs-color-bright-apple-dark: #82C763;
+  --fs-color-bright-sea-light: #B6EAD8;
+  --fs-color-bright-sea-middle: #97CDB9;
+  --fs-color-bright-sea-dark: #74C3A6;
+  --fs-color-bright-jungle-light: #CCEAA9;
+  --fs-color-bright-jungle-middle: #BED087;
+  --fs-color-bright-jungle-dark: #A8C762;
+  --fs-color-bright-cornflower-light: #B6E8EE;
+  --fs-color-bright-cornflower-middle: #93C9D6;
+  --fs-color-bright-cornflower-dark: #6EBDCD;
+  --fs-color-bright-yonder-light: #B6D2EE;
+  --fs-color-bright-yonder-middle: #93A9D6;
+  --fs-color-bright-yonder-dark: #6E92CD;
+  --fs-color-bright-wisteria-light: #B7A5EE;
+  --fs-color-bright-wisteria-middle: #A57DDA;
+  --fs-color-bright-wisteria-dark: #8657D3;
+  --fs-color-gray-900: #1C1718;
+  --fs-color-gray-800: #433D3E;
+  --fs-color-gray-700: #635A5C;
+  --fs-color-gray-600: #817478;
+  --fs-color-gray-500: #9E9497;
+  --fs-color-gray-400: #B6AFB1;
+  --fs-color-gray-300: #CECACB;
+  --fs-color-gray-200: #E4E2E3;
+  --fs-color-gray-100: #F0EFF0;
+  --fs-color-gray-050: #F8F7F7;
+  --fs-color-gray-025: #FCFBFB;
+  --fs-color-gray-010: #FEFDFD;
+  --fs-color-black: #000000;
+  --fs-color-white: #ffffff;
+  --fs-color-trueWhite: #fff;
+  --fs-color-brand-primary: var(--fs-color-core-600);
+  --fs-color-brand-secondary: var(--fs-color-bright-maize-middle);
+  --fs-color-success: var(--fs-color-bright-apple-dark);
+  --fs-color-caution: var(--fs-color-bright-cheese-dark);
+  --fs-color-danger: var(--fs-color-bright-sherbet-dark);
+  --fs-color-text-primary: var(--fs-color-gray-900);
+  --fs-color-text-secondary: var(--fs-color-gray-700);
+  --fs-color-text-tertiary: var(--fs-color-gray-600);
+  --fs-color-text-dialogue: var(--fs-color-text-primary);
+  --fs-color-background-active: var(--fs-color-white);
+  --fs-color-background-subtle: var(--fs-color-gray-025);
+  --fs-color-background-default: var(--fs-color-gray-050);
+  --fs-color-background-emphasized: var(--fs-color-core-100);
+  --fs-color-background-demo: var(--fs-color-gray-100);
+  --fs-color-background-page: var(--fs-color-gray-025);
+  --fs-color-background-header: var(--fs-color-white);
+  --fs-color-background-dialogue: var(--color-core-100);
+  --fs-color-background-footer: var(--fs-color-background-subtle);
+  --fs-color-panel-light: var(--fs-color-white);
+  --fs-color-panel-default: var(--fs-color-gray-050);
+  --fs-color-panel-strong: var(--fs-color-gray-100);
+  --fs-color-border-light: var(--fs-color-gray-100);
+  --fs-color-border-default: var(--fs-color-gray-200);
+  --fs-color-border-strong: var(--fs-color-gray-400);
+  --fs-color-chart-1: var(--fs-color-bright-sherbet-light);
+  --fs-color-chart-2: var(--fs-color-bright-violet-light);
+  --fs-color-chart-3: var(--fs-color-bright-cheese-light);
+  --fs-color-chart-4: var(--fs-color-bright-tangerine-light);
+  --fs-color-chart-5: var(--fs-color-bright-olive-light);
+  --fs-color-chart-6: var(--fs-color-bright-maize-light);
+  --fs-color-chart-7: var(--fs-color-bright-apple-light);
+  --fs-color-chart-8: var(--fs-color-bright-sea-light);
+  --fs-color-chart-9: var(--fs-color-bright-jungle-light);
+  --fs-color-chart-10: var(--fs-color-bright-cornflower-light);
+  --fs-color-chart-11: var(--fs-color-bright-yonder-light);
+  --fs-color-chart-12: var(--fs-color-bright-wisteria-light);
+  --fs-color-text-inverse: var(--fs-color-gray-100);
+  --fs-color-heading-inverse: var(--fs-color-core-400);
+  --fs-color-action-primary-default: var(--fs-color-core-600);
+  --fs-color-action-primary-font: var(--fs-color-white);
+  --fs-color-action-primary-hover: var(--fs-color-brand-secondary);
+  --fs-color-action-primary-active: var(--fs-color-core-700);
+  --fs-color-action-secondary-default: var(--fs-color-core-300);
+  --fs-color-action-secondary-font: var(--fs-color-text-secondary);
+  --fs-color-action-secondary-hover: var(--fs-color-core-400);
+  --fs-color-action-secondary-active: var(--fs-color-core-500);
+  --fs-color-action-tertiary-default: transparent;
+  --fs-color-action-tertiary-font: var(--fs-color-text-secondary);
+  --fs-color-action-tertiary-hover: var(--fs-color-core-300);
+  --fs-color-action-tertiary-active: var(--fs-color-core-400);
+  --fs-color-action-disabled-default: var(--fs-color-gray-200);
+  --fs-color-action-disabled-font: var(--fs-color-text-tertiary);
+  --fs-color-action-hover: var(--fs-color-core-600);
+  --fs-color-action-pressed: var(--fs-color-gray-700);
+  --fs-color-action-brand: var(--fs-color-bright-wisteria-middle);
+  --fs-color-focus-ring: var(--fs-color-bright-maize-middle);
+  --fs-color-unavailable-pulse: var(--fs-color-bright-sherbet-middle);
+  --fs-icon-size-sm: 18px;
+  --fs-icon-size-md: 24px;
+  --fs-icon-size-lg: 32px;
+  --fs-font-sans: Outfit, Helvetica, Calibri, sans-serif;
+  --fs-font-display: "MD Nichrome Test", Helvetica, Calibri, sans-serif;
+  --fs-logo-size-sm: 4rem;
+  --fs-logo-size-md: 8rem;
+  --fs-logo-size-lg: 12rem;
+  --fs-btn-size-sm: 1rem;
+  --fs-btn-size-md: 1.15rem;
+  --fs-btn-size-lg: 1.5rem;
+  --fs-leading-xs: 0.875em;
+  --fs-leading-sm: 1em;
+  --fs-leading-md: 1.15em;
+  --fs-leading-lg: 1.35em;
+  --fs-leading-xl: 1.6em;
+  --fs-padding-section-block: clamp(6rem, 10vh, 12rem);
+  --fs-padding-section-inline: clamp(1.5rem, 5vw, 6rem);
+  --fs-progress-height: 2px;
+  --fs-radius-none: 0;
+  --fs-radius-xs: 2px;
+  --fs-radius-sm: 4px;
+  --fs-radius-md: 8px;
+  --fs-radius-lg: 12px;
+  --fs-radius-xl: 2.5vw;
+  --fs-screen-xs: 300px;
+  --fs-screen-sm: 500px;
+  --fs-screen-md: 750px;
+  --fs-screen-lg: 1000px;
+  --fs-screen-xl: 1600px;
+  --fs-content-width-pageColumn: 52rem;
+  --fs-content-width-contentBody: 42rem;
+  --fs-content-breakpoint: 32rem;
+  --fs-size-xs: 0.75rem;
+  --fs-size-sm: 0.875rem;
+  --fs-size-md: 1rem;
+  --fs-size-lg: 1.25rem;
+  --fs-size-xl: clamp(1.125rem, 2vw, 1.5rem);
+  --fs-size-2xl: 2.2rem;
+  --fs-size-3xl: 3.15rem;
+  --fs-size-4xl: clamp(3rem, 8vw, 6.5rem);
+  --fs-size-5xl: 5.6rem;
+  --fs-spacing-inset: 1.5vh;
+  --fs-spacing-none: 0;
+  --fs-spacing-2xs: 3px;
+  --fs-spacing-xs: 6px;
+  --fs-spacing-sm: 12px;
+  --fs-spacing-md: 16px;
+  --fs-spacing-lg: 24px;
+  --fs-spacing-xl: 32px;
+  --fs-spacing-2xl: 48px;
+  --fs-spacing-3xl: 64px;
+  --fs-spacing-4xl: 72px;
+  --fs-thumbnail-xs: 40px;
+  --fs-thumbnail-sm: 75px;
+  --fs-thumbnail-md: 100px;
+  --fs-thumbnail-lg: 150px;
+  --fs-thickness-none: 0;
+  --fs-thickness-sm: 1px;
+  --fs-thickness-md: 2px;
+  --fs-thickness-lg: 4px;
+  --fs-thickness-xl: 8px;
+  --fs-unavailable-opacity: 0.5;
+  --fs-unavailable-blur-sm: 1px;
+  --fs-unavailable-blur-md: 2px;
+  --fs-unavailable-blur-lg: 4px;
+  --fs-unavailable-color-pulse: var(--fs-color-bright-cloud-middle);
+  --fs-boxShadow-xs: 0 var(--spacing-3xs) .25vw var(--color-shadow-light);
+  --fs-boxShadow-sm: 0 var(--spacing-3xs) .5vw var(--color-shadow-light);
+  --fs-boxShadow-md: 0 var(--spacing-2xs) 2.5vw var(--color-shadow-medium);
+  --fs-boxShadow-lg: 0 var(--spacing-xs) 5vw var(--color-shadow-medium);
+  --fs-transition-sm: all 0.1s ease;
+  --fs-transition-md: all 0.3s ease;
+  --fs-transition-lg: all 0.6s ease;
+  --fs-weight-light: 300;
+  --fs-weight-regular: 400;
+  --fs-weight-bold: 500;
+  --fs-weight-heavy: 600;
+  --fs-weight-sm: 200;
+  --fs-weight-md: 400;
+  --fs-weight-lg: 500;
+}
+
+.fs_unavailable,
+[disabled]:not(.btn),
+[disabled]:not(.fs-btn) {
+  filter: blur(var(--fs-unavailable-blur-md));
+  opacity: var(--fs-unavailable-opacity);
+  pointer-events: none;
+  user-select: none;
+  position: relative;
+}
+.fs_unavailable.blur-pulse,
+[disabled]:not(.btn).blur-pulse,
+[disabled]:not(.fs-btn).blur-pulse {
+  filter: blur(3px);
+  transition: filter 0.5s ease-in-out;
+}
+
+.fs-typo-displayTitle {
+  font-family: var(--fs-font-display);
+  font-size: var(--fs-size-4xl);
+  line-height: var(--fs-leading-sm);
+  font-weight: var(--fs-weight-lg);
+  letter-spacing: -0.03%;
+  margin-block-start: 0;
+  margin-block-end: 0.25em;
+}
+
+.fs-typo-pageTitle {
+  font-family: var(--fs-font-display);
+  font-size: var(--fs-size-3xl);
+  line-height: var(--fs-leading-md);
+  font-weight: var(--fs-weight-lg);
+  letter-spacing: -0.03%;
+  margin-block-start: 0;
+  margin-block-end: 0.25em;
+}
+
+.fs-typo-pageHead-major {
+  font-family: var(--fs-font-sans);
+  font-size: var(--fs-size-2xl);
+  line-height: var(--fs-leading-md);
+  font-weight: var(--fs-weight-lg);
+  letter-spacing: -0.03%;
+  margin-block-start: 0;
+  margin-block-end: 0.25em;
+}
+
+.fs-typo-pageHead-default {
+  font-family: var(--fs-font-sans);
+  font-size: var(--fs-size-xl);
+  line-height: var(--fs-leading-md);
+  font-weight: var(--fs-weight-lg);
+  letter-spacing: -0.01%;
+  margin-block-start: 0;
+  margin-block-end: 0.25em;
+}
+
+.fs-typo-pageHead-minor {
+  font-family: var(--fs-font-sans);
+  font-size: var(--fs-size-lg);
+  line-height: var(--fs-leading-lg);
+  font-weight: var(--fs-weight-md);
+  letter-spacing: 0;
+  margin-block-start: 0;
+  margin-block-end: 0.25em;
+}
+
+.fs-typo-panelHead-major {
+  font-family: var(--fs-font-sans);
+  font-size: var(--fs-size-lg);
+  line-height: var(--fs-leading-md);
+  font-weight: var(--fs-weight-lg);
+  letter-spacing: 0;
+  margin-block-start: 0;
+  margin-block-end: 0.25em;
+}
+
+.fs-typo-panelHead-default {
+  font-family: var(--fs-font-sans);
+  font-size: var(--fs-size-md);
+  line-height: var(--fs-leading-md);
+  font-weight: var(--fs-weight-lg);
+  letter-spacing: 0;
+  margin-block-start: 0;
+  margin-block-end: 0.25em;
+}
+
+.fs-typo-panelHead-minor {
+  font-family: var(--fs-font-sans);
+  font-size: var(--fs-size-md);
+  line-height: var(--fs-leading-md);
+  font-weight: var(--fs-weight-md);
+  letter-spacing: 0;
+  margin-block-start: 0;
+  margin-block-end: 0.25em;
+}
+
+.fs-typo-body-major {
+  font-family: var(--fs-font-sans);
+  font-size: var(--fs-size-lg);
+  line-height: var(--fs-leading-md);
+  font-weight: var(--fs-weight-sm);
+  letter-spacing: 0;
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
+}
+
+.fs-typo-body-default {
+  font-family: var(--fs-font-sans);
+  font-size: var(--fs-size-md);
+  line-height: var(--fs-leading-md);
+  font-weight: var(--fs-weight-sm);
+  letter-spacing: 0;
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
+}
+
+.fs-typo-body-minor {
+  font-family: var(--fs-font-sans);
+  font-size: var(--fs-size-sm);
+  line-height: var(--fs-leading-md);
+  font-weight: var(--fs-weight-sm);
+  letter-spacing: 0;
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
+}
+
+.fs-typo-body-micro {
+  font-family: var(--fs-font-sans);
+  font-size: var(--fs-size-xs);
+  line-height: var(--fs-leading-sm);
+  font-weight: var(--fs-weight-sm);
+  letter-spacing: 0;
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
+}
+
+.fs-typo-label-default {
+  font-family: var(--fs-font-sans);
+  font-size: var(--fs-size-sm);
+  line-height: var(--fs-leading-md);
+  font-weight: var(--fs-weight-sm);
+  letter-spacing: 0;
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
+  color: var(--fs-color-text-tertiary);
+}
+
+pre {
+  font-size: 13px;
+  color: var(--fs-color-text-secondary);
+  max-width: 100%;
+  overflow-x: scroll;
+  border: var(--fs-thickness-sm) dashed var(--fs-color-border-default);
+}
+
+.text-highlight,
+.fs-highlight,
+.highlight {
+  color: var(--fs-color-text-primary);
+  position: relative;
+  display: inline-block;
+}
+.text-highlight:after,
+.fs-highlight:after,
+.highlight:after {
+  content: "";
+  position: absolute;
+  top: -2.5%;
+  left: -2.5%;
+  right: -2.5%;
+  bottom: -2.5%;
+  background: rgb(from var(--fs-color-brand-primary) r g b/15%);
+}
+
+.fs-forcefield-ripple {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  border: 35px solid var(--fs-unavailable-color-pulse);
+  filter: blur(7.5px);
+  opacity: 0.25;
+  transform: scale(0);
+  animation: ripple-expand-fade 0.6s forwards;
+  z-index: 100;
+}
+
+@keyframes ripple-expand-fade {
+  0% {
+    opacity: 0.25;
+    transform: scale(0.3);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.75);
+  }
+}
+.fs-pre_hidden {
+  opacity: 0 !important;
+  transition: none !important;
+  pointer-events: none;
+  display: none !important;
+}
+
+.section-start {
+  padding-block: var(--fs-padding-section-block);
+}
+.section-start .__inner {
+  container-type: inline-size;
+  display: grid;
+  column-gap: var(--fs-spacing-lg);
+  width: min(100%, var(--fs-content-width-column));
+  margin-inline: auto;
+}

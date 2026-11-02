@@ -1,4 +1,9 @@
 const fs = require("fs");
+const {
+  isPrototype,
+  outputDir,
+  pageUrl
+} = require("./build-config");
 
 module.exports = async function(eleventyConfig) {
   
@@ -18,6 +23,32 @@ module.exports = async function(eleventyConfig) {
   eleventyConfig.addFilter("fs", function(path) {
     return fs.readFileSync(path, "utf8");
   });
+
+  // Format currency into individually styleable parts.
+  eleventyConfig.addNunjucksFilter(
+    "priceParts",
+    function(amount, currency = "AUD", locale = "en-AU") {
+      if (typeof amount !== "number" || !Number.isFinite(amount)) {
+        throw new TypeError("formatPrice requires a finite numeric amount.");
+      }
+
+      const formatter = new Intl.NumberFormat(locale, {
+        style: "currency",
+        currency,
+        useGrouping: true
+      });
+
+      const classes = {
+        integer: "major",
+        fraction: "minor"
+      };
+
+      return formatter.formatToParts(amount).map(part => ({
+        ...part,
+        className: classes[part.type] ?? part.type
+      }));
+    }
+  );
 
   // Add a Nunjucks filter for formatting prices
   eleventyConfig.addNunjucksFilter("toFixed", function(value, decimals = 2) {
@@ -41,10 +72,24 @@ module.exports = async function(eleventyConfig) {
   
   eleventyConfig.setDataFileBaseName("index");
 
+  eleventyConfig.addFilter("pageUrl", pageUrl);
+  eleventyConfig.addNunjucksGlobal("resolvePageUrl", pageUrl);
+
+  eleventyConfig.addGlobalData("prototypeBuild", isPrototype);
+
+  eleventyConfig.addGlobalData(
+    "showAuthDialogue",
+    process.env.SHOW_AUTH_DIALOGUE === "true"
+  );
+
+  if (isPrototype) {
+    eleventyConfig.setServerOptions({ port: 8081 });
+  }
+
   return {
     dir: {
       input: "src",
-      output: "_site",
+      output: outputDir,
       includes: "_includes",
       layouts: "_includes/layouts",
       data: "_data"

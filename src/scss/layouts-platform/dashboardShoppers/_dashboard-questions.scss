@@ -1,0 +1,20 @@
+@use "../../fs-styles";
+
+.fs-dashboard--questions {
+	.fs-inputGroup {
+		background: var(--fs-color-card-bg-sub);
+		padding: var(--fs-spacing-sm);
+		border-radius: var(--fs-radius-card-sub);
+	}
+	.fs-input-pane-header {
+		margin-block-end: 0;
+		.fs-input-pane-title {
+			@extend .fs-typo-panelHead-major;	
+		}
+	}
+	.fs-inputGroup-content { 
+		.fs-label {
+			@extend .fs-typo-label-default;
+		}
+	}
+}

@@ -1,7 +1,9 @@
 ---
 layout: supermarket-category.njk
 title: "Meat, poultry, and seafood"
-permalink: "pages/meat/index.html"
+route: meat
+slug: index
+permalink: "{{ route | pageUrl(slug) }}"
 eleventyComputed:
   category: "{{ meat }}"
 ---

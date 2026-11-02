@@ -1,0 +1,71 @@
+@use "fs-variables" as *;
+
+@forward 'dashboard-cards';
+@forward 'dashboard-welcome';
+@forward 'dashboard-tasks';
+@forward 'dashboard-incentives';
+@forward 'dashboard-questions';
+@forward 'dashboard-walkthrough';
+
+#page-dashboardShoppers {
+	background:  var(--color-background-page);
+
+	.fs-dashboard {
+		padding-block-start: calc(var(--fs-logo-size-sm) * 2) !important;
+	}
+}
+
+#main-dashboardShoppers {
+	$fs-content-width-contentBody: 600px;
+	$fs-content-width-pageColumn: 900px;
+
+	display: grid;
+	grid-template-columns: 1fr;
+
+	#fs-dashboard-tasksLists { grid-area: tasks; }
+	#fs-dashboard-shoppers { grid-area: secondary; }
+
+	display: grid;
+	row-gap: var(--fs-spacing-lg);
+	column-gap: 0;
+	align-content: start;
+	align-items: start;
+	grid-template-areas: 
+		"tasks"
+		"secondary";
+	
+	padding-inline: 0;
+	padding-block: 0;
+	margin-block-end: 10vh;
+
+	@media (min-width: #{$fs-content-width-contentBody}) {
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas: 
+			"tasks secondary";
+		align-items: start;
+	}
+	@media (min-width: #{$fs-content-width-pageColumn}) {
+		grid-template-columns: 3fr 2fr;
+	}
+}
+
+#fs-dashboard-shoppers {
+	.fs-dashboard {
+		&__inner {
+			display: flex;
+			flex-direction: column;
+			gap: var(--fs-spacing-xl);
+
+			container-type: inline-size;
+
+			padding-inline: var(--fs-spacing-md);
+			max-width: var(--fs-content-breakpoint);
+			margin-inline: auto;
+		}
+	}
+	.fs-details {
+		--fs-color-accordion_summary-background-open: var(--fs-color-brand-secondary);
+		--fs-color-accordion_summary-background-closed: var(--fs-color-white);
+		--fs-color-accordion_panel-background-open: var(--fs-color-white);
+	}
+}

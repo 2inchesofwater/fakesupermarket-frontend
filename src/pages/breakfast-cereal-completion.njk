@@ -1,7 +1,9 @@
 ---
 layout: supermarket-completion.njk
 title: "Order confirmation"
-permalink: "pages/breakfastcereal/confirmation.html"
+route: breakfastcereal
+slug: confirmation
+permalink: "{{ route | pageUrl(slug) }}"
 eleventyComputed:
   category: breakfastcereal
 ---

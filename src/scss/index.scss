@@ -41,6 +41,7 @@
 @use 'fs-stepper-panes';
 @use 'fs-study-item';
 @use 'fs-panel';
+@use 'fs-price';
 @use 'fs-progress';
 @use 'fs-recruitGroup';
 @use 'fs-recruitPopulation';
@@ -81,7 +82,7 @@
 @forward 'components/table';
 
 
-@forward 'layout-dashboard-shoppers'; 
+@forward 'layouts-platform/dashboardShoppers/layout-dashboardShoppers'; 
 @forward 'layout-site';
 @forward 'layout-headers';
 @forward 'layout-footer';

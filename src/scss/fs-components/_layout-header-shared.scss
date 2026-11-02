@@ -1,6 +1,7 @@
 @use "../fs-variables" as *;
 @use "../fs-styles";
 
+#page-dashboardShoppers,
 #page-participants,
 #page-clients,
 body.staticpage {
@@ -41,8 +42,8 @@ body.staticpage {
 	.fs-nav-btnGroup {
 		margin-inline-end: var(--fs-spacing-2xs);
 		*:last-child {
-			border-top-right-radius: 20px;
-			border-bottom-right-radius: 20px;
+			border-top-right-radius: var(--fs-spacing-xl);
+			border-bottom-right-radius: var(--fs-spacing-xl);
 		}		
 	}
 

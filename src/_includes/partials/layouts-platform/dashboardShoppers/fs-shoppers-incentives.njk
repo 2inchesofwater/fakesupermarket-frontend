@@ -1,0 +1,68 @@
+<div id="fs-dashboard--incentives" class="fs-incentives">
+  <div class="fs-incentives__inner">
+    <details open class="fs-details" aria-labelledby="fs-incentives__heading">
+      <summary class="fs-details__summary">
+        <span class="fs-details__marker icon" aria-hidden="true">
+          <svg class="svg-closed" viewBox="0 0 24 24" focusable="false">
+            <use href="#marker-closed"></use>
+          </svg>
+          <svg class="svg-open" viewBox="0 0 24 24" focusable="false">
+            <use href="#marker-open"></use>
+          </svg>
+        </span>      
+        <div class="fs-details__header">
+          <h2 id="fs-incentives__heading" class="fs-details__heading">Your incentives</h2>
+        </div>
+      </summary>
+
+      <div class="fs-incentives__body fs-details__body">
+        
+        <div id="fs-incentives-balance" class="fs-incentives__wrapper balance">
+          <dl class="fs-incentives__content">
+            <dt class="fs-incentives__identifier">
+              {# <span class="icon"></span> #}
+              <span class="label">available balance</span>
+            </dt>
+            <dd class="amount">{{ formatPrice(14, currency="AUD", locale="en-AU") }}</dd>
+          </dl>
+          <div class="fs-btn-group">
+            <a href="/shopper/payout/" class="fs-btn btn-tertiary btn-sm">
+              <span class="label">Get paid now</span>
+            </a>
+          </div>
+        </div>
+
+        <div id="fs-incentives-tally" class="fs-incentives__wrapper tally">
+          <dl class="fs-incentives__content">
+            <dt class="fs-incentives__identifier">
+              {# <span class="icon"></span> #}
+              <span class="label">research tasks done</span>
+            </dt>
+            <dd class="amount">9</dd>
+          </dl>
+          <div class="fs-btn-group">
+            <a href="" class="fs-btn btn-link btn-sm">
+              <span class="label">History</span>
+            </a>
+          </div>          
+        </div>
+
+        <div id="fs-incentives-total"class="fs-incentives__wrapper total">
+          <dl class="fs-incentives__content">
+            <dt class="fs-incentives__identifier">
+              {# <span class="icon"></span> #}
+              <span class="label">earned to date</span>
+            </dt>
+            <dd class="amount">{{ formatPrice(45.25, currency="AUD", locale="en-AU") }}</dd>
+          </dl>  
+          <div class="fs-btn-group">
+            <a href="" class="fs-btn btn-link btn-sm">
+              <span class="label">Records</span>
+            </a>
+          </div>          
+        </div>
+
+      </div>
+    </details>
+  </div>
+</div>

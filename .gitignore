@@ -1,5 +1,6 @@
 # Eleventy build directory
 _site/
+_site-prototypes/
 dist/
 
 # Node.js dependencies

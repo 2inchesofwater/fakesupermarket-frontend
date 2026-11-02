@@ -1,7 +1,9 @@
 ---
 layout: supermarket-completion.njk
 title: "Order confirmation"
-permalink: "pages/meat/confirmation.html"
+route: meat
+slug: confirmation
+permalink: "{{ route | pageUrl(slug) }}"
 eleventyComputed:
   category: "meat"
 ---

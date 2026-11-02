@@ -1,7 +1,9 @@
 ---
 layout: supermarket-category.njk
 title: "Breakfast cereal"
-permalink: "pages/breakfastcereal/index.html"
+route: breakfastcereal
+slug: index
+permalink: "{{ route | pageUrl(slug) }}"
 eleventyComputed:
   category: breakfastcereal
 ---

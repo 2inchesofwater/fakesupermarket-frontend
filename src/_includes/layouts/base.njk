@@ -2,36 +2,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {# <base href="http://localhost:8080/" target="_self"> #}
-  <title>{% if storefront.storefrontName %}{{ storefront.storefrontName }} | {% endif %}Fake Supermarket</title>
-  <meta property="og:title" content="{{ title }}" />
-  <meta property="og:url" content="https://fakesupermarket.app/" />
-  <meta property="og:site_name" content="{{ title }}" />
-  <meta property="og:type" content="website" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" >
+  <meta name="theme-color" content="#D92958" />
+  <title>{{ title }}</title>
+  {% if description %}<meta name="description" content="{{ description }}" >{% endif %}
 
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:url" content="{{ site.root }}{{ page.url }}" />
+  <meta property="og:site_name" content="{{ title }}" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  {% if description %}<meta property="og:description" content="{{ description }}" >{% endif %}
+  <meta property="og:image" content="{{ site.root }}{{ page.url }}/{{ hero.foregroundImage[0].src }}">
+  <meta property="og:image:width" content="{{ hero.foregroundImage[0].width }}" />
+  <meta property="og:image:height" content="{{ hero.foregroundImage[0].height }}" />
+  <meta property="og:image:alt" content="{{ hero.foregroundImage[0].alt }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="canonical" href="{{ site.root }}{{ page.url }}" />
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">  
   <link rel="stylesheet" href="/css/index.css?ver={{ assetVersion }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..700&display=swap" rel="stylesheet">
-  <link rel="icon" href="../../images/favicon.ico" sizes="any">
-  <link rel="icon" href="../../images/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">  
 </head>
-<body id="" class="{{ pagelayout }}">
+
+{% from "partials/layouts-marketing/fs-pageSection-footer.njk" import layoutFooter as renderFooter %}
+
+<body id="page-{% if pageId %}{{ pageId }}{% else %}{{ slug }}{% endif %}" class="{{ pagelayout }}">
   <div id="top"></div>
   {% include "partials/skiplinks.njk" %}
   {% if not skipOnboarding %}
     {% include "partials/fs-onboarding.njk" %}
   {% endif %}
-  {% include "partials/modalBackdrop.njk" %}
   
-  {% block content %}
+    {% block content %}
   {% endblock %}
-  
-  {% include "partials/logo/fakesupermarket-symbol.njk" %}  
-  {% include "partials/template-svg.njk" %}
-</body>
 
+  {{ renderFooter(site.root) }}
+
+  <div class="fs-svg-hidden" aria-hidden style="position:absolute;width:0;height:0;overflow:hidden">
+    {% include "partials/logo/fakesupermarket.njk" %}
+    {% include "partials/logo/fakesupermarket-symbol.njk" %}  
+    {% include "partials/icons/x.njk" %}
+    {% include "partials/icons/radio-interactive.njk" %}
+    {% include "partials/icons/marker-interactive.njk" %}
+  </div>
+
+</body>
 </html>

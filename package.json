@@ -8,7 +8,10 @@
     "build": "NODE_ENV=production gulp build",
     "clean": "gulp clean",
     "scrape": "node scripts/scrape-products.js",
-    "scrape:demo": "node scripts/demo.js"
+    "scrape:demo": "node scripts/demo.js",
+    "start:prototypes": "BUILD_TARGET=prototypes gulp devPrototypes",
+    "build:prototypes": "BUILD_TARGET=prototypes NODE_ENV=production gulp buildPrototypes",
+    "start:showAuthDialogue": "SHOW_AUTH_DIALOGUE=true gulp dev"
   },
   "keywords": [],
   "author": "",
