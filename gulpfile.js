@@ -4,7 +4,6 @@ const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const esbuild = require('gulp-esbuild');
 const { spawn } = require('node:child_process');
-const { existsSync } = require('node:fs');
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const { isPrototype, outputDir } = require('./build-config');
@@ -24,8 +23,8 @@ const siblingProjects = [
 ].map(project => path.join(__dirname, '..', project));
 
 const sharedScssSources = [
-  path.join(__dirname, 'src/scss/_fs-variables.scss'),
-  path.join(__dirname, 'src/scss/_fs-styles.scss')
+  path.join(__dirname, 'src/assets/scss/_fs-variables.scss'),
+  path.join(__dirname, 'src/assets/scss/_fs-styles.scss')
 ];
 
 const sharedNunjucksSources = [
@@ -56,21 +55,28 @@ function copySharedNunjucks() {
   );
 }
 
+function copySharedFonts() {
+  return copyToSiblingProjects(
+    src('src/assets/fonts/**/*', { encoding: false }),
+    'src/assets/fonts'
+  );
+}
+
 function compileSass() {
-  return src('src/scss/**/*.scss')
+  return src('src/assets/scss/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(dest('src/css'));
+    .pipe(dest('src/assets/css'));
 }
 
 function cssSite() {
-  return src('src/css/**/*.css')
+  return src('src/assets/css/**/*.css')
     .pipe(postcss([cssnano()]))
-    .pipe(dest(path.join(outputPath, 'css')));
+    .pipe(dest(path.join(outputPath, 'assets/css')));
 }
 
 function cssShared() {
   return copyToSiblingProjects(
-    src('src/css/index.css').pipe(postcss([cssnano()])),
+    src('src/assets/css/index.css').pipe(postcss([cssnano()])),
     'src/assets/css'
   );
 }
@@ -78,14 +84,14 @@ function cssShared() {
 const css = parallel(cssSite, cssShared);
 
 function js() {
-  return src('src/js/main.js', { allowEmpty: true })
+  return src('src/assets/js/main.js', { allowEmpty: true })
     .pipe(esbuild({
       bundle: true,
       minify: process.env.NODE_ENV === 'production',
       sourcemap: process.env.NODE_ENV !== 'production',
       target: ['es2015']
     }))
-    .pipe(dest(path.join(outputPath, 'js')));
+    .pipe(dest(path.join(outputPath, 'assets/js')));
 }
 
 function runEleventy(args = []) {
@@ -109,16 +115,17 @@ function eleventyServe() {
 function watchFiles() {
   watch(sharedScssSources, copySharedVariables);
   watch(sharedNunjucksSources, copySharedNunjucks);
-  watch('src/scss/**/*.scss', compileSass);
-  watch('src/css/**/*.css', css);
-  watch('src/js/**/*.js', js);
+  watch('src/assets/fonts/**/*', copySharedFonts);
+  watch('src/assets/scss/**/*.scss', compileSass);
+  watch('src/assets/css/**/*.css', css);
+  watch('src/assets/js/**/*.js', js);
 }
 
 function watchPrototypeFiles() {
   // Prototype previews never invoke the sibling-copy tasks.
-  watch('src/scss/**/*.scss', compileSass);
-  watch('src/css/**/*.css', cssSite);
-  watch('src/js/**/*.js', js);
+  watch('src/assets/scss/**/*.scss', compileSass);
+  watch('src/assets/css/**/*.css', cssSite);
+  watch('src/assets/js/**/*.js', js);
 }
 
 async function clean() {
@@ -137,41 +144,17 @@ async function preparePrototypeOutput() {
   await fs.rm(prototypeOutputPath, { recursive: true, force: true });
 }
 
-function copyPrototypePreviewAssets() {
-  // Some shared assets currently live only in _site. Copy them for preview,
-  // retaining their public paths without copying any historical HTML pages.
-  const sharedRoot = path.join(__dirname, '_site');
-  const sources = ['css', 'js', 'fonts', 'images', 'assets']
-    .filter(directory => existsSync(path.join(sharedRoot, directory)))
-    .map(directory => path.join(sharedRoot, directory, '**/*'));
-
-  if (existsSync(path.join(sharedRoot, 'pages'))) {
-    sources.push(path.join(
-      sharedRoot, 'pages', '**/*.{jpg,jpeg,png,avif,gif,svg,webp}'
-    ));
-  }
-
-  if (sources.length === 0) {
-    return Promise.resolve();
-  }
-
-  return src(sources, {
-    base: sharedRoot,
-    encoding: false,
-    allowEmpty: true
-  }).pipe(dest(prototypeOutputPath));
-}
-
 // Preserve the existing normal build and development workflows.
 const build = series(
-  parallel(copySharedVariables, copySharedNunjucks),
+  parallel(copySharedVariables, copySharedNunjucks, copySharedFonts),
   compileSass,
-  parallel(css, js),
-  eleventy
+  eleventy,
+  // Optimise after Eleventy has copied the current source assets.
+  parallel(css, js)
 );
 
 const dev = series(
-  parallel(copySharedVariables, copySharedNunjucks),
+  parallel(copySharedVariables, copySharedNunjucks, copySharedFonts),
   compileSass,
   parallel(css, js),
   parallel(eleventyServe, watchFiles)
@@ -179,7 +162,6 @@ const dev = series(
 
 const buildPrototypes = series(
   preparePrototypeOutput,
-  copyPrototypePreviewAssets,
   compileSass,
   eleventy,
   // Eleventy copies source CSS/JS, so optimise after it finishes.
@@ -188,7 +170,6 @@ const buildPrototypes = series(
 
 const devPrototypes = series(
   preparePrototypeOutput,
-  copyPrototypePreviewAssets,
   compileSass,
   parallel(cssSite, js),
   parallel(eleventyServe, watchPrototypeFiles)
@@ -197,6 +178,7 @@ const devPrototypes = series(
 exports.clean = clean;
 exports.copySharedVariables = copySharedVariables;
 exports.copySharedNunjucks = copySharedNunjucks;
+exports.copySharedFonts = copySharedFonts;
 exports.sass = compileSass;
 exports.css = css;
 exports.js = js;

@@ -8,10 +8,10 @@ const {
 module.exports = async function(eleventyConfig) {
   
   // Pass through static files
-  eleventyConfig.addPassthroughCopy("src/css");
-  eleventyConfig.addPassthroughCopy("src/js");
-  eleventyConfig.addPassthroughCopy("src/images");
-  eleventyConfig.addPassthroughCopy("src/pages/**/*.{jpg,jpeg,png,avif,gif,svg,webp}");
+  eleventyConfig.addPassthroughCopy("src/assets/css");
+  eleventyConfig.addPassthroughCopy("src/assets/js");
+  eleventyConfig.addPassthroughCopy("src/assets/images");
+  eleventyConfig.addPassthroughCopy("src/assets/fonts");
 
   eleventyConfig.addFilter("relativePath", function(path, base) {
     if (path.startsWith('/')) {

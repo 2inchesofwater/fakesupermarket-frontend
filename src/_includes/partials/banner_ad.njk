@@ -6,12 +6,12 @@
         {% for source in storefront.bannerAd.sources %}
           <source
             media="{{ source.media }}"
-            srcset="/pages/{{ storefront.slug }}/{{ source.url }}"
+            srcset="/assets/images/storefronts/{{ storefront.slug }}/{{ source.url }}"
           >
         {% endfor %}
 
         <img
-          src="/pages/{{ storefront.slug }}/{{ storefront.bannerAd.fallback.url }}"
+          src="/assets/images/storefronts/{{ storefront.slug }}/{{ storefront.bannerAd.fallback.url }}"
           alt="{{ storefront.bannerAd.alt }}"
           width="{{ storefront.bannerAd.fallback.width }}"
         >

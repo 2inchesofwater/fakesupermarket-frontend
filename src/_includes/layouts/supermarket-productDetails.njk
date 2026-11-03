@@ -70,7 +70,7 @@
               data-sku="{{ product.productSku }}" data-price="{{ cartPrice }}"
               aria-label="Add {{ product.productName }} to your cart" >
               {% if storefront.productCardAddIconFilename %}
-                {% set svgContent = ('src/images/icons/' + storefront.productCardAddIconFilename) | fs %}
+                {% set svgContent = ('src/assets/images/icons/' + storefront.productCardAddIconFilename) | fs %}
                 <span class="icon {{ className | safe }}">
                     {{ svgContent | safe }}
                 </span>
@@ -88,7 +88,7 @@
                 onclick="toggleFavorite(this)"
             >
                 {% if storefront.productCardSaveIconFilename %}
-                  {% set svgContent = ('src/images/icons/' + storefront.productCardSaveIconFilename) | fs %}
+                  {% set svgContent = ('src/assets/images/icons/' + storefront.productCardSaveIconFilename) | fs %}
                   <span class="icon {{ className | safe }}">
                       {{ svgContent | safe }}
                   </span>
@@ -108,7 +108,7 @@
         <div class="product-images-main" aria-label="Images of {{ product.productName }}">
           {% if product.images.length %}
             <figure itemprop="image">
-              <img src="/pages/{{ storefront.slug }}/{{ product.images[0] }}" alt="{{ product.imagesVisualDescription }}">
+              <img src="/assets/images/storefronts/{{ route | default(storefront.slug) }}/{{ product.images[0] }}" alt="{{ product.imagesVisualDescription }}">
             </figure>
           {% endif %}
         </div>
@@ -120,7 +120,7 @@
             {% for image in product.images %}
             <li>
               <button type="button" aria-label="Show image {{ loop.index }}">
-                <img src="/pages/{{ storefront.slug }}/{{ image }}" alt="Thumbnail #{{ loop.index }}" style="max-width:100%; max-height:100%;">
+                <img src="/assets/images/storefronts/{{ route | default(storefront.slug) }}/{{ image }}" alt="Thumbnail #{{ loop.index }}" style="max-width:100%; max-height:100%;">
               </button>
             </li>
             {% endfor %}
@@ -377,11 +377,11 @@
     {% include "partials/icons/marker-interactive.njk" %}
   </div>
   
-  <script type="module" src="/js/utils/init.js"></script>
-  <script type="module" src="/js/pages/onboarding.js"></script>
-  <script type="module" src="/js/pages/productDetails.js"></script>
-  <script type="module" src="/js/pages/cart-overlay.js"></script>
-  <script type="module" src="/js/utils/backdrop.js" ></script>
+  <script type="module" src="/assets/js/utils/init.js"></script>
+  <script type="module" src="/assets/js/pages/onboarding.js"></script>
+  <script type="module" src="/assets/js/pages/productDetails.js"></script>
+  <script type="module" src="/assets/js/pages/cart-overlay.js"></script>
+  <script type="module" src="/assets/js/utils/backdrop.js" ></script>
 
 
 {% endblock %}

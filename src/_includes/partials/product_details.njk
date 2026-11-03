@@ -86,7 +86,7 @@
               class="add-to-cart btn btn-product btn-primary" 
               aria-label="Add {{ product.name }} to your cart">
               {% if productCardAddIconFilename %}
-                {% set svgContent = ('src/images/icons/' + productCardAddIconFilename) | fs %}
+                {% set svgContent = ('src/assets/images/icons/' + productCardAddIconFilename) | fs %}
                 <span class="icon {{ className | safe }}">
                     {{ svgContent | safe }}
                 </span>
@@ -103,7 +103,7 @@
                 aria-label="Come back to {{ product.name }} later"
                 onclick="toggleFavorite(this)">
                 {% if productCardSaveIconFilename %}
-                  {% set svgContent = ('src/images/icons/' + productCardSaveIconFilename) | fs %}
+                  {% set svgContent = ('src/assets/images/icons/' + productCardSaveIconFilename) | fs %}
                   <span class="icon {{ className | safe }}">
                       {{ svgContent | safe }}
                   </span>
