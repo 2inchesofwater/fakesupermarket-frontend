@@ -1,31 +1,30 @@
 #auth-signin-overlay {
-	.fs-dialog-body,
-	.fs-dialog-footer {
+	.fs-dialog__body,
+	.fs-dialog__footer {
 		justify-self: center;
-
 		align-items: center;
-    align-content: center;
-
+		align-content: center;
     width: 100%;
 	}
 
-	.fs-dialog-body {
+	.fs-dialog__body {
     row-gap: 10vh;
     row-rule: var(--fs-thickness-sm) solid var(--fs-color-border-default);
 
-		.wrapper {
+		.fs-dialog__group {
 			display: flex;
 			flex-direction: column;
 			gap: var(--fs-spacing-xs);
 			&#auth-signin-dialog-signup {
 				align-items: center;				
 			}
+
 			p {
 				text-align: center;
 			}
 		}		
 	}
-	.fs-dialog-footer {
+	.fs-dialog__footer {
 		justify-items: center;
 	}
 }
@@ -37,8 +36,18 @@
 		.btn-tertiary {
 			padding-block: var(--fs-spacing-sm);
 		}
-		
 	}
+	#auth-signin-dialog-signup {
+		align-items: center;
+	}
+	#auth-signinEmail-dialog-body {
+		align-items: center;
+		align-content: center;
+	}
+	#auth-signinEmail-dialog-footer {
+		justify-items: center;
+	}
+
 	.fs-btn-group {
 		flex-direction: column;
 		gap: var(--fs-spacing-md);

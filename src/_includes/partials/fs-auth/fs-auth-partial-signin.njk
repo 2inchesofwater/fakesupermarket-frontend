@@ -1,0 +1,39 @@
+<section id="auth-signin-dialog-body" class="fs-dialog-body fs-dialog__body" aria-label="Account sign-in options" data-auth-view="signin" data-auth-title="Sign in" {% if authInitialView != "signin" %}hidden{% endif %}>
+  <div id="auth-signin-dialog-options" class="fs-dialog__group wrapper">
+    <button class="fs-btn btn-primary btn-icon" type="button" data-auth-target="signin-email" autofocus>
+      <span class="label">Sign in with email</span>
+    </button>
+    <p id="auth-signin-dialog-separator">or</p>
+    <button class="fs-btn btn-tertiary btn-icon" type="button">
+      <span class="icon">
+        {% set googleIcon %}{% include "partials/icons/social-google.svg" %}{% endset %}
+        {{ googleIcon | replace("clip0_", "signin-clip0_") | safe }}
+      </span>
+      <span class="label">Continue with Google</span>
+    </button>
+    <button class="fs-btn btn-tertiary btn-icon" type="button">
+      <span class="icon">
+        {% set facebookIcon %}{% include "partials/icons/social-facebook.svg" %}{% endset %}
+        {{ facebookIcon | replace("clip0_", "signin-clip0_") | safe }}
+      </span>
+      <span class="label">Continue with Facebook</span>
+    </button>
+  </div>
+  <div id="auth-signin-dialog-signup" class="fs-dialog__group wrapper">
+    <p>New to Fake Supermarket?</p>
+    {% if authHasSignup %}
+      <button class="fs-btn btn-tertiary btn-sm" type="button" data-auth-target="signup">
+        <span class="label">Sign up today</span>
+      </button>
+    {% else %}
+      <a href="{{ site.root }}/participants/index.html" class="fs-btn btn-secondary">
+        <span class="label">Get paid to do fake shopping</span>
+        <span class="icon">{% include "partials/icons/chevrons-right.njk" %}</span>
+      </a>
+    {% endif %}
+  </div>
+</section>
+
+<div data-auth-view="signin-email" data-auth-title="Sign in with email" hidden style="display: contents;">
+  {% include "partials/fs-auth/fs-auth-partial-signin_email.njk" %}
+</div>

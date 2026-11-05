@@ -30,8 +30,7 @@
     text-decoration: none;
   }
   &:focus {
-    outline: var(--fs-thickness-lg) solid var(--fs-color-focus-ring);
-    outline-offset: -1px;
+    // defined further down the page
   } 
 
   > .label {
@@ -207,6 +206,9 @@
     grid-row-gap: var(--fs-thickness-sm);
     grid-column-gap: var(--fs-spacing-xs);
     justify-items: start;
+    &#auth-profile_settings-menu-btn {
+      padding-inline-start: var(--fs-spacing-xs);
+    }
     .icon {
       grid-area: icon;
       display: flex;
@@ -214,8 +216,8 @@
       align-items: center;
       justify-content: center;
 
-      width: calc(var(--fs-logo-size-sm) - var(--fs-spacing-md));
-      height: calc(var(--fs-logo-size-sm) - var(--fs-spacing-md));
+      width: calc(var(--fs-logo-size-sm) - var(--fs-spacing-lg));
+      height: calc(var(--fs-logo-size-sm) - var(--fs-spacing-lg));
       border: var(--fs-thickness-lg) solid var(--fs-color-chart-1);
       border-radius: var(--fs-logo-size-sm);
 
@@ -239,9 +241,26 @@
     .label-extra {
       padding-inline-end: var(--fs-spacing-md);
     }
+    &:hover,
+    &:focus {
+      .icon {
+        border-color: var(--fs-color-brand-primary);
+        color: var(--fs-color-brand-primary);
+      }
+    }
   }
 
 }
+
+.fs-btn,
+.fs-tasksList__button,
+.fs-details > summary {
+  &:focus {
+    outline: var(--fs-thickness-lg) solid var(--fs-color-focus-ring);
+    outline-offset: -1px;
+  }
+}
+
 
 div.fs-btn.btn-placeholder {
   pointer-events: none;

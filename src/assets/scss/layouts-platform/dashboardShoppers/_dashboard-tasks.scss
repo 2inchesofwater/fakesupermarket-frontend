@@ -102,6 +102,7 @@
 		}
 	}
 	&__incentive {
+		background: var(--fs-color-background-active);
 		border: var(--fs-thickness-md) solid var(--fs-color-brand-secondary);
 		border-radius: var(--fs-radius-xl);
 		padding-block: var(--fs-spacing-2xs);
@@ -117,7 +118,13 @@
 			.identifier__status {
 				color: var(--fs-color-text-secondary);
 			}
-		}		
+			.fs-tasksList__incentive {
+				border-color: var(--fs-color-brand-primary);
+			}
+		}
+		&:focus {
+			// defined in _fs-buttons.scss
+		}	
 	}
 	&.is-incentivised {
 		.fs-tasksList {
@@ -131,6 +138,15 @@
 	&.is-completed {
 		.identifier__label {
 			color: var(--fs-color-text-tertiary);
+		}
+		.fs-tasksList__incentive {
+			border-color: var(--fs-color-border-default);
+			color: var(--fs-color-text-tertiary);
+		}
+	}
+	&.is-completed.is-incentivised {
+		.fs-tasksList__marker {
+			border-color: var(--fs-color-border-default);
 		}
 	}
 }

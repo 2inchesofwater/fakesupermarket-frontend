@@ -126,11 +126,11 @@
   --fs-color-action-primary-active: var(--fs-color-core-700);
   --fs-color-action-secondary-default: var(--fs-color-white);
   --fs-color-action-secondary-font: var(--fs-color-text-secondary);
-  --fs-color-action-secondary-hover: var(--fs-color-core-300);
+  --fs-color-action-secondary-hover: var(--fs-color-core-200);
   --fs-color-action-secondary-active: var(--fs-color-core-500);
   --fs-color-action-tertiary-default: var(--fs-color-white);
   --fs-color-action-tertiary-font: var(--fs-color-text-secondary);
-  --fs-color-action-tertiary-hover: var(--fs-color-core-300);
+  --fs-color-action-tertiary-hover: var(--fs-color-core-200);
   --fs-color-action-tertiary-active: var(--fs-color-core-500);
   --fs-color-action-disabled-default: var(--fs-color-gray-200);
   --fs-color-action-disabled-font: var(--fs-color-text-tertiary);

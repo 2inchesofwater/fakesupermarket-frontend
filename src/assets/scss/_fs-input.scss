@@ -1,3 +1,5 @@
+@use "fs-styles";
+
 :root {
   --fs-input-range-trackHeight: var(--fs-spacing-xs);
   --fs-input-range-thumbWidth: var(--fs-spacing-xl);
@@ -18,10 +20,7 @@
   }
 
   .fs-inputGroup-help {
-    font-size: var(--fs-size-sm);
-    line-height: var(--fs-size-sm);
-    font-weight: var(--fs-weight-light);
-    color: var(--fs-color-text-tertiary);
+    @extend .fs-typo-body-minor;
   }  
 
   .fs-input-warning:not([hidden]) {
@@ -30,7 +29,7 @@
     padding-block: var(--fs-spacing-2xs);
     padding-inline-start: var(--fs-spacing-xs);
 
-    font-weight: var(--fs-weight-regular);
+    // font-weight: var(--fs-weight-regular);
 
     + input {
       background: rgb(from var(--fs-color-caution) r g b/10%);
@@ -39,12 +38,11 @@
   }
 
   label,
-  .label {
+  .fs-label {
     display: block;
-    margin-block-end: var(--fs-spacing-3xs);
-    font-size: var(--fs-size-md);
-    font-weight: var(--fs-weight-regular);
-    color: var(--fs-color-text-primary);
+    @extend .fs-typo-body-default;
+    font-weight: var(--fs-weight-md);
+    margin-block-end: 0;
   } 
 
   label {

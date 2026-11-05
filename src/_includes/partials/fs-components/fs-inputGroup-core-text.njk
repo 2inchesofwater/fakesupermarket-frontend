@@ -31,8 +31,71 @@
     <span class="text-label">Enter a {{ input.title }}</span>
   </p>
 
-  <div id="fs-auth-signin-password" class="fs-btn-group fs-inputGroup-showPassword">
-    <input class="fs-input" id="fs-input-{{ input.slug }}" name="fs-input-{{ input.slug }}" type="{{ input.type }}" {% if input.passthroughAttributes %}{{ input.passthroughAttributes | safe }}{% endif %}>
-    {% if input.type == "password" %}<button class="fs-btn btn-link">Show</button>{% endif %}
-  </div>
+  <div class="fs-inputControl{% if input.button %} fs-inputControl-segmented{% endif %}">
+  <input
+    class="fs-input"
+    id="fs-input-{{ input.slug }}"
+    name="fs-input-{{ input.slug }}"
+    type="{{ input.type }}"
+    {% if input.passthroughAttributes %}
+      {{ input.passthroughAttributes | safe }}
+    {% endif %}
+  >
+
+  {% if input.button %}
+    <button
+      type="button"
+      id="{{ input.button.id }}"
+      class="fs-btn fs-inputControl-action{% if input.button.icon %} btn-icon btn-tertiary btn-iconOnly{% endif %}"
+      aria-label="{{ input.button.label }}"
+      aria-controls="fs-input-{{ input.slug }}"
+      data-state="default"
+    >
+      {% if input.button.icon %}
+        <svg
+          viewBox="{{ input.button.icon.viewBox | default('0 0 24 24') }}"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <use
+            class="svg-default"
+            href="{{ input.button.icon.default }}"
+          ></use>
+
+          {% if input.button.icon.active %}
+            <use
+              class="svg-active"
+              href="{{ input.button.icon.active }}"
+            ></use>
+          {% endif %}
+        </svg>
+      {% else %}
+        <span class="label">{{ input.button.label }}</span>
+      {% endif %}
+    </button>
+  {% endif %}
+</div>
+
+  {% if input.type == "password" and input.button %}
+    <script>
+      (() => {
+        const group = document.currentScript.closest('.fs-inputGroup');
+        const field = group.querySelector('.fs-input');
+        const button = group.querySelector('.fs-inputControl-action');
+        const visibleLabel = button.querySelector('.label');
+        const hiddenLabel = button.getAttribute('aria-label');
+
+        button.addEventListener('click', () => {
+          const reveal = field.type === 'password';
+          const label = reveal ? 'Hide password' : hiddenLabel;
+
+          field.type = reveal ? 'text' : 'password';
+          button.dataset.state = reveal ? 'active' : 'default';
+          button.setAttribute('aria-label', label);
+
+          if (visibleLabel) visibleLabel.textContent = label;
+        });
+      })();
+    </script>
+  {% endif %}
 </div>

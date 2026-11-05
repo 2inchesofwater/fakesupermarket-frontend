@@ -1,0 +1,17 @@
+{% set componentName = "signin" %}
+{% set authInitialView = "signin" %}
+{% set authHasSignup = false %}
+
+<dialog id="auth-{{ componentName }}-overlay" aria-labelledby="auth-{{ componentName }}-title" class="fs-dialog-overlay" data-auth-initial-view="{{ authInitialView }}">
+  <header id="auth-{{ componentName }}-dialog-header" class="fs-dialog__header">
+    <h2 id="auth-{{ componentName }}-title" class="fs-dialog__heading">Sign in</h2>
+    <button commandfor="auth-{{ componentName }}-overlay" command="close" aria-label="Close the account panel" class="fs-btn btn-tertiary btn-icon btn-iconOnly" id="auth-{{ componentName }}-btn-close" type="button">
+      <span class="icon">
+        <svg class="fs-logo-symbol" viewBox="0 0 24 24" aria-hidden="true"><use href="#fs-x"></use></svg>
+      </span>
+    </button>
+  </header>
+
+  {% include "partials/fs-auth/fs-auth-partial-signin.njk" %}
+  {% include "partials/fs-auth/fs-auth-partial-dialog-script.njk" %}
+</dialog>

@@ -1,0 +1,30 @@
+<script>
+  (() => {
+    const dialog = document.currentScript.closest('dialog');
+    const heading = dialog.querySelector('.fs-dialog__heading');
+    const views = Array.from(dialog.querySelectorAll('[data-auth-view]'));
+
+    function showView(name, moveFocus = false) {
+      const nextView = views.find(view => view.dataset.authView === name);
+      if (!nextView) return;
+
+      views.forEach(view => { view.hidden = view !== nextView; });
+      heading.textContent = nextView.dataset.authTitle;
+
+      if (moveFocus) {
+        const target = nextView.querySelector('[autofocus]') ||
+          nextView.querySelector('input:not([disabled]), button:not([disabled]), a[href]');
+        target?.focus();
+      }
+    }
+
+    dialog.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-auth-target]');
+      if (button) showView(button.dataset.authTarget, true);
+    });
+
+    dialog.addEventListener('beforetoggle', (event) => {
+      if (event.newState === 'open') showView(dialog.dataset.authInitialView);
+    });
+  })();
+</script>

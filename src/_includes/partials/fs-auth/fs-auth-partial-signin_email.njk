@@ -1,0 +1,45 @@
+{% set componentName = 'signinEmail' %}
+
+<section id="auth-{{ componentName }}-dialog-body" class="fs-dialog__body" aria-label="Account sign-up options">
+  <div class="fs-dialog__group">
+    <form>
+      {% set input = {
+        slug: "signin",
+        title: "Email",
+        type: "email",
+        passthroughAttributes: "required autofocus"
+      } %}
+      {% include "partials/fs-components/fs-inputGroup-core-text.njk" %}
+
+
+      {% set input = {
+        slug: "password",
+        title: "Password",
+        type: "password",
+        passthroughAttributes: "required autocomplete='current-password' spellcheck='false' autocapitalize='none'",
+        button: {
+          id: "signin-password-reveal",
+          label: "Show password",
+          icon: {
+            default: "#reveal-off",
+            active: "#reveal-on"
+          }
+        }
+      } %}
+      {% include "partials/fs-components/fs-inputGroup-core-text.njk" %} 
+
+      <div id="fs-inputGroup-continue" class="fs-inputGroup fs-btn-group">
+        <button class="fs-btn btn-primary">
+          <span class="text-label">Continue</span>
+        </button>
+      </div>
+    </form>    
+  </div> 
+  
+  <div id="auth-{{ componentName }}-dialog-footer" class="fs-dialog__group">
+    <a href="#" class="fs-btn btn-tertiary btn-sm">
+      <span class="label">Forgot your password?</span>
+    </a>
+  </div>         
+</section>
+

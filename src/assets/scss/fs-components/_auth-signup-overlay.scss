@@ -6,15 +6,14 @@
 		align-items: center;
     align-content: center;
 
-    width: 100%;
-    
+    width: 100%;    
 	}
 
-	.fs-dialog-body {
+	.fs-dialog__body {
 	    row-gap: 10vh;
 	    row-rule: var(--fs-thickness-sm) solid var(--fs-color-border-default);
 
-    .wrapper {
+    .fs-dialog__group {
     	display: flex;
     	flex-direction: column;
     	gap: var(--fs-spacing-xs);
@@ -35,6 +34,21 @@
 		.btn-tertiary {
 			padding-block: var(--fs-spacing-sm);
 		}	
+	}
+	#auth-signupEmail-dialog-body {
+		.btn-primary {
+			padding-block: var(--fs-spacing-sm);
+		}
+	}
+	#auth-signupEmail-dialog-footer {
+		display: flex;
+		flex-direction: column;
+		gap: var(--fs-spacing-xs);
+		align-items: center;
+	}
+
+	#input-signup-legals-help {
+		color: var(--fs-color-text-tertiary);
 	}
 	.fs-btn-group {
 		flex-direction: column;

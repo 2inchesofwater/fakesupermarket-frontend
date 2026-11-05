@@ -1,40 +1,44 @@
-<dialog id="auth-{{ componentName }}-overlay" aria-label="Sign in to your Fake Supermarket account, or create an account" class="fs-dialog-overlay">
-	<header id="auth-{{ componentName }}-dialog-header" class="fs-dialog-header">
-		<h2 id="auth-{{ componentName }}-title" class="fs-dialog-title">Sign up today</h2>
-		<button commandfor="auth-{{ componentName }}-overlay" command="close" aria-label="Close the account panel" class="fs-btn btn-tertiary btn-icon btn-iconOnly" id="auth-{{ componentName }}-btn-close" type="button">
-	        <span class="icon">
-	        	<svg class="fs-logo-symbol" viewBox="0 0 24 24" aria-hidden="true">
-	          	<use href="#fs-x"></use>
-	        	</svg> 
-	        </span>
-		</button>
-	</header>
+{% set componentName = "signup" %}
+{% set authInitialView = "signup" %}
+{% set authHasSignup = true %}
 
-	<section id="auth-{{ componentName }}-dialog-body" class="fs-dialog-body" aria-label="Account sign-up options">
-		<div id="auth-{{ componentName }}-dialog-options" class="wrapper">
-			<button class="fs-btn btn-primary btn-icon" type="button" autofocus>
-				<span class="label">Sign up with email</span></button>
-			<p id="auth-dialog-separator">or</p>
-			<button class="fs-btn btn-tertiary btn-icon" type="button">
-				<span class="icon">
-					{% include "partials/icons/social-google.svg" %}
-				</span>
-				<span class="label">Continue with Google</span>
-			</button>
-			<button class="fs-btn btn-tertiary btn-icon" type="button">
-				<span class="icon">
-					{% include "partials/icons/social-facebook.svg" %}
-				</span>
-				<span class="label">Continue with Facebook</span>
-			</button>			
-		</div>
-		<div id="auth-{{ componentName }}-dialog-signin" class="wrapper">
-			<p>Already have an account?</p>
-			<button commandfor="auth-signin-overlay" command="show-modal" aria-label="Open the sign-in menu" class="fs-btn btn-tertiary btn-sm" id="auth-signin-menu-btn" type="button">
-	          <span class="label">Sign in</span>
-	        </button>
-		</div>
-	</section>
+<dialog id="auth-{{ componentName }}-overlay" aria-labelledby="auth-{{ componentName }}-title" class="fs-dialog-overlay" data-auth-initial-view="{{ authInitialView }}">
+  <header id="auth-{{ componentName }}-dialog-header" class="fs-dialog-header fs-dialog__header">
+    <h2 id="auth-{{ componentName }}-title" class="fs-dialog-title fs-dialog__heading">Sign up today</h2>
+    <button commandfor="auth-{{ componentName }}-overlay" command="close" aria-label="Close the account panel" class="fs-btn btn-tertiary btn-icon btn-iconOnly" id="auth-{{ componentName }}-btn-close" type="button">
+      <span class="icon">
+        <svg class="fs-logo-symbol" viewBox="0 0 24 24" aria-hidden="true"><use href="#fs-x"></use></svg>
+      </span>
+    </button>
+  </header>
 
-	{# <section id="auth-{{ componentName }}-dialog-footer" class="fs-dialog-footer"></section> #}
+  <section id="auth-signup-dialog-body" class="fs-dialog-body fs-dialog__body" aria-label="Account sign-up options" data-auth-view="signup" data-auth-title="Sign up today">
+    <div id="auth-signup-dialog-options" class="wrapper fs-dialog__group">
+      <button class="fs-btn btn-primary btn-icon" type="button" data-auth-target="signup-email" autofocus>
+        <span class="label">Sign up with email</span>
+      </button>
+      <p id="auth-signup-dialog-separator">or</p>
+      <button class="fs-btn btn-tertiary btn-icon" type="button">
+        <span class="icon">{% include "partials/icons/social-google.svg" %}</span>
+        <span class="label">Continue with Google</span>
+      </button>
+      <button class="fs-btn btn-tertiary btn-icon" type="button">
+        <span class="icon">{% include "partials/icons/social-facebook.svg" %}</span>
+        <span class="label">Continue with Facebook</span>
+      </button>
+    </div>
+    <div id="auth-signup-dialog-signin" class="wrapper fs-dialog__group">
+      <p>Already have an account?</p>
+      <button class="fs-btn btn-tertiary btn-sm" id="auth-signin-menu-btn" type="button" data-auth-target="signin">
+        <span class="label">Sign in</span>
+      </button>
+    </div>
+  </section>
+
+  <div data-auth-view="signup-email" data-auth-title="Sign up with email" hidden style="display: contents;">
+    {% include "partials/fs-auth/fs-auth-partial-signup_email.njk" %}
+  </div>
+
+  {% include "partials/fs-auth/fs-auth-partial-signin.njk" %}
+  {% include "partials/fs-auth/fs-auth-partial-dialog-script.njk" %}
 </dialog>

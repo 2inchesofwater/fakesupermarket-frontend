@@ -8,12 +8,12 @@ form {
 	input[type="number"],
 	textarea {
 	  padding: var(--spacing-sm);
-	  border: var(--thickness-md) solid var(--color-text-tertiary);
-	  border-radius: var(--radius-sm);
+	  border: var(--thickness-md) solid var(--fs-form-input-bordercolor);
+	  border-radius: var(--fs-radius-sm);
 	  //font-family: var(--font-sans);
-	  font-size: var(--size-md);
-	  font-weight: var(--weight-regular);
-	  color: var(--color-text-primary);	
+	  font-size: var(--fs-size-md);
+	  font-weight: var(--fs-weight-regular);
+	  color: var(--fs-color-text-primary);	
 	  width: 100%;
 	  max-width: 60rem;
 		&.input-sm {
@@ -21,20 +21,58 @@ form {
 		}
 	}
 
-	label,
-	.label {
-		display: block;
-		margin-block-end: var(--spacing-3xs);
-		font-size: var(--size-md);
-		font-weight: var(--weight-regular);
-		color: var(--color-text-secondary);
-	}
-	.help {
-		color: var(--color-text-tertiary);
-		font-size: var(--size-xs);
-		margin-block-start: var(--spacing-2xs);
+	.fs-inputGroup-text {
+		--fs-form-input-bordercolor: var(--fs-color-text-tertiary);
+		--fs-form-input-borderradius: var(--fs-radius-sm);
 	}
 
+	// label,
+	// .label {
+	// 	display: block;
+	// 	margin-block-end: var(--spacing-3xs);
+	// 	font-size: var(--size-md);
+	// 	font-weight: var(--fs-weight-regular);
+	// 	color: var(--color-text-secondary);
+	// }
+	// .help {
+	// 	color: var(--color-text-tertiary);
+	// 	font-size: var(--size-xs);
+	// 	margin-block-start: var(--spacing-2xs);
+	// }
+
+  .fs-inputControl-segmented {
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+    align-items: stretch;
+    .fs-input {
+      &:focus {
+      	z-index: 5;
+      }
+    }
+    .fs-inputControl-action {
+    	border: var(--fs-thickness-md) solid var(--fs-form-input-bordercolor);
+
+    	border-radius: var(--fs-form-input-borderradius);
+      &:hover {
+      	border-color: var(--fs-form-input-bordercolor);
+      }
+      .svg-default {
+        display: block;
+      }
+      .svg-active {
+        display: none;
+      }
+      &[data-state="active"] {
+	      .svg-default {
+	        display: none;
+	      }
+	      .svg-active {
+	        display: block;
+	      }      	
+      }
+    }
+  }
 	.input-checkboxCustom {
 		display: flex;
 		flex-direction: row;

@@ -28,7 +28,6 @@
 		overlay 300ms ease allow-discrete;
 
 	background: var(--color-background-page);
-	// outline: var(--fs-thickness-lg) solid var(--fs-color-bright-orange-middle);
 	border: var(--fs-thickness-xl) solid var(--fs-color-brand-primary);
 	border-radius: var(--fs-spacing-lg);	
 
@@ -56,24 +55,14 @@
 	}
 
 	&[open]::backdrop {
-		// background: rgb(0 0 0 / 0.45);
 		background:  //var(--color-backdrop-default);
 	    linear-gradient(217deg, transparent 2%, var(--fs-color-bright-maize-middle)),
 	    linear-gradient(127deg, transparent 2%, var(--fs-color-bright-maize-dark)),
 	    linear-gradient(336deg, transparent 98%, var(--fs-color-bright-maize-light));		
 	}
 
-
-
-	// &[open]::backdrop {
-	// 	background:  //var(--color-backdrop-default);
-	//     linear-gradient(217deg, var(--color-core-400), transparent 90.71%),
-	//     linear-gradient(127deg, var(--color-bright-orange-light), transparent 90.71%),
-	//     linear-gradient(336deg, var(--color-bright-orange-middle), transparent 90.71%);
-	// }
-
-
-	.fs-dialog-header {
+	.fs-dialog-header,
+	.fs-dialog__header {
 		display: flex;
 		flex-direction: row;
 		gap: var(--spacing-md);
@@ -86,7 +75,8 @@
 		background: var(--fs-color-background-header);
 		border-block-end: var(--fs-thickness-sm) solid var(--fs-color-border-default);
 
-		.fs-dialog-title {
+		.fs-dialog-title,
+		.fs-dialog__heading {
 			flex: 1;
 
 			margin-block-end: unset;
@@ -95,17 +85,18 @@
 		}
 	}
 
-	.fs-dialog-body {
+	.fs-dialog-body,
+	.fs-dialog__body {
 		display: grid;
 		padding: var(--fs-spacing-md);
 		height: 100%;
 	}	
 
-	.fs-dialog-footer {
+	.fs-dialog-footer,
+	.fs-dialog__footer {
 		display: grid;
 		padding: var(--spacing-md);
 		padding-block-end: calc(var(--fs-spacing-md) + var(--fs-spacing-xs));
-		// height: 100%;
 		border-block-start: var(--fs-thickness-sm) solid var(--fs-color-border-default);
 	}
 }
@@ -116,7 +107,6 @@
     transform: translateX(110%);
   }
 	.fs-dialog-overlay[open]::backdrop {
-		// background: rgb(0 0 0 / 0);
 		background:  //var(--color-backdrop-default);
 	    linear-gradient(217deg, var(--color-core-400), transparent 0%),
 	    linear-gradient(127deg, var(--color-bright-orange-light), transparent 0%),
