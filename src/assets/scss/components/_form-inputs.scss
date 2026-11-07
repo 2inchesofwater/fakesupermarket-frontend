@@ -21,7 +21,9 @@ form {
 		}
 	}
 
-	.fs-inputGroup-text {
+	.fs-inputGroup-text,
+	.fs-input-pane-text,
+	.fs-input-pane-dob {
 		--fs-form-input-bordercolor: var(--fs-color-text-tertiary);
 		--fs-form-input-borderradius: var(--fs-radius-sm);
 	}

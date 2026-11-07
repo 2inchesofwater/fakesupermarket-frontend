@@ -12,8 +12,10 @@
 	  calc(100vw - (var(--fs-spacing-sm) * 2)),
 	  var(--fs-content-dialogOverlay)
 	);
-	min-height: calc(100vh - (var(--fs-spacing-sm) * 2) );
-	z-index: 1055; /* Following Bootstrap's pattern for z-layering */
+	height: calc(100dvh - (var(--fs-spacing-sm) * 2));
+  max-height: calc(100dvh - (var(--fs-spacing-sm) * 2));
+  min-height: 0;
+ 	z-index: 1055; /* Following Bootstrap's pattern for z-layering */
 	
 	// Real closed state
 	opacity: 0;

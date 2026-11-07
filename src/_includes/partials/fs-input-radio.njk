@@ -1,6 +1,6 @@
 {# inputSize accepts an abbreviation, such as 'sm' or '2xl' #}
 <div class="fs-input-radio {% if inputSize %}size-{{ inputSize }}{% endif %}">
-  <input class="fs-radio-input-button" id="pane-input-{{ pane.slug }}-{{ item.defaultCharacteristicSlug }}" name="{{ pane.slug }}" type="radio" value="{{ item.defaultCharacteristicSlug }}">
+  <input class="fs-radio-input-button" id="pane-input-{{ pane.slug }}-{{ item.defaultCharacteristicSlug }}" name="{{ pane.slug }}" type="radio" value="{{ item.defaultCharacteristicSlug }}"{% if pane.required %} required{% endif %}>
 
   <label for="pane-input-{{ pane.slug }}-{{ item.defaultCharacteristicSlug }}" class="fs-input-radio-modern">
       <span class="fs-input-radio-iconGroup" aria-hidden="true">

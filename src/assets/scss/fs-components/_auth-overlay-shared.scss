@@ -1,0 +1,64 @@
+.fs-auth-overlay {
+  // Auth views use two body groups rather than a separate footer row.
+  grid-template-rows: auto minmax(0, 1fr);
+
+  [data-auth-view][hidden] {
+    display: none;
+  }
+
+  .fs-auth-overlay__view:not([hidden]) {
+    display: contents;
+  }
+
+  .fs-dialog__body {
+    justify-self: center;
+    align-items: center;
+    align-content: safe center;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    overflow-y: auto;
+    row-gap: 10vh;
+    row-rule: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+
+    > .fs-dialog__group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--fs-spacing-xs);
+      min-width: 0;
+
+      > p {
+        text-align: center;
+      }
+
+      &:first-child {
+        align-items: stretch;
+
+        // Size actions without enlarging the password-reveal control.
+        > .fs-btn,
+        .fs-btn-group > .fs-btn {
+          width: 100%;
+          padding-block: var(--fs-spacing-sm);
+        }
+      }
+
+      & + .fs-dialog__group {
+        align-items: center;
+
+        .fs-btn-group {
+          align-items: center;
+        }
+
+        .fs-btn {
+          align-self: center;
+          width: auto;
+        }
+      }
+    }
+  }
+
+  .fs-btn-group {
+    flex-direction: column;
+    gap: var(--fs-spacing-xs);
+  }
+}

@@ -1,0 +1,109 @@
+<form id="profile-questions" class="fs-stepper" novalidate>
+  <div class="fs-stepper-wrapper">
+    <div class="fs-stepper-rail">
+      {% if profileStepper.stepperUseIntroPane %}
+        <section id="profile-intro" aria-labelledby="profile-intro-title" class="fs-stepper-pane" tabindex="-1">
+          {% if profileStepper.stepperIntroPane.kicker %}
+            <p class="kicker fs-stepper-pane-eyebrow">{{ profileStepper.stepperIntroPane.kicker | escape }}</p>
+          {% endif %}
+          <div class="fs-input-pane-header">
+            <h1 id="profile-intro-title" class="fs-input-pane-title">{{ profileStepper.stepperIntroPane.title | escape }}</h1>
+          </div>
+          <div class="fs-stepper-paragraphs-wrapper">
+            {% for paragraph in profileStepper.stepperIntroPane.paragraphs %}
+              <p>{{ paragraph | escape }}</p>
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
+
+      {% for group in groups | selectattr("groupUseForInterview") %}
+        <section id="profile-question-{{ group.groupSlug | escape }}" class="fs-stepper-pane" aria-labelledby="profile-question-{{ group.groupSlug | escape }}-title" aria-hidden="true" inert tabindex="-1" data-profile-question="{{ group.groupSlug | escape }}" data-required="{% if group.required %}true{% else %}false{% endif %}"{% if group.validate %} data-validate="{{ group.validate | escape }}"{% endif %}{% if group.groupUseAnotherGroup %} data-depends-on="{{ group.groupUseAnotherGroup | escape }}" data-depends-value="{{ group.groupUseAnotherCharacteristic | escape }}" hidden{% endif %}>
+          <div class="fs-inputGroup fs-input-pane-{{ group.groupInterviewInputType | escape }}">
+            {% if group.groupInterviewInputType == "text" %}
+              <div class="fs-input-pane-header fs-label-wrapper">
+                <h1 id="profile-question-{{ group.groupSlug | escape }}-title" class="fs-input-pane-title">{{ group.groupTitle | trim | escape }}</h1>
+              </div>
+              <div class="fs-inputGroup-content">
+                <label class="fs-label" for="pane-input-{{ group.groupSlug | escape }}">{{ group.groupDescription | escape }}</label>
+                {% if group.groupDescriptionExample %}
+                  <div id="profile-question-{{ group.groupSlug | escape }}-hint" class="fs-inputGroup-help">{{ group.groupDescriptionExample | escape }}</div>
+                {% endif %}
+              </div>
+              <input class="fs-input" id="pane-input-{{ group.groupSlug | escape }}" name="pane-input-{{ group.groupSlug | escape }}" type="text"{% if group.required %} required{% endif %}{% if group.groupDescriptionExample %} aria-describedby="profile-question-{{ group.groupSlug | escape }}-hint"{% endif %}>
+            {% else %}
+              <fieldset class="fs-fieldset">
+                <legend class="fs-fieldset__legend">
+                  <div class="fs-input-pane-header fs-label-wrapper">
+                    <h1 id="profile-question-{{ group.groupSlug | escape }}-title" class="fs-input-pane-title">{{ group.groupTitle | trim | escape }}</h1>
+                  </div>
+                  {% if group.groupDescription %}
+                    <div class="fs-inputGroup-content"><span class="fs-label">{{ group.groupDescription | escape }}</span></div>
+                  {% endif %}
+                  {% if group.groupDescriptionExample %}
+                    <div class="fs-inputGroup-help">{{ group.groupDescriptionExample | escape }}</div>
+                  {% endif %}
+                </legend>
+
+                {% if group.groupInterviewInputType == "dob" %}
+                  <div class="fs-input-date" id="{{ group.groupSlug | escape }}">
+                    {% for part, label in { day: "Day", month: "Month", year: "Year" } %}
+                      <div class="fs-input-date__item">
+                        <div class="fs-form-group">
+                          <label class="fs-label fs-input-date__label" for="pane-input-{{ group.groupSlug | escape }}-{{ part }}">{{ label }}</label>
+                          <input class="fs-input fs-input-date__input{% if part != 'year' %} fs-input--width-2{% endif %}" id="pane-input-{{ group.groupSlug | escape }}-{{ part }}" name="{{ group.groupSlug | escape }}-{{ part }}" type="text" inputmode="numeric" data-date-part="{{ part }}"{% if group.required %} required{% endif %}>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  </div>
+                {% elif group.groupInterviewInputType == "radio" %}
+                  <div class="fs-input-radioGroup" data-module="fs-radios">
+                    {% set pane = { slug: group.groupSlug, required: group.required } %}
+                    {% set inputSize = "xl" %}
+                    {% for item in group.items %}
+                      {% include "partials/fs-input-radio.njk" %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </fieldset>
+            {% endif %}
+          </div>
+        </section>
+      {% endfor %}
+
+      {% if profileStepper.stepperUseOutroPane %}
+        <section id="profile-review" aria-labelledby="profile-review-title" aria-hidden="true" class="fs-stepper-pane" inert tabindex="-1">
+          {% if profileStepper.stepperOutroPane.kicker %}
+            <p class="fs-stepper-pane-eyebrow">{{ profileStepper.stepperOutroPane.kicker | escape }}</p>
+          {% endif %}
+          <div class="fs-input-pane-header">
+            <h1 id="profile-review-title" class="fs-input-pane-title">{{ profileStepper.stepperOutroPane.title | escape }}</h1>
+          </div>
+          <dl aria-label="Profile answers" class="fs-stepper-review">
+            {% for group in groups | selectattr("groupUseForInterview") %}
+              <div data-profile-review="{{ group.groupSlug | escape }}"{% if group.groupUseAnotherGroup %} hidden{% endif %} class="fs-stepper-review__item">
+                <dt class="fs-stepper-review__term">{{ group.groupTitle | trim | escape }}</dt>
+                <dd class="fs-stepper-review__definition">Not answered</dd>
+              </div>
+            {% endfor %}
+          </dl>
+        </section>
+      {% endif %}
+    </div>
+  </div>
+  <div class="fs-stepper-controls">
+    {% if profileStepper.stepperUseProgressBar %}
+      <div class="fs-stepper-progress">
+        <progress class="fs-stepper-progressBar" value="1" aria-label="Profile completion progress"></progress>
+      </div>
+    {% endif %}
+    <div class="fs-stepper-controls-buttons">
+      <div class="fs-btn-group">
+        <button id="fs-stepper-next" class="fs-btn btn-primary" type="submit"><span class="label">Next</span></button>
+        <button id="fs-stepper-submit" class="fs-btn btn-primary" type="submit" hidden><span class="label">{{ profileStepper.stepperConfirmLabel | escape }}</span></button>
+        <button id="fs-stepper-previous" class="fs-btn btn-tertiary" type="button" disabled><span class="label">Previous</span></button>
+      </div>
+    </div>
+    <p data-profile-status role="status" hidden></p>
+  </div>
+</form>

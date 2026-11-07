@@ -5,43 +5,8 @@
   </div>
 
   <div class="fs-panel-body">
-    <form>
-      {% set input = {
-        slug: "signup",
-        title: "Email",
-        type: "email",
-        passthroughAttributes: "required"
-      } %}
-      {% include "partials/fs-components/fs-inputGroup-core-text.njk" %}
-
-
-      {% set input = {
-        slug: "password",
-        title: "Password",
-        help: "Use at least 8 characters. Longer passwords are stronger.",
-        type: "password",
-        passthroughAttributes: "required autocomplete='new-password' spellcheck='false' autocapitalize='none'"
-      } %}
-      {% include "partials/fs-components/fs-inputGroup-core-text.njk" %} 
-
-      <div class="fs-input-checkboxGroup fs-inputGroup">
-      <!-- Note to self: Checkboxes often come in groups; the Group wrappers can't be stuffed inside the partial for an individual checkbox -->
-        {% set input = {
-          slug: "legals",
-          useModernCheckbox: true,
-          title: "By proceeding, you agree to our <a href>terms and conditions</a>. <span class='text-light text-sm text-tertiary'>For more information about how we use your data, including the generation of random identifiers based on your email address for research and analysis purposes, visit our <a href>privacy policy</a>.</span>",
-          checkboxSize: "lg",
-          passthroughAttributes: "required"
-        } %}
-        {% include "partials/fs-components/fs-inputGroup-core-checkbox.njk" %}
-      </div>
-
-      <div id="inputGroup-continue" class="fs-inputGroup fs-btn-group">
-        <button class="fs-btn btn-primary btn-lg">
-          <span class="text-label">Continue</span>
-        </button>
-      </div>
-    </form>
+    {% set signupForm = { inDialog: false } %}
+    {% include "partials/fs-auth/fs-auth-form-signup_email.njk" %}
   </div>
 
   <div class="fs-panel-footer">

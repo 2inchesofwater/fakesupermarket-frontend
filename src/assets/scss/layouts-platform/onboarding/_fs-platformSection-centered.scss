@@ -1,0 +1,22 @@
+// Independent platform copy; keep future platform changes separate from marketing.
+@use "../../fs-variables" as *;
+@use "../../fs-styles";
+
+.fs-platformSection--centered {
+  margin-block: auto;
+
+	.platformSection {
+		&__inner {
+			display: flex;
+			flex-direction: column;
+			gap: var(--fs-spacing-lg);
+		}
+		&__group {
+			width: 100%;
+			max-width: var(--fs-content-width-contentBody);
+			margin-inline: auto;
+		}
+		&__header,
+		&__body {}
+	}
+}

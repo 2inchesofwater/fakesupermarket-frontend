@@ -1,0 +1,22 @@
+@use "../../fs-variables" as *;
+
+@forward 'fs-platformSection';
+@forward 'fs-platformSection-centered';
+@forward 'onboarding-stepper';
+
+// The platform section owns this page's outer spacing.
+#page-onboarding #main {
+  max-width: none;
+  padding: 0;
+
+  @media (min-width: #{$fs-content-width-contentBody}) {
+    .platformSection__inner {
+      padding-block-start: calc(var(--fs-logo-size-sm) * 2);
+    }
+  }
+}
+
+// Keep native focus and step navigation clear of the floating header.
+html:has(#page-onboarding) {
+  scroll-padding-block-start: calc(var(--fs-logo-size-sm) + var(--fs-spacing-lg));
+}

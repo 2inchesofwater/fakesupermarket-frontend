@@ -6,7 +6,7 @@
   gap: var(--fs-spacing-xs);
 
   .fs-stepper-wrapper {
-		overflow: hidden; // hides overflow slides
+		overflow: clip; // hides slides without creating a scroll container
 	}
 
 	.fs-stepper-rail {
@@ -60,4 +60,10 @@
 	.fs-btn-group {
 		flex-grow: 1;
 	}
+}
+
+// Native validation popups need a non-zero anchor on visually hidden radios.
+#profile-questions .fs-radio-input-button {
+  width: 1px;
+  height: 1px;
 }

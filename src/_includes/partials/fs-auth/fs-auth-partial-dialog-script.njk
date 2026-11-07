@@ -11,6 +11,9 @@
       views.forEach(view => { view.hidden = view !== nextView; });
       heading.textContent = nextView.dataset.authTitle;
 
+      const resetFeedback = nextView.querySelector('[data-auth-reset-feedback]');
+      if (resetFeedback) resetFeedback.hidden = true;
+
       if (moveFocus) {
         const target = nextView.querySelector('[autofocus]') ||
           nextView.querySelector('input:not([disabled]), button:not([disabled]), a[href]');
@@ -21,6 +24,32 @@
     dialog.addEventListener('click', (event) => {
       const button = event.target.closest('[data-auth-target]');
       if (button) showView(button.dataset.authTarget, true);
+    });
+
+    // Email-form transitions are local previews, without account or email requests.
+    dialog.addEventListener('submit', (event) => {
+      const form = event.target;
+      const target = form.dataset.authSubmitTarget;
+
+      if (target) {
+        event.preventDefault();
+        const nextView = views.find(view => view.dataset.authView === target);
+        const email = form.querySelector('input[type="email"]');
+        const recipient = nextView?.querySelector('[data-auth-confirmation-email]');
+        if (email && recipient) recipient.textContent = email.value;
+        showView(target, true);
+        return;
+      }
+
+      if (form.matches('[data-auth-confirmation-form]')) {
+        event.preventDefault();
+        return;
+      }
+
+      if (form.matches('[data-auth-reset-form]')) {
+        event.preventDefault();
+        form.querySelector('[data-auth-reset-feedback]').hidden = false;
+      }
     });
 
     dialog.addEventListener('beforetoggle', (event) => {

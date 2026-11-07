@@ -1,0 +1,122 @@
+@use "../../fs-variables" as *;
+@use "../../fs-styles";
+
+#page-onboarding {
+  // Reuse the participants section-radius token, capped near five rem here.
+  --fs-section-radius-default: min(10vh, 5rem);
+  --fs-onboarding-hint-color: color-mix(
+    in srgb,
+    var(--fs-color-gray-600) 35%,
+    var(--fs-color-text-secondary)
+  );
+
+  #profile-questions {
+    @media (min-width: #{$screen-lg}) {
+      min-height: 50vh;
+    }
+  }
+
+  #profile-review {
+    .fs-stepper-review {
+      display: grid;
+      gap: var(--fs-spacing-sm);
+      row-rule: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+      margin-block-start: var(--fs-spacing-lg);
+      max-width: var(--fs-content-width-contentBody);
+      background: var(--fs-color-background-active);
+      padding: var(--fs-spacing-md);
+      border-radius: var(--fs-spacing-md);
+    }
+
+    .fs-stepper-review__item {
+      grid-template-columns: 1fr 2fr;
+      gap: var(--fs-spacing-2xs);
+      align-items: center;
+      align-content: center;
+      padding-block: var(--fs-spacing-xs);
+      padding-inline: var(--fs-spacing-sm);
+
+      &:not([hidden]) {
+        display: grid;
+      }
+    }
+
+    .fs-stepper-review__term {
+      @extend .fs-typo-label-default;
+      margin-block-end: 0;
+    }
+
+    .fs-stepper-review__definition {
+      @extend .fs-typo-body-default;
+      margin-block-end: 0;
+    }
+  }
+
+  .fs-stepper-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    background-color: var(--fs-color-brand-secondary);
+    border-start-start-radius: var(--fs-section-radius-default);
+    border-start-end-radius: var(--fs-section-radius-default);
+    border-block-end: var(--fs-thickness-md) solid var(--fs-color-text-tertiary);
+  }
+
+  .fs-stepper-rail {
+    flex: 1 0 auto;
+
+    // Transforms isolate blending: hints need a backdrop inside the rail.
+    background-color: var(--fs-color-brand-secondary);
+  }
+
+  .fs-stepper-pane {
+    // Inset the panes, not the rail, so every slide still spans the full panel.
+    padding-block: var(--fs-spacing-3xl) var(--fs-spacing-2xl);
+    padding-inline: var(--fs-padding-section-inline);
+
+    max-height: none;
+    transition: none;
+
+    &:not([hidden]) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    // Keep offscreen panes stretched, without letting them size the panel.
+    &[inert] {
+      contain: size;
+    }
+  }
+
+  .fs-stepper-pane-eyebrow {
+    align-self: flex-start;
+  }
+
+  .fs-input-radioGroup,
+  .fs-input-checkboxGroup {
+    background-color: var(--fs-color-background-active);
+    border-radius: var(--fs-radius-lg);
+    padding: var(--fs-spacing-sm);
+  }
+
+  .fs-inputGroup-help {
+    color: var(--fs-onboarding-hint-color);
+    mix-blend-mode: multiply;
+  }
+
+  .fs-stepper-controls {
+    flex: 0 0 auto;
+    gap: var(--fs-spacing-md);
+  }
+
+  .fs-stepper-progress {
+    padding-block-start: var(--fs-spacing-xs);
+    padding-block-end: var(--fs-spacing-2xs);
+
+    progress {
+      position: static;
+      display: block;
+    }
+  }
+}

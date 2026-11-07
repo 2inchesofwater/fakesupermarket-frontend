@@ -15,12 +15,14 @@
     margin-block-end: var(--fs-spacing-2xs);
 
     .fs-inputGroup-help {
-      margin-block-end: var(--fs-spacing-sm);
+      // margin-block-start: var(--fs-spacing-sm);
     }
   }
 
   .fs-inputGroup-help {
     @extend .fs-typo-body-minor;
+      color: var(--fs-color-text-tertiary);
+      margin-block-start: var(--fs-spacing-xs);
   }  
 
   .fs-input-warning:not([hidden]) {

@@ -1,0 +1,21 @@
+@use "../../fs-variables" as *;
+
+// Independent platform copy of the marketing section's outer layout.
+.fs-platformSection {
+  container-type: inline-size;
+  padding-inline: var(--fs-spacing-md);
+
+  @media (min-width: #{$screen-md}) {
+    padding-inline: var(--fs-padding-section-inline);
+  }
+
+  .platformSection__inner {
+    margin-inline: auto;
+    padding-block: calc(var(--fs-padding-section-block) - var(--fs-spacing-md));
+
+    @container (min-width: #{$fs-content-width-pageColumn}) {
+      padding-block: var(--fs-padding-section-block);
+      max-width: var(--fs-content-width-pageColumn);
+    }
+  }
+}

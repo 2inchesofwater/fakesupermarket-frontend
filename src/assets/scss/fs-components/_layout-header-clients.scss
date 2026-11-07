@@ -1,5 +1,3 @@
-#header-clients {}
-
 #header-clients,
 #auth-clients-overlay {
 	.btn-primary {
@@ -16,6 +14,9 @@
 		}
 	}
 
+}
+
+#header-clients {
 	.fs-btn-group {
 		gap: var(--fs-spacing-xs);
 		border-radius: calc(var(--fs-radius-sm) + var(--fs-spacing-2xs));
@@ -38,10 +39,3 @@
 		}
 	}	
 }
-#header-siteroot .header-expanded .fs-btn-group {
-	flex-direction: row;
-}
-#auth-siteroot-overlay .fs-btn-group {
-	flex-direction: column;
-}
-

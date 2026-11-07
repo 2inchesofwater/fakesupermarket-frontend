@@ -1,64 +1,14 @@
-#auth-signup-overlay {
-	.fs-dialog-body,
-	.fs-dialog-footer {
-		justify-self: center;
+@use "../fs-styles";
 
-		align-items: center;
-    align-content: center;
-
-    width: 100%;    
-	}
-
-	.fs-dialog__body {
-	    row-gap: 10vh;
-	    row-rule: var(--fs-thickness-sm) solid var(--fs-color-border-default);
-
-    .fs-dialog__group {
-    	display: flex;
-    	flex-direction: column;
-    	gap: var(--fs-spacing-xs);
-			&#auth-signup-dialog-signin {
-				align-items: center;				
-			}
-    	p {
-    		text-align: center;
-    	}
-    }		
-	}
+.fs-auth-signup-form__legals .fs-inputGroup-help {
+  color: var(--fs-color-text-tertiary);
 }
 
-.fs-dialog-overlay {
-	#auth-signup-dialog-options{
-		.btn-primary,
-		.btn-secondary,
-		.btn-tertiary {
-			padding-block: var(--fs-spacing-sm);
-		}	
-	}
-	#auth-signupEmail-dialog-body {
-		.btn-primary {
-			padding-block: var(--fs-spacing-sm);
-		}
-	}
-	#auth-signupEmail-dialog-footer {
-		display: flex;
-		flex-direction: column;
-		gap: var(--fs-spacing-xs);
-		align-items: center;
-	}
-
-	#input-signup-legals-help {
-		color: var(--fs-color-text-tertiary);
-	}
-	.fs-btn-group {
-		flex-direction: column;
-		gap: var(--fs-spacing-md);
-		border-radius: calc(var(--fs-radius-md) + var(--fs-spacing-2xs));
-		& > .fs-btn-group {
-			flex-direction: column;
-			gap: var(--fs-spacing-2xs);
-			background: var(--fs-color-action-secondary-default);
-			padding: var(--fs-spacing-xs);
-		}
-	}
+#auth-confirmSignupEmail-messageSent {
+  p {
+    text-align: start;
+  }
+}
+#auth-confirmSignupEmail-messageSent-help {
+  @extend .fs-typo-label-default;
 }

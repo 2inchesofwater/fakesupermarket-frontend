@@ -1,4 +1,4 @@
-<section id="auth-signin-dialog-body" class="fs-dialog-body fs-dialog__body" aria-label="Account sign-in options" data-auth-view="signin" data-auth-title="Sign in" {% if authInitialView != "signin" %}hidden{% endif %}>
+<section id="auth-signin-dialog-body" class="fs-dialog__body" aria-label="Account sign-in options" data-auth-view="signin" data-auth-title="Sign in" {% if authInitialView != "signin" %}hidden{% endif %}>
   <div id="auth-signin-dialog-options" class="fs-dialog__group wrapper">
     <button class="fs-btn btn-primary btn-icon" type="button" data-auth-target="signin-email" autofocus>
       <span class="label">Sign in with email</span>
@@ -34,6 +34,10 @@
   </div>
 </section>
 
-<div data-auth-view="signin-email" data-auth-title="Sign in with email" hidden style="display: contents;">
+<div data-auth-view="signin-email" data-auth-title="Sign in with email" class="fs-auth-overlay__view" hidden>
   {% include "partials/fs-auth/fs-auth-partial-signin_email.njk" %}
 </div>
+
+{% include "partials/fs-auth/fs-auth-partial-forgot.njk" %}
+
+{% include "partials/fs-auth/fs-auth-partial-confirm_signup_email.njk" %}

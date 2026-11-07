@@ -1,13 +1,13 @@
 {% set componentName = 'signinEmail' %}
 
-<section id="auth-{{ componentName }}-dialog-body" class="fs-dialog__body" aria-label="Account sign-up options">
+<section id="auth-{{ componentName }}-dialog-body" class="fs-dialog__body" aria-label="Sign in with email">
   <div class="fs-dialog__group">
-    <form>
+    <form data-auth-submit-target="signup-confirmation">
       {% set input = {
         slug: "signin",
         title: "Email",
         type: "email",
-        passthroughAttributes: "required autofocus"
+        passthroughAttributes: "required autocomplete='email' autofocus"
       } %}
       {% include "partials/fs-components/fs-inputGroup-core-text.njk" %}
 
@@ -29,17 +29,17 @@
       {% include "partials/fs-components/fs-inputGroup-core-text.njk" %} 
 
       <div id="fs-inputGroup-continue" class="fs-inputGroup fs-btn-group">
-        <button class="fs-btn btn-primary">
-          <span class="text-label">Continue</span>
+        <button class="fs-btn btn-primary" type="submit">
+          <span class="label">Continue</span>
         </button>
       </div>
     </form>    
   </div> 
   
-  <div id="auth-{{ componentName }}-dialog-footer" class="fs-dialog__group">
-    <a href="#" class="fs-btn btn-tertiary btn-sm">
+  <div id="auth-{{ componentName }}-dialog-secondary" class="fs-dialog__group">
+    <button class="fs-btn btn-tertiary btn-sm" type="button" data-auth-target="forgot-password">
       <span class="label">Forgot your password?</span>
-    </a>
+    </button>
   </div>         
 </section>
 

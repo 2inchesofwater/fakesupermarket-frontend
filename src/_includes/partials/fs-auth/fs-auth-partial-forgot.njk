@@ -1,0 +1,28 @@
+<section id="auth-forgot-dialog-body" class="fs-dialog__body" aria-label="Reset your password" data-auth-view="forgot-password" data-auth-title="Forgot password" hidden>
+  <div class="fs-dialog__group">
+    <p id="auth-forgot-dialog-instructions">Enter your email address and we’ll send you instructions to reset your password.</p>
+    <form data-auth-reset-form>
+      {% set input = {
+        slug: "forgot-email",
+        title: "Email",
+        type: "email",
+        passthroughAttributes: "required autocomplete='email' inputmode='email' spellcheck='false' autocapitalize='none' autofocus aria-describedby='auth-forgot-dialog-instructions'"
+      } %}
+      {% include "partials/fs-components/fs-inputGroup-core-text.njk" %}
+
+      <div class="fs-inputGroup fs-btn-group">
+        <button class="fs-btn btn-primary" type="submit">
+          <span class="label">Request password reset</span>
+        </button>
+      </div>
+      <div class="fs-inputGroup" data-auth-reset-feedback role="status" hidden>
+        <p class="fs-input-warning">Password reset is currently unavailable. Please try again later.</p>
+      </div>
+    </form>
+  </div>
+  <div id="auth-forgot-dialog-secondary" class="fs-dialog__group">
+    <button class="fs-btn btn-tertiary btn-sm" type="button" data-auth-target="signin-email">
+      <span class="label">Back to sign in</span>
+    </button>
+  </div>
+</section>

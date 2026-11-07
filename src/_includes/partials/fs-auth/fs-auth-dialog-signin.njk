@@ -2,7 +2,7 @@
 {% set authInitialView = "signin" %}
 {% set authHasSignup = false %}
 
-<dialog id="auth-{{ componentName }}-overlay" aria-labelledby="auth-{{ componentName }}-title" class="fs-dialog-overlay" data-auth-initial-view="{{ authInitialView }}">
+<dialog id="auth-{{ componentName }}-overlay" aria-labelledby="auth-{{ componentName }}-title" class="fs-dialog-overlay fs-auth-overlay" data-auth-initial-view="{{ authInitialView }}">
   <header id="auth-{{ componentName }}-dialog-header" class="fs-dialog__header">
     <h2 id="auth-{{ componentName }}-title" class="fs-dialog__heading">Sign in</h2>
     <button commandfor="auth-{{ componentName }}-overlay" command="close" aria-label="Close the account panel" class="fs-btn btn-tertiary btn-icon btn-iconOnly" id="auth-{{ componentName }}-btn-close" type="button">
