@@ -10,7 +10,6 @@ if (form) {
   const previous = form.querySelector('#fs-stepper-previous');
   const confirm = form.querySelector('#fs-stepper-submit');
   const progress = form.querySelector('.fs-stepper-progressBar');
-  const status = form.querySelector('[data-profile-status]');
   let current = panes[0];
   let available = [];
 
@@ -112,17 +111,12 @@ if (form) {
       detail: new FormData(form)
     });
     if (form.dispatchEvent(event)) {
-      status.textContent = 'Profile reviewed.';
-      status.hidden = false;
+      window.location.assign(form.dataset.profileConfirmUrl);
     }
   }
 
   previous.addEventListener('click', () => move(-1));
-  form.addEventListener('input', () => {
-    status.hidden = true;
-    status.textContent = '';
-    refresh();
-  });
+  form.addEventListener('input', () => refresh());
   form.addEventListener('submit', event => {
     event.preventDefault();
     if (current === available[available.length - 1]) confirmProfile();

@@ -1,4 +1,4 @@
-<form id="profile-questions" class="fs-stepper" novalidate>
+<form id="profile-questions" class="fs-stepper" data-profile-confirm-url="{{ 'dashboardShoppers' | pageUrl('index') }}" novalidate>
   <div class="fs-stepper-wrapper">
     <div class="fs-stepper-rail">
       {% if profileStepper.stepperUseIntroPane %}
@@ -104,6 +104,5 @@
         <button id="fs-stepper-previous" class="fs-btn btn-tertiary" type="button" disabled><span class="label">Previous</span></button>
       </div>
     </div>
-    <p data-profile-status role="status" hidden></p>
   </div>
 </form>
