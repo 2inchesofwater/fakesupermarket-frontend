@@ -13,6 +13,7 @@ export function renderProductCards(products, storefront, productsGrid) {
 
   productsGrid.innerHTML = products.map(product => {
   
+    const productUrl = product.pageUrl ?? `/pages/${storefront.slug}/${product.productSlug}.html`;
     const hasImage = !!(product.images);
 
     const imageSection = hasImage ? `
@@ -107,7 +108,7 @@ export function renderProductCards(products, storefront, productsGrid) {
             ${badge}
             ${brand}
             <h3 class="product-name" id="product-name-${escapeHtml(product.productSku)}">
-              <a href="/pages/${storefront.slug}/${product.productSlug}.html">${escapeHtml(product.productName)}</a>
+              <a href="${escapeHtml(productUrl)}">${escapeHtml(product.productName)}</a>
             </h3>
             ${grossWeight}
             ${shortDesc}

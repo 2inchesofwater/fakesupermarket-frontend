@@ -3,6 +3,9 @@
 	{
 		"storefrontType": "{{ storefront.storefrontType }}",
 		"slug": "{{ storefront.slug }}",
+		{% if storefront.study and route and resolvePageUrl is defined %}
+		"cartStorageKey": {{ ("cart:" ~ storefront.slug) | dump | safe }},
+		{% endif %}
 		"currencySymbol": "$",
 		"productCardImageSize": {
 			"width": "{{ storefront.productCardImageSize.width }}",

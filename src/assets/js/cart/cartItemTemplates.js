@@ -8,6 +8,7 @@ export function createBaseCartItem(cart, sku) {
   if (!item) return null;
   const product = cart.getProductBySku(sku);
   if (!product) return null;
+  const productUrl = product.pageUrl ?? `/product/${product.productSlug}`;
   const quantity = item.quantity;
   const price = product.priceCurrent ?? product.priceRrp;
   const savings = product.priceRrp && product.priceCurrent
@@ -31,7 +32,7 @@ export function createBaseCartItem(cart, sku) {
     <div class="cart-item-details">
       <div class="cart-item-headline">
         <h3 id="product-${product.productSku}" class="cart-item-headline-productName">
-          <a href="/product/${product.productSlug}">${product.productName}</a>
+          <a href="${productUrl}">${product.productName}</a>
         </h3>
       </div>
 

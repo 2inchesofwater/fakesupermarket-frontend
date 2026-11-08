@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="cart-summary-empty-content">
       <h3 class="cart-summary-empty-title">Your cart is empty</h3>
-      <a href="/pages/{{ storefront.slug }}/index.html" class="btn btn-tertiary cart-summary-empty-action">Continue shopping to add items</a>
+      <a href="{{ resolvePageUrl(route, 'index') if storefront.study and route and resolvePageUrl is defined else '/pages/' ~ storefront.slug ~ '/index.html' }}" class="btn btn-tertiary cart-summary-empty-action">Continue shopping to add items</a>
     </div>
 
     <div class="cart-summary-empty-endEarly">

@@ -1,6 +1,12 @@
 @use 'fs-variables' as *;
 @use 'fs-logo';
 
+// This onboarding feature will be removed in the near future. 
+
+// It’s the research-task briefing that pops up over the supermarket. 
+// In the cereal store, for example, it says “Pick what’s for breakfast…” and gives the shopper instructions. 
+// Clicking I can do that closes it, and the browser remembers that acknowledgement for 24 hours.
+
 
 #fs-onboarding {
   position: fixed;

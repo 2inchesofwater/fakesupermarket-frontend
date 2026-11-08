@@ -1,9 +1,8 @@
-  
+@use "fs-styles";
+
   .fs-input-pane-header {
     .fs-input-pane-title {
-      font-family: var(--fs-font-display);
-      font-size: var(--fs-size-2xl);
-      font-weight: var(--fs-weight-bold);
-      margin-block-end: unset;
+      @extend .fs-typo-pageTitle;
+      // margin-block-end: 0;
     }   
   }

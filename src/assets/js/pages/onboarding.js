@@ -6,10 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const affirmBtn = document.getElementById('onboarding-action-affirm');
   // const modalBackdrop = document.getElementById('fs-modalBackdrop');
   const onboardingDialog = document.getElementById('fs-onboarding');
+  const affirmationKey = onboardingDialog?.dataset.affirmationKey || 'onboardingAffirmed';
   const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000; // ms
 
   // Get timestamp from localStorage
-  const affirmedRaw = localStorage.getItem('onboardingAffirmed');
+  const affirmedRaw = localStorage.getItem(affirmationKey);
   const affirmedAt = affirmedRaw ? parseInt(affirmedRaw, 10) : null;
   const onboardingExpired = !affirmedAt || (Date.now() - affirmedAt >= TWENTY_FOUR_HOURS);
 
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // modalBackdrop?.classList.remove('fs-pre_hidden');
     window.dispatchEvent(new Event('show-backdrop'));
     onboardingDialog?.classList.remove('fs-pre_hidden');
-    localStorage.removeItem('onboardingAffirmed');
+    localStorage.removeItem(affirmationKey);
 
     // Onboarding can trigger animation if consent present
     if (hasAnimationConsent()) {
@@ -50,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       window.dispatchEvent(new Event('hide-backdrop'));
       onboardingDialog?.remove();
-      localStorage.setItem('onboardingAffirmed', Date.now().toString());
+      localStorage.setItem(affirmationKey, Date.now().toString());
       // DO NOT revoke animation consent!
     });
 

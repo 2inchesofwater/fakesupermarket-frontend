@@ -9,6 +9,9 @@
 	      "priceCurrent": {{ product.priceCurrent | dump | safe }},
 	      "priceRrp": {{ product.priceRrp | dump | safe }},
 	      "productBrand": {{ product.productBrand | dump | safe }},
+	      {% if storefront.study and route and resolvePageUrl is defined %}
+	      "pageUrl": {{ resolvePageUrl(route, product.productSlug) | dump | safe }},
+	      {% endif %}
 	      "productSlug": {{ product.productSlug | dump | safe }},
 	      "productGrossWeight": {{ product.productGrossWeight | dump | safe }},
 	      "badgeLabel": {{ product.badgeLabel | dump | safe }},

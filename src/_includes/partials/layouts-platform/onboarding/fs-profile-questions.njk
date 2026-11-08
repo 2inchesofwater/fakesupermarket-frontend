@@ -4,7 +4,7 @@
       {% if profileStepper.stepperUseIntroPane %}
         <section id="profile-intro" aria-labelledby="profile-intro-title" class="fs-stepper-pane" tabindex="-1">
           {% if profileStepper.stepperIntroPane.kicker %}
-            <p class="kicker fs-stepper-pane-eyebrow">{{ profileStepper.stepperIntroPane.kicker | escape }}</p>
+            <p class="kicker fs-eyebrow">{{ profileStepper.stepperIntroPane.kicker | escape }}</p>
           {% endif %}
           <div class="fs-input-pane-header">
             <h1 id="profile-intro-title" class="fs-input-pane-title">{{ profileStepper.stepperIntroPane.title | escape }}</h1>

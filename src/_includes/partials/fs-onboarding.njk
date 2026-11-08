@@ -1,4 +1,4 @@
-<div id="fs-onboarding" role="dialog" aria-modal="true" aria-labelledby="onboarding-title" class="fs-pre_hidden">
+<div id="fs-onboarding" role="dialog" aria-modal="true" aria-labelledby="onboarding-title" class="fs-pre_hidden"{% if storefront.study and route %} data-affirmation-key="onboardingAffirmed:{{ storefront.slug }}"{% endif %}>
 
   <section id="onboarding-wrapper" role="region" aria-labelledby="onboarding-title">
     <div class="fs-dialogue fs-dialogue-lg">

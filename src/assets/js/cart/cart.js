@@ -25,6 +25,7 @@ export class Cart {
     this.loadedFromStorage = false;
     this.products = options.products || window.products || [];
     this.storefront = options.storefront || window.storefront || {};
+    this.storageKey = this.storefront.cartStorageKey || CART_STORAGE_KEY;
     // For UI hooks
     this.onUpdate = options.onUpdate || (() => {});
   }
@@ -40,12 +41,14 @@ export class Cart {
       },
       expiry: this.expiry
     };
-    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(data));
+    localStorage.setItem(this.storageKey, JSON.stringify(data));
     this.onUpdate(this);
   }
 
   load() {
-    const stored = localStorage.getItem(CART_STORAGE_KEY);
+    const savedCart = localStorage.getItem(this.storageKey);
+    const useLegacyCart = savedCart === null && this.storageKey !== CART_STORAGE_KEY;
+    const stored = useLegacyCart ? localStorage.getItem(CART_STORAGE_KEY) : savedCart;
     if (stored) {
       try {
         const { cart: parsedCart, expiry } = JSON.parse(stored);
@@ -58,7 +61,13 @@ export class Cart {
         this.totalItems = parsedCart.totalItems || 0;
         this.totalCost = parsedCart.totalCost || 0;
         this.expiry = expiry;
-        this.loadedFromStorage = true;
+        if (useLegacyCart) {
+          this.items = Object.fromEntries(
+            Object.entries(this.items).filter(([sku]) => this.getProductBySku(sku))
+          );
+          this.recalculate();
+        }
+        this.loadedFromStorage = !useLegacyCart || this.totalItems > 0;
       } catch (e) {
         this.reset();
         this.loadedFromStorage = false;
@@ -75,7 +84,12 @@ export class Cart {
     this.totalItems = 0;
     this.totalCost = 0;
     this.expiry = null;
-    localStorage.removeItem(CART_STORAGE_KEY);
+    if (this.storageKey === CART_STORAGE_KEY) {
+      localStorage.removeItem(this.storageKey);
+    } else {
+      // An empty study cart overrides the old shared cart.
+      localStorage.setItem(this.storageKey, '');
+    }
     this.onUpdate(this);
   }
 

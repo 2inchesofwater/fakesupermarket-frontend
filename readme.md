@@ -39,7 +39,9 @@ src/assets/
 
 Both build modes publish the public files under `/assets/`. Sass source is not published. Fonts and images are copied without text decoding. A fresh build does not need an existing `_site/` for assets.
 
-Page paths remain `/pages/<route>/<filename>.html` normally and `/prototypes/<route>/<filename>.html` in prototype mode. Use `pageUrl` for page links; asset URLs always use `/assets/`, with no prototype prefix.
+Study templates and data live together under `src/pages/studies/<study>/`. Their storefronts build to `/pages/studies/<study>/` in normal mode and `/prototypes/studies/<study>/` in prototype mode.
+
+Page paths are `/pages/<route>/<filename>.html` normally and `/prototypes/<route>/<filename>.html` in prototype mode. Use `pageUrl` for page links; asset URLs always use `/assets/`, with no prototype prefix.
 
 When publishing, upload the generated `assets/` directory to the domain's `/assets/` location alongside the selected HTML. Retain older asset URLs on the server while historical pages still use them. Builds do not remove older files from `_site/`; prototype commands recreate only `_site-prototypes/`.
 

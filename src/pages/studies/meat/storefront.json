@@ -18,10 +18,12 @@
   ],
   
   "bannerAd": {
-    "url": "ela-1389-cust-offer-update-1920x200.png",
     "href": "/",
     "alt": "",
-    "width": "1920"
+    "fallback": {
+      "url": "ela-1389-cust-offer-update-1920x200.png",
+      "width": "1920"
+    }
   },
   
   "productCardImageSize": {
@@ -38,8 +40,8 @@
   "productCardAddIconFilename": null,
   "productCardSaveLabel": "Save to list",
   "productCardSaveIconFilename": null,
-  "productCardShowOverlayOnLeft": false,
-  "productCardShowOverlayAtTop": true,
+  "productCardShowStickerOnLeft": false,
+  "productCardShowStickerAtTop": true,
   "categoryPaginationTotalPages": 7,
   "categoryPaginationProductsperPage": null,
   "productDetailsShowProductSku": false,

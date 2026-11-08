@@ -13,14 +13,14 @@
         "shoppingList": [
           {
             "label": "Breakfast cereal",
-            "url": "/shopper/tasks/supermarket/breakfast-cereal/",
+            "studyRoute": "studies/breakfastcereal",
             "completed": false,
             "incentive": true,
             "amount": 5
           },
           {
             "label": "Lunch meats",
-            "url": "/shopper/tasks/supermarket/lunch-meats/",
+            "studyRoute": "studies/meat",
             "completed": false,
             "incentive": true,
             "amount": 6.75

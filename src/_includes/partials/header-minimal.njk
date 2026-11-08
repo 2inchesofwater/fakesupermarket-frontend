@@ -1,12 +1,12 @@
 {% set pageName = "research-minimal" %}
 {% set componentName = "end_early" %}
-{% set logoDescription = "Fake Supermarket logo - Use this shortcut to navigate back to the Shopping List page" %}
+{% set logoDescription = "Fake Supermarket logo - Go to the storefront" %}
 
 <header id="header-{{ pageName }}" class="fs-header">
   <div class="container">
     <nav id="nav-main" >
 
-      <a title="{{ logoDescription }}" href="/pages/{{ storefront.slug }}/#" id="site-logo">
+      <a title="{{ logoDescription }}" href="{{ resolvePageUrl(route, 'index') if storefront.study and route and resolvePageUrl is defined else '/pages/' ~ storefront.slug ~ '/#' }}" id="site-logo">
         <span class="icon">
           <svg class="fs-logo-symbol" viewBox="0 0 228 228" aria-hidden="true">
             <use href="#fs-logo"></use>

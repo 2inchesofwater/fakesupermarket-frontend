@@ -89,8 +89,11 @@
     }
   }
 
-  .fs-stepper-pane-eyebrow {
-    align-self: flex-start;
+  .fs-eyebrow {
+    color: var(--fs-color-text-primary);
+    background: oklch(from var(--fs-color-core-100) l c h / 50%);
+    border-color: transparent;
+    margin-block-end: var(--fs-spacing-md);
   }
 
   .fs-input-radioGroup,

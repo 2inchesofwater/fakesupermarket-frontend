@@ -1,7 +1,7 @@
 {% set pageName = "research-full" %}
 {% set componentName = "end_early" %}
 {% set storefrontName = "Supermarket" %}
-{% set logoDescription = "Fake Supermarket logo - Use this shortcut to navigate back to the Shopping List page" %}
+{% set logoDescription = "Fake Supermarket logo - Go to the storefront" %}
 
 {% macro navLinkItem(label, url, className='', iconPath='', iconCreator='') %}
   <a href="{{ url }}" class="nav-link fs-btn btn-icon {{ className }}">    
@@ -20,7 +20,7 @@
   <div class="container">
     <nav id="nav-main" >
 
-      <a title="{{ logoDescription }}" href="/pages/{{ storefront.slug }}/#" id="site-logo">
+      <a title="{{ logoDescription }}" href="{{ resolvePageUrl(route, 'index') if storefront.study and route and resolvePageUrl is defined else '/pages/' ~ storefront.slug ~ '/#' }}" id="site-logo">
         <span class="icon">
           <svg class="fs-logo-symbol" viewBox="0 0 228 228" aria-hidden="true">
             <use href="#fs-logo"></use>
@@ -42,7 +42,7 @@
       </div>
 
       <div id="header-cart">
-        <button id="header-cartBtn" class="btn btn-cart" href="pages/{{ storefront.slug }}/cart" class="cart" aria-label="Shopping cart summary">
+        <button id="header-cartBtn" class="btn btn-cart" aria-label="Shopping cart summary">
           <span class="cart-icon" aria-hidden="true">🛒</span>
           <span class="cart-value"><span id="header-cartBtn-subtotal">$0.00</span><span class="sr-only"> worth of items in the cart</span></span>
           <span hidden class="badge badge-tally" id="header-cartBtn-badge"><span class="sr-only">And there's:</span><span id="header-cartBtn-tally">0</span><span class="sr-only"> items in the cart</span></span>

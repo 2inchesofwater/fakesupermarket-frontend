@@ -67,7 +67,7 @@
 	</div>
 
 	<div id="paymentFlow-CTA">
-		<a href="/pages/{{ storefront.slug }}/confirmation.html" id="paymentFlow-CTA-placeOrder" class="btn btn-primary btn-lg">Place order</a>
+		<a href="{{ resolvePageUrl(route, 'confirmation') if storefront.study and route and resolvePageUrl is defined else '/pages/' ~ storefront.slug ~ '/confirmation.html' }}" id="paymentFlow-CTA-placeOrder" class="btn btn-primary btn-lg">Place order</a>
 	</div>
 
 	<div id="paymentFlow-postScript" class="fs-dialogue fs-infoCheckoutPostscript">

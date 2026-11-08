@@ -17,7 +17,7 @@
               {% for item in storefront.shoppingList %}
                 <li class="fs-tasksList__item">
                   {% if not item.completed %}
-                    <a href="{{ item.url }}" class="fs-tasksList__button {% if item.incentive %} is-incentivised{% endif %}">
+                    <a href="{{ resolvePageUrl(item.studyRoute, 'index') if item.studyRoute else item.url }}" class="fs-tasksList__button {% if item.incentive %} is-incentivised{% endif %}">
                   {% else %}
                     <div class="fs-tasksList__button is-completed {% if item.incentive %} is-incentivised{% endif %}">
                   {% endif %}

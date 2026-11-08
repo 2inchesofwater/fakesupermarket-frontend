@@ -1,9 +1,8 @@
 ---
 pagination:
-  data: breakfastcereal.productsAll
+  data: storefront.productsAll
   size: 1
   alias: product
-route: breakfastcereal
 slug: productDetails
 permalink: "{{ route | pageUrl(product.productSlug) }}"
 layout: "supermarket-productDetails.njk"

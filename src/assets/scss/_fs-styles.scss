@@ -198,6 +198,17 @@ pre {
   background: rgb(from var(--fs-color-brand-primary) r g b / 15%);
 }
 
+.fs-eyebrow,
+.eyebrow {
+  @extend .fs-typo-body-minor;
+  display: inline-block;
+  align-self: start;
+  border: var(--fs-thickness-sm) solid transparent;
+  padding-block: var(--fs-spacing-xs);
+  padding-inline: var(--fs-spacing-sm);
+  border-radius: var(--fs-radius-lg);  
+}
+
 .fs-forcefield-ripple {
   position: absolute;
   pointer-events: none;
