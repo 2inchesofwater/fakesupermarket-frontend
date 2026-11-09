@@ -18,12 +18,12 @@
 @use 'fs-completionsLoosenCriteriaItem';
 @use 'fs-completionsLoosenCriteriaOverlay';
 @use 'fs-details';
-@use 'fs-dialogOverlay';
-@use 'fs-dialogue';
+@use 'fs-components/fs-dialog';
+@use 'layouts-platform/researchtask/fs-dialog-task_offer';
 @use 'fs-dialogue-endEarly';
 @use 'fs-dialogue-infoCheckoutPostscript';
 @use 'fs-dialogue-infoCheckoutNoNeed';
-@use 'fs-dialogue-onboarding';
+@use 'fs-logo';
 @use 'fs-dialogue-interview';
 @use 'fs-dialogue-taskReminder';
 @use 'fs-filters';
@@ -35,7 +35,6 @@
 @use 'fs-input-range';
 @use 'fs-landing';
 @use 'fs-likertRatings';
-@use 'fs-logo';
 @use 'fs-multiSelect';
 @use 'fs-productsLibrary';
 @use 'fs-stepper-panes';

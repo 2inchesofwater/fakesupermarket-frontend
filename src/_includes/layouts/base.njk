@@ -32,10 +32,7 @@
 <body id="page-{% if pageId %}{{ pageId }}{% else %}{{ slug }}{% endif %}" class="{{ pagelayout }}">
   <div id="top"></div>
   {% include "partials/skiplinks.njk" %}
-  {% if not skipOnboarding %}
-    {% include "partials/fs-onboarding.njk" %}
-  {% endif %}
-  
+
     {% block content %}
   {% endblock %}
 

@@ -1,0 +1,950 @@
+{
+  "fakesupermarket": {
+    "welcomeMessage": "What's in store today?",
+    "actionLabel": "I can do that"
+  },
+  "storefrontName": "Fake Supermarket",
+  "storefrontNameHTML": "<span id='primary'>Fake</span><span id='secondary'>Supermarket</span>",
+  "storefrontType": "supermarket",
+  "categoryTitle": "Sauces",
+  "slug": "sauces",
+  "currencySymbol": "$",
+  "breadcrumbs": [
+    "Home",
+    "All categories",
+    "Pantry",
+    "Sauces"
+  ],
+  "bannerAd": null,
+  "productCardImageSize": {
+    "width": "200",
+    "height": "200"
+  },
+  "productCardShowBrands": true,
+  "productCardShowShortDescription": false,
+  "productCardShowLongDescription": false,
+  "productCardShowUnitPrice": true,
+  "productCardShowGrossWeight": true,
+  "productCardShowRatings": false,
+  "productCardAddLabel": "Add to cart",
+  "productCardAddIconFilename": null,
+  "productCardSaveLabel": "Save to list",
+  "productCardSaveIconFilename": null,
+  "productCardShowStickerOnLeft": false,
+  "productCardShowStickerAtTop": true,
+  "categoryPaginationTotalPages": 1,
+  "categoryPaginationProductsperPage": null,
+  "productDetailsShowProductSku": false,
+  "productDetailsShowUnitPrice": true,
+  "productDetailsShowDescription": true,
+  "productDetailsShowReviews": false,
+  "productDetailsLabelReviews": "Reviews",
+  "productDetailsShowRelated": false,
+  "productDetailsLabelRelated": "Customers also bought",
+  "productDetailsShowRecommendations": false,
+  "productDetailsLabelRecommendations": "You might also like these",
+  "checkoutLabelCollectionService": "Collect from store",
+  "checkoutLabelCollectionAddressHTML": "<strong>Fakersby North</strong><br>Fake Shopping Centre<br>222 Automation Drive, Fakersby",
+  "checkoutImageCollectionLocation": "map-20250814-1.png",
+  "checkoutLabelDeliveryService": "Delivery",
+  "checkoutLabelDeliveryAddressHTML": "<strong>222 Holmans Road</strong><br>Fakersby VIC 3210",
+  "checkoutImageDeliveryLocation": "map-20250814-2.png",
+  "salesTaxPercentage": "0.1",
+  "salesTaxComponentLabel": "Total includes GST: ",
+  "study": {
+    "studyID": 1234568,
+    "studyTimestamps": {
+      "added": null,
+      "updated": null,
+      "launch": null,
+      "cease": null,
+      "paused": null
+    },
+    "client": {
+      "studyClientID": null,
+      "title": "Sauces",
+      "keyObjectives": [
+        {
+          "description": "Understand which sauces shoppers choose for their households and what influences their choices.",
+          "tag": "preference"
+        }
+      ],
+      "projectContext": "A prototype shopping task with eight sauces from Coles.",
+      "quota": {
+        "requested": null,
+        "completed": null,
+        "cancelled": null,
+        "timeout": null,
+        "rejectedByClient": null
+      }
+    },
+    "task": {
+      "instructionTitle": "Pick sauces for the week ahead",
+      "instructionDetail": [
+        "If you were shopping for your household for the coming week, which sauces would you buy?"
+      ],
+      "instructionIncentive": null,
+      "exampleIncentiveAmountForThisUser": null
+    },
+    "interview": [
+      {
+        "questionSlug": "value",
+        "questionSelectPurchasedItem": true,
+        "questionInitialRating": 5,
+        "questionLabel": "Rate its value for money?",
+        "questionLikertAdjectives": [
+          "Unimpressed",
+          "A bit disappointed",
+          "Okay",
+          "Pleased",
+          "Really impressed"
+        ],
+        "questionMultipleAdjectives": [
+          "Generous size",
+          "High quality",
+          "Trustworthy brand",
+          "Affordable",
+          "Great price",
+          "Loads of flavour"
+        ],
+        "questionIncludeExtendedResponse": null
+      },
+      {
+        "questionSlug": "previous",
+        "questionSelectPurchasedItem": true,
+        "questionInitialRating": 5,
+        "questionLabel": "Would you buy it again?",
+        "questionLikertAdjectives": [
+          "No way",
+          "Unlikely",
+          "We'll see",
+          "Probably",
+          "All the time"
+        ],
+        "questionMultipleAdjectives": [
+          "It's a favourite",
+          "High quality",
+          "Trustworthy brand",
+          "Affordable",
+          "Great price",
+          "Loads of flavour"
+        ],
+        "questionIncludeExtendedResponse": null
+      }
+    ]
+  },
+  "productsAll": [
+    {
+      "id": "mingle-japanese-bbq-sauce-250g",
+      "productName": "Japanese BBQ Sauce",
+      "productSlug": "mingle-japanese-bbq-sauce-250g",
+      "productSku": "1811483",
+      "productBrand": "Mingle",
+      "descriptionShort": "",
+      "descriptionLong": "A Japanese-style barbecue sauce with soy, garlic and ginger. Use it as a marinade or drizzle it over grilled meats and rice bowls.",
+      "priceRrp": "5.95",
+      "priceCurrent": "4.75",
+      "pricePerUnit": "1.90",
+      "productPerUnit": "100g",
+      "badgeLabel": null,
+      "badgeClassName": null,
+      "featuredLabel": null,
+      "productGrossWeight": "250g",
+      "productMeasurements": {},
+      "categories": [
+        "sauces",
+        "pantry"
+      ],
+      "related_products": [],
+      "attributes": {
+        "origin": "Made in Australia from at least 50% Australian ingredients",
+        "organic": false,
+        "packaging": "Pouch",
+        "ingredients": "Water, apple juice concentrate, tomato, <strong>soy</strong> sauce (water, <strong>soybeans</strong>, salt), onion, mirin, vinegar, tapioca fibre, ginger, Australian sea salt, <strong>sesame</strong> seeds, yeast extract, garlic, <strong>sesame</strong> oil, vegetable fibre, natural flavour, natural sweetener (thaumatin).",
+        "dietary": "Contains sesame and soy.",
+        "servings": {
+          "serving_size": "15g",
+          "servings_per_package": "Approx. 16"
+        },
+        "nutritionUnit": "100g",
+        "nutrition": {
+          "energy": {
+            "100g": "418 kJ",
+            "serving": "63 kJ",
+            "pdi": null
+          },
+          "protein": {
+            "100g": "2.3 g",
+            "serving": "<1 g",
+            "pdi": null
+          },
+          "fat_total": {
+            "100g": "1.2 g",
+            "serving": "<1 g",
+            "pdi": null
+          },
+          "fat_saturated": {
+            "100g": "<1 g",
+            "serving": "<1 g",
+            "pdi": null
+          },
+          "carbohydrates_total": {
+            "100g": "18.3 g",
+            "serving": "2.8 g",
+            "pdi": null
+          },
+          "carbohydrates_sugar": {
+            "100g": "11.9 g",
+            "serving": "1.8 g",
+            "pdi": null
+          },
+          "sodium": {
+            "100g": "1247 mg",
+            "serving": "188 mg",
+            "pdi": null
+          },
+          "fibre": {
+            "100g": "1.0 g",
+            "serving": "<1 g",
+            "pdi": null
+          }
+        },
+        "storage_instructions": "Store in a cool, dry place out of direct sunlight. Refrigerate after opening."
+      },
+      "images": [
+        "1811483.jpg",
+        "1811483_L.jpg"
+      ],
+      "imagesVisualDescription": "Mingle Japanese BBQ Sauce, 250g pack",
+      "productAverageRating": null,
+      "productCountRatings": 0
+    },
+    {
+      "id": "franks-redhot-original-sauce-148ml",
+      "productName": "RedHot Original Sauce",
+      "productSlug": "franks-redhot-original-sauce-148ml",
+      "productSku": "1957139",
+      "productBrand": "Frank's",
+      "descriptionShort": "",
+      "descriptionLong": "A tangy, medium-heat sauce made with aged cayenne peppers. Drizzle it over wings, eggs or burgers, or mix it with melted butter to make Buffalo wing sauce.",
+      "priceRrp": "4.10",
+      "priceCurrent": "3.30",
+      "pricePerUnit": "2.23",
+      "productPerUnit": "100mL",
+      "badgeLabel": null,
+      "badgeClassName": null,
+      "featuredLabel": null,
+      "productGrossWeight": "148mL",
+      "productMeasurements": {},
+      "categories": [
+        "sauces",
+        "pantry"
+      ],
+      "related_products": [],
+      "attributes": {
+        "origin": "Made in the USA",
+        "organic": false,
+        "packaging": "Bottle",
+        "ingredients": "Aged cayenne red peppers (36%), distilled vinegar, water, salt, garlic powder.",
+        "dietary": null,
+        "servings": {
+          "serving_size": "5mL",
+          "servings_per_package": "Approx. 30"
+        },
+        "nutritionUnit": "100mL",
+        "nutrition": {
+          "energy": {
+            "100mL": "97 kJ",
+            "serving": "5 kJ",
+            "pdi": null
+          },
+          "protein": {
+            "100mL": "<1 g",
+            "serving": "<1 g",
+            "pdi": null
+          },
+          "fat_total": {
+            "100mL": "<1 g",
+            "serving": "<1 g",
+            "pdi": null
+          },
+          "fat_saturated": {
+            "100mL": "<1 g",
+            "serving": "<1 g",
+            "pdi": null
+          },
+          "carbohydrates_total": {
+            "100mL": "4 g",
+            "serving": "<1 g",
+            "pdi": null
+          },
+          "carbohydrates_sugar": {
+            "100mL": "1.7 g",
+            "serving": "<1 g",
+            "pdi": null
+          },
+          "sodium": {
+            "100mL": "3280 mg",
+            "serving": "164 mg",
+            "pdi": null
+          }
+        },
+        "storage_instructions": null
+      },
+      "images": [
+        "1957139.jpg",
+        "1957139_B.jpg"
+      ],
+      "imagesVisualDescription": "Frank's RedHot Original Sauce, 148mL pack",
+      "productAverageRating": null,
+      "productCountRatings": 0
+    },
+    {
+      "id": "billy-bs-fermented-hot-sauce-200ml",
+      "productName": "Fermented Hot Sauce",
+      "productSlug": "billy-bs-fermented-hot-sauce-200ml",
+      "productSku": "8687677",
+      "productBrand": "Billy B's",
+      "descriptionShort": "",
+      "descriptionLong": "A small-batch hot sauce made with Australian cayenne chillies fermented for three days. The recipe dates back to 1964.",
+      "priceRrp": "4.00",
+      "priceCurrent": null,
+      "pricePerUnit": "2.00",
+      "productPerUnit": "100mL",
+      "badgeLabel": null,
+      "badgeClassName": null,
+      "featuredLabel": null,
+      "productGrossWeight": "200mL",
+      "productMeasurements": {},
+      "categories": [
+        "sauces",
+        "pantry"
+      ],
+      "related_products": [],
+      "attributes": {
+        "origin": "Made in Australia from at least 91% Australian ingredients",
+        "organic": false,
+        "packaging": "Bottle",
+        "ingredients": "Fermented cayenne chillies (43%), water, sugar, garlic, salt, acidity regulator (acetic acid), molasses, <strong>fish</strong> sauce, spice extract, thickener (xanthan gum), lemon extract.",
+        "dietary": "Contains fish. May contain peanut.",
+        "servings": {
+          "serving_size": "20mL",
+          "servings_per_package": 10
+        },
+        "nutritionUnit": "100mL",
+        "nutrition": {
+          "energy": {
+            "100mL": "338 kJ",
+            "serving": "68 kJ",
+            "pdi": null
+          },
+          "protein": {
+            "100mL": "1.2 g",
+            "serving": "0.2 g",
+            "pdi": null
+          },
+          "fat_total": {
+            "100mL": "<1 g",
+            "serving": "<1 g",
+            "pdi": null
+          },
+          "fat_saturated": {
+            "100mL": "<1 g",
+            "serving": "<1 g",
+            "pdi": null
+          },
+          "carbohydrates_total": {
+            "100mL": "13.7 g",
+            "serving": "2.7 g",
+            "pdi": null
+          },
+          "carbohydrates_sugar": {
+            "100mL": "10.8 g",
+            "serving": "2.2 g",
+            "pdi": null
+          },
+          "sodium": {
+            "100mL": "2310 mg",
+            "serving": "463 mg",
+            "pdi": null
+          }
+        },
+        "storage_instructions": null
+      },
+      "images": [
+        "8687677.jpg",
+        "8687677_L.jpg",
+        "8687677_R.jpg"
+      ],
+      "imagesVisualDescription": "Billy B's Fermented Hot Sauce, 200mL pack",
+      "productAverageRating": null,
+      "productCountRatings": 0
+    },
+    {
+      "id": "kikkoman-gyoza-sauce-150ml",
+      "productName": "Gyoza Sauce",
+      "productSlug": "kikkoman-gyoza-sauce-150ml",
+      "productSku": "6144160",
+      "productBrand": "Kikkoman",
+      "descriptionShort": "",
+      "descriptionLong": "A ready-to-use dipping sauce for gyoza and other dumplings, made with gluten-free soy sauce, vinegar and sesame oil.",
+      "priceRrp": "4.00",
+      "priceCurrent": "3.00",
+      "pricePerUnit": "2.00",
+      "productPerUnit": "100mL",
+      "badgeLabel": null,
+      "badgeClassName": null,
+      "featuredLabel": null,
+      "productGrossWeight": "150mL",
+      "productMeasurements": {},
+      "categories": [
+        "sauces",
+        "pantry"
+      ],
+      "related_products": [],
+      "attributes": {
+        "origin": "Made in Thailand",
+        "organic": false,
+        "packaging": "Bottle",
+        "ingredients": "Water, naturally brewed gluten-free <strong>soy</strong> sauce (water, <strong>soybeans</strong>, rice, salt), sugar, vinegar, salt, <strong>sesame</strong> oil, colour (150a), flavour enhancers (621, 635), garlic powder, ginger powder, vegetable gum (415), preservative (211).",
+        "dietary": "Contains sesame and soy.",
+        "servings": {
+          "serving_size": "15mL",
+          "servings_per_package": 10
+        },
+        "nutritionUnit": "100mL",
+        "nutrition": {
+          "energy": {
+            "100mL": "392 kJ",
+            "serving": "59 kJ",
+            "pdi": null
+          },
+          "protein": {
+            "100mL": "4.6 g",
+            "serving": "0.7 g",
+            "pdi": null
+          },
+          "fat_total": {
+            "100mL": "0 g",
+            "serving": "0 g",
+            "pdi": null
+          },
+          "fat_saturated": {
+            "100mL": "0 g",
+            "serving": "0 g",
+            "pdi": null
+          },
+          "carbohydrates_total": {
+            "100mL": "17.6 g",
+            "serving": "2.6 g",
+            "pdi": null
+          },
+          "carbohydrates_sugar": {
+            "100mL": "17.6 g",
+            "serving": "2.6 g",
+            "pdi": null
+          },
+          "sodium": {
+            "100mL": "2700 mg",
+            "serving": "405 mg",
+            "pdi": null
+          }
+        },
+        "storage_instructions": "Shake well and refrigerate after opening."
+      },
+      "images": [
+        "6144160.jpg",
+        "6144160_L.jpg",
+        "6144160_R.jpg",
+        "6144160_B.jpg"
+      ],
+      "imagesVisualDescription": "Kikkoman Gyoza Sauce, 150mL pack",
+      "productAverageRating": null,
+      "productCountRatings": 0
+    },
+    {
+      "id": "hellmanns-superbowl-limited-edition-sauce-250g",
+      "productName": "Super Bowl Limited Edition Cheddar Sauce",
+      "productSlug": "hellmanns-superbowl-limited-edition-sauce-250g",
+      "productSku": "1811406",
+      "productBrand": "Hellmann's",
+      "descriptionShort": "",
+      "descriptionLong": "A creamy cheddar-flavoured sauce for burgers, chips and nachos. It also works as a dip.",
+      "priceRrp": "6.50",
+      "priceCurrent": "5.50",
+      "pricePerUnit": "2.20",
+      "productPerUnit": "100g",
+      "badgeLabel": null,
+      "badgeClassName": null,
+      "featuredLabel": null,
+      "productGrossWeight": "250g",
+      "productMeasurements": {},
+      "categories": [
+        "sauces",
+        "pantry"
+      ],
+      "related_products": [],
+      "attributes": {
+        "origin": "Made in Spain",
+        "organic": false,
+        "packaging": "Bottle",
+        "ingredients": "Water, canola oil, sugar, vinegar, <strong>egg</strong> yolk, thickeners (1422, 415), salt, cheddar cheese (1%) (<strong>milk</strong>), flavour (<strong>milk</strong>), food acid (lactic), colours (160a, 160c), antioxidant (385).",
+        "dietary": "Contains egg and milk. May contain gluten and wheat.",
+        "servings": {
+          "serving_size": "15g",
+          "servings_per_package": 16
+        },
+        "nutritionUnit": "100g",
+        "nutrition": {
+          "energy": {
+            "100g": "1740 kJ",
+            "serving": "262 kJ",
+            "pdi": "3%"
+          },
+          "protein": {
+            "100g": "1.1 g",
+            "serving": "0.2 g",
+            "pdi": "1%"
+          },
+          "fat_total": {
+            "100g": "42.6 g",
+            "serving": "6.4 g",
+            "pdi": "9%"
+          },
+          "fat_saturated": {
+            "100g": "3.8 g",
+            "serving": "0.6 g",
+            "pdi": "3%"
+          },
+          "carbohydrates_total": {
+            "100g": "6.7 g",
+            "serving": "1 g",
+            "pdi": "1%"
+          },
+          "carbohydrates_sugar": {
+            "100g": "4.6 g",
+            "serving": "0.7 g",
+            "pdi": "1%"
+          },
+          "sodium": {
+            "100g": "745 mg",
+            "serving": "112 mg",
+            "pdi": "5%"
+          }
+        },
+        "storage_instructions": "Refrigerate after opening and use within one month. Do not freeze."
+      },
+      "images": [
+        "1811406.jpg",
+        "1811406_L.jpg",
+        "1811406_B.jpg"
+      ],
+      "imagesVisualDescription": "Hellmann's Super Bowl Limited Edition Cheddar Sauce, 250g pack",
+      "productAverageRating": null,
+      "productCountRatings": 0
+    },
+    {
+      "id": "rana-tomato-and-mascarpone-sauce-400g",
+      "productName": "Tomato & Mascarpone Sauce",
+      "productSlug": "rana-tomato-and-mascarpone-sauce-400g",
+      "productSku": "1437467",
+      "productBrand": "Rana",
+      "descriptionShort": "",
+      "descriptionLong": "A creamy tomato and mascarpone sauce for fresh pasta. Warm it before stirring it through the cooked pasta.",
+      "priceRrp": "9.00",
+      "priceCurrent": "6.30",
+      "pricePerUnit": "1.58",
+      "productPerUnit": "100g",
+      "badgeLabel": null,
+      "badgeClassName": null,
+      "featuredLabel": null,
+      "productGrossWeight": "400g",
+      "productMeasurements": {},
+      "categories": [
+        "sauces",
+        "pantry"
+      ],
+      "related_products": [],
+      "attributes": {
+        "origin": "Made in Italy",
+        "organic": false,
+        "packaging": "Tub",
+        "ingredients": "Chopped tomatoes (64%), cream (<strong>milk</strong>), mascarpone cheese (8%) (cream (<strong>milk</strong>), <strong>milk</strong>), water, onion, extra virgin olive oil, tomato concentrate (2%), modified starch, skimmed <strong>milk</strong> powder, salt, sugar, natural flavourings (<strong>wheat</strong>, <strong>milk</strong>), garlic.",
+        "dietary": "Contains milk and wheat.",
+        "servings": {
+          "serving_size": "100g",
+          "servings_per_package": 4
+        },
+        "nutritionUnit": "100g",
+        "nutrition": {
+          "energy": {
+            "100g": "480 kJ",
+            "serving": "480 kJ",
+            "pdi": null
+          },
+          "protein": {
+            "100g": "2.3 g",
+            "serving": "2.3 g",
+            "pdi": null
+          },
+          "fat_total": {
+            "100g": "9.4 g",
+            "serving": "9.4 g",
+            "pdi": null
+          },
+          "fat_saturated": {
+            "100g": "4.9 g",
+            "serving": "4.9 g",
+            "pdi": null
+          },
+          "carbohydrates_total": {
+            "100g": "5 g",
+            "serving": "5 g",
+            "pdi": null
+          },
+          "carbohydrates_sugar": {
+            "100g": "4.4 g",
+            "serving": "4.4 g",
+            "pdi": null
+          },
+          "sodium": {
+            "100g": "343 mg",
+            "serving": "343 mg",
+            "pdi": null
+          }
+        },
+        "storage_instructions": "Keep refrigerated at 0–5°C. Once opened, refrigerate and use within three days. Do not freeze."
+      },
+      "images": [
+        "1437467.jpg",
+        "1437467_L.jpg",
+        "1437467_R.jpg",
+        "1437467_B.jpg"
+      ],
+      "imagesVisualDescription": "Rana Tomato & Mascarpone Sauce, 400g pack",
+      "productAverageRating": null,
+      "productCountRatings": 0
+    },
+    {
+      "id": "fountain-steak-sauce-250ml",
+      "productName": "Steak Sauce",
+      "productSlug": "fountain-steak-sauce-250ml",
+      "productSku": "128434",
+      "productBrand": "Fountain",
+      "descriptionShort": "",
+      "descriptionLong": "An apple and tomato steak sauce with molasses and spices. Serve it with steak, burgers or sausages.",
+      "priceRrp": "3.80",
+      "priceCurrent": null,
+      "pricePerUnit": "1.52",
+      "productPerUnit": "100mL",
+      "badgeLabel": null,
+      "badgeClassName": null,
+      "featuredLabel": null,
+      "productGrossWeight": "250mL",
+      "productMeasurements": {},
+      "categories": [
+        "sauces",
+        "pantry"
+      ],
+      "related_products": [],
+      "attributes": {
+        "origin": "Made in Australia from at least 30% Australian ingredients",
+        "organic": false,
+        "packaging": "Bottle",
+        "ingredients": "Apple paste (38%), sugar, tomato puree (20%), onion, food acid (260), molasses, golden syrup, salt, currants, raisins, sultanas, maize thickener (1422), spices, thickener (415), natural flavours.",
+        "dietary": "May contain gluten, peanut, soy and wheat.",
+        "servings": {
+          "serving_size": "20mL",
+          "servings_per_package": 12.5
+        },
+        "nutritionUnit": "100mL",
+        "nutrition": {
+          "energy": {
+            "100mL": "900 kJ",
+            "serving": "180 kJ",
+            "pdi": null
+          },
+          "protein": {
+            "100mL": "0.7 g",
+            "serving": "0.1 g",
+            "pdi": null
+          },
+          "fat_total": {
+            "100mL": "0.2 g",
+            "serving": "0 g",
+            "pdi": null
+          },
+          "fat_saturated": {
+            "100mL": "0 g",
+            "serving": "0 g",
+            "pdi": null
+          },
+          "carbohydrates_total": {
+            "100mL": "50.0 g",
+            "serving": "10.0 g",
+            "pdi": null
+          },
+          "carbohydrates_sugar": {
+            "100mL": "48.3 g",
+            "serving": "9.7 g",
+            "pdi": null
+          },
+          "sodium": {
+            "100mL": "560 mg",
+            "serving": "115 mg",
+            "pdi": null
+          }
+        },
+        "storage_instructions": "Refrigerate below 4°C after opening."
+      },
+      "images": [
+        "128434.jpg",
+        "128434_L.jpg",
+        "128434_R.jpg",
+        "128434_B.jpg"
+      ],
+      "imagesVisualDescription": "Fountain Steak Sauce, 250mL pack",
+      "productAverageRating": null,
+      "productCountRatings": 0
+    },
+    {
+      "id": "cholula-hot-sauce-original-150ml",
+      "productName": "Original Hot Sauce",
+      "productSlug": "cholula-hot-sauce-original-150ml",
+      "productSku": "7267847",
+      "productBrand": "Cholula",
+      "descriptionShort": "",
+      "descriptionLong": "A Mexican hot sauce made with árbol and piquín chillies. Splash it over tacos, eggs or rice and beans.",
+      "priceRrp": "5.70",
+      "priceCurrent": "3.90",
+      "pricePerUnit": "2.60",
+      "productPerUnit": "100mL",
+      "badgeLabel": null,
+      "badgeClassName": null,
+      "featuredLabel": null,
+      "productGrossWeight": "150mL",
+      "productMeasurements": {},
+      "categories": [
+        "sauces",
+        "pantry"
+      ],
+      "related_products": [],
+      "attributes": {
+        "origin": "Made in Mexico",
+        "organic": false,
+        "packaging": "Bottle",
+        "ingredients": "Water, dried chilli peppers (6%) (árbol, piquín), salt, acidity regulator (acetic acid), stabiliser (xanthan gum), spice, apple cider vinegar, garlic, natural flavour.",
+        "dietary": null,
+        "servings": {
+          "serving_size": "5mL",
+          "servings_per_package": "Approx. 30"
+        },
+        "nutritionUnit": "100mL",
+        "nutrition": {
+          "energy": {
+            "100mL": "160 kJ",
+            "serving": "8 kJ",
+            "pdi": null
+          },
+          "protein": {
+            "100mL": "<1 g",
+            "serving": "<1 g",
+            "pdi": null
+          },
+          "fat_total": {
+            "100mL": "1.1 g",
+            "serving": "<1 g",
+            "pdi": null
+          },
+          "fat_saturated": {
+            "100mL": "<1 g",
+            "serving": "<1 g",
+            "pdi": null
+          },
+          "carbohydrates_total": {
+            "100mL": "5.5 g",
+            "serving": "<1 g",
+            "pdi": null
+          },
+          "carbohydrates_sugar": {
+            "100mL": "<1 g",
+            "serving": "<1 g",
+            "pdi": "1%"
+          },
+          "sodium": {
+            "100mL": "2050 mg",
+            "serving": "103 mg",
+            "pdi": null
+          }
+        },
+        "storage_instructions": "Store in a cool, dry place away from heat. Refrigerate after opening."
+      },
+      "images": [
+        "7267847.jpg"
+      ],
+      "imagesVisualDescription": "Cholula Original Hot Sauce, 150mL pack",
+      "productAverageRating": null,
+      "productCountRatings": 0
+    }
+  ],
+  "slotsCollection": [
+    {
+      "icon": "",
+      "heading": "Morning",
+      "times": [
+        {
+          "label": "8am to 10am",
+          "cost": "Free",
+          "value": "slot1"
+        },
+        {
+          "label": "10am to 12pm",
+          "cost": "Free",
+          "value": "slot2"
+        }
+      ]
+    },
+    {
+      "icon": "",
+      "heading": "Afternoon",
+      "times": [
+        {
+          "label": "12pm to 2pm",
+          "cost": "Free",
+          "value": "slot3"
+        },
+        {
+          "label": "2pm to 4pm",
+          "cost": "Free",
+          "value": "slot4"
+        }
+      ]
+    },
+    {
+      "icon": "",
+      "heading": "Evening",
+      "times": [
+        {
+          "label": "4pm to 6pm",
+          "cost": "Free",
+          "value": "slot5"
+        },
+        {
+          "label": "6pm to 8pm",
+          "cost": "Free",
+          "value": "slot6"
+        }
+      ]
+    }
+  ],
+  "slotsDelivery": [
+    {
+      "icon": "",
+      "heading": "Morning",
+      "times": [
+        {
+          "label": "7:30am to 12pm",
+          "cost": "6.00",
+          "value": "slot1"
+        },
+        {
+          "label": "7:30am to 8:30am",
+          "cost": "11.00",
+          "value": "slot2"
+        },
+        {
+          "label": "8:30am to 9:30am",
+          "cost": "11.00",
+          "value": "slot3"
+        },
+        {
+          "label": "9:30am to 10:30am",
+          "cost": "11.00",
+          "value": "slot4"
+        },
+        {
+          "label": "10:30am to 11:30am",
+          "cost": "11.00",
+          "value": "slot5"
+        },
+        {
+          "label": "11:30am to 12:30pm",
+          "cost": "11.00",
+          "value": "slot6"
+        }
+      ]
+    },
+    {
+      "icon": "",
+      "heading": "Afternoon",
+      "times": [
+        {
+          "label": "12pm to 5pm",
+          "cost": "3.00",
+          "value": "slot7"
+        },
+        {
+          "label": "12:30pm to 1:30pm",
+          "cost": "11.00",
+          "value": "slot8"
+        },
+        {
+          "label": "1:30pm to 2:30pm",
+          "cost": "9.00",
+          "value": "slot9"
+        },
+        {
+          "label": "2:30pm to 3:30pm",
+          "cost": "3.00",
+          "value": "slot10"
+        },
+        {
+          "label": "3:30pm to 4:30pm",
+          "cost": "9.00",
+          "value": "slot11"
+        },
+        {
+          "label": "4:30pm to 5:30pm",
+          "cost": "11.00",
+          "value": "slot12"
+        }
+      ]
+    },
+    {
+      "icon": "",
+      "heading": "Evening",
+      "times": [
+        {
+          "label": "5pm to 10pm",
+          "cost": "6.00",
+          "value": "slot13"
+        },
+        {
+          "label": "5:30pm to 6:30pm",
+          "cost": "11.00",
+          "value": "slot14"
+        },
+        {
+          "label": "6:30pm to 7:30pm",
+          "cost": "11.00",
+          "value": "slot15"
+        },
+        {
+          "label": "7:30pm to 8:30pm",
+          "cost": "11.00",
+          "value": "slot16"
+        },
+        {
+          "label": "8:30pm to 9:30pm",
+          "cost": "9.00",
+          "value": "slot17"
+        },
+        {
+          "label": "9pm to 10pm",
+          "cost": "9.00",
+          "value": "slot18"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+.fs-dialog-overlay,
+.fs-dialogModal {
+  position: fixed;
+  border: var(--fs-thickness-xl) solid var(--fs-color-brand-primary);
+  border-radius: var(--fs-spacing-lg);
+}
+
+.fs-dialog-overlay[open]::backdrop,
+.fs-dialogModal[open]::backdrop {
+  background:
+    linear-gradient(217deg, transparent 2%, var(--fs-color-bright-maize-middle)),
+    linear-gradient(127deg, transparent 2%, var(--fs-color-bright-maize-dark)),
+    linear-gradient(336deg, transparent 98%, var(--fs-color-bright-maize-light));
+}

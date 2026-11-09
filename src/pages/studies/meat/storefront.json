@@ -98,12 +98,12 @@
       }
     },
     "task": {
-      "instructionTitle": "Checkout with next week’s groceries",
+      "instructionTitle": "Meat for the week ahead",
       "instructionDetail": [
-        "You'll see products from the <strong>Meat, poultry, and seafood</strong> section of a fake supermarket.",
-        "Think about what <strong>you</strong> expect to buy in next week's groceries.",
-        "Go through the checkout with the products which you would buy for your household."
-      ]
+        "If you were shopping for your household for the coming week, what would you buy?"
+      ],
+      "instructionIncentive": "Complete this task and the follow-up questions to earn ",
+      "exampleIncentiveAmountForThisUser": 6.75
     },
     "interview": [
       {

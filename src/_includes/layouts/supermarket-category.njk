@@ -2,6 +2,7 @@
 {% extends "layouts/base.njk" %}   
  
 {% block content %}
+  {% include "partials/layouts-platform/researchtask/fs-dialog-task_offer.njk" %}
   {% include "partials/header-research-full.njk" %}
     
   <div id="utility-wrapper" role="region">
@@ -28,7 +29,7 @@
   {% include "partials/json-productCards.njk" %}
 
   <script type="module" src="/assets/js/utils/init.js"></script>
-  <script type="module" src="/assets/js/pages/onboarding.js"></script>
+  <script type="module" src="/assets/js/pages/task-offer.js"></script>
   <script type="module" src="/assets/js/pages/category.js"></script>
   <script type="module" src="/assets/js/components/{{ storefront.storefrontType }}/productCards.js"></script>
   <script type="module" src="/assets/js/pages/cart-overlay.js"></script>

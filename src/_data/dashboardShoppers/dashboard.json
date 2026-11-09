@@ -14,6 +14,7 @@
           {
             "label": "Breakfast cereal",
             "studyRoute": "studies/breakfastcereal",
+            "accepted": false,
             "completed": false,
             "incentive": true,
             "amount": 5
@@ -21,46 +22,53 @@
           {
             "label": "Lunch meats",
             "studyRoute": "studies/meat",
+            "accepted": false,
             "completed": false,
             "incentive": true,
             "amount": 6.75
           },
           {
             "label": "Fruit and veg",
-            "url": "/shopper/tasks/supermarket/fresh-produce/",
+            "studyRoute": "studies/fresh-produce",
+            "accepted": false,
             "completed": false,
             "incentive": null
           },
           {
             "label": "Dairy",
-            "url": "/shopper/tasks/supermarket/dairy-products/",
+            "studyRoute": "studies/dairy-products",
+            "accepted": false,            
             "completed": true,
             "incentive": true,
             "amount": 5
           },
           {
             "label": "Bakery items",
-            "url": "/shopper/tasks/supermarket/bakery-items/",
+            "studyRoute": "studies/bakery-items",
+            "accepted": false,
             "completed": true,
             "incentive": null
           },
           {
             "label": "Frozen foods",
             "hint": "Stuff we can pop in the oven for the kids' lunches",
-            "url": "/shopper/tasks/supermarket/frozen-foods/",
+            "studyRoute": "studies/frozen-foods",
+            "accepted": false,
             "completed": false,
             "incentive": null
           },
           {
             "label": "Snacks",
             "hint": "Something for the footy grand final",
-            "url": "/shopper/tasks/supermarket/snacks-and-beverages/",
+            "studyRoute": "studies/snacks-and-beverages",
+            "accepted": false,
             "completed": false,
             "incentive": null
           },
           {
             "label": "Sauces",
-            "url": "/shopper/tasks/supermarket/condiments-and-sauces/",
+            "studyRoute": "studies/sauces",
+            "accepted": true,
             "completed": false,
             "incentive": null
           }
@@ -72,7 +80,8 @@
         "shoppingList": [
           {
             "label": "Sneakers",
-            "url": "/shopper/tasks/clothes/everyday-sneakers/",
+            "studyRoute": "studies/everyday-sneakers",
+            "accepted": false,
             "completed": false,
             "incentive": null
           }

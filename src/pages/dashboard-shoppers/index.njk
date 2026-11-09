@@ -7,7 +7,6 @@ permalink: "{{ route | pageUrl(slug) }}"
 site:
   root: "https://fakesupermarket.app"
   url: "dashboardShoppers"
-skipOnboarding: true
 pagination:
   data: dashboardShoppers
   size: 1
@@ -37,6 +36,7 @@ pagination:
 
   <div class="fs-svg-hidden" aria-hidden style="position:absolute;width:0;height:0;overflow:hidden">
     {% include "partials/icons/check.njk" %}
+    {% include "partials/icons/clock.njk" %}
     {% include "partials/icons/dollar-sign.njk" %}
     {% include "partials/icons/marker-interactive.njk" %}
   </div>

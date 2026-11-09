@@ -9,7 +9,7 @@
       <div class="fs-tasksList__inner">
         {% for storefrontKey, storefront in dashboard.fakesupermarket.storefronts %}
           <div class="fs-tasksList__group">
-            <header class="fs-tasksList__header">
+            <header class="fs-tasksList__header">  
               <h3 class="fs-tasksList__heading">From the {{ storefront.storefrontName }}</h3>
             </header>
 
@@ -17,14 +17,21 @@
               {% for item in storefront.shoppingList %}
                 <li class="fs-tasksList__item">
                   {% if not item.completed %}
-                    <a href="{{ resolvePageUrl(item.studyRoute, 'index') if item.studyRoute else item.url }}" class="fs-tasksList__button {% if item.incentive %} is-incentivised{% endif %}">
+                    <a href="{{ resolvePageUrl(item.studyRoute, 'index') if item.studyRoute else item.url }}"
+                       class="fs-tasksList__button{% if item.accepted %} is-accepted{% endif %}{% if item.incentive %} is-incentivised{% endif %}">
                   {% else %}
                     <div class="fs-tasksList__button is-completed {% if item.incentive %} is-incentivised{% endif %}">
                   {% endif %}
+
                     <span class="fs-tasksList__marker icon" aria-hidden="true">
                       {% if item.completed %}
                         <svg class="" viewBox="0 0 24 24" focusable="false">
                           <use href="#check"></use>
+                        </svg>
+                      {% endif %}
+                      {% if item.accepted and not item.completed %}
+                        <svg class="" viewBox="0 0 24 24" focusable="false">
+                          <use href="#clock"></use>
                         </svg>
                       {% endif %}
                       {% if item.incentive and not item.completed %}
@@ -41,6 +48,10 @@
 
                       {% if item.incentive and not item.completed %}
                           <div class="identifier__status">Incentive available</div>
+                      {% endif %}
+
+                      {% if item.accepted and not item.completed %}
+                          <div class="identifier__status">Accepted but not completed</div>
                       {% endif %}
 
                       {% if item.incentive and item.completed %}

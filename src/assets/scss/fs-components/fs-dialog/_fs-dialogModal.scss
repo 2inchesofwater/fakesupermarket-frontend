@@ -1,0 +1,30 @@
+.fs-dialogModal {
+  inset: 0;
+  margin: auto;
+  inline-size: min(38rem, calc(100% - 2 * var(--fs-spacing-md)));
+  max-block-size: calc(100dvh - 2 * var(--fs-spacing-md));
+  padding: clamp(var(--fs-spacing-md), 4vw, var(--fs-spacing-xl));
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: var(--fs-color-background-page);
+  color: var(--fs-color-text-primary);
+
+  .fs-dialogModal__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--fs-spacing-sm);
+    margin-block-start: var(--fs-spacing-md);
+
+    > .fs-btn {
+      max-inline-size: 100%;
+
+      > .label {
+        white-space: normal;
+      }
+    }
+  }
+}
+
+body:has(.fs-dialogModal[open]) {
+  overflow: hidden;
+}

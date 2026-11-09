@@ -115,12 +115,12 @@
       }
     },
     "task": {
-      "instructionTitle": "Pick what's for breakfast...",
+      "instructionTitle": "Pick what's for breakfast",
       "instructionDetail": [
-        "You'll see a range of <strong>Breakfast cereals</strong>.",
-        "Pick what <strong>you</strong> would buy for your household.",
-        "Go through the checkout. <em>Remember</em>: You don't have to pay."
-      ]
+        "If you were shopping for your household for the coming week, what would you buy?"
+      ],
+      "instructionIncentive": "Complete this task and the follow-up questions to earn ",
+      "exampleIncentiveAmountForThisUser": 5.00
     },
     "interview": [
       {

@@ -1,0 +1,39 @@
+@use '../../fs-variables' as *;
+@use '../../fs-styles';
+
+.fs-taskOffer {
+  @media (min-width: #{$screen-md}) {
+    padding: var(--fs-spacing-2xl);
+  }
+  &__header {}
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--fs-spacing-xl);
+    row-rule: var(--fs-thickness-sm) solid var(--fs-color-border-default);
+  }
+
+  &__eyebrow {
+    color: var(--fs-color-text-primary);
+    background-color: var(--fs-color-core-100); 
+    margin-block-end: var(--fs-spacing-md);
+  }
+
+  &__heading {
+    @extend .fs-typo-pageHead-default;
+  }
+
+  &__context {
+    @extend .fs-typo-body-default;
+    //font-weight: var(--fs-weight-md);
+  }
+
+  &__offer {
+    @extend .fs-typo-body-default;
+    color: var(--fs-color-text-tertiary);
+  }
+
+  &__amount .fs-price > span {
+    font-weight: inherit;
+  }
+}

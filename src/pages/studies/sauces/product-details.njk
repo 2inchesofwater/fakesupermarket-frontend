@@ -1,0 +1,8 @@
+---
+pagination:
+  data: storefront.productsAll
+  size: 1
+  alias: product
+permalink: "{{ route | pageUrl(product.productSlug) }}"
+layout: "supermarket-productDetails.njk"
+---

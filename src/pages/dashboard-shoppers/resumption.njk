@@ -1,0 +1,42 @@
+---
+title: Shopper dashboard
+route: dashboardShoppers
+slug: resumption
+pageId: dashboardShoppers
+permalink: "{{ route | pageUrl(slug) }}"
+site:
+  root: "https://fakesupermarket.app"
+  url: "dashboardShoppers"
+pagination:
+  data: dashboardShoppers
+  size: 1
+  resolve: values
+  alias: dashboard
+---
+
+{% extends "layouts/base.njk" %}
+{% from "partials/fs-components/fs-formatPrice.njk" import formatPrice %}
+
+{% block content %}
+  <div id="header-positioning">
+    {% include "partials/fs-headers/header-dashboard-shoppers.njk" %}
+  </div> 
+
+  <main id="main-{{ pageId }}" class="main-content">
+    {% include "partials/layouts-platform/dashboardShoppers/fs-shoppers-tasks.njk" %}
+    
+    <div id="fs-dashboard-shoppers" class="fs-dashboard dashboard--{{ slug }}">
+      <div class="fs-dashboard__inner">
+        {% include "partials/layouts-platform/dashboardShoppers/fs-shoppers-incentives.njk" %}
+        {% include "partials/layouts-platform/dashboardShoppers/fs-shoppers-questions.njk" %}
+        {% include "partials/layouts-platform/dashboardShoppers/fs-shoppers-walkthrough.njk" %}
+      </div>
+    </div>
+  </main>
+
+  <div class="fs-svg-hidden" aria-hidden style="position:absolute;width:0;height:0;overflow:hidden">
+    {% include "partials/icons/check.njk" %}
+    {% include "partials/icons/dollar-sign.njk" %}
+    {% include "partials/icons/marker-interactive.njk" %}
+  </div>
+{% endblock %}

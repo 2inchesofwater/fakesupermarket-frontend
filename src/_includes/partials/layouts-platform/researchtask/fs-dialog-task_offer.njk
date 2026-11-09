@@ -1,0 +1,36 @@
+{% from "partials/fs-components/fs-formatPrice.njk" import formatPrice %}
+{% set task = storefront.study.task %}
+{% set amount = task.exampleIncentiveAmountForThisUser %}
+
+<dialog id="fs-task-offer" class="fs-dialogModal fs-taskOffer" aria-labelledby="task-offer-heading">
+  <div class="fs-taskOffer__header">
+    {% if storefront.fakesupermarket.welcomeMessage %}
+      <p class="fs-taskOffer__eyebrow fs-eyebrow">{{ storefront.fakesupermarket.welcomeMessage }}</p>
+    {% endif %}
+    
+    <h2 id="task-offer-heading" class="fs-taskOffer__heading">{{ task.instructionTitle | safe }}</h2>
+  </div>
+
+  <div class="fs-taskOffer__body">
+    <div class="fs-taskOffer__group">
+      {% for detail in task.instructionDetail %}
+        <p class="fs-taskOffer__context">{{ detail | safe }}</p>
+      {% endfor %}
+    </div>
+    <div class="fs-taskOffer__group"> 
+      {% if task.instructionIncentive and amount is number and amount > 0 %}
+        <p class="fs-taskOffer__offer">{{ task.instructionIncentive | trim }} <strong class="fs-taskOffer__amount fs-highlight">{{ formatPrice(amount) }}</strong>.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="fs-dialogModal__actions">
+    <button id="task-offer-accept" type="button" class="fs-btn btn-primary btn-md btn-icon">
+      <span class="icon" aria-hidden="true">{% include "partials/icons/check-circle.njk" %}</span>
+      <span class="label">I can do that</span>
+    </button>
+    <a id="task-offer-decline" class="fs-btn btn-tertiary btn-md" href="{{ resolvePageUrl('dashboardShoppers', 'index') }}">
+      <span class="label">Decline</span>
+    </a>
+  </div>
+</dialog>
