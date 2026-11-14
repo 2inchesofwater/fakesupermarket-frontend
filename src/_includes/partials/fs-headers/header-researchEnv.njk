@@ -1,0 +1,38 @@
+<div id="platform-header-researchEnv" class="research-header">
+  <div id="header-positioning">
+    <header id="header-researchEnv" class="fs-header">
+      <div class="container">
+        <nav id="header-navigation" class="fs-nav-main" aria-label="Research environment">
+          <a id="site-logo" href="{{ resolvePageUrl('dashboardShoppers', 'index') }}" aria-label="Fake Supermarket Shoppers Dashboard">
+            <svg class="fs-logo-symbol" viewBox="0 0 228 228" aria-hidden="true">
+              <use href="#fs-logo"></use>
+            </svg>
+          </a>
+          <div id="header-researchEnv-tasks" class="fs-nav-toggle">
+            <div class="header-compact">
+              <button type="button" class="fs-btn btn-secondary btn-icon" commandfor="fs-tasks-reminders" command="show-modal">
+                <span class="icon">
+                  {% include "partials/icons/sidebar.svg" %}
+                </span>
+                <span class="label">Shopping list</span>
+              </button>
+            </div>
+            <div class="header-expanded">
+              <button type="button" class="fs-btn btn-secondary btn-icon" commandfor="fs-tasks-reminders" command="show-modal">
+                <span class="icon">
+                  {% include "partials/icons/sidebar.svg" %}
+                </span>                
+                <span class="label">Shopping list</span>
+              </button>              
+            </div> 
+          </div>
+          <div class="fs-nav-btnGroup">
+            <div class="header-compact"></div>
+            <div class="header-expanded"></div>
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+</div>
+{% include "partials/layouts-platform/researchtask/fs-dialog-tasks_reminders.njk" %}

@@ -216,10 +216,10 @@
       align-items: center;
       justify-content: center;
 
-      width: calc(var(--fs-logo-size-sm) - var(--fs-spacing-lg));
-      height: calc(var(--fs-logo-size-sm) - var(--fs-spacing-lg));
+      width: calc(var(--fs-logo-size-md) - var(--fs-spacing-lg));
+      height: calc(var(--fs-logo-size-md) - var(--fs-spacing-lg));
       border: var(--fs-thickness-lg) solid var(--fs-color-chart-1);
-      border-radius: var(--fs-logo-size-sm);
+      border-radius: var(--fs-logo-size-md);
 
       font-size: var(--fs-size-md);
       font-weight: var(--fs-weight-light);

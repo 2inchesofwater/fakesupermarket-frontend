@@ -4,7 +4,7 @@
 
 <header id="header-{{ pageName }}" class="fs-header">
   <div class="container">
-    <nav id="site-navigation" class="fs-nav-main">
+    <nav id="header-navigation" class="fs-nav-main">
 
       <a title="{{ logoDescription }}" href="{{ site.root }}" id="site-logo">
         <svg class="fs-logo-symbol" viewBox="0 0 228 228" aria-hidden="true">
@@ -35,7 +35,7 @@
         <div class="header-expanded">
   {% if showAuthDialogue %} 
           <div class="fs-btn-group">
-            <a class="fs-btn btn-tertiary" href="/clients/">
+            <a class="fs-btn btn-tertiary" href="{{ site.bookingUrl | default('/clients/') }}">
               <span class="label">Book a demo</span>
             </a>
             <button commandfor="auth-{{ componentName }}-overlay" command="show-modal" aria-label="Open the sign-in menu" class="fs-btn btn-tertiary" id="auth-{{ componentName }}-menu-btn" type="button">

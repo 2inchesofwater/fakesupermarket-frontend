@@ -33,7 +33,7 @@ export function updateHeaderBtn(cartInstance) {
   if (cartHeaderBtn_tally) cartHeaderBtn_tally.textContent = cartInstance.totalItems;
   if (cartHeaderBtn_subtotal) cartHeaderBtn_subtotal.textContent = cartInstance.formatPrice(cartInstance.totalCost);
 
-  if (cartOverlay && !cartOverlay.hidden) {
+  if (cartOverlay?.open) {
     renderCartSummaryList(cartInstance);
   }
   return;
@@ -43,25 +43,13 @@ export function openCartOverlay(cartInstance) {
   const freshCart = cartInstance.load();
   Object.assign(cartInstance, freshCart);
 
-  window.dispatchEvent(new Event('show-backdrop'));
-
-  cartOverlay.hidden = false;
-  cartOverlay.classList.remove('closed');
-
-  requestAnimationFrame(() => {
-    cartOverlay.classList.add('open');
-  });
-
   renderCartSummary(cartInstance);
   activateCheckoutBtn(cartInstance);
+  cartOverlay.showModal();
 }
 
 export function closeCartSummary() {
-  window.dispatchEvent(new Event('hide-backdrop'));
-  cartOverlay.classList.remove('open');
-  cartOverlay.classList.add('closed');
-  // Listen for animation end
-  cartOverlay.addEventListener('transitionend', handleTransitionEnd);
+  cartOverlay.close();
 }
 
 
@@ -98,20 +86,5 @@ export function bindOverlayEvents(cartInstance) {
   });
 }
 
-function handleTransitionEnd(e) {
-  if ((e.propertyName === 'transform') && cartOverlay.classList.contains('closed')) {
-    cartOverlay.hidden = true;
-    cartOverlay.removeEventListener('transitionend', handleTransitionEnd);
-    cartOverlay.classList.remove('closed');
-  }
-}
-
 cartOverlayBtnContinue?.addEventListener('click', closeCartSummary);
 cartOverlayBtnClose.addEventListener('click', closeCartSummary);
-
-// ESC key closes cartSummary
-document.addEventListener('keydown', (e) => {
-  if (!cartOverlay.hidden && (e.key === "Escape" || e.key === "Esc")) {
-    closeCartSummary();
-  }
-});

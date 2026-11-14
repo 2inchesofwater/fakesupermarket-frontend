@@ -18,7 +18,7 @@
 	
 	// Real closed state
 	opacity: 0;
-	transform: translateX(110%);
+	transform: translateX(var(--fs-dialog-overlay-offset, 110%));
 
 	// Closing transition:
 	// slide immediately, but delay the fade slightly so the slide remains visible
@@ -96,7 +96,7 @@
 @starting-style {
   .fs-dialog-overlay[open] {
     opacity: 0;
-    transform: translateX(110%);
+    transform: translateX(var(--fs-dialog-overlay-offset, 110%));
   }
 	.fs-dialog-overlay[open]::backdrop {
 		background:  //var(--color-backdrop-default);

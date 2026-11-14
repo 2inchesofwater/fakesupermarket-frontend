@@ -1,8 +1,9 @@
-@use "fs-variables" as *;
+@use "variables" as *;
+@use "fs-styles";
 
 #products-grid {
 	display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: var(--spacing-sm);
   content-visibility: visible;
 }
@@ -55,12 +56,23 @@
   gap: var(--spacing-xs);
   padding-inline: var(--spacing-xs);
   @media (min-width: $screen-sm) {
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
     padding-inline: var(--spacing-sm);
   }
     h3 {
         margin-bottom: 0;
     }   	
+}
+
+.productCard-identification {
+  .badge {
+    margin-block-end: var(--spacing-xs);
+  }
+}
+.productCard-pricing {
+  .badge {
+    margin-block-end: var(--spacing-xs);
+  }
 }
 
 .productCard-actions {

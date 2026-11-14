@@ -11,7 +11,7 @@
 	background:  var(--color-background-page);
 
 	.fs-dashboard__tasksLists {
-		padding-block-start: calc(var(--fs-logo-size-sm) * 2) !important;
+		padding-block-start: calc(var(--fs-logo-size-md) * 2) !important;
 	}
 }
 
@@ -55,7 +55,7 @@
 	#fs-dashboard-shoppers {
 		padding-block-start: calc(var(--fs-logo-size-sm) * 1) ;
 		@media (min-width: #{$fs-content-width-contentBody}) {
-			padding-block-start: calc(var(--fs-logo-size-sm) * 2);
+			padding-block-start: calc(var(--fs-logo-size-md) * 2);
 		}
 		.fs-dashboard {
 			&__inner {

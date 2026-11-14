@@ -8,7 +8,7 @@ $screen-xs: 300px;
 $screen-sm: 500px;
 $screen-md: 750px;
 $screen-lg: 1000px;
-$screen-xl: 1600px;
+$screen-xl: 1300px;
 
 
 :root {
@@ -68,9 +68,6 @@ $screen-xl: 1600px;
   --color-shadow-medium: hsla(344, 11%, 25%, 0.25);
   --color-shadow-dark: hsla(344, 11%, 10%, 0.3);
 
-  // --color-backdrop-default: hsla(35, 0%, 22%, 0.75); // No longer in use
-
-
   /* Semantic color aliases */
   --color-brand-primary: var(--color-core-600);
   --color-brand-secondary: var(--color-bright-cloud-middle);
@@ -84,8 +81,9 @@ $screen-xl: 1600px;
   --color-background-default: var(--color-white);
   --color-background-emphasized: var(--color-core-200);
 
-  --color-background-page: var(--color-gray-025);
+  --color-background-page: var(--color-gray-100);
   --color-background-header: var(--color-white);
+  --color-backdrop-default: hsla(35, 0%, 22%, 0.75);
 
   --color-background-footer-heading: var(--color-core-050);
   --color-background-footer-nav: var(--color-gray-100);
@@ -103,17 +101,17 @@ $screen-xl: 1600px;
 
   --color-action-primary-default: var(--color-core-600);
   --color-action-primary-font: var(--color-white);
-  --color-action-primary-hover: var(--color-bright-orange-middle);
+  --color-action-primary-hover: var(--color-core-200);
   --color-action-primary-active: var(--color-core-700);
 
   --color-action-secondary-default: var(--color-core-300);
   --color-action-secondary-font: var(--color-text-secondary);
-  --color-action-secondary-hover: var(--color-core-400);
+  --color-action-secondary-hover: var(--color-core-200);
   --color-action-secondary-active: var(--color-core-500);
 
   --color-action-tertiary-default: transparent;
   --color-action-tertiary-font: var(--color-text-secondary);
-  --color-action-tertiary-hover: var(--color-core-300);
+  --color-action-tertiary-hover: var(--color-core-200);
   --color-action-tertiary-active: var(--color-core-400);
 
   --color-action-disabled-default: var(--color-gray-200);
@@ -145,6 +143,12 @@ $screen-xl: 1600px;
   --height-verticalRhythm-sm: 10vh;
   --height-verticalRhythm-md: 15vh;
   --height-verticalRhythm-lg: 20vh;
+
+  --screen-xs: #{$screen-xs};
+  --screen-sm: #{$screen-sm};
+  --screen-md: #{$screen-md};
+  --screen-lg: #{$screen-lg};
+  --screen-xl: #{$screen-xl};
 
   --spacing-none: 0;
   --spacing-3xs: 2px;
@@ -184,10 +188,10 @@ $screen-xl: 1600px;
   --radius-md: 8px;
   --radius-lg: 12px;
 
-  --boxShadow-xs: 0 var(--spacing-3xs) 2px var(--color-gray-500);
-  --boxShadow-sm: 0 var(--spacing-3xs) 5px var(--color-gray-500);
-  --boxShadow-md: 0 var(--spacing-2xs) 10px var(--color-gray-500);
-  --boxShadow-lg: 0 var(--spacing-xs) 20px var(--color-gray-200);
+  --boxShadow-xs: 0 var(--spacing-3xs) 2px var(--color-gray-300);
+  --boxShadow-sm: 0 var(--spacing-3xs) 5px var(--color-gray-200);
+  --boxShadow-md: 0 var(--spacing-2xs) 10px var(--color-gray-100);
+  --boxShadow-lg: 0 var(--spacing-xs) 20px var(--color-gray-050);
 
   --transition-sm: all 0.15s ease;
   --transition-md: all 0.3s ease;

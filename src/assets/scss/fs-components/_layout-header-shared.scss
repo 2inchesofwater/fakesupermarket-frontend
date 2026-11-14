@@ -3,8 +3,10 @@
 
 #page-dashboardShoppers,
 #page-onboarding,
+#platform-header-researchEnv,
 #page-participants,
 #page-clients,
+#page-bookings,
 body.staticpage {
 	#header-positioning {
 		position: fixed;
@@ -15,6 +17,12 @@ body.staticpage {
 		width: auto;
 		max-width: 100%;
 		padding: var(--fs-spacing-xs);
+	}
+	#header-navigation {
+		gap: var(--fs-spacing-xs);
+		@media (min-width: $screen-md) {
+			gap: var(--fs-spacing-sm);
+		}
 	}
 	.fs-header {
 		padding-block: var(--fs-spacing-xs);
@@ -37,7 +45,7 @@ body.staticpage {
 		align-content: flex-end;
 		flex-wrap: wrap;
 		width: 100%;
-		max-width: $screen-xl;
+		max-width: var(--fs-screen-xl);
 		margin-inline: auto;
 	}	
 	.fs-nav-btnGroup {
@@ -63,3 +71,18 @@ body.staticpage {
 		}
 	}
 }
+
+html:has(.research-header) {
+	--research-header-offset: var(--fs-logo-size-sm);
+	scroll-padding-block-start: var(--research-header-offset);
+}
+
+// .research-header {
+// 	#header-positioning {
+// 		pointer-events: none;
+// 	}
+
+// 	.fs-header {
+// 		pointer-events: auto;
+// 	}
+// }

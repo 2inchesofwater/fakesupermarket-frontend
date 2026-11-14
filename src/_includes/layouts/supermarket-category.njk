@@ -3,28 +3,31 @@
  
 {% block content %}
   {% include "partials/layouts-platform/researchtask/fs-dialog-task_offer.njk" %}
-  {% include "partials/header-research-full.njk" %}
-    
-  <div id="utility-wrapper" role="region">
-    {% set breadcrumbs = (storefront.breadcrumbs) %}
-    {% include "partials/breadcrumbs.njk" %}
-    
-    {% include "partials/banner_ad.njk" %}
+  {% include "partials/fs-headers/header-researchEnv.njk" %}
+  {% include "partials/layouts-storefront/header-storefront-supermarket.njk" %}
+   
+  <div class="storefront__inner">  
+    <div class="storefront__chrome" role="region">
+      {% set breadcrumbs = (storefront.breadcrumbs) %}
+      {% include "partials/breadcrumbs.njk" %}
+      
+      {% include "partials/banner_ad.njk" %}
+    </div>
+
+    <main id="main" class="main-content storefront__categoryList">
+      <div class="categoryList__header">
+        <p class="categoryList__intro">Showing {{ storefront.productsAll | length }} products from</p>
+        <h1 class="categoryList__heading">{{ storefront.categoryTitle }}</h1>
+      </div>
+      {% include "partials/category_SortAndFilter.njk" %}
+
+      <div id="products-grid"></div>
+
+      {% include "partials/layouts-storefront/pagination.njk" %}
+      {% include "partials/layouts-platform/researchtask/fs-endEarly.njk" %}
+    </main>
   </div>
-
-  <main id="main" class="main-content">
-    <h1>{{ storefront.categoryTitle }}</h1>
-
-    {% include "partials/category_SortAndFilter.njk" %}
-
-    <div id="products-grid"></div>
-
-    {% include "partials/pagination.njk" %}
-    {% include "partials/fs-endEarly.njk" %}
-  </main>
-
-  {% include "partials/footer.njk" %}
-  {% include "partials/cartSummary-overlay.njk" %}
+  {% include "partials/layouts-storefront/footer-customerservice.njk" %}
   {% include "partials/json-storefront.njk" %}
   {% include "partials/json-productCards.njk" %}
 
@@ -33,6 +36,5 @@
   <script type="module" src="/assets/js/pages/category.js"></script>
   <script type="module" src="/assets/js/components/{{ storefront.storefrontType }}/productCards.js"></script>
   <script type="module" src="/assets/js/pages/cart-overlay.js"></script>
-  <script type="module" src="/assets/js/utils/backdrop.js" ></script>
 
 {% endblock %}

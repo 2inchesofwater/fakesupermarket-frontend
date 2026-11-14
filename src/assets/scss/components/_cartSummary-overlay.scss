@@ -2,29 +2,46 @@
 
 #cart-overlay {
 	position: fixed;
-	top: 0;
-	right: 0;
+	inset: 0 0 0 auto;
 	width: 100%;
 	max-width: 420px;
 	height: 100%;
-	z-index: 1055; /* Following Bootstrap's pattern for z-layering */
+	max-height: none;
+	margin: 0;
+	border: 0;
+	overflow: hidden;
 	background: var(--color-background-page);
 	color: var(--color-text-primary);
 	transform: translateX(120%);
-	transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
-	will-change: transform;		
-	display: flex;
+	transition:
+		transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+		display 0.5s allow-discrete,
+		overlay 0.5s allow-discrete;
+	display: none;
 	flex-direction: column;
-	outline: none;	
 
-	&.open {
+	&[open] {
+		display: flex;
 		transform: translateX(0%);
 	}
-	&.closed {
-		transform: translateX(120%);
+
+	&::backdrop {
+		background-color: var(--color-backdrop-default);
+		opacity: 0;
+		transition:
+			opacity 0.5s ease,
+			display 0.5s allow-discrete,
+			overlay 0.5s allow-discrete;
 	}
-	&[hidden] {
-		display: none;
+
+	&[open]::backdrop {
+		opacity: 1;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		&, &::backdrop {
+			transition: none;
+		}
 	}
 
 	#cart-overlay-header {
@@ -138,5 +155,15 @@
 				flex: 1;
 			}
 		}
+	}
+}
+
+@starting-style {
+	#cart-overlay[open] {
+		transform: translateX(120%);
+	}
+
+	#cart-overlay[open]::backdrop {
+		opacity: 0;
 	}
 }

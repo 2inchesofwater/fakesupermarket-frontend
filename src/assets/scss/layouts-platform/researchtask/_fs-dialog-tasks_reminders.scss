@@ -1,0 +1,41 @@
+.fs-tasksReminders {
+  --fs-dialog-overlay-offset: -110%;
+
+  inset-inline-start: var(--fs-spacing-sm);
+  inset-inline-end: auto;
+  margin: 0;
+  grid-template-rows: auto minmax(0, 1fr);
+  background: var(--fs-color-background-page);
+  color: var(--fs-color-text-primary);
+  overflow: hidden;
+
+  &[open]::backdrop {
+    background: var(--fs-color-brand-secondary);
+  }
+
+  .fs-dialog__body {
+    display: block;
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+
+  .fs-tasksList__group + .fs-tasksList__group {
+    margin-block-start: var(--fs-spacing-md);
+  }
+
+  .fs-tasksList__body {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &, &[open], &::backdrop {
+      transition: none;
+    }
+  }
+}
+
+body:has(.fs-tasksReminders[open]) {
+  overflow: hidden;
+}

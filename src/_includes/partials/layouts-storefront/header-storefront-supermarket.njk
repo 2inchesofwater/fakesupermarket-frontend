@@ -1,0 +1,51 @@
+<div id="storefront-header__supermarket" class="" role="group" aria-label="storefront-header__name">
+  <div class="storefront-header__inner">
+    <div class="storefront-header__controls">
+      <div id="storefront-header__name" class="fs_unavailable">
+        <span class="storefront-brand">Fake</span>
+        <span class="storefront-type">Supermarket</span>
+      </div>
+
+      <div id="header-search" inert>
+        {% include "partials/layouts-storefront/header-search.njk" %}
+      </div>
+
+      <div id="header-fake-actions">
+        <ul class="fs_unavailable nav-list" inert>
+          <span class="nav-link btn btn-icon">
+            <span class="icon" aria-hidden="true">
+              {% include "partials/icons/location.svg" %}
+            </span>
+            <span class="label">Location</span>
+          </span>
+
+          <span class="nav-link btn btn-icon">
+            <span class="icon" aria-hidden="true">
+              {% include "partials/icons/shopppinglist.svg" %}
+            </span>
+            <span class="label">Lists</span>
+          </span>
+
+          <span class="nav-link btn btn-icon">
+            <span class="icon" aria-hidden="true">
+              {% include "partials/icons/more.svg" %}
+            </span>
+            <span class="label">More</span>
+          </span>        
+        </ul>
+      </div>
+
+      <div id="header-cart">
+        <button id="header-cartBtn" class="btn btn-cart" type="button" aria-label="Shopping cart summary" aria-haspopup="dialog" aria-controls="cart-overlay">
+          <span class="cart-icon" aria-hidden="true">
+            {% include "partials/icons/cart.svg" %}
+          </span>
+          <span class="cart-value"><span id="header-cartBtn-subtotal">$0.00</span><span class="sr-only"> worth of items in the cart</span></span>
+          <span hidden class="badge badge-tally" id="header-cartBtn-badge"><span class="sr-only">And there's:</span><span id="header-cartBtn-tally">0</span><span class="sr-only"> items in the cart</span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include "partials/cartSummary-overlay.njk" %}

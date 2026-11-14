@@ -1,0 +1,112 @@
+@use "variables" as *;
+@use "../../fs-styles";
+
+#customerservice {
+	background: var(--color-background-footer-nav);
+	#followUs {
+		grid-area: social;
+	}
+	#customerService {
+		grid-area: customerService;
+	}
+	#shopping {
+		grid-area: shopping;
+	}
+	#contact {
+		grid-area: contact;
+	}
+
+	.customerservice {
+		&__inner {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: auto;
+			grid-gap: var(--spacing-xl);
+
+			max-width: $screen-xl;
+			margin-block: calc(var(--fs-padding-section-block) * 0.75);
+			margin-inline: auto;
+			padding-inline: 5vw;
+
+			grid-template-areas: 
+				"social"
+				"customerService"
+				"shopping"
+				"contact";
+
+			@media (min-width: $screen-sm) {
+				grid-template-columns: 1fr 1fr;
+				grid-gap: var(--spacing-2xl);
+				grid-template-areas: 
+					"social customerService"
+					"shopping contact";												
+			}
+			@media (min-width: $screen-md) {
+				grid-template-columns: repeat(3, 1fr);
+				grid-template-rows: auto auto;
+				grid-template-areas: 
+					"social social social"
+					"customerService shopping contact";				
+			}
+			@media (min-width: $screen-lg) {
+				grid-template-columns: repeat(4, 1fr);
+				grid-template-rows: 1fr;
+				grid-template-areas: 
+					"social customerService shopping contact";												
+			}
+		}
+		&__header {
+			margin-block-end: var(--spacing-md);
+		}
+		&__heading {
+			@extend .fs-typo-panelHead-default;
+		}
+		&__list {
+			display: flex;
+			flex-direction: column;
+			gap: var(--spacing-md);
+		}
+		&__item {
+			list-style: none;
+			@extend .fs-typo-body-minor;
+			margin-block-end: 0;
+		}
+		&__body {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: var(--spacing-sm);
+			align-items: start;
+		}
+		&__roundel {
+			list-style: none;
+			padding: var(--spacing-md);
+			border: var(--thickness-sm) solid var(--color-gray-500);
+			border-radius: 5rem;
+			.icon {
+			display: flex;
+				> svg {
+					width: var(--fs-btn-size-lg);
+				    height: unset;
+				    aspect-ratio: 1 / 1; 
+				}
+			}
+		}
+	}
+}
+
+// @supports (grid-template-rows: subgrid) {
+//   @media (min-width: $screen-lg) {
+//     #customerservice .customerservice__inner {
+//       grid-template-rows: auto auto;
+//       row-gap: var(--spacing-sm);
+//     }
+
+//     #customerservice .customerservice__group {
+//       display: grid;
+//       grid-row: span 2;
+//       grid-template-rows: subgrid;
+//     }
+//   }
+// }
+

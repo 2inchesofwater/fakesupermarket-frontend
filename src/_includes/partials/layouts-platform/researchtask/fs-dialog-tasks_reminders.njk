@@ -1,0 +1,24 @@
+{% set shoppingListStorefronts = dashboardShoppers.dashboard.fakesupermarket.storefronts %}
+{% set shoppingListCurrentRoute = route %}
+{% set shoppingListCurrentUrl = resolvePageUrl(route, 'index') if slug == 'index' else page.url %}
+{% set shoppingListCurrentTask = storefront.study.task %}
+
+<dialog id="fs-tasks-reminders" class="fs-dialog-overlay fs-tasksReminders" aria-labelledby="tasks-reminders-heading">
+  <header class="fs-dialog__header">
+    <h2 id="tasks-reminders-heading" class="fs-dialog__heading">Shopping list</h2>
+    <button type="button" class="fs-btn btn-tertiary btn-icon btn-iconOnly" commandfor="fs-tasks-reminders" command="close" aria-label="Close shopping list" autofocus>
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#fs-x"></use></svg>
+    </button>
+  </header>
+
+  <div class="fs-dialog__body fs-tasksList">
+    {% include "partials/layouts-platform/fs-shopping-list-groups.njk" %}
+  </div>
+
+  <div hidden>
+    {% include "partials/icons/check.njk" %}
+    {% include "partials/icons/clock.njk" %}
+    {% include "partials/icons/dollar-sign.njk" %}
+  </div>
+</dialog>
+<script type="module" src="/assets/js/pages/tasks-reminders.js"></script>

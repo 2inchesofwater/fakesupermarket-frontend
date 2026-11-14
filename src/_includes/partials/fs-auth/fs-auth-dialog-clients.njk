@@ -11,9 +11,15 @@
   <section id="auth-{{ pageName }}-dialog-body" class="fs-dialog__body" aria-label="Account sign-in options">
     <div id="auth-{{ pageName }}-dialog-signin" class="fs-dialog__group wrapper">
       <div class="fs-btn-group">
+        {% if site.bookingUrl %}
+        <a class="fs-btn btn-tertiary" href="{{ site.bookingUrl }}" autofocus>
+          <span class="label">Book a demo</span>
+        </a>
+        {% else %}
         <button class="fs-btn btn-tertiary" type="button" autofocus>
           <span class="label">Book a demo</span>
         </button>
+        {% endif %}
         <button commandfor="auth-{{ componentName }}-overlay" command="show-modal" aria-label="Open the sign-in menu" class="fs-btn btn-tertiary" type="button">
           <span class="label">Sign in</span>
         </button>

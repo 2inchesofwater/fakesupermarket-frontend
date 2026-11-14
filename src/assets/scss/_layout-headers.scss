@@ -4,7 +4,8 @@
 @forward 'fs-components/layout-header-clients'; 
 @forward 'fs-components/layout-header-participants'; 
 @forward 'fs-components/layout-header-shoppers'; 
-@forward 'fs-components/layout-header-research'; 
+@forward 'fs-components/layout-header-researchEnv'; 
+@forward 'fs-components/layout-header-storefront'; 
 // @forward 'fs-components/layout-header-minimal'; 
 
 @forward 'fs-components/auth-overlay-shared';
@@ -54,6 +55,10 @@
 		svg {
 			width: var(--fs-logo-size-sm);
 			height: var(--fs-logo-size-sm);
+			@media (min-width: $screen-md) {
+				width: var(--fs-logo-size-md);
+				height: var(--fs-logo-size-md);
+			}
 		}
 	}
 

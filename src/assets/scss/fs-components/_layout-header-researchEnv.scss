@@ -1,0 +1,29 @@
+@use "variables" as *;
+
+#platform-header-researchEnv {
+	#header-positioning {
+		max-width: var(--fs-screen-xl);
+        margin-inline: auto;
+        pointer-events: none;		
+	}
+	.fs-header {
+		display: flex;
+		max-width: 100%;
+		margin-inline: unset;
+		margin-inline-end: 5vw;
+		//padding-inline-end: var(--spacing-md);
+		pointer-events: auto;
+		@media (min-width: $screen-sm) {
+			width: fit-content;
+			margin-inline-end: unset;
+			min-width: var(--screen-xs);
+		}
+		@media (min-width: $screen-md) {
+			min-width: var(--screen-sm);
+		}		
+	}
+
+	#header-researchEnv-tasks {
+		flex: 1;
+	}
+}

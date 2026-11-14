@@ -1,4 +1,7 @@
-<div disabled id="pagination" class="fs-unavailable">
+<div id="storefront-pagination">
+	<p>Showing {{ storefront.productsAll | length }} of {{ storefront.productsAll | length }} available products.</p>
+</div>
+{# <div disabled id="pagination" class="fs-unavailable">
 	<p class="pagination-summary">Page <strong>1</strong> of <strong>{{ storefront.categoryPaginationTotalPages }}</strong></p>
 	<ol class="pagination-list">
 	{% set pagination_selected = 1 %}
@@ -7,4 +10,4 @@
 		{% endfor %}
 		<li><a href="#">Next {% include "partials/icons/chevron-right.njk" %}</a></li>
 	</ol>
-</div>
+</div> #}

@@ -20,6 +20,7 @@
 @use 'fs-details';
 @use 'fs-components/fs-dialog';
 @use 'layouts-platform/researchtask/fs-dialog-task_offer';
+@use 'layouts-platform/researchtask/fs-dialog-tasks_reminders';
 @use 'fs-dialogue-endEarly';
 @use 'fs-dialogue-infoCheckoutPostscript';
 @use 'fs-dialogue-infoCheckoutNoNeed';
@@ -70,13 +71,13 @@
 @forward 'components/error-summary';
 @forward 'components/form';
 @forward 'components/form-inputs';
-@forward 'components/header-search';
+@forward 'components/storefront-search';
 @forward 'components/dl';
 @forward 'components/modalBackdrop';
 @forward 'components/progress-stepper';
 @forward 'components/pills';
 @forward 'components/radiogroup';
-@forward 'components/pagination';
+@forward 'layouts-storefront/storefront-supermarket/pagination';
 @forward 'components/stickers';
 @forward 'components/table';
 
@@ -85,7 +86,7 @@
 @forward 'layouts-platform/onboarding/layout-onboarding';
 @forward 'layout-site';
 @forward 'layout-headers';
-@forward 'layout-footer';
+@forward 'layouts-storefront/storefront-supermarket/supermarket-customerService';
 
 @use 'participants/participants-main';
 @use 'clients/clients-main';
@@ -93,12 +94,11 @@
 @use 'staticpages/staticpages-main';
 
 // Storefront-specific stylesheets
-@forward 'storefront-supermarket/_supermarket-header';
-@forward 'storefront-supermarket/_supermarket-page';
-@forward 'storefront-supermarket/_supermarket-category';
-@forward 'storefront-supermarket/_supermarket-productDetails';
-@forward 'storefront-supermarket/cartSummary-item';
+@forward 'layouts-storefront/storefront-supermarket/_supermarket-page';
+@forward 'layouts-storefront/storefront-supermarket/_supermarket-category';
+@forward 'layouts-storefront/storefront-supermarket/_supermarket-productDetails';
+@forward 'layouts-storefront/storefront-supermarket/cartSummary-item';
 
 
 // Temporary stylesheets
-@forward 'demo-pages';
+//@forward 'demo-pages';

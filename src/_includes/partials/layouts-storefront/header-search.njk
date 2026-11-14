@@ -1,0 +1,14 @@
+{% set searchPlaceholder = "Search products and recipes"  %}
+
+
+<div disabled id="storefront__search" class="storefront__search fs-unavailable">
+  <div class="searchBar">
+    <label for="headerSearch" class="sr-only">{{ searchPlaceholder }}</label>
+    <input id="headerSearch" name="headerSearch" type="search" autocomplete="off" class="" placeholder="{{ searchPlaceholder }}" role="combobox" aria-haspopup="false"  aria-label="{{ searchPlaceholder }}" aria-expanded="false">
+  </div>
+  <div class="headerSearch-buttonWrapper">
+    <button  id="headerSearch-go" aria-label="Search" type="button" value="Search" class="actionButton ">
+      {% include "partials/icons/search.svg" %}
+    </button>
+  </div>
+</div>
